@@ -1,0 +1,14 @@
+{
+  "name": "produtor-do-bem-theme",
+  "version": "1.0.0",
+  "description": "Tema WordPress para a Produtor do Bem",
+  "scripts": {
+    "dev": "npx tailwindcss -i ../css/input.css -o ../css/output.css --watch",
+    "build": "npx tailwindcss -i ../css/input.css -o ../css/output.css --minify",
+    "build:css": "npx tailwindcss -i ../css/input.css -o ../css/output.css --watch",
+    "build:prod": "npx tailwindcss -i ../css/input.css -o ../css/output.css --minify --purge"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
