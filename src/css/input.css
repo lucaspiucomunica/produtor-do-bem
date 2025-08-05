@@ -1,3 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+
+    html {
+        @apply
+        antialiased
+        bg-neutro-branco;
+    }
+
+    body {
+        @apply 
+        font-body font-regular
+        text-primario-variacao-5;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply 
+        font-display font-semibold;
+    }
+ 
+    /* Estilos padrão para ícones Iconsax */
+    .iconsax {
+        @apply
+        w-6 h-6
+        fill-current
+        inline-block
+        flex-shrink-0;
+    }
+    
+}
