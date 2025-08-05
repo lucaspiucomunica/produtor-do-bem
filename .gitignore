@@ -26,36 +26,26 @@ wp-content/uploads/
 *~
 
 # System files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Example plugin
+/wp-content/plugins/hello.php
 
-# Logs
+# Uploads
+/wp-content/uploads/
+
+# Log files
 *.log
-logs/
 
-# Runtime data
-pids/
-*.pid
-*.seed
+# htaccess
+/.htaccess
 
-# Temporary directories
-tmp/
-temp/
+# All plugins
+#
+# Note: If you wish to whitelist plugins,
+# uncomment the next line
+#/wp-content/plugins
 
-# Environment variables
-.env
-.env.local
-.env.production
-
-# Cache directories
-.cache/
-.parcel-cache/
-
-# Build directories
-dist/
-build/
+# All themes
+#
+# Note: If you wish to whitelist themes,
+# uncomment the next line
+#/wp-content/themes
