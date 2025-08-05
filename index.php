@@ -1,6 +1,7 @@
 <?php
 /**
  * @package Produtor_do_Bem
+ * Template Página Principal - Blog
  */
 
 get_header();
