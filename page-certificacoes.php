@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Produtor_do_Bem
- * Template Página Principal
+ * Template Name: Certificações
  */
 
 get_header();
@@ -12,4 +12,4 @@ get_header();
 </main>
 
 <?php
-get_footer(); 
+get_footer();

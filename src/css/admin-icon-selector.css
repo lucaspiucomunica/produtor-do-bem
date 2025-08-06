@@ -1,0 +1,238 @@
+/**
+ * Estilos para o Ícones Produtor do Bem no Painel Administrativo
+ * Adaptado para funcionar dentro do WordPress Admin
+ */
+
+.icon-selector-wrap {
+    /* margin: 0 !important; */
+    /* padding: 0 !important; */
+}
+
+.icon-selector-container {
+    max-width: none !important;
+    margin: 0 !important;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.icon-selector-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.icon-selector-header h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    font-weight: 300;
+    color: white;
+}
+
+.icon-selector-header p {
+    font-size: 1.1rem;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.icon-selector-controls {
+    padding: 30px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+}
+
+.search-box {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 15px 50px 15px 20px;
+    border: 2px solid #e9ecef;
+    border-radius: 50px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+}
+
+.search-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.stats {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-weight: 500;
+    color: #495057;
+}
+
+.stats span {
+    padding: 8px 16px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.icons-grid {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.icon-item {
+    background: white;
+    border: 2px solid #f1f3f4;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.icon-item:hover {
+    border-color: #0073aa;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 115, 170, 0.15);
+}
+
+.icon-item.copied {
+    border-color: #46b450;
+    background: #f8fff9;
+}
+
+.icon-display {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.icon-item:hover .icon-display {
+    background: #0073aa;
+}
+
+.icon-display svg {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.icon-item:hover .icon-display svg {
+    filter: brightness(0) invert(1);
+}
+
+.icon-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #495057;
+    word-break: break-all;
+    line-height: 1.4;
+}
+
+.copy-feedback {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #46b450;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.icon-item.copied .copy-feedback {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.no-results {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+}
+
+.no-results svg {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.no-results h3 {
+    margin-bottom: 10px;
+    color: #23282d;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .icon-selector-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-box {
+        min-width: auto;
+    }
+
+    .stats {
+        justify-content: center;
+    }
+
+    .icons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .icon-selector-header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Ajustes específicos para o admin do WordPress */
+.wp-admin .icon-selector-wrap .wrap {
+    margin: 0;
+}
+
+.wp-admin .icon-selector-container {
+    margin-top: 20px;
+}
+
+/* Override dos estilos padrão do WordPress admin */
+.icon-selector-wrap input[type="text"] {
+    width: 100% !important;
+}
+
+.icon-selector-wrap .button {
+    text-decoration: none;
+}

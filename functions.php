@@ -15,5 +15,8 @@ require_once('inc/core/assets.php');
 // Sistema de gerenciamento de ícones SVG
 require_once('inc/core/icons.php');
 
+// Seletor de ícones no painel administrativo
+require_once('inc/core/admin-icon-selector.php');
+
 // Hooks e filtros personalizados
 require_once('inc/hooks/filters.php');
