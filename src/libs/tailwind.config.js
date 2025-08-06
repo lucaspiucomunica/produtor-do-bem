@@ -5,6 +5,7 @@ module.exports = {
     '../../*',
     '../../src/js/*',
     '../../inc/**/*.php',
+    '../../template-parts/**/**/*.php',
   ],
 
   // Estilos

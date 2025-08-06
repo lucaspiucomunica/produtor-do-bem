@@ -17,6 +17,5 @@
 <body <?php body_class(); ?> class="overflow-x-hidden">
     <?php wp_body_open(); ?>
     <div class="site">
-        <header class="site-header" id="site-header">
+        <?php get_template_part('template-parts/globals/content-header'); ?>
             
-        </header>

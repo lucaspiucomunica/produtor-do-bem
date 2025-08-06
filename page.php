@@ -8,7 +8,7 @@ get_header();
 ?>
 
 <main class="site-main" id="site-main">
-    
+    <?php get_template_part('template-parts/sections/pagina-principal/hero'); ?>
 </main>
 
 <?php
