@@ -21,12 +21,5 @@ require_once('inc/core/admin-icon-selector.php');
 // Hooks e filtros personalizados
 require_once('inc/hooks/filters.php');
 
-/**
- * Helper function para chamar headers específicos
- * 
- * @param string $type Tipo do header (default, alt, etc.)
- */
-function pdb_get_header($type = 'default') {
-    set_query_var('header_type', $type);
-    get_header();
-}
+// Helpers
+require_once('inc/hooks/helpers.php');
