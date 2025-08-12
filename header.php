@@ -17,5 +17,13 @@
 <body <?php body_class(); ?> class="overflow-x-hidden">
     <?php wp_body_open(); ?>
     <div class="site">
-        <?php get_template_part('template-parts/globals/content-header'); ?>
+        <?php 
+        // Pega o parâmetro passado para get_header()
+        $header_type = get_query_var('header_type', '1');
+        
+        // Define qual template part usar baseado no tipo
+        $header_template = 'template-parts/globals/content-header-' . $header_type;
+        
+        get_template_part($header_template); 
+        ?>
             

@@ -53,3 +53,111 @@
     }
     
 }
+
+@layer components {
+    /* Botões */
+
+    .btn {
+        @apply
+        inline-flex items-center justify-center gap-2
+        px-6 py-3
+        rounded-full
+        bg-primario-variacao-1 hover:bg-primario-variacao-3 transition-all duration-300
+        text-neutro-branco font-semibold text-lg text-center
+    }
+
+    .btn.btn-outline {
+        @apply
+        bg-transparent 
+        text-primario-variacao-3
+        hover:bg-primario-variacao-1
+        hover:text-neutro-branco
+        -outline-offset-2 outline-2 outline outline-primario-variacao-1
+    }
+
+    .btn.btn-secondary {
+        @apply
+        bg-limao-principal 
+        text-primario-variacao-3
+        hover:bg-limao-variacao-1
+    }
+
+    .btn.btn-outline.btn-secondary {
+        @apply
+        bg-transparent
+        outline-limao-principal
+        text-neutro-branco
+        hover:bg-limao-principal
+        hover:text-primario-variacao-3
+    }
+
+    .btn.btn-small {
+        @apply
+        px-4 py-2
+        text-base
+    }
+
+    .btn.btn-large {
+        @apply
+        px-8 py-4
+    }
+
+    /* Header */
+
+    .site-header {
+        @apply
+        fixed top-3 left-3 right-3 z-50
+    }
+
+    .content-header {
+        @apply
+        flex items-center justify-between
+        p-6 rounded-3xl
+        bg-neutro-preto/[0.08] backdrop-blur-lg
+    }
+
+    .content-header .content-left {
+        @apply
+        flex items-center gap-10
+    }
+
+    .site-logo svg {
+        @apply
+        w-auto h-auto min-h-12
+    }
+
+    .site-menu ul {
+        @apply
+        flex items-center gap-2
+    }
+
+    .site-menu ul li a {
+        @apply
+        inline-flex items-center gap-2
+        text-neutro-branco font-semibold text-lg text-center
+        px-4 py-1 rounded-full
+        bg-transparent hover:bg-primario-variacao-4 transition-all duration-300
+    }
+
+    .site-menu ul li.current-menu-item a {
+        @apply
+        bg-primario-variacao-4
+    }
+
+    .site-header.site-header--2 .content-header {
+        @apply
+        bg-neutro-preto/[0.04] backdrop-blur-none
+    }
+
+    .site-header.site-header--2 .site-menu ul li a {
+        @apply
+        text-primario-variacao-3
+        hover:bg-neutro-principal
+    }
+
+    .site-header.site-header--2 .site-menu ul li.current-menu-item a {
+        @apply
+        bg-neutro-principal
+    }
+
+}

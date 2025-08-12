@@ -16,11 +16,10 @@ if (!$hero_titulo) {
 }
 ?>
 
-<section class="flex flex-col items-start gap-4">
-    <h1><?php echo $hero_titulo . ' <span class="text-primario-principal">' . $hero_titulo_destaque . '</span>';?></h1>
-    <div class="inline-flex flex-row items-center gap-2">
-        <?php echo icon('pig', 'w-8 h-8 fill-primario-principal'); ?>
-        <p><?php echo $hero_subtitulo;?></p>
+<section id="hero" class="w-full h-auto min-h-[636px] bg-primario-variacao-5 rounded-b-[80px]">
+    <div class="container">
+        <div class="flex">
+            
+        </div>
     </div>
-    <a href="<?php echo $hero_botao['link'];?>" target="<?php if($hero_botao['blank'] == true) { echo '_blank'; } else { echo '_self'; }?>"><?php echo $hero_botao['texto'];?></a>
 </section>

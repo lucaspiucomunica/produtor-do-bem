@@ -58,6 +58,19 @@ module.exports = {
         'semibold': 600,
         'bold': 700,
       },
+
+      // Container
+      container: {
+        center: true,
+        padding: '2.5rem',
+        screens: {
+          sm: '100%',
+          md: '100%',
+          lg: '100%',
+          xl: '100%',
+          '2xl': '1440px',
+        },
+      },
     },
   },
   plugins: []

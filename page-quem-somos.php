@@ -4,7 +4,8 @@
  * Template Name: Quem Somos
  */
 
-get_header();
+// Usando o header alternativo
+pdb_get_header('alt');
 ?>
 
 <main class="site-main" id="site-main">
