@@ -71,6 +71,12 @@ module.exports = {
           '2xl': '1440px',
         },
       },
+
+      // Border Radius
+      borderRadius: {
+        '4xl': '2.25rem',
+        '2xl': '1.25rem',
+      },
     },
   },
   plugins: []

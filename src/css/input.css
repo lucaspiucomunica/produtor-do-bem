@@ -51,6 +51,11 @@
         inline-block
         flex-shrink-0;
     }
+
+    img {
+        @apply
+        w-full h-auto;
+    }
     
 }
 
@@ -106,7 +111,7 @@
 
     .site-header {
         @apply
-        fixed top-3 left-3 right-3 z-50
+        absolute top-3 left-3 right-3 z-50
     }
 
     .content-header {
@@ -126,12 +131,12 @@
         w-auto h-auto min-h-12
     }
 
-    .site-menu ul {
+    .site-menu > ul {
         @apply
         flex items-center gap-2
     }
 
-    .site-menu ul li a {
+    .site-menu > ul > li > a {
         @apply
         inline-flex items-center gap-2
         text-neutro-branco font-semibold text-lg text-center
@@ -139,7 +144,7 @@
         bg-transparent hover:bg-primario-variacao-4 transition-all duration-300
     }
 
-    .site-menu ul li.current-menu-item a {
+    .site-menu > ul > li.current-menu-item > a {
         @apply
         bg-primario-variacao-4
     }
@@ -149,15 +154,211 @@
         bg-neutro-preto/[0.04] backdrop-blur-none
     }
 
-    .site-header.site-header--2 .site-menu ul li a {
+    .site-header.site-header--2 .site-menu > ul > li > a {
         @apply
         text-primario-variacao-3
         hover:bg-neutro-principal
     }
 
-    .site-header.site-header--2 .site-menu ul li.current-menu-item a {
+    .site-header.site-header--2 .site-menu > ul > li.current-menu-item > a {
         @apply
         bg-neutro-principal
     }
 
+    .site-menu > ul > li > .sub-menu {
+        @apply
+        hidden
+    }
+
+    /* Conteúdo */
+
+    .content-text {
+        @apply
+        w-full
+    }
+
+    .content-text h2 {
+        @apply
+        mb-3
+    }
+
+    .content-text p {
+        @apply
+        mb-4 text-lg
+    }
+
+    .content-text *:last-child {
+        @apply
+        mb-0
+    }
+
+    /* Conteúdo de ícones */
+
+    .content-icon {
+        @apply
+        min-h-16 min-w-16 rounded-2xl bg-neutro-variacao-1
+        inline-flex items-center justify-center
+    }
+
+    .content-icon svg {
+        @apply
+        min-w-8 min-h-8
+    }
+
+    .content-icon.content-icon--primario {
+        @apply
+        bg-primario-variacao-3
+    }
+
+    .content-icon.content-icon--primario svg {
+        @apply
+        fill-limao-principal
+    }
+
+    /* Seções */
+
+    .sections-pagina-principal-sobre .card {
+        @apply
+        rounded-4xl overflow-hidden
+        w-full h-full
+    }
+
+    .sections-pagina-principal-sobre .card-1 {
+        @apply
+        bg-neutro-principal
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-1-text {
+        @apply
+        px-8 pt-8 pb-6
+    }
+
+    .sections-pagina-principal-sobre .card-1-text h3 {
+        @apply
+        text-xl
+    }
+
+    .sections-pagina-principal-sobre .card-1-illustration svg {
+        @apply
+        w-full h-full
+    }
+
+    .sections-pagina-principal-sobre .card-2 {
+        @apply
+        bg-primario-variacao-5
+        px-8 pt-8
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-2-text {
+        @apply
+        pb-6
+    }
+
+    .sections-pagina-principal-sobre .card-2-text h3 {
+        @apply
+        text-xl text-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-2-illustration svg {
+        @apply
+        w-full h-full
+    }
+
+    .sections-pagina-principal-sobre .cards-vertical {
+        @apply
+        flex flex-col gap-6 items-stretch
+        h-full
+    }
+
+    .sections-pagina-principal-sobre .cards-vertical .card-3 {
+        @apply
+        h-auto
+    }
+
+    .sections-pagina-principal-sobre .card-3 {
+        @apply
+        bg-neutro-principal
+        p-8
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-3-text h3 {
+        @apply
+        text-xl
+    }
+
+    .sections-pagina-principal-sobre .card-3-icon {
+        @apply
+        mb-6
+    }
+
+    .sections-pagina-principal-sobre .card-5 {
+        @apply
+        relative
+        p-8
+        flex flex-col justify-end
+        before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:z-10
+        before:bg-gradient-to-b before:from-primario-variacao-5/0 before:via-primario-variacao-5/40 before:to-primario-variacao-5
+    }
+
+    .sections-pagina-principal-sobre .card-5-text {
+        @apply
+        relative z-20
+    }
+
+    .sections-pagina-principal-sobre .card-5-text h3 {
+        @apply
+        text-xl text-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-5-image {
+        @apply
+        absolute top-0 left-0 w-full h-full z-0
+    }
+
+    .sections-pagina-principal-sobre .card-5-image img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .sections-pagina-principal-sobre .card-6 {
+        @apply
+        p-8
+        bg-primario-variacao-5
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-6-text {
+        @apply
+        max-w-[290px]
+    }
+
+    .sections-pagina-principal-sobre .card-6-text h3 {
+        @apply
+        text-xl text-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-6-icons {
+        @apply
+        flex flex-row justify-between gap-6
+    }
 }
+
+@layer utilities {
+    .p-section-top {
+        @apply
+        pt-20
+    }
+
+    .p-section-bottom {
+        @apply
+        pb-20
+    }
+
+    .p-section {
+        @apply
+        py-20
+    }
+}	

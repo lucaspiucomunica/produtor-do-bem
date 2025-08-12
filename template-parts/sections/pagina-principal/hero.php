@@ -16,7 +16,7 @@ if (!$hero_titulo) {
 }
 ?>
 
-<section id="hero" class="w-full h-auto min-h-[636px] bg-primario-variacao-5 rounded-b-[80px]">
+<section id="hero" class="<?php echo get_class_section(); ?> w-full h-auto min-h-[636px] bg-primario-variacao-5 rounded-b-[80px]">
     <div class="container">
         <div class="flex">
             
