@@ -164,11 +164,25 @@ if (!$sobre_titulo) {
 
                         <?php if ($card_6_icones): ?>
                             <div class="card-6-icons">
-                                <?php foreach ($card_6_icones as $item): ?>
+                                <?php foreach ($card_6_icones as $index => $item): ?>
                                     <?php if (!empty($item['icone'])): ?>
                                         <div class="card-6-icon">
-                                            <?php echo icon($item['icone'], 'fill-primario-principal'); ?>
+                                            <?php echo icon($item['icone'], 'fill-primario-variacao-3'); ?>
                                         </div>
+                                        <?php if ($index < count($card_6_icones) - 1): ?>
+                                            <div class="card-6-connection">
+                                                <div class="card-6-connection connection-left">
+                                                    <div class="rounded-inverted rounded-inverted--1"></div>
+                                                    <div class="fill"></div>
+                                                    <div class="rounded-inverted rounded-inverted--2"></div>
+                                                </div>
+                                                <div class="card-6-connection connection-right">
+                                                    <div class="rounded-inverted rounded-inverted--1"></div>
+                                                    <div class="fill"></div>
+                                                    <div class="rounded-inverted rounded-inverted--2"></div>
+                                                </div>
+                                            </div>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
@@ -180,24 +194,46 @@ if (!$sobre_titulo) {
             <div class="w-1/3">
                 <div class="card card-7">
                     <?php if ($card_7_texto || $card_7_imagens): ?>                  
-                        <?php if ($card_7_texto): ?>
-                            <div class="card-7-text">
-                                <h3><?php echo wp_kses_post($card_7_texto); ?></h3>
-                            </div>
-                        <?php endif; ?>
-
-                        <?php if ($card_7_imagens): ?>
-                            <div class="card-7-images flex flex-row gap-6">
-                                <?php foreach ($card_7_imagens as $item): ?>
-                                    <div class="card-7-image">
-                                        <img 
-                                        src="<?php echo esc_url($item['url']); ?>" 
-                                        alt="<?php echo esc_attr($item['alt'] ?: ''); ?>" >
+                        <div class="card-7-content">
+                            <?php if ($card_7_imagens): ?>
+                                <div class="card-7-images">
+                                    <?php foreach ($card_7_imagens as $item): ?>
+                                        <div class="card-7-image ">
+                                            <img 
+                                            src="<?php echo esc_url($item['url']); ?>" 
+                                            alt="<?php echo esc_attr($item['alt'] ?: ''); ?>" >
+                                        </div>
+                                    <?php endforeach; ?>
+                                    <div class="card-7-icon order-1">
+                                        <img src="<?php echo get_template_directory_uri(); ?>/src/img/grafismo-pe-galinha.svg" alt="" class="svg-inline">
                                     </div>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($card_7_texto): ?>
+                                <div class="card-7-text">
+                                    <h3><?php echo wp_kses_post($card_7_texto); ?></h3>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+
+                        <div class="card-7-cta">
+                            <a href="<?php echo home_url('/certificacoes'); ?>" class="btn">
+                                <span>Conheça nossas certificações</span>
+                            </a>
+                        </div>
                     <?php endif; ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex justify-center p-section-top">
+            <div class="w-full">
+                <div class="texto-engajameto">
+                    <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Ícone Logo Produtor do Bem" class="svg-inline">
+                    <div class="content-text">
+                        <h2><?php echo $sobre_texto_engajamento; ?></h2>
+                    </div>
                 </div>
             </div>
         </div>

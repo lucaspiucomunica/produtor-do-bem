@@ -38,6 +38,9 @@ wp-content/uploads/
 # htaccess
 /.htaccess
 
+# vscode
+.vscode/
+
 # All plugins
 #
 # Note: If you wish to whitelist plugins,

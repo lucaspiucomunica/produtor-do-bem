@@ -342,8 +342,134 @@
 
     .sections-pagina-principal-sobre .card-6-icons {
         @apply
-        flex flex-row justify-between gap-6
+        flex flex-row justify-between
+        mt-6
     }
+
+    .sections-pagina-principal-sobre .card-6-icon {
+        @apply
+        w-full aspect-square
+        rounded-3xl bg-neutro-principal
+        flex items-center justify-center
+        shadow-custom-1
+        relative z-10
+
+        last:bg-limao-principal
+    }
+
+    .sections-pagina-principal-sobre .card-6-icon svg {
+        @apply
+        w-12 h-12 min-w-12 min-h-12
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection {
+        @apply
+        flex;
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection.connection-left,
+    .sections-pagina-principal-sobre .card-6-connection.connection-right {
+        @apply
+        flex flex-col py-6;
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .fill {
+        @apply
+        w-full h-full
+        bg-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .rounded-inverted {
+        @apply
+        w-4 h-4 min-w-4 min-h-4 overflow-hidden relative
+        bg-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .rounded-inverted:before {
+        @apply
+        content-[''] absolute bottom-0 left-0 w-full h-full z-10
+        w-8 h-8 min-w-8 min-h-8 rounded-full
+        bg-primario-variacao-5
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .rounded-inverted.rounded-inverted--2 {
+        @apply
+        rotate-90
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection.connection-right {
+        @apply
+        -scale-x-100
+    }
+
+    .sections-pagina-principal-sobre .card-7 {
+        @apply
+        p-8
+        bg-limao-principal
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-7-content {
+        @apply
+        flex flex-col justify-between mb-6
+    }
+
+    .sections-pagina-principal-sobre .card-7-images {
+        @apply
+        flex flex-row gap-3 mb-6
+    }
+
+    .sections-pagina-principal-sobre .card-7-images > * {
+        @apply
+        w-1/4 min-w-14 rounded-3xl overflow-hidden
+        first:-order-2
+    }
+
+    .sections-pagina-principal-sobre .card-7-icon {
+        @apply
+        flex items-center justify-center bg-primario-principal
+        p-2 -order-1
+    }
+
+    .sections-pagina-principal-sobre .card-7-icon svg {
+        @apply
+        w-full h-auto max-w-14
+        *:fill-limao-principal
+    }
+
+    .sections-pagina-principal-sobre .card-7-image img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .sections-pagina-principal-sobre .card-7-text h3 {
+        @apply
+        text-xl
+    }
+
+    .sections-pagina-principal-sobre .card-7-cta .btn {
+        @apply
+        w-full
+    }
+
+    /* Texto de engajamento */
+
+    .sections-pagina-principal-sobre .texto-engajameto {
+        @apply
+        flex flex-row gap-20 items-center
+        w-full max-w-[1178px] mx-auto
+    }
+
+    .sections-pagina-principal-sobre .texto-engajameto svg {
+        @apply
+        w-full h-auto max-w-96
+    }
+
+    .sections-pagina-principal-sobre .texto-engajameto .content-text h2 {
+        @apply
+        text-5xl/[56px]
+    }
+    
 }
 
 @layer utilities {
