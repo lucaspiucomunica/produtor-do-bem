@@ -2,10 +2,22 @@
 module.exports = {
   // Arquivos
   content: [
-    '../../*',
-    '../../src/js/*',
+    '../../*.php',
+    '../../src/js/*.js',
     '../../inc/**/*.php',
-    '../../template-parts/**/**/*.php',
+    '../../template-parts/**/*.php',
+  ],
+
+  // Classes que devem sempre ser incluídas no CSS final
+  safelist: [
+    // Classes geradas dinamicamente pela função get_class_section()
+    {
+      pattern: /^sections-.*/,
+      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+    },
+    // Outras classes dinâmicas se necessário
+    'p-section',
+    'p-section-top',
   ],
 
   // Estilos

@@ -16,10 +16,34 @@ if (!$hero_titulo) {
 }
 ?>
 
-<section id="hero" class="<?php echo get_class_section(); ?> w-full h-auto min-h-[636px] bg-primario-variacao-5 rounded-b-[80px]">
+<section id="hero" class="<?php echo get_class_section(); ?>">
     <div class="container">
         <div class="flex">
-            
+            <div class="w-full">
+                <div class="hero-content">
+                    <div class="titulo">
+                        <h1>
+                            <span><?php echo $hero_titulo; ?></span>
+                            <span class="destaque"><?php echo $hero_titulo_destaque; ?></span>
+                        </h1>
+                    </div>
+                    <div class="subtitulo">
+                        <span><?php echo icon('pig'); ?></span>
+                        <p><?php echo $hero_subtitulo; ?></p>
+                    </div>
+                    <div class="botao">
+                        <a href="<?php echo esc_url($hero_botao['link']); ?>" 
+                            class="btn btn-secondary"
+                            <?php echo $hero_botao['blank'] ? 'target="_blank" rel="noopener noreferrer"' : ''; ?>>
+                            <?php echo esc_html($hero_botao['texto']); ?>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-bg-video">
+                    <video src="<?php echo get_template_directory_uri(); ?>/src/img/take-banner.webm" autoplay muted loop></video>
+                </div>
+            </div>
         </div>
     </div>
 </section>
