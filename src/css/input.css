@@ -107,6 +107,11 @@
         px-8 py-4
     }
 
+    .btn.btn-icon {
+        @apply
+        p-3 rounded-full
+    }
+
     /* Header */
 
     .site-header {
@@ -215,6 +220,16 @@
         fill-limao-principal
     }
 
+    .content-icon.content-icon--secundario {
+        @apply
+        bg-limao-principal
+    }
+
+    .content-icon.content-icon--secundario svg {
+        @apply
+        fill-primario-variacao-3
+    }
+
     /* Seções */
 
     .sections-pagina-principal-hero {
@@ -318,7 +333,7 @@
 
     .sections-pagina-principal-sobre .cards-vertical {
         @apply
-        flex flex-col gap-6 items-stretch
+        grid grid-rows-2 gap-6 items-stretch
         h-full
     }
 
@@ -564,6 +579,132 @@
     .sections-pagina-principal-certificacoes .cta-certificacoes .ilustracoes .ilustracao img {
         @apply
         w-full h-auto max-w-[308px]
+    }
+
+    /* Footer */
+
+    .site-footer {
+        @apply
+        bg-neutro-preto rounded-t-[80px]
+    }
+
+    .site-footer .content-footer,
+    .site-footer .content-copyright {
+        @apply
+        p-10
+    }
+
+    .site-footer .content-footer {
+        @apply
+        border-b border-neutro-variacao-5
+    }
+
+    .site-footer .content-footer .content-footer-left {
+        @apply
+        flex flex-col items-start
+        w-full
+        text-neutro-variacao-2
+    }
+
+    .site-footer .content-footer .content-footer-logo {
+        @apply
+        mb-10
+    }
+
+    .site-footer .content-footer .content-footer-logo svg {
+        @apply
+        w-auto h-auto min-h-12
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info {
+        @apply
+        flex flex-row items-start gap-10
+        w-full mb-10
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info h3 {
+        @apply
+        text-base font-sans font-semibold
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-redes-sociais h3 {
+        @apply
+        mb-3
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-redes-sociais .content-redes-sociais-list {
+        @apply
+        flex flex-row items-center gap-2
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato {
+        @apply
+        flex flex-col items-start gap-6
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .endereco,
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .email {
+        @apply
+        flex flex-row items-start gap-2
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .endereco .icon svg,
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .email .icon svg {
+        @apply
+        fill-limao-principal
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .endereco .content a,
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .email .content a {
+        @apply
+        font-semibold hover:underline
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .endereco .content a {
+        @apply
+        flex flex-col gap-0 items-start
+    }
+
+    .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .email {
+        @apply
+        items-center
+    }
+
+    .site-footer .content-copyright {
+        @apply
+        text-sm font-semibold text-neutro-variacao-3
+    }
+
+    .site-footer .content-footer .content-footer-left .content-menu {
+        @apply
+        mb-6
+    }
+
+    .site-footer .content-footer .content-footer-left .content-menu ul {
+        @apply
+        flex flex-row items-center gap-8
+    }
+
+    .site-footer .content-footer .content-footer-left .content-menu ul > li > a {
+        @apply
+        font-semibold hover:underline
+    }
+
+    .site-footer .content-footer .content-footer-newsletter {
+        @apply
+        w-full h-full 
+        bg-neutro-variacao-6 rounded-4xl
+        p-8 flex items-center justify-center
+    }
+
+    .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-title {
+        @apply
+        flex flex-row items-start gap-4
+    }
+
+    .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-title h3 {
+        @apply
+        text-base text-neutro-branco
     }
     
 }

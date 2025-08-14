@@ -5,9 +5,7 @@
 
 ?>
 
-        <footer class="site-footer" id="site-footer">
-
-        </footer>
+        <?php get_template_part('template-parts/globals/content-footer'); ?>
     </div>
 
     <?php wp_footer(); ?>

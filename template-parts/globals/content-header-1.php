@@ -10,7 +10,7 @@
     <div class="content-header">
         <div class="content-left">
             <div class="site-logo">
-                <a href="<?php echo home_url(); ?>">
+            <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/img/logo-produtor-do-bem-branco.svg" alt="Logo" class="svg-inline">
                 </a>
             </div>
