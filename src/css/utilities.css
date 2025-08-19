@@ -1,0 +1,16 @@
+@layer utilities {
+    .p-section-top {
+        @apply
+        pt-20
+    }
+
+    .p-section-bottom {
+        @apply
+        pb-20
+    }
+
+    .p-section {
+        @apply
+        py-20
+    }
+}

@@ -1,0 +1,427 @@
+@layer components {
+    /* Seções */
+
+    /* Hero - Página Principal */
+
+    .sections-pagina-principal-hero {
+        @apply
+        bg-primario-variacao-5
+        min-h-[calc(100vh-80px)] rounded-b-[80px]
+        flex items-center justify-center relative overflow-hidden
+    }
+
+    .sections-pagina-principal-hero .hero-content {
+        @apply
+        flex flex-col justify-between items-center
+        w-full max-w-[916px] mx-auto pt-16 z-10 relative
+    }
+
+    .sections-pagina-principal-hero .hero-content .titulo h1 {
+        @apply
+        text-5xl/[56px] text-center text-neutro-branco
+        flex flex-col items-center mb-6
+    }
+
+    .sections-pagina-principal-hero .hero-content .titulo h1 .destaque {
+        @apply
+        text-limao-principal
+    }
+
+    .sections-pagina-principal-hero .hero-content .subtitulo {
+        @apply
+        flex flex-row items-center justify-center gap-3
+        text-center text-neutro-branco mb-6
+    }
+
+    .sections-pagina-principal-hero .hero-content .subtitulo svg {
+        @apply
+        w-8 h-8 min-w-8 min-h-8
+    }
+
+    .sections-pagina-principal-hero .hero-content .subtitulo p {
+        @apply
+        text-lg
+    }
+
+    .sections-pagina-principal-hero .hero-bg-video {
+        @apply
+        absolute top-0 left-0 w-full h-full z-0 opacity-30
+    }
+
+    .sections-pagina-principal-hero .hero-bg-video video {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    /* Sobre - Página Principal */
+
+    .sections-pagina-principal-sobre .card {
+        @apply
+        rounded-4xl overflow-hidden
+        w-full h-full
+    }
+
+    .sections-pagina-principal-sobre .card-1 {
+        @apply
+        bg-neutro-principal
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-1-text {
+        @apply
+        px-8 pt-8 pb-6
+    }
+
+    .sections-pagina-principal-sobre .card-1-text h3 {
+        @apply
+        text-xl
+    }
+
+    .sections-pagina-principal-sobre .card-1-illustration svg {
+        @apply
+        w-full h-full
+    }
+
+    .sections-pagina-principal-sobre .card-2 {
+        @apply
+        bg-primario-variacao-5
+        px-8 pt-8
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-2-text {
+        @apply
+        pb-6
+    }
+
+    .sections-pagina-principal-sobre .card-2-text h3 {
+        @apply
+        text-xl text-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-2-illustration svg {
+        @apply
+        w-full h-full
+    }
+
+    .sections-pagina-principal-sobre .cards-vertical {
+        @apply
+        grid grid-rows-2 gap-6 items-stretch
+        h-full
+    }
+
+    .sections-pagina-principal-sobre .cards-vertical .card-3 {
+        @apply
+        h-auto
+    }
+
+    .sections-pagina-principal-sobre .card-3 {
+        @apply
+        bg-neutro-principal
+        p-8
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-3-text h3 {
+        @apply
+        text-xl
+    }
+
+    .sections-pagina-principal-sobre .card-3-icon {
+        @apply
+        mb-6
+    }
+
+    .sections-pagina-principal-sobre .card-5 {
+        @apply
+        relative
+        p-8
+        flex flex-col justify-end
+        before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:z-10
+        before:bg-gradient-to-b before:from-primario-variacao-5/0 before:via-primario-variacao-5/40 before:to-primario-variacao-5
+    }
+
+    .sections-pagina-principal-sobre .card-5-text {
+        @apply
+        relative z-20
+    }
+
+    .sections-pagina-principal-sobre .card-5-text h3 {
+        @apply
+        text-xl text-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-5-image {
+        @apply
+        absolute top-0 left-0 w-full h-full z-0
+    }
+
+    .sections-pagina-principal-sobre .card-5-image img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .sections-pagina-principal-sobre .card-6 {
+        @apply
+        p-8
+        bg-primario-variacao-5
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-6-text {
+        @apply
+        max-w-[290px]
+    }
+
+    .sections-pagina-principal-sobre .card-6-text h3 {
+        @apply
+        text-xl text-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-6-icons {
+        @apply
+        flex flex-row justify-between
+        mt-6
+    }
+
+    .sections-pagina-principal-sobre .card-6-icon {
+        @apply
+        w-full aspect-square
+        rounded-3xl bg-neutro-principal
+        flex items-center justify-center
+        shadow-custom-1
+        relative z-10
+
+        last:bg-limao-principal
+    }
+
+    .sections-pagina-principal-sobre .card-6-icon svg {
+        @apply
+        w-12 h-12 min-w-12 min-h-12
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection {
+        @apply
+        flex;
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection.connection-left,
+    .sections-pagina-principal-sobre .card-6-connection.connection-right {
+        @apply
+        flex flex-col py-6;
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .fill {
+        @apply
+        w-full h-full
+        bg-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .rounded-inverted {
+        @apply
+        w-4 h-4 min-w-4 min-h-4 overflow-hidden relative
+        bg-neutro-branco
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .rounded-inverted:before {
+        @apply
+        content-[''] absolute bottom-0 left-0 w-full h-full z-10
+        w-8 h-8 min-w-8 min-h-8 rounded-full
+        bg-primario-variacao-5
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection .rounded-inverted.rounded-inverted--2 {
+        @apply
+        rotate-90
+    }
+
+    .sections-pagina-principal-sobre .card-6-connection.connection-right {
+        @apply
+        -scale-x-100
+    }
+
+    .sections-pagina-principal-sobre .card-7 {
+        @apply
+        p-8
+        bg-limao-principal
+        flex flex-col justify-between
+    }
+
+    .sections-pagina-principal-sobre .card-7-content {
+        @apply
+        flex flex-col justify-between mb-6
+    }
+
+    .sections-pagina-principal-sobre .card-7-images {
+        @apply
+        flex flex-row gap-3 mb-6
+    }
+
+    .sections-pagina-principal-sobre .card-7-images > * {
+        @apply
+        w-1/4 min-w-14 rounded-3xl overflow-hidden
+        first:-order-2
+    }
+
+    .sections-pagina-principal-sobre .card-7-icon {
+        @apply
+        flex items-center justify-center bg-primario-principal
+        p-2 -order-1
+    }
+
+    .sections-pagina-principal-sobre .card-7-icon svg {
+        @apply
+        w-full h-auto max-w-14
+        *:fill-limao-principal
+    }
+
+    .sections-pagina-principal-sobre .card-7-image img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .sections-pagina-principal-sobre .card-7-text h3 {
+        @apply
+        text-xl
+    }
+
+    .sections-pagina-principal-sobre .card-7-cta .btn {
+        @apply
+        w-full
+    }
+
+    /* Texto de engajamento */
+
+    .sections-pagina-principal-sobre .texto-engajameto {
+        @apply
+        flex flex-row gap-20 items-center
+        w-full max-w-[1178px] mx-auto
+    }
+
+    .sections-pagina-principal-sobre .texto-engajameto svg {
+        @apply
+        w-full h-auto max-w-96
+    }
+
+    .sections-pagina-principal-sobre .texto-engajameto .content-text h2 {
+        @apply
+        text-5xl/[56px]
+    }
+
+    /* Certificações - Página Principal */
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes {
+        @apply
+        bg-primario-variacao-5
+        py-20 px-10
+        rounded-4xl
+        flex flex-col justify-between items-center relative overflow-hidden
+    }
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes .titulo {
+        @apply
+        mb-6 z-10
+    }
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes .texto {
+        @apply
+        mb-6 z-10
+    }
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes .botao {
+        @apply
+        z-10
+    }
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes .content-text {
+        @apply
+        text-neutro-branco text-center
+    }
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes .content-text p {
+        @apply
+        max-w-[860px] mx-auto
+    }
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes .ilustracoes {
+        @apply
+        absolute -bottom-10 -left-20 -right-20 z-0
+        flex flex-row justify-between
+    }
+
+    .sections-pagina-principal-certificacoes .cta-certificacoes .ilustracoes .ilustracao img {
+        @apply
+        w-full h-auto max-w-[308px]
+    }
+
+    /* Hero - Quem Somos */
+
+    .sections-quem-somos-hero {
+        @apply
+        relative
+        pt-36
+    }
+
+    .sections-quem-somos-hero .hero-content .titulo {
+        @apply
+        mb-6
+    }
+
+    .sections-quem-somos-hero .hero-content .titulo h1 {
+        @apply
+        inline-flex flex-col items-start
+    }
+
+    .sections-quem-somos-hero .hero-content .titulo h1 .destaque {
+        @apply
+        text-primario-principal
+    }
+
+    .sections-quem-somos-hero .hero-image {
+        @apply
+        relative
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-content {
+        @apply
+        relative overflow-hidden
+        w-full h-full aspect-square rounded-full rounded-bl-none
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-content img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons {
+        @apply
+        absolute top-0 left-0 w-full h-full z-10
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon {
+        @apply
+        absolute
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon:nth-child(1) {
+        @apply
+        top-8 right-8
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon:nth-child(2) {
+        @apply
+        top-28 left-0
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon:nth-child(3) {
+        @apply
+        bottom-3 right-20
+    }
+
+    /* O Que Fazemos - Quem Somos */
+
+    .sections-quem-somos-o-que-fazemos {
+        @apply
+        p-section-top
+    }
+}

@@ -5,11 +5,12 @@
  */
 
 // Usando o header alternativo
-pdb_get_header('alt');
+pdb_get_header('2');
 ?>
 
 <main class="site-main" id="site-main">
-    
+    <?php get_template_part('template-parts/sections/quem-somos/hero'); ?>
+    <?php get_template_part('template-parts/sections/quem-somos/o-que-fazemos'); ?>
 </main>
 
 <?php

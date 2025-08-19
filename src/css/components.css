@@ -1,0 +1,119 @@
+@layer components {
+    /* Botões */
+    .btn {
+        @apply
+        inline-flex items-center justify-center gap-2
+        px-6 py-3
+        rounded-full
+        bg-primario-variacao-1 hover:bg-primario-variacao-3 transition-all duration-300
+        text-neutro-branco font-semibold text-lg text-center
+    }
+
+    .btn.btn-outline {
+        @apply
+        bg-transparent 
+        text-primario-variacao-3
+        hover:bg-primario-variacao-1
+        hover:text-neutro-branco
+        -outline-offset-2 outline-2 outline outline-primario-variacao-1
+    }
+
+    .btn.btn-secondary {
+        @apply
+        bg-limao-principal 
+        text-primario-variacao-3
+        hover:bg-limao-variacao-1
+    }
+
+    .btn.btn-outline.btn-secondary {
+        @apply
+        bg-transparent
+        outline-limao-principal
+        text-neutro-branco
+        hover:bg-limao-principal
+        hover:text-primario-variacao-3
+    }
+
+    .btn.btn-danger {
+        @apply
+        bg-transparent
+        text-danger-principal
+        hover:bg-danger-principal
+        hover:text-neutro-branco
+        -outline-offset-2 outline-2 outline outline-danger-principal
+    }
+
+    .btn.btn-small {
+        @apply
+        px-4 py-2
+        text-base
+    }
+
+    .btn.btn-large {
+        @apply
+        px-8 py-4
+    }
+
+    .btn.btn-icon {
+        @apply
+        p-3 rounded-full
+    }
+
+    /* Conteúdo */
+    .content-text {
+        @apply
+        w-full
+    }
+
+    .content-text h2 {
+        @apply
+        mb-3
+    }
+
+    .content-text p {
+        @apply
+        mb-4 text-lg
+    }
+
+    .content-text *:last-child {
+        @apply
+        mb-0
+    }
+
+    /* Conteúdo de ícones */
+    .content-icon {
+        @apply
+        min-h-16 min-w-16 rounded-2xl bg-neutro-variacao-1
+        inline-flex items-center justify-center
+    }
+
+    .content-icon.content-icon--large {
+        @apply
+        min-h-20 min-w-20 rounded-3xl
+    }
+
+    .content-icon svg {
+        @apply
+        min-w-8 min-h-8
+    }
+
+    .content-icon.content-icon--primario {
+        @apply
+        bg-primario-variacao-3
+    }
+
+    .content-icon.content-icon--primario svg {
+        @apply
+        fill-limao-principal
+    }
+
+    .content-icon.content-icon--secundario {
+        @apply
+        bg-limao-principal
+    }
+
+    .content-icon.content-icon--secundario svg {
+        @apply
+        fill-primario-variacao-3
+    }
+}

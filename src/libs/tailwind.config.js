@@ -57,6 +57,9 @@ module.exports = {
           'variacao-1': '#AEF50B',
           'variacao-2': '#97DD05',
         },
+        danger: {
+          'principal': '#EB5757',
+        },
       },
 
       // Fontes
