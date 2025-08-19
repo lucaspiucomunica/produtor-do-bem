@@ -23,6 +23,11 @@ module.exports = {
   // Estilos
   theme: {
     extend: {
+      // Spacing
+      spacing: {
+        '18': '4.5rem',
+      },
+
       // Cores
       colors: {
         primario: {

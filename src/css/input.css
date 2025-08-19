@@ -10,6 +10,9 @@
 /* Componentes reutilizáveis */
 @import './components.css';
 
+/* Swiper */
+@import './slides-swiper.css';
+
 /* Layout (header, footer, etc.) */
 @import './layout.css';
 

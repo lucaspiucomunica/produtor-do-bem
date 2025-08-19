@@ -424,4 +424,11 @@
         @apply
         p-section-top
     }
+
+    /* Produtores e Empresas - Quem Somos */
+
+    .sections-quem-somos-produtores-e-empresas {
+        @apply
+        p-section-top
+    }
 }

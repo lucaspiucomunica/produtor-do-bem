@@ -17,7 +17,7 @@ if (!$o_que_fazemos_titulo) {
 
 <section id="o-que-fazemos" class="<?php echo get_class_section(); ?> swiper-o-que-fazemos-wrapper">
     <div class="container">
-        <div class="flex">
+        <div class="flex mb-10">
             <div class="w-full flex items-end justify-between gap-10">
                 <div class="content-text">
                     <h2><?php echo $o_que_fazemos_titulo; ?></h2>
@@ -25,26 +25,54 @@ if (!$o_que_fazemos_titulo) {
                 </div>
 
                 <div class="navigation-carrossel">
-                        <div class="navigation-item navigation-item--prev">
-                            <div class="btn btn-icon">
-                                <?php echo icon('arrow-square-left'); ?>
-                            </div>
+                    <div class="navigation-item navigation-item--prev">
+                        <div class="btn btn-icon">
+                            <?php echo icon('arrow-square-left'); ?>
                         </div>
-                        <div class="navigation-item navigation-item--next">
-                            <div class="btn btn-icon">
-                                <?php echo icon('arrow-square-right'); ?>
-                            </div>
+                    </div>
+                    <div class="navigation-item navigation-item--next">
+                        <div class="btn btn-icon">
+                            <?php echo icon('arrow-square-right'); ?>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="swiper swiper-o-que-fazemos">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">Slide 1</div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
+        <div class="flex">
+            <div class="w-full">
+                <div class="swiper swiper-o-que-fazemos">
+                    <div class="swiper-wrapper">
+                        <?php foreach ($o_que_fazemos_carrossel as $item) : ?>
+                            <div class="swiper-slide">
+                                <div class="card-primary">
+                                    <div class="card-primary-icon">
+                                        <div class="card-primary-connection connection-left">
+                                            <div class="rounded-inverted rounded-inverted--1"></div>
+                                            <div class="fill"></div>
+                                            <div class="rounded-inverted rounded-inverted--2"></div>
+                                        </div>
+                                        <div class="content-icon content-icon--secundario content-icon--bigger">
+                                            <?php echo icon($item['icone']); ?>
+                                        </div>
+                                        <div class="card-primary-connection connection-right">
+                                            <div class="rounded-inverted rounded-inverted--1"></div>
+                                            <div class="fill"></div>
+                                            <div class="rounded-inverted rounded-inverted--2"></div>
+                                        </div>
+                                        <div class="card-primary-connection-line"></div>
+                                    </div>
+
+                                    <div class="card-primary-text">
+                                        <div class="content-text">
+                                            <h3><?php echo $item['texto']; ?></h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

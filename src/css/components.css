@@ -92,9 +92,19 @@
         min-h-20 min-w-20 rounded-3xl
     }
 
+    .content-icon.content-icon--bigger {
+        @apply
+        min-h-24 min-w-24 rounded-3xl
+    }
+
     .content-icon svg {
         @apply
         min-w-8 min-h-8
+    }
+
+    .content-icon.content-icon--bigger svg {
+        @apply
+        min-w-10 min-h-10
     }
 
     .content-icon.content-icon--primario {
@@ -132,5 +142,78 @@
     .navigation-carrossel .navigation-item.swiper-button-disabled {
         @apply
         opacity-50 pointer-events-none cursor-not-allowed
+    }
+
+    /* Cards */
+
+    .card-primary {
+        @apply
+        bg-primario-variacao-5
+        rounded-4xl
+        flex flex-col justify-between
+        w-full h-full
+    }
+
+    .card-primary .card-primary-icon {
+        @apply
+        pl-8 py-8
+        flex flex-row justify-start
+        w-full relative z-10
+    }
+
+    .card-primary-connection {
+        @apply
+        flex;
+    }
+
+    .card-primary-connection.connection-left,
+    .card-primary-connection.connection-right {
+        @apply
+        flex flex-col py-6;
+    }
+
+    .card-primary-connection .fill {
+        @apply
+        w-full h-full
+        bg-secundario-principal
+    }
+
+    .card-primary-connection .rounded-inverted {
+        @apply
+        w-4 h-4 min-w-4 min-h-4 overflow-hidden relative
+        bg-secundario-principal
+    }
+
+    .card-primary-connection .rounded-inverted:before {
+        @apply
+        content-[''] absolute bottom-0 right-0 w-full h-full
+        w-8 h-8 min-w-8 min-h-8 rounded-full
+        bg-primario-variacao-5
+    }
+
+    .card-primary-connection .rounded-inverted.rounded-inverted--2 {
+        @apply
+        -rotate-90
+    }
+
+    .card-primary-connection.connection-right {
+        @apply
+        -scale-x-100
+    }
+
+    .card-primary .card-primary-text {
+        @apply
+        px-8 pb-8
+    }
+
+    .card-primary .card-primary-text h3 {
+        @apply
+        text-xl text-neutro-branco
+    }
+
+    .card-primary-connection-line {
+        @apply
+        absolute top-1/2 -translate-y-1/2 left-40 -right-18 h-4
+        bg-secundario-principal
     }
 }
