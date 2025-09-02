@@ -49,7 +49,7 @@ $nome_e_cnpj = get_field('nome_e_cnpj', 'option');
                                     <a href="<?php echo $endereco['link_google_maps']; ?>" target="_blank" rel="noopener noreferrer">
                                         <span><?php echo $endereco['logradouro']; ?></span>
                                         <span><?php echo $endereco['bairro_cidade_estado']; ?></span>
-                                        <span><?php echo $endereco['cep']; ?></span>
+                                        <span><?php echo substr($endereco['cep'], 0, -3) . '-' . substr($endereco['cep'], -3); ?></span>
                                     </a>
                                 </div>
                             </div>

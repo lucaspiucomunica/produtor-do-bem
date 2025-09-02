@@ -4,8 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
         spaceBetween: 40,
         slidesPerView: 3,
         navigation: {
-            nextEl: '.swiper-o-que-fazemos-wrapper .navigation-carrossel .navigation-item--next',
-            prevEl: '.swiper-o-que-fazemos-wrapper .navigation-carrossel .navigation-item--prev',
+            nextEl: '.carrossel-o-que-fazemos .navigation-carrossel .navigation-item--next',
+            prevEl: '.carrossel-o-que-fazemos .navigation-carrossel .navigation-item--prev',
+        },
+    });
+
+    const swiperOqueSignifica = new Swiper(".swiper-o-que-significa", {
+        speed: 400,
+        spaceBetween: 32,
+        slidesPerView: 1.25,
+        pagination: {
+            el: ".carrossel-o-que-significa .progress-carrossel",
+            type: "progressbar",
         },
     });
 });

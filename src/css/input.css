@@ -2,22 +2,22 @@
 /* Este arquivo importa todos os outros arquivos CSS organizados */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sora:wght@100..800&display=swap');
-@import url('swiper-bundle.min.css');
+@import url('vendor/swiper-bundle.min.css');
 
 /* Base e configurações fundamentais */
-@import './base.css';
+@import './styles/base.css';
 
 /* Componentes reutilizáveis */
-@import './components.css';
+@import './styles/components.css';
 
 /* Swiper */
-@import './slides-swiper.css';
+@import './styles/slides-swiper.css';
 
 /* Layout (header, footer, etc.) */
-@import './layout.css';
+@import './styles/layout.css';
 
 /* Seções específicas do site */
-@import './sections.css';
+@import './styles/sections.css';
 
 /* Classes utilitárias customizadas */
-@import './utilities.css';	
+@import './styles/utilities.css';	

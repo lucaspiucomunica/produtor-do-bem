@@ -9,13 +9,14 @@
 $o_que_fazemos_titulo = get_field('o_que_fazemos_titulo');
 $o_que_fazemos_descricao = get_field('o_que_fazemos_descricao');
 $o_que_fazemos_carrossel = get_field('o_que_fazemos_carrossel');
+$o_que_fazemos_o_que_significa = get_field('o_que_fazemos_o_que_significa');
 
 if (!$o_que_fazemos_titulo) {
     return;
 }
 ?>
 
-<section id="o-que-fazemos" class="<?php echo get_class_section(); ?> swiper-o-que-fazemos-wrapper">
+<section id="o-que-fazemos" class="<?php echo get_class_section(); ?> carrossel-o-que-fazemos">
     <div class="container">
         <div class="flex mb-10">
             <div class="w-full flex items-end justify-between gap-10">
@@ -71,6 +72,39 @@ if (!$o_que_fazemos_titulo) {
                                 </div>
                             </div>
                         <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex pt-10">
+            <div class="w-full">
+                <div class="carrossel-o-que-significa">
+                    <div class="left">
+                        <div class="content-text">
+                            <h3><?php echo $o_que_fazemos_o_que_significa['titulo']; ?></h3>
+                            <p><?php echo $o_que_fazemos_o_que_significa['descricao']; ?></p>
+                        </div>
+                        <div class="progress-carrossel"></div>
+                    </div>
+
+                    <div class="right">
+                        <div class="swiper swiper-o-que-significa">
+                            <div class="swiper-wrapper">
+                                <?php foreach ($o_que_fazemos_o_que_significa['cards'] as $item) : ?>
+                                    <div class="swiper-slide">
+                                        <div class="card-secondary">
+                                            <div class="content-text card-secondary-titulo">
+                                                <h4><?php echo $item['titulo']; ?></h4>
+                                            </div>
+                                            <div class="content-text card-secondary-conteudo">
+                                                <?php echo $item['conteudo']; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -70,6 +70,11 @@
         mb-3
     }
 
+    .content-text h3 {
+        @apply
+        mb-3
+    }
+
     .content-text p {
         @apply
         mb-4 text-lg
@@ -215,5 +220,23 @@
         @apply
         absolute top-1/2 -translate-y-1/2 left-40 -right-18 h-4
         bg-secundario-principal
+    }
+
+    .card-secondary {
+        @apply
+        border-2 border-neutro-variacao-1
+        p-10 rounded-4xl
+        flex flex-col justify-between
+        w-full h-full
+    }
+
+    .card-secondary .card-secondary-titulo h4 {
+        @apply
+        text-5xl text-primario-principal
+    }
+
+    .card-secondary .card-secondary-conteudo {
+        @apply
+        pt-10
     }
 }

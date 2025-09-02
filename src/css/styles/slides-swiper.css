@@ -1,0 +1,92 @@
+@layer components {
+    /* Swiper */
+
+    .swiper-o-que-fazemos {
+        @apply
+        w-full
+        overflow-visible
+    }
+
+    .swiper-o-que-fazemos .swiper-slide {
+        @apply
+        h-auto
+        relative
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:nth-child(1) {
+        @apply
+        z-[7]
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:nth-child(2) {
+        @apply
+        z-[6]
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:nth-child(3) {
+        @apply
+        z-[5]
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:nth-child(4) {
+        @apply
+        z-[4]
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:nth-child(5) {
+        @apply
+        z-[3]
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:nth-child(6) {
+        @apply
+        z-[2]
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:nth-child(7) {
+        @apply
+        z-[1]
+    }
+    
+    .swiper-o-que-fazemos .swiper-slide:first-child .card-primary .card-primary-icon .card-primary-connection.connection-left {
+        @apply
+        hidden
+    }
+    
+    .swiper-o-que-fazemos .swiper-slide:last-child .card-primary .card-primary-icon .card-primary-connection.connection-right {
+        @apply
+        hidden
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:first-child .card-primary-connection-line {
+        @apply
+        left-36
+    }
+
+    .swiper-o-que-fazemos .swiper-slide:last-child .card-primary .card-primary-connection-line {
+        @apply
+        hidden
+    }
+
+    /* Swiper O Que Significa */
+
+    .carrossel-o-que-significa .progress-carrossel {
+        @apply
+        absolute bottom-0 left-0 w-full h-1 top-[auto]
+        bg-neutro-variacao-1
+        rounded-full overflow-hidden
+        z-10
+    }
+
+    .carrossel-o-que-significa .progress-carrossel .swiper-pagination-progressbar-fill {
+        @apply
+        bg-primario-principal
+        rounded-full
+    }
+
+    .swiper-o-que-significa .swiper-slide {
+        @apply
+        w-full h-auto
+    }
+
+}

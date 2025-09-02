@@ -33,7 +33,7 @@ function produtor_do_bem_icon_selector_assets($hook) {
     // Enfileira o CSS customizado
     wp_enqueue_style(
         'icon-selector-admin',
-        get_template_directory_uri() . '/src/css/admin-icon-selector.css',
+        get_template_directory_uri() . '/src/css/plugins/admin-icon-selector.css',
         array(),
         PRODUTOR_DO_BEM_VERSION
     );
@@ -41,7 +41,7 @@ function produtor_do_bem_icon_selector_assets($hook) {
     // Enfileira o JavaScript
     wp_enqueue_script(
         'icon-selector-admin',
-        get_template_directory_uri() . '/src/js/admin-icon-selector.js',
+        get_template_directory_uri() . '/src/js/plugins/admin-icon-selector.js',
         array(),
         PRODUTOR_DO_BEM_VERSION,
         true

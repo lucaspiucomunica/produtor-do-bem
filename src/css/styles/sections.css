@@ -6,7 +6,7 @@
     .sections-pagina-principal-hero {
         @apply
         bg-primario-variacao-5
-        min-h-[calc(100vh-80px)] rounded-b-[80px]
+        min-h-[calc(100vh-40px)] rounded-b-[80px]
         flex items-center justify-center relative overflow-hidden
     }
 
@@ -422,7 +422,27 @@
 
     .sections-quem-somos-o-que-fazemos {
         @apply
-        p-section-top
+        p-section-top overflow-hidden
+    }
+
+    .sections-quem-somos-o-que-fazemos .carrossel-o-que-significa {
+        @apply
+        relative overflow-hidden
+        rounded-4xl
+        bg-neutro-principal
+        flex flex-row gap-10
+        py-14 px-10
+    }
+
+    .sections-quem-somos-o-que-fazemos .carrossel-o-que-significa .left {
+        @apply
+        w-3/12
+        relative
+    }
+
+    .sections-quem-somos-o-que-fazemos .carrossel-o-que-significa .right {
+        @apply
+        w-9/12
     }
 
     /* Produtores e Empresas - Quem Somos */
