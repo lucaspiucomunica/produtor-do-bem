@@ -50,3 +50,6 @@ wp-content/uploads/
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+
+# Claude
+CLAUDE.md

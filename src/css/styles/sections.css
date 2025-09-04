@@ -449,6 +449,15 @@
 
     .sections-quem-somos-produtores-e-empresas {
         @apply
-        p-section-top
+        p-section
+    }
+
+    /* Comitê Técnico Consultivo - Quem Somos */
+
+    .sections-quem-somos-ct-consultivo .section-content  {
+        @apply
+        w-full p-section-top
+        bg-primario-variacao-5
+        rounded-4xl
     }
 }

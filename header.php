@@ -16,7 +16,9 @@
 
 <body <?php body_class(); ?> class="overflow-x-hidden">
     <?php wp_body_open(); ?>
-    <div class="site">
+    <div id="smooth-wrapper">
+        <div id="smooth-content">
+            <div class="site">
         <?php 
         // Pega o parâmetro passado para get_header()
         $header_type = get_query_var('header_type', '1');
