@@ -1,0 +1,30 @@
+<?php
+/**
+ * CTA - Quem Somos
+ * 
+ * @package Produtor_do_Bem
+ */
+
+//  Campos ACF
+
+$cta_cta = get_field('cta_cta');
+$cta_destino = get_field('cta_destino');
+?>
+
+<section id="cta" class="<?php echo get_class_section(); ?> cta-1">
+    <div class="container">
+        <div class="flex justify-center">
+            <div class="content-cta">
+                <div class="content-text">
+                    <h2><?php echo $cta_cta['titulo'] . '<span class="destaque">' . $cta_cta['destaque'] . '</span>'; ?></h2>
+                </div>
+                <div class="content-button">
+                    <a href="<?php echo esc_url($cta_destino); ?>" class="btn-cta">
+                        <?php echo icon('arrow-square-right', 'btn-cta-icon'); ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/src/img/forma-pingo.svg" class="svg-inline btn-cta-base">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

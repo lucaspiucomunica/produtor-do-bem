@@ -278,4 +278,241 @@
         @apply
         text-base text-neutro-variacao-2
     }
+
+    .card-protocol {
+        @apply
+        w-full h-full
+        flex flex-col justify-start
+        bg-primario-variacao-4
+        rounded-3xl
+        relative overflow-hidden
+    }
+
+    .card-protocol .card-protocol-header {
+        @apply
+        flex flex-row items-center justify-start
+        p-6 gap-4
+    }
+
+    .card-protocol .card-protocol-list-wrapper {
+        @apply
+        max-h-[298px] overflow-hidden h-full
+    }
+
+    .card-protocol .card-protocol-list {
+        @apply
+        pb-6
+        flex flex-col gap-3
+        w-full
+    }
+    
+    .card-protocol .card-protocol-list-item {
+        @apply
+        flex
+        w-full
+        px-6 pb-3
+        border-b-2 border-limao-principal
+        text-neutro-branco
+
+        first:pt-0 last:pb-0 last:border-b-0
+    }
+
+    .card-protocol .card-protocol-more {
+        @apply
+        p-6 pt-14 pointer-events-none
+        hidden items-center justify-center
+        w-full
+        absolute bottom-0 left-0 z-10
+        bg-gradient-to-t from-primario-variacao-4 to-transparent
+    }
+
+    .card-protocol .card-protocol-more button {
+        @apply
+        pointer-events-auto
+    }
+
+    .card-protocol .card-protocol-more-active {
+        @apply
+        flex
+    }
+
+    .card-protocol.card-protocol-expanded .card-protocol-list-wrapper {
+        @apply
+        max-h-full
+    }
+
+    .card-protocol.card-protocol-expanded .card-protocol-list {
+        @apply
+        pb-20
+    }
+
+    .card-protocol.card-protocol-expanded .card-protocol-more {
+        @apply
+        bg-gradient-to-t from-primario-variacao-4/0 to-transparent
+    }
+
+    /* CTA */
+
+    .cta-1 {
+        @apply
+        p-section
+    }
+
+
+    .cta-1 .content-cta {
+        @apply
+        w-full max-w-[800px]
+        flex items-center justify-center gap-14
+    }
+
+    .cta-1 .content-cta .content-text {
+        @apply
+        max-w-[440px]
+    }
+
+    .cta-1 .content-cta .content-text h2 {
+        @apply
+        text-5xl leading-tight
+    }
+
+    .cta-1 .content-text h2 .destaque {
+        @apply
+        text-primario-principal
+    }
+    
+    .cta-1 .content-button {
+        @apply
+        relative
+        min-w-52 min-h-52
+    }
+
+    .cta-1 .content-button .btn-cta-base {
+        @apply
+        w-full h-auto
+    }
+
+    .cta-1 .content-button .btn-cta-icon {
+        @apply
+        absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+        w-16 h-16
+    }
+
+    /* Timeline */
+
+    .timeline-1 {
+        @apply
+        relative w-full
+    }
+
+    .timeline-1 .timeline-1-items {
+        @apply
+        flex flex-col items-end gap-10
+    }
+
+    .timeline-1 .timeline-1-item {
+        @apply
+        max-w-[800px] w-full
+        flex flex-row items-center gap-10
+        pl-3 py-3 pr-6
+        rounded-3xl
+        bg-neutro-principal outline-2 outline outline-neutro-variacao-1
+    }
+
+    .timeline-1 .timeline-1-item.item-active {
+        @apply
+        outline-secundario-principal
+    }
+
+    .timeline-1 .timeline-1-item:last-child {
+        @apply
+        bg-primario-variacao-5
+        outline-secundario-principal
+    }
+
+    .timeline-1 .timeline-1-item-count {
+        @apply
+        flex items-center gap-3
+    }
+
+    .timeline-1 .timeline-1-item-count-number {
+        @apply
+        flex flex-col items-center justify-center gap-2
+        w-30 h-30 min-w-30 min-h-30
+        bg-primario-variacao-5 text-limao-principal
+        rounded-2xl
+        text-6xl font-display font-semibold
+    }
+
+    .timeline-1 .timeline-1-item:last-child .timeline-1-item-count-number {
+        @apply
+        text-limao-principal
+        bg-primario-principal
+    }
+
+    .timeline-1 .timeline-1-item-count-icon {
+        @apply
+        w-30 h-30 min-w-30 min-h-30
+        flex items-center justify-center
+        rounded-2xl
+        bg-limao-principal text-primario-variacao-5
+    }
+
+    .timeline-1 .timeline-1-item-count-icon svg {
+        @apply
+        w-10 h-10 min-w-10 min-h-10
+        fill-primario-variacao-3
+    }
+
+    .timeline-1 .timeline-1-item-content {
+        @apply
+        w-full
+    }
+
+    .timeline-1 .timeline-1-item-content h3 {
+        @apply
+        text-2xl font-regular
+    }
+
+    .timeline-1 .timeline-1-item-content h3 strong {
+        @apply
+        font-semibold
+    }
+
+    .timeline-1 .timeline-1-item:last-child .timeline-1-item-content h3 {
+        @apply
+        text-neutro-branco
+    }
+
+    .timeline-1 .timeline-1-line {
+        @apply
+        absolute top-14 bottom-14 left-0 w-10 z-0
+    }
+
+    .timeline-1 .timeline-1-line-line {
+        @apply
+        absolute top-0 left-1/2 -translate-x-1/2
+        w-2 h-full bg-neutro-variacao-1 rounded-full
+    }
+
+    .timeline-1 .timeline-1-line-line-progress {
+        @apply
+        absolute top-0 left-1/2 -translate-x-1/2  z-10
+        w-2 h-1/2 bg-limao-principal rounded-full
+    }
+
+    .timeline-1 .timeline-1-line-dots {
+        @apply
+        absolute top-0 bottom-0 left-1/2 -translate-x-1/2 z-20
+        flex flex-col justify-between
+    }
+
+    .timeline-1 .timeline-1-line-dot {
+        @apply
+        w-8 h-8 bg-neutro-variacao-2 rounded-full
+    }
+
+    .timeline-1 .timeline-1-line-dot.item-active {
+        @apply
+        bg-secundario-principal
+    }
 }

@@ -13,6 +13,7 @@ pdb_get_header('2');
     <?php get_template_part('template-parts/sections/quem-somos/o-que-fazemos'); ?>
     <?php get_template_part('template-parts/sections/quem-somos/produtores-e-empresas'); ?>
     <?php get_template_part('template-parts/sections/quem-somos/ct-consultivo'); ?>
+    <?php get_template_part('template-parts/sections/quem-somos/cta'); ?>
 </main>
 
 <?php

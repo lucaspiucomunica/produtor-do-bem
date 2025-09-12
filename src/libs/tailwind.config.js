@@ -26,6 +26,7 @@ module.exports = {
       // Spacing
       spacing: {
         '18': '4.5rem',
+        '30': '7.5rem',
       },
 
       // Cores
@@ -91,9 +92,10 @@ module.exports = {
           '2xl': '1600px',
         },
       },
-
+      
       // Border Radius
       borderRadius: {
+        '6xl': '4.5rem',
         '4xl': '2.25rem',
         '2xl': '1.25rem',
       },
