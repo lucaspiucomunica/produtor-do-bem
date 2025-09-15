@@ -520,5 +520,58 @@
         @apply
         p-section-top
     }
+
+    /* Comunicação - Protocolos e Selos */
+
+    .sections-protocolos-selos-comunicacao {
+        @apply
+        p-section-top
+    }
+
+    .sections-protocolos-selos-comunicacao-content {
+        @apply
+        w-full px-10 p-section
+        bg-primario-variacao-5
+        rounded-4xl
+    }
+
+    /* CTA - Protocolos e Selos */
+
+    .sections-protocolos-selos-cta {
+        @apply
+        p-section-top
+    }
+
+    .sections-protocolos-selos-cta .content-text h2 {
+        @apply
+        text-5xl/[56px] 
+        max-w-[1220px] mx-auto
+    }
+
+    .sections-protocolos-selos-cta .content-text h2 .destaque {
+        @apply
+        text-primario-principal
+    }
+    
+    /* Auditorias - Protocolos e Selos */
+
+    .sections-protocolos-selos-auditorias {
+        @apply
+        p-section-top
+    }
+
+    /* Protocolos - Protocolos e Selos */
+
+    .sections-protocolos-selos-protocolos {
+        @apply
+        p-section
+    }
+
+    .sections-protocolos-selos-protocolos-content {
+        @apply
+        w-full p-section
+        bg-neutro-principal
+        rounded-4xl
+    }
     
 }

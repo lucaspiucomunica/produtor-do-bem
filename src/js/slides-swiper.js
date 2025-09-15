@@ -1,3 +1,5 @@
+// O QUE FAZEMOS
+
 document.addEventListener('DOMContentLoaded', function() {
     const swiperOqueFazemos = new Swiper('.swiper-o-que-fazemos', {
         speed: 400,
@@ -9,6 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
         },
     });
 });
+
+// O QUE SIGNIFICA
 
 document.addEventListener('DOMContentLoaded', function() {
     const swiperOqueSignifica = new Swiper(".swiper-o-que-significa", {
@@ -384,4 +388,14 @@ document.addEventListener('DOMContentLoaded', function() {
     //         }
     //     });
     // }
+});
+
+// CARDS ROTATE
+
+document.addEventListener('DOMContentLoaded', function() {
+    const swiperCardsRotate = new Swiper('.swiper-cards-rotate', {
+        speed: 400,
+        spaceBetween: 40,
+        slidesPerView: 3,
+    });
 });

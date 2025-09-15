@@ -16,7 +16,11 @@ if (!$protocolos_titulo) {
 <section id="protocolos" class="<?php echo get_class_section(); ?>">
     <div class="container">
         <div class="flex">
-            
+            <div class="<?php echo get_class_section(); ?>-content">
+                <div class="content-text text-center">
+                    <h2><?php echo $protocolos_titulo; ?></h2>
+                </div>
+            </div>
         </div>
     </div>
 </section>
