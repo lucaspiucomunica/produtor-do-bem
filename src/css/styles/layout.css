@@ -131,7 +131,7 @@
     .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .endereco .icon svg,
     .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .email .icon svg {
         @apply
-        fill-limao-principal
+        fill-limao-variacao-1
     }
 
     .site-footer .content-footer .content-footer-left .content-info .content-endereco-contato .endereco .content a,

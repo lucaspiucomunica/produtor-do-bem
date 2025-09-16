@@ -24,7 +24,7 @@
 
     .sections-pagina-principal-hero .hero-content .titulo h1 .destaque {
         @apply
-        text-limao-principal
+        text-limao-variacao-1
     }
 
     .sections-pagina-principal-hero .hero-content .subtitulo {
@@ -192,7 +192,7 @@
         shadow-custom-1
         relative z-10
 
-        last:bg-limao-principal
+        last:bg-limao-variacao-1
     }
 
     .sections-pagina-principal-sobre .card-6-icon svg {
@@ -243,7 +243,7 @@
     .sections-pagina-principal-sobre .card-7 {
         @apply
         p-8
-        bg-limao-principal
+        bg-limao-variacao-1
         flex flex-col justify-between
     }
 
@@ -272,7 +272,7 @@
     .sections-pagina-principal-sobre .card-7-icon svg {
         @apply
         w-full h-auto max-w-14
-        *:fill-limao-principal
+        *:fill-limao-variacao-1
     }
 
     .sections-pagina-principal-sobre .card-7-image img {
@@ -485,7 +485,7 @@
 
     .sections-protocolos-selos-hero .hero-content .titulo h1 .destaque {
         @apply
-        text-limao-principal
+        text-limao-variacao-1
     }
 
     .sections-protocolos-selos-hero .hero-content .content-text {
@@ -614,7 +614,7 @@
     .sections-cpt-protocolo-hero-em-breve .hero-header-icon .iconpdb {
         @apply
         absolute bottom-[58px] right-[47px] z-10
-        fill-limao-principal
+        fill-limao-variacao-1
     }
 
     .sections-cpt-protocolo-hero .content-text,
@@ -644,11 +644,35 @@
         p-section-top
     }
 
+    /* Apendice BCC e ECC - CPT Protocolo */
+
+    .sections-cpt-protocolo-apendice-bcc-ecc {
+        @apply
+        p-section-top
+    }
+
+    .sections-cpt-protocolo-apendice-bcc-ecc-content {
+        @apply
+        w-full p-section px-10
+        bg-primario-variacao-5
+        rounded-4xl 
+        flex flex-row items-start justify-between gap-10
+    }
+
+    .sections-cpt-protocolo-apendice-bcc-ecc-content .content-left {
+        @apply
+        w-full max-w-[400px]
+    }
+
+    .sections-cpt-protocolo-apendice-bcc-ecc-content .content-right {
+        @apply
+        w-full
+    }
+
     /* CTA - CPT Protocolo */
 
     .sections-cpt-protocolo-cta.cta-1 .content-cta .content-text {
         @apply
         max-w-full
     }
-    
 }

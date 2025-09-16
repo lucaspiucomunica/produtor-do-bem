@@ -20,17 +20,17 @@
 
     .btn.btn-secondary {
         @apply
-        bg-limao-principal 
+        bg-limao-variacao-1 
         text-primario-variacao-3
-        hover:bg-limao-variacao-1
+        hover:bg-limao-variacao-2
     }
 
     .btn.btn-outline.btn-secondary {
         @apply
         bg-transparent
-        outline-limao-principal
+        outline-limao-variacao-1
         text-neutro-branco
-        hover:bg-limao-principal
+        hover:bg-limao-variacao-1
         hover:text-primario-variacao-3
     }
 
@@ -63,7 +63,7 @@
 
     .tag-1 {
         @apply
-        inline-flex items-center gap-2
+        inline-flex items-center justify-center gap-2
         bg-neutro-principal
         rounded-full
         p-2 pr-4
@@ -79,6 +79,49 @@
     .tag-1 span {
         @apply
         text-primario-principal text-sm uppercase font-semibold
+    }
+
+    .tag-1.tag-1--primario-principal {
+        @apply
+        bg-primario-principal
+    }
+
+    .tag-1.tag-1--primario-principal svg,
+    .tag-1.tag-1--primario-variacao-1 svg,
+    .tag-1.tag-1--primario-variacao-2 svg,
+    .tag-1.tag-1--primario-variacao-3 svg,
+    .tag-1.tag-1--primario-variacao-4 svg {
+        @apply
+        *:fill-limao-variacao-1
+    }
+
+    .tag-1.tag-1--primario-principal span,
+    .tag-1.tag-1--primario-variacao-1 span,
+    .tag-1.tag-1--primario-variacao-2 span,
+    .tag-1.tag-1--primario-variacao-3 span,
+    .tag-1.tag-1--primario-variacao-4 span {
+        @apply
+        text-neutro-branco
+    }
+
+    .tag-1.tag-1--primario-variacao-1 {
+        @apply
+        bg-primario-variacao-2
+    }
+
+    .tag-1.tag-1--primario-variacao-2 {
+        @apply
+        bg-primario-variacao-3
+    }
+
+    .tag-1.tag-1--primario-variacao-3 {
+        @apply
+        bg-primario-variacao-4
+    }
+
+    .tag-1.tag-1--primario-variacao-4 {
+        @apply
+        bg-primario-variacao-5
     }
 
     /* Content Image */
@@ -163,12 +206,12 @@
 
     .content-icon.content-icon--primario svg {
         @apply
-        fill-limao-principal
+        fill-limao-variacao-1
     }
 
     .content-icon.content-icon--secundario {
         @apply
-        bg-limao-principal
+        bg-limao-variacao-1
     }
 
     .content-icon.content-icon--secundario svg {
@@ -350,7 +393,7 @@
         flex
         w-full
         px-6 pb-3
-        border-b-2 border-limao-principal
+        border-b-2 border-limao-variacao-1
         text-neutro-branco
 
         first:pt-0 last:pb-0 last:border-b-0
@@ -403,7 +446,7 @@
 
     .card-rotate.card-rotate-2 {
         @apply
-        bg-limao-principal outline-limao-principal
+        bg-limao-variacao-1 outline-limao-variacao-1
     }
 
     .card-rotate.card-rotate-3 {
@@ -468,7 +511,7 @@
 
     .cards-connection-1 .card-connection-1 {
         @apply
-        min-w-8 my-5 bg-limao-principal
+        min-w-8 my-5 bg-limao-variacao-1
         relative
     }
 
@@ -485,6 +528,121 @@
     .cards-connection-1 .card-connection-1 .rounded-bottom {
         @apply
         absolute -bottom-4 left-0 w-full
+    }
+
+    /* Card Protocolo Nivel */
+
+    .card-protocol-nivel {
+        @apply
+        flex flex-col items-center
+        rounded-4xl bg-neutro-principal
+        w-full h-auto
+    }
+
+    .card-protocol-nivel-header {
+        @apply
+        w-full
+        p-3 pb-6
+    }
+
+    .card-protocol-nivel-header .tag-1 {
+        @apply
+        w-full
+    }
+
+    .card-protocol-nivel-selo {
+        @apply
+        w-full
+        p-3 pb-6
+        flex items-center justify-center
+    }
+
+    .card-protocol-nivel-selo img {
+        @apply
+        w-auto h-auto min-h-[200px] max-h-[200px]
+    }
+
+    .card-protocol-nivel-lista {
+        @apply
+        w-full
+        flex flex-col
+    }
+
+    .card-protocol-nivel-lista li {
+        @apply
+        flex flex-col
+        px-4 py-3
+        border-b border-neutro-variacao-1
+        first:border-t
+    }
+
+    .card-protocol-nivel-lista-tag {
+        @apply
+        text-neutro-variacao-5
+        text-xs uppercase
+    }
+
+    .card-protocol-nivel-lista-texto {
+        @apply
+        font-semibold
+    }
+
+    .card-protocol-nivel-atributos {
+        @apply
+        w-full
+        flex flex-col space-y-3
+        px-3 py-3
+    }
+
+    .card-protocol-nivel-atributos-item {
+        @apply
+        w-full
+        flex flex-row items-start justify-start space-x-4
+        bg-primario-principal
+        rounded-3xl
+        p-6
+    }
+
+    .card-protocol-nivel-atributos-item.card-protocol-nivel-atributos-item-2 {
+        @apply
+        bg-primario-variacao-2
+    }
+
+    .card-protocol-nivel-atributos-item.card-protocol-nivel-atributos-item-3 {
+        @apply
+        bg-primario-variacao-3
+    }
+
+    .card-protocol-nivel-atributos-item.card-protocol-nivel-atributos-item-4 {
+        @apply
+        bg-primario-variacao-4
+    }
+
+    .card-protocol-nivel-atributos-item svg {
+        @apply
+        fill-limao-variacao-1
+    }
+
+    .card-protocol-nivel-atributos-lista {
+        @apply
+        w-full
+        flex flex-col space-y-2
+    }
+
+    .card-protocol-nivel-atributos-lista li {
+        @apply
+        text-neutro-branco
+        flex flex-col items-start justify-start
+    }
+
+    .card-protocol-nivel-atributos-lista li .card-protocol-nivel-atributos-lista-texto {
+        @apply
+        text-sm font-semibold
+    }
+
+    .card-protocol-nivel-atributos-lista li .card-protocol-nivel-atributos-lista-descricao {
+        @apply
+        text-xs font-regular
     }
 
     /* CTA */
@@ -574,14 +732,14 @@
         @apply
         flex flex-col items-center justify-center gap-2
         w-30 h-30 min-w-30 min-h-30
-        bg-primario-variacao-5 text-limao-principal
+        bg-primario-variacao-5 text-limao-variacao-1
         rounded-2xl
         text-6xl font-display font-semibold
     }
 
     .timeline-1 .timeline-1-item:last-child .timeline-1-item-count-number {
         @apply
-        text-limao-principal
+        text-limao-variacao-1
         bg-primario-principal
     }
 
@@ -590,7 +748,7 @@
         w-30 h-30 min-w-30 min-h-30
         flex items-center justify-center
         rounded-2xl
-        bg-limao-principal text-primario-variacao-5
+        bg-limao-variacao-1 text-primario-variacao-5
     }
 
     .timeline-1 .timeline-1-item-count-icon svg {
@@ -633,7 +791,7 @@
     .timeline-1 .timeline-1-line-line-progress {
         @apply
         absolute top-0 left-1/2 -translate-x-1/2  z-10
-        w-2 h-1/2 bg-limao-principal rounded-full
+        w-2 h-1/2 bg-limao-variacao-1 rounded-full
     }
 
     .timeline-1 .timeline-1-line-dots {
