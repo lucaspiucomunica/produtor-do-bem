@@ -59,6 +59,28 @@
         p-3 rounded-full
     }
 
+    /* Tags */
+
+    .tag-1 {
+        @apply
+        inline-flex items-center gap-2
+        bg-neutro-principal
+        rounded-full
+        p-2 pr-4
+    }
+
+    .tag-1 svg {
+        @apply
+        w-4 h-4 min-w-4 min-h-4
+        *:fill-secundario-principal
+        -rotate-[135deg]
+    }
+
+    .tag-1 span {
+        @apply
+        text-primario-principal text-sm uppercase font-semibold
+    }
+
     /* Content Image */
 
     .content-image {
@@ -373,7 +395,7 @@
     .card-rotate {
         @apply
         w-full min-h-[420px] h-full
-        rounded-3xl
+        rounded-4xl
         outline-2 -outline-offset-2 outline outline-secundario-principal
         p-10
         flex flex-col items-start justify-between gap-10
