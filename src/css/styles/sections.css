@@ -675,4 +675,76 @@
         @apply
         max-w-full
     }
+
+    /* Hero - Certificações */
+
+    .sections-certificacoes-hero {
+        @apply
+        relative
+        bg-primario-variacao-5
+        pt-48 pb-24 rounded-b-[80px]
+        flex items-center justify-center relative overflow-hidden
+    }
+
+    .sections-certificacoes-hero .hero-content {
+        @apply
+        relative z-10
+        flex flex-col items-center space-y-6
+        w-full max-w-[776px] mx-auto
+    }
+
+    .sections-certificacoes-hero .hero-content .titulo h1 {
+        @apply
+        text-5xl/[56px] text-center text-neutro-branco
+        flex flex-col items-center
+    }
+
+    .sections-certificacoes-hero .hero-content .titulo h1 .destaque {
+        @apply
+        text-limao-variacao-1
+    }
+
+    .sections-certificacoes-hero .hero-content .content-text {
+        @apply
+        text-center text-neutro-branco
+    }
+
+    .sections-certificacoes-hero .hero-ilustracoes {
+        @apply
+        absolute -bottom-10 -left-20 -right-20 z-0
+        flex flex-row justify-between
+    }
+
+    .sections-certificacoes-hero .hero-ilustracoes .hero-ilustracao {
+        @apply
+        w-full h-auto max-w-[408px]
+    }
+
+    /* Método - Certificações */
+
+    .sections-certificacoes-metodo {
+        @apply
+        p-section-top
+    }
+
+    /* Níveis - Certificações */
+
+    .sections-certificacoes-niveis {
+        @apply
+        p-section-top
+    }
+
+    /* Certificações - Certificações */
+
+    .sections-certificacoes-certificacoes {
+        @apply
+        p-section-top
+    }
+
+    .sections-certificacoes-certificacoes-content {
+        @apply
+        w-full p-section
+        bg-primario-variacao-5
+        rounded-4xl
+    }
 }

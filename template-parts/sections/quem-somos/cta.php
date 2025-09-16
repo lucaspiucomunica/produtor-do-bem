@@ -20,7 +20,7 @@ $cta_destino = get_field('cta_destino');
                 </div>
                 <div class="content-button">
                     <a href="<?php echo esc_url($cta_destino); ?>" class="btn-cta">
-                        <?php echo icon('arrow-square-right', 'btn-cta-icon'); ?>
+                        <?php echo icon('arrow-right-01', 'btn-cta-icon'); ?>
                         <img src="<?php echo get_template_directory_uri(); ?>/src/img/forma-pingo.svg" class="svg-inline btn-cta-base">
                     </a>
                 </div>

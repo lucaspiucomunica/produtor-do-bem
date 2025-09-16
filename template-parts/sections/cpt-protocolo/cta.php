@@ -15,7 +15,7 @@
                 </div>
                 <div class="content-button">
                     <a href="<?php echo home_url('/fale-conosco'); ?>" class="btn-cta">
-                        <?php echo icon('arrow-square-right', 'btn-cta-icon'); ?>
+                        <?php echo icon('arrow-right-01', 'btn-cta-icon'); ?>
                         <img src="<?php echo get_template_directory_uri(); ?>/src/img/forma-pingo.svg" class="svg-inline btn-cta-base">
                     </a>
                 </div>

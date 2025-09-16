@@ -23,7 +23,7 @@ if (!$hero_titulo) {
             <div class="hero-content">
                 <div class="titulo">
                     <h1>
-                        <span><?php echo $hero_titulo; ?></span>
+                        <?php echo $hero_titulo; ?>
                         <div>
                             <span class="destaque"><?php echo $hero_titulo_destaque; ?></span>
                             <div class="content-icon content-icon--secundario">
