@@ -14,7 +14,7 @@ get_header();
         <?php get_template_part('template-parts/sections/cpt-protocolo/hero'); ?>
         <?php get_template_part('template-parts/sections/cpt-protocolo/protocolo'); ?>
         <?php get_template_part('template-parts/sections/cpt-protocolo/apendice-bcc-ecc'); ?>
-        <?php get_template_part('template-parts/sections/cpt-protocolo/cta'); ?>
+        <?php get_template_part('template-parts/globals/cta-1'); ?>
     <?php endif; ?>
     
 </main>

@@ -1,6 +1,6 @@
 <?php
 /**
- * CTA Section - CPT Protocolo
+ * CTA Section - Global
  * 
  * @package Produtor_do_Bem
  */

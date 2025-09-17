@@ -12,6 +12,8 @@ get_header();
     <?php get_template_part('template-parts/sections/certificacoes/metodo'); ?>
     <?php get_template_part('template-parts/sections/certificacoes/niveis'); ?>
     <?php get_template_part('template-parts/sections/certificacoes/certificacoes'); ?>
+    <?php get_template_part('template-parts/sections/certificacoes/como-obter'); ?>
+    <?php get_template_part('template-parts/globals/cta-1'); ?>
 </main>
 
 <?php

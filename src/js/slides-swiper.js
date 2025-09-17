@@ -397,5 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
         speed: 400,
         spaceBetween: 24,
         slidesPerView: 3,
+        grabCursor: true,
     });
 });

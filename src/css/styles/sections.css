@@ -669,9 +669,9 @@
         w-full
     }
 
-    /* CTA - CPT Protocolo */
+    /* CTA 1- Global */
 
-    .sections-cpt-protocolo-cta.cta-1 .content-cta .content-text {
+    .template-parts-globals-cta-1 .content-cta .content-text {
         @apply
         max-w-full
     }
@@ -746,5 +746,12 @@
         w-full p-section
         bg-primario-variacao-5
         rounded-4xl
+    }
+
+    /* Como Obter - Certificações */
+
+    .sections-certificacoes-como-obter {
+        @apply
+        p-section-top
     }
 }
