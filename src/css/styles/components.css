@@ -1107,4 +1107,147 @@
         transition-all duration-300 underline
     }
 
+    /* Form */
+
+    /* Progress Bar */
+
+    .progress-bar-container {
+        @apply
+        w-full
+        flex flex-col items-start justify-start gap-4
+    }
+
+    .progress-bar-container .progress-line-wrapper {
+        @apply
+        w-full relative
+        flex flex-col items-start justify-start
+    }
+
+    .progress-bar-container .progress-line-wrapper .progress-line {
+        @apply
+        w-full
+        h-2
+        bg-neutro-variacao-1
+        rounded-full
+    }
+
+    .progress-bar-container .progress-line-wrapper .progress-line-fill {
+        @apply
+        absolute top-0 left-0
+        h-2
+        bg-primario-principal
+        rounded-full
+    }
+
+    .progress-bar-container .progress-steps {
+        @apply
+        w-full
+        grid grid-cols-4
+    }
+
+    .progress-bar-container .progress-steps .progress-step {
+        @apply
+        w-full
+        flex flex-col items-center justify-center
+        gap-2
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-number {
+        @apply
+        w-14 h-14 min-w-14 min-h-14
+        bg-neutro-variacao-1
+        rounded-full
+        flex items-center justify-center
+        text-neutro-variacao-5
+        text-2xl font-display font-semibold
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-number .number {
+        @apply
+        block
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-number .check {
+        @apply
+        hidden
+        *:fill-limao-variacao-1
+        w-6 h-6 min-w-6 min-h-6
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-title {
+        @apply
+        text-neutro-variacao-5
+        text-sm font-semibold
+    }
+
+    .progress-bar-container .progress-steps .progress-step.active .progress-step-number {
+        @apply
+        bg-primario-principal
+        text-neutro-branco
+    }
+    
+    .progress-bar-container .progress-steps .progress-step.active .progress-step-title {
+        @apply
+        text-primario-variacao-5
+    }
+
+    .progress-bar-container .progress-steps .progress-step.active .progress-step-number .number {
+        @apply
+        hidden
+    }
+
+    .progress-bar-container .progress-steps .progress-step.active .progress-step-number .check {
+        @apply
+        flex items-center justify-center
+    }
+
+    /* Form Container */
+
+    .multi-step-form-container {
+        @apply
+        w-full
+        p-8 rounded-4xl
+        border-2 border-neutro-variacao-1
+        flex
+    }
+
+    .multi-step-form-container .form-step {
+        @apply
+        hidden
+        w-full
+    }
+    
+    .multi-step-form-container .form-step.active {
+        @apply
+        block
+    }
+
+    .multi-step-form-container .form-step .step-content {
+        @apply
+        w-full
+        flex flex-col items-center gap-6
+    }
+
+    .multi-step-form-container .form-step .step-content .content-header {
+        @apply
+        w-full
+        flex flex-col items-center text-center
+    }
+
+    .multi-step-form-container .form-step .step-content .content-header .content-icon {
+        @apply
+        mb-4
+    }
+
+    .multi-step-form-container .form-step .step-content .content-header .step-title {
+        @apply
+        mb-2
+    }
+
+    .multi-step-form-container .form-step .step-content .form-navigation {
+        @apply
+        w-full
+        flex flex-row items-center justify-center gap-6
+    }
+
 }

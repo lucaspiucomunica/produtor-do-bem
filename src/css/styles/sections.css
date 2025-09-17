@@ -759,16 +759,19 @@
 
     .sections-fale-conosco-hero {
         @apply
-        relative bg-neutro-principal
-        pt-48 pb-24
-        flex items-center justify-center
+        relative
+        pt-48 pb-10
+    }
+
+    .sections-fale-conosco-hero .content-text h1 {
+        @apply
+        mb-6
     }
 
     /* Form - Fale Conosco */
 
     .sections-fale-conosco-form {
         @apply
-        pt-24
         p-section-bottom
     }
 }

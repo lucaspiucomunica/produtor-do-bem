@@ -9,7 +9,7 @@
 <!-- Multi-Step Form Section -->
 <section id="form" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-6 max-w-[894px] mx-auto mb-10">
 
             <!-- Progress Bar -->
             <div class="progress-bar-container">
@@ -20,19 +20,39 @@
 
                 <div class="progress-steps">
                     <div class="progress-step active" data-step="1">
-                        <div class="progress-step-number">1</div>
+                        <div class="progress-step-number">
+                            <div class="number">1</div>
+                            <div class="check">
+                                <?php echo icon('tick-circle'); ?>
+                            </div>
+                        </div>
                         <span class="progress-step-title">Identificação</span>
                     </div>
-                    <div class="progress-step z-10" data-step="2">
-                        <div class="progress-step-number">2</div>
+                    <div class="progress-step" data-step="2">
+                        <div class="progress-step-number">
+                            <div class="number">2</div>
+                            <div class="check">
+                                <?php echo icon('tick-circle'); ?>
+                            </div>
+                        </div>
                         <span class="progress-step-title">Contato</span>
                     </div>
-                    <div class="progress-step z-10" data-step="3">
-                        <div class="progress-step-number">3</div>
+                    <div class="progress-step" data-step="3">
+                        <div class="progress-step-number">
+                            <div class="number">3</div>
+                            <div class="check">
+                                <?php echo icon('tick-circle'); ?>
+                            </div>
+                        </div>
                         <span class="progress-step-title">Categoria</span>
                     </div>
-                    <div class="progress-step z-10" data-step="4">
-                        <div class="progress-step-number">4</div>
+                    <div class="progress-step" data-step="4">
+                        <div class="progress-step-number">
+                            <div class="number">4</div>
+                            <div class="check">
+                                <?php echo icon('tick-circle'); ?>
+                            </div>
+                        </div>
                         <span class="progress-step-title">Mensagem</span>
                     </div>    
                 </div>
@@ -44,11 +64,13 @@
                 <!-- Step 1: Identificação -->
                 <div class="form-step active" data-step="1">
                     <div class="step-content">
-                        <div class="content-icon content-icon--primario content-icon--large">
-                            <?php echo icon('firstline'); ?>
+                        <div class="content-header">
+                            <div class="content-icon content-icon--primario content-icon--large">
+                                <?php echo icon('firstline'); ?>
+                            </div>
+                            <h2 class="step-title">Vamos nos conhecer!</h2>
+                            <p class="step-description">Como podemos te chamar?</p>
                         </div>
-                        <h2 class="step-title">Vamos nos conhecer!</h2>
-                        <p class="step-description">Como podemos te chamar?</p>
 
                         <div class="form-fields">
                             <div class="form-group">
@@ -69,11 +91,13 @@
                 <!-- Step 2: Contato -->
                 <div class="form-step" data-step="2">
                     <div class="step-content">
-                        <div class="content-icon content-icon--primario content-icon--large">
-                            <?php echo icon('call'); ?>
+                        <div class="content-header">
+                            <div class="content-icon content-icon--primario content-icon--large">
+                                <?php echo icon('call'); ?>
+                            </div>
+                            <h2 class="step-title">Como te contatar?</h2>
+                            <p class="step-description">Precisamos dessas informações para responder você</p>
                         </div>
-                        <h2 class="step-title">Como te contatar?</h2>
-                        <p class="step-description">Precisamos dessas informações para responder você</p>
 
                         <div class="form-fields">
                             <div class="form-group">
@@ -103,11 +127,13 @@
                 <!-- Step 3: Categoria -->
                 <div class="form-step" data-step="3">
                     <div class="step-content">
-                        <div class="content-icon content-icon--primario content-icon--large">
-                            <?php echo icon('personalcard'); ?>
+                        <div class="content-header">
+                            <div class="content-icon content-icon--primario content-icon--large">
+                                <?php echo icon('personalcard'); ?>
+                            </div>
+                            <h2 class="step-title">Conte mais sobre você</h2>
+                            <p class="step-description">Isso nos ajuda a personalizar o atendimento</p>
                         </div>
-                        <h2 class="step-title">Conte mais sobre você</h2>
-                        <p class="step-description">Isso nos ajuda a personalizar o atendimento</p>
 
                         <div class="form-fields">
                             <div class="form-group">
@@ -179,11 +205,13 @@
                 <!-- Step 4: Mensagem -->
                 <div class="form-step" data-step="4">
                     <div class="step-content">
-                        <div class="content-icon content-icon--primario content-icon--large">
-                            <?php echo icon('clipboard-text'); ?>
+                        <div class="content-header">
+                            <div class="content-icon content-icon--primario content-icon--large">
+                                <?php echo icon('clipboard-text'); ?>
+                            </div>
+                            <h2 class="step-title">Sua mensagem</h2>
+                            <p class="step-description">Conte-nos como podemos te ajudar</p>
                         </div>
-                        <h2 class="step-title">Sua mensagem</h2>
-                        <p class="step-description">Conte-nos como podemos te ajudar</p>
 
                         <div class="form-fields">
                             <div class="form-group">
@@ -207,56 +235,59 @@
                 <!-- Step 5: Feedback -->
                 <div class="form-step" data-step="5">
                     <div class="step-content">
-                        <!-- Loading State -->
-                        <div class="loading-state">
-                            <div class="content-icon content-icon--primario content-icon--large">
-                                <div class="loading-icon">
-                                    <?php echo icon('3-dots-more'); ?>
+                        <div class="content-header">
+                            <!-- Loading State -->
+                            <div class="loading-state">
+                                <div class="content-icon content-icon--primario content-icon--large">
+                                    <div class="loading-icon">
+                                        <?php echo icon('3-dots-more'); ?>
+                                    </div>
                                 </div>
+                                <h2 class="step-title">Enviando mensagem...</h2>
+                                <p class="step-description">Aguarde um momento, estamos processando sua mensagem</p>
                             </div>
-                            <h2 class="step-title">Enviando mensagem...</h2>
-                            <p class="step-description">Aguarde um momento, estamos processando sua mensagem</p>
-                        </div>
 
-                        <!-- Success State -->
-                        <div class="success-state hidden">
-                            <div class="content-icon content-icon--primario content-icon--large">
-                                <div class="success-icon">
-                                    <?php echo icon('tick-circle'); ?>
+                            <!-- Success State -->
+                            <div class="success-state hidden">
+                                <div class="content-icon content-icon--primario content-icon--large">
+                                    <div class="success-icon">
+                                        <?php echo icon('tick-circle'); ?>
+                                    </div>
                                 </div>
+                                <h2 class="step-title">Mensagem enviada!</h2>
+                                <p class="step-description">Em breve entraremos em contato.</p>
                             </div>
-                            <h2 class="step-title">Mensagem enviada!</h2>
-                            <p class="step-description">Obrigado pelo contato! Em breve retornaremos sua mensagem.</p>
 
-                            <div class="form-navigation">
-                                <button type="button" class="btn btn-primary btn-new-message">
-                                    Enviar Nova Mensagem
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Error State -->
-                        <div class="error-state hidden">
-                            <div class="content-icon content-icon--primario content-icon--large">
-                                <div class="error-icon">
-                                    <?php echo icon('close-circle'); ?>
+                            <!-- Error State -->
+                            <div class="error-state hidden">
+                                <div class="content-icon content-icon--primario content-icon--large">
+                                    <div class="error-icon">
+                                        <?php echo icon('close-circle'); ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <h2 class="step-title">Erro no envio</h2>
-                            <p class="step-description">Não foi possível enviar sua mensagem. Tente novamente.</p>
-
-                            <div class="form-navigation">
-                                <button type="button" class="btn btn-primary btn-retry">
-                                    Tentar Novamente
-                                </button>
-                                <button type="button" class="btn btn-outline btn-new-message">
-                                    Nova Mensagem
-                                </button>
+                                <h2 class="step-title">Erro no envio</h2>
+                                <p class="step-description">Não foi possível enviar sua mensagem. Tente novamente.</p>
+    
+                                <div class="form-navigation mt-6">
+                                    <button type="button" class="btn btn-primary btn-retry">
+                                        Tentar Novamente
+                                    </button>
+                                    <button type="button" class="btn btn-outline btn-new-message">
+                                        Nova Mensagem
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="flex items-center justify-center">
+            <button class="btn btn-danger">
+                <?php echo icon('warning-2'); ?>
+                <span>Quero fazer uma denúncia</span>
+            </button>
         </div>
     </div>
 </section>

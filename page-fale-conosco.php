@@ -4,7 +4,7 @@
  * Template Name: Fale Conosco
  */
 
-get_header();
+pdb_get_header('2');
 ?>
 
 <main class="site-main" id="site-main">

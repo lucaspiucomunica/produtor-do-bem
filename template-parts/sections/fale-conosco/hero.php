@@ -8,8 +8,11 @@
 
 <section id="hero" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="hero-header">
-            <h1>Fale Conosco</h1>
+        <div class="flex">
+            <div class="content-text text-center">
+                <h1>Fale conosco</h1>
+                <p>Solicite certificação, tire dúvidas e muito mais em apenas algumas etapas!</p>
+            </div>
         </div>
     </div>
 </section>
