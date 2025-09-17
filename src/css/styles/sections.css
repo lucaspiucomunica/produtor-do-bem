@@ -754,4 +754,21 @@
         @apply
         p-section-top
     }
+
+    /* Hero - Fale Conosco */
+
+    .sections-fale-conosco-hero {
+        @apply
+        relative bg-neutro-principal
+        pt-48 pb-24
+        flex items-center justify-center
+    }
+
+    /* Form - Fale Conosco */
+
+    .sections-fale-conosco-form {
+        @apply
+        pt-24
+        p-section-bottom
+    }
 }
