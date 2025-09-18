@@ -14,7 +14,7 @@ $produtores_e_empresas_logos = get_field('produtores_e_empresas_logos');
     <div class="container">
         <div class="flex justify-center mb-10">
             <div class="w-full max-w-[740px] flex items-center gap-10">
-                <div class="content-image">
+                <div class="content-image w-auto">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" class="svg-inline w-auto h-20">
                 </div>
                 <div class="content-text">

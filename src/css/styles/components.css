@@ -1137,6 +1137,7 @@
         h-2
         bg-primario-principal
         rounded-full
+        transition-all duration-300
     }
 
     .progress-bar-container .progress-steps {

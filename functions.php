@@ -23,3 +23,6 @@ require_once('inc/hooks/filters.php');
 
 // Helpers
 require_once('inc/hooks/helpers.php');
+
+// AJAX handlers
+require_once('inc/ajax/contact-form-handler.php');

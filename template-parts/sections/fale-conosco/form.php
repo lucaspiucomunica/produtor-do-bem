@@ -134,7 +134,7 @@
 
                         <div class="form-fields">
                             <div class="form-group">
-                                <label>Eu sou:</label>
+                                <label>Eu sou: *</label>
                                 <div class="form-group-options">
                                     <label>
                                         <input type="radio" name="eu-sou" value="produtor">
@@ -156,7 +156,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Motivo do contato:</label>
+                                <label>Motivo do contato: *</label>
                                 <div class="form-group-options">
                                     <label>
                                         <input type="radio" name="motivo" value="orcamento">
@@ -250,6 +250,12 @@
                                 </div>
                                 <h2 class="step-title">Mensagem enviada!</h2>
                                 <p class="step-description">Em breve entraremos em contato.</p>
+
+                                <div class="form-navigation mt-6">
+                                    <button type="button" class="btn btn-outline btn-new-message">
+                                        Nova mensagem
+                                    </button>
+                                </div>
                             </div>
 
                             <!-- Error State -->
@@ -264,10 +270,10 @@
     
                                 <div class="form-navigation mt-6">
                                     <button type="button" class="btn btn-primary btn-retry">
-                                        Tentar Novamente
+                                        Tentar novamente
                                     </button>
                                     <button type="button" class="btn btn-outline btn-new-message">
-                                        Nova Mensagem
+                                        Nova mensagem
                                     </button>
                                 </div>
                             </div>

@@ -81,6 +81,162 @@ class MultiStepForm {
 
         this.currentStep = 5;
         this.updateUI();
+        this.sendFormData();
+    }
+
+    sendFormData() {
+        // Verificar se variáveis AJAX estão disponíveis
+        if (typeof contact_form_ajax === 'undefined') {
+            console.error('Multi-step form - contact_form_ajax não está definido');
+            this.showErrorState();
+            return;
+        }
+
+        console.log('Multi-step form - Variáveis AJAX:', contact_form_ajax);
+
+        // Coletar dados do formulário
+        const formData = this.collectFormData();
+        console.log('Multi-step form - Dados coletados:', formData);
+
+        // Mostrar estado de loading
+        this.showLoadingState();
+
+        const requestData = {
+            action: 'submit_multi_step_form',
+            nonce: contact_form_ajax.nonce,
+            ...formData
+        };
+
+        console.log('Multi-step form - Dados sendo enviados:', requestData);
+
+        // Enviar via AJAX
+        fetch(contact_form_ajax.ajax_url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(requestData)
+        })
+        .then(response => {
+            console.log('Multi-step form - Resposta HTTP:', response);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Multi-step form - Dados da resposta:', data);
+
+            if (data.success) {
+                console.log('Multi-step form - Sucesso:', data.data);
+                this.showSuccessState();
+            } else {
+                console.error('Multi-step form - Erro do servidor:', data.data);
+                this.showErrorState(data.data);
+            }
+        })
+        .catch(error => {
+            console.error('Multi-step form - Erro na requisição:', error);
+            this.showErrorState({ message: 'Erro de conexão', details: error.message });
+        });
+    }
+
+    collectFormData() {
+        return {
+            nome: document.getElementById('nome')?.value || '',
+            email: document.getElementById('email')?.value || '',
+            telefone: document.getElementById('telefone')?.value || '',
+            'eu-sou': document.querySelector('input[name="eu-sou"]:checked')?.value || '',
+            motivo: document.querySelector('input[name="motivo"]:checked')?.value || '',
+            mensagem: document.getElementById('mensagem')?.value || ''
+        };
+    }
+
+    showLoadingState() {
+        const step5 = this.formContainer.querySelector('.form-step[data-step="5"]');
+        if (!step5) return;
+
+        const loadingState = step5.querySelector('.loading-state');
+        const successState = step5.querySelector('.success-state');
+        const errorState = step5.querySelector('.error-state');
+
+        loadingState?.classList.remove('hidden');
+        successState?.classList.add('hidden');
+        errorState?.classList.add('hidden');
+    }
+
+    showSuccessState() {
+        const step5 = this.formContainer.querySelector('.form-step[data-step="5"]');
+        if (!step5) return;
+
+        const loadingState = step5.querySelector('.loading-state');
+        const successState = step5.querySelector('.success-state');
+        const errorState = step5.querySelector('.error-state');
+
+        loadingState?.classList.add('hidden');
+        successState?.classList.remove('hidden');
+        errorState?.classList.add('hidden');
+
+        // Configurar botão de nova mensagem
+        const newMessageButton = successState.querySelector('.btn-new-message');
+        if (newMessageButton) {
+            newMessageButton.onclick = () => this.resetForm();
+        }
+    }
+
+    showErrorState(errorData = null) {
+        const step5 = this.formContainer.querySelector('.form-step[data-step="5"]');
+        if (!step5) return;
+
+        const loadingState = step5.querySelector('.loading-state');
+        const successState = step5.querySelector('.success-state');
+        const errorState = step5.querySelector('.error-state');
+
+        loadingState?.classList.add('hidden');
+        successState?.classList.add('hidden');
+        errorState?.classList.remove('hidden');
+
+        // Mostrar detalhes do erro se disponível
+        if (errorData && errorData.details) {
+            console.log('Multi-step form - Detalhes do erro:', errorData.details);
+
+            // Opcional: mostrar erro na interface
+            const errorDescription = errorState.querySelector('.step-description');
+            if (errorDescription && errorData.details) {
+                errorDescription.textContent = `Erro: ${errorData.details}`;
+            }
+        }
+
+        // Configurar botões de retry
+        const retryButton = errorState.querySelector('.btn-retry');
+        const newMessageButton = errorState.querySelector('.btn-new-message');
+
+        if (retryButton) {
+            retryButton.onclick = () => this.sendFormData();
+        }
+
+        if (newMessageButton) {
+            newMessageButton.onclick = () => this.resetForm();
+        }
+    }
+
+    resetForm() {
+        // Limpar todos os campos
+        const inputs = this.formContainer.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            if (input.type === 'radio') {
+                input.checked = false;
+                input.closest('label')?.classList.remove('selected');
+            } else {
+                input.value = '';
+            }
+            this.clearFieldError(input);
+        });
+
+        // Limpar erros de grupos
+        const formGroups = this.formContainer.querySelectorAll('.form-group');
+        formGroups.forEach(group => this.clearGroupError(group));
+
+        // Voltar para o primeiro step
+        this.currentStep = 1;
+        this.updateUI();
     }
 
     validateCurrentStep() {
