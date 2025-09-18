@@ -28,7 +28,10 @@ if (!$hero_titulo) {
                         </h1>
                     </div>
                     <div class="subtitulo">
-                        <span><?php echo icon('pig'); ?></span>
+                        <span class="icon"><?php echo icon('pig'); ?></span>
+                        <span class="icon hidden"><?php echo icon('cow'); ?></span>
+                        <span class="icon hidden"><?php echo icon('chicken'); ?></span>
+                        <span class="icon hidden"><?php echo icon('egg'); ?></span>
                         <p><?php echo $hero_subtitulo; ?></p>
                     </div>
                     <div class="botao">

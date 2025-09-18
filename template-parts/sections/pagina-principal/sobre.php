@@ -41,7 +41,7 @@ if (!$sobre_titulo) {
     <div class="container">
         <div class="flex justify-center mb-10">
             <div class="w-10/12">
-                <div class="content-text text-center">
+                <div class="content-text text-center animate-1">
                     <h2><?php echo $sobre_titulo; ?></h2>
                     <p><?php echo $sobre_descricao; ?></p>
                 </div>
@@ -227,7 +227,7 @@ if (!$sobre_titulo) {
             </div>
         </div>
 
-        <div class="flex justify-center p-section-top">
+        <div class="flex justify-center p-section-top animate-2">
             <div class="w-full">
                 <div class="texto-engajameto">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Ícone Logo Produtor do Bem" class="svg-inline">
