@@ -74,9 +74,8 @@
 
                         <div class="form-fields">
                             <div class="form-group">
-                                <label for="nome">Nome completo</label>
+                                <label for="nome">Seu nome: *</label>
                                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
-                                <span class="error-message">Por favor, digite seu nome</span>
                             </div>
                         </div>
 
@@ -101,15 +100,13 @@
 
                         <div class="form-fields">
                             <div class="form-group">
-                                <label for="email">E-mail</label>
+                                <label for="email">Seu e-mail: *</label>
                                 <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                                <span class="error-message">Por favor, digite um e-mail válido</span>
                             </div>
 
                             <div class="form-group">
-                                <label for="telefone">Telefone</label>
+                                <label for="telefone">Seu telefone:</label>
                                 <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
-                                <span class="error-message">Por favor, digite um telefone válido</span>
                             </div>
                         </div>
 
@@ -156,7 +153,6 @@
                                         <span class="form-group-option-title">Outro</span>
                                     </label>
                                 </div>
-                                <span class="error-message">Por favor, selecione uma opção</span>
                             </div>
 
                             <div class="form-group">
@@ -187,7 +183,6 @@
                                         <span class="form-group-option-title">Outro motivo</span>
                                     </label>
                                 </div>
-                                <span class="error-message">Por favor, selecione o motivo do contato</span>
                             </div>
                         </div>
 
@@ -213,11 +208,10 @@
                             <p class="step-description">Conte-nos como podemos te ajudar</p>
                         </div>
 
-                        <div class="form-fields">
+                        <div class="form-fields text-area-group">
                             <div class="form-group">
-                                <label for="mensagem">Mensagem</label>
-                                <textarea id="mensagem" name="mensagem" rows="6" placeholder="Digite sua mensagem aqui..." required></textarea>
-                                <span class="error-message">Por favor, digite sua mensagem</span>
+                                <label for="mensagem">Sua mensagem: *</label>
+                                <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva com o máximo de detalhes possível" required></textarea>
                             </div>
                         </div>
 

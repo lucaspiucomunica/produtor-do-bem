@@ -1180,6 +1180,7 @@
         text-sm font-semibold
     }
 
+    .progress-bar-container .progress-steps .progress-step.checked .progress-step-number,
     .progress-bar-container .progress-steps .progress-step.active .progress-step-number {
         @apply
         bg-primario-principal
@@ -1191,12 +1192,12 @@
         text-primario-variacao-5
     }
 
-    .progress-bar-container .progress-steps .progress-step.active .progress-step-number .number {
+    .progress-bar-container .progress-steps .progress-step.checked .progress-step-number .number {
         @apply
         hidden
     }
 
-    .progress-bar-container .progress-steps .progress-step.active .progress-step-number .check {
+    .progress-bar-container .progress-steps .progress-step.checked .progress-step-number .check {
         @apply
         flex items-center justify-center
     }
@@ -1244,10 +1245,102 @@
         mb-2
     }
 
+    .multi-step-form-container .form-step .step-content .content-header .step-description {
+        @apply
+        text-neutro-variacao-5
+    }
+
     .multi-step-form-container .form-step .step-content .form-navigation {
         @apply
         w-full
-        flex flex-row items-center justify-center gap-6
+        flex flex-row items-center justify-center gap-4
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields {
+        @apply
+        w-full max-w-[400px] mx-auto
+        flex flex-col items-start justify-start gap-4
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group {
+        @apply
+        w-full
+        flex flex-col items-start justify-start gap-2
+    }
+    
+    .multi-step-form-container .form-step .step-content .form-fields .form-group > label {
+        @apply
+        text-sm font-semibold
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group input,
+    .multi-step-form-container .form-step .step-content .form-fields .form-group textarea {
+        @apply
+        w-full
+        px-6 py-3
+        border-2 border-neutro-variacao-1
+        text-primario-variacao-5 text-lg
+        rounded-full
+        ring-0 ring-transparent outline-none
+        focus:ring-2 focus:ring-primario-principal
+        transition-all duration-300
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields.text-area-group {
+        @apply
+        max-w-[600px]
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields.text-area-group .form-group textarea {
+        @apply
+        rounded-2xl resize-none
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group input::placeholder {
+        @apply
+        text-neutro-variacao-3
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group .error-message {
+        @apply
+        text-danger-principal text-xs font-semibold
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group .form-group-options {
+        @apply
+        w-full
+        flex flex-col items-start justify-start gap-2
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group .form-group-options label {
+        @apply
+        w-full
+        px-4 py-3
+        border-2 border-neutro-variacao-1
+        rounded-xl
+        cursor-pointer
+        transition-all duration-200
+        hover:border-primario-principal
+        hover:bg-primario-principal/5
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group .form-group-options label.selected {
+        @apply
+        border-primario-principal
+        bg-neutro-principal
+        text-primario-principal
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group .form-group-options label .form-group-option-title {
+        @apply
+        text-sm
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields .form-group .form-group-options label input {
+        @apply
+        w-full
+        flex flex-row items-center justify-start gap-2
+        hidden
     }
 
 }
