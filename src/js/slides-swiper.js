@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     const swiperCardsRotate = new Swiper('.swiper-cards-rotate', {
         speed: 400,
-        spaceBetween: 24,
+        spaceBetween: 0,
         slidesPerView: 3,
         grabCursor: true,
     });

@@ -440,6 +440,7 @@
         w-full min-h-[420px] h-full
         rounded-4xl
         outline-2 -outline-offset-2 outline outline-secundario-principal
+        bg-neutro-branco
         p-10
         flex flex-col items-start justify-between gap-10
     }
@@ -862,7 +863,7 @@
     .timeline-1 .timeline-1-line-line-progress {
         @apply
         absolute top-0 left-1/2 -translate-x-1/2  z-10
-        w-2 h-1/2 bg-limao-variacao-1 rounded-full
+        w-2 bg-limao-variacao-1 rounded-full
     }
 
     .timeline-1 .timeline-1-line-dots {
@@ -874,6 +875,7 @@
     .timeline-1 .timeline-1-line-dot {
         @apply
         w-8 h-8 bg-neutro-variacao-2 rounded-full
+        transition-all duration-300
     }
 
     .timeline-1 .timeline-1-line-dot.item-active {

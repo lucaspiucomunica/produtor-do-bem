@@ -16,7 +16,7 @@ $cta_destino = get_field('cta_destino');
         <div class="flex justify-center">
             <div class="content-cta">
                 <div class="content-text">
-                    <h2><?php echo $cta_cta['titulo'] . '<span class="destaque">' . $cta_cta['destaque'] . '</span>'; ?></h2>
+                    <h2><span class="title"><?php echo $cta_cta['titulo'] . '</span><span class="destaque">' . $cta_cta['destaque'] . '</span>'; ?></h2>
                 </div>
                 <div class="content-button">
                     <a href="<?php echo esc_url($cta_destino); ?>" class="btn-cta">

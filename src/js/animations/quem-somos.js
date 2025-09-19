@@ -46,7 +46,6 @@ function animateQuemSomosHeroSection() {
     tlHero.from(sectionHeroImageIcons, {
         opacity: 0,
         scale: 0.8,
-        y: 80,
         duration: 0.8,
         ease: 'power2.inOut',
         stagger: 0.2

@@ -89,4 +89,28 @@
         w-full h-auto
     }
 
+    /* Swiper Cards Rotate */
+
+    .swiper-cards-rotate {
+        @apply
+        w-full h-auto
+        overflow-visible
+    }
+
+    .swiper-cards-rotate .swiper-slide:nth-child(4n+1) {
+        @apply rotate-[3deg] top-0;
+    }
+
+    .swiper-cards-rotate .swiper-slide:nth-child(4n+2) {
+        @apply rotate-[-5deg] top-5;
+    }
+
+    .swiper-cards-rotate .swiper-slide:nth-child(4n+3) {
+        @apply rotate-[4deg] top-0;
+    }
+
+    .swiper-cards-rotate .swiper-slide:nth-child(4n+4) {
+        @apply rotate-[-3deg] top-5;
+    }
+
 }

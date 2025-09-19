@@ -17,12 +17,16 @@ if (!$cta_titulo) {
 <section id="cta" class="<?php echo get_class_section(); ?>">
     <div class="container">
         <div class="flex flex-col items-center justify-center gap-6">
-            <div class="content-text text-center">
-                <h2><?php echo str_replace('bem-estar animal', '<span class="destaque">bem-estar animal</span>', $cta_titulo); ?></h2>
+            <div class="animate-1">
+                <div class="content-text text-center">
+                    <h2><?php echo str_replace('bem-estar animal', '<span class="destaque">bem-estar animal</span>', $cta_titulo); ?></h2>
+                </div>
             </div>
-            <a href="<?php echo $cta_destino['url']; ?>" class="btn btn-large">
-                <span><?php echo $cta_destino['title']; ?></span>
-            </a>
+            <div class="animate-2">
+                <a href="<?php echo $cta_destino['url']; ?>" class="btn btn-large">
+                    <span><?php echo $cta_destino['title']; ?></span>
+                </a>
+            </div>
         </div>
     </div>
 </section>

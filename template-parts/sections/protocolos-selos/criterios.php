@@ -31,17 +31,17 @@ if (!$criterios_titulo) {
             <div class="timeline-1 max-w-[876px]">
                 <div class="timeline-1-line">
                     <div class="timeline-1-line-dots">
-                        <?php $count = 0; foreach ($criterio_itens as $criterio_item) : $count++; ?>
-                            <div class="timeline-1-line-dot <?php echo ($count <= 3) ? 'item-active' : ''; ?>"></div>
+                        <?php foreach ($criterio_itens as $criterio_item) : ?>
+                            <div class="timeline-1-line-dot"></div>
                         <?php endforeach; ?>
                     </div>
                     <div class="timeline-1-line-line">
-                        <div class="timeline-1-line-line-progress"></div>
+                        <div class="timeline-1-line-line-progress" style="height: 0%"></div>
                     </div>
                 </div>
                 <div class="timeline-1-items">
                     <?php $count = 0; foreach ($criterio_itens as $criterio_item) : $count++; ?>
-                        <div class="timeline-1-item <?php echo ($count <= 3) ? 'item-active' : ''; ?>">
+                        <div class="timeline-1-item">
                             <div class="timeline-1-item-count">
                                 <div class="timeline-1-item-count-number">
                                     <?php echo $count; ?>

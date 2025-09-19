@@ -28,12 +28,12 @@ if (!$auditorias_titulo) {
             <div class="w-1/2">
                 <div class="flex items-center gap-4">
                     <div class="w-1/2">
-                        <div class="content-image">
+                        <div class="content-image animate-1">
                             <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" class="svg-inline w-full h-auto">
                         </div>
                     </div>
                     <div class="w-1/2">
-                        <div class="content-image content-image--rounded-full content-image--square">
+                        <div class="content-image content-image--rounded-full content-image--square animate-2">
                             <img src="<?php echo $auditorias_imagem['url']; ?>" alt="<?php echo $auditorias_imagem['alt']; ?>" class="w-full h-full object-cover object-center">
                         </div>
                     </div>

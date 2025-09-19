@@ -11,7 +11,7 @@
         <div class="flex justify-center">
             <div class="content-cta">
                 <div class="content-text">
-                    <h2>Quero a <span class="destaque">certificação</span></h2>
+                    <h2><span class="title">Quero a</span> <span class="destaque">certificação</span></h2>
                 </div>
                 <div class="content-button">
                     <a href="<?php echo home_url('/fale-conosco'); ?>" class="btn-cta">

@@ -92,7 +92,7 @@ if (!$o_que_fazemos_titulo) {
                         <div class="swiper swiper-o-que-significa">
                             <div class="swiper-wrapper">
                                 <?php foreach ($o_que_fazemos_o_que_significa['cards'] as $item) : ?>
-                                    <div class="swiper-slide">
+                                    <div class="swiper-slide cursor-hover">
                                         <div class="card-secondary">
                                             <div class="content-text card-secondary-titulo">
                                                 <h4><?php echo $item['titulo']; ?></h4>

@@ -36,6 +36,11 @@
 		wp_enqueue_script( 'produtor-do-bem-animations-quem-somos', get_template_directory_uri() . '/src/js/animations/quem-somos.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 
+	if (is_page('protocolos-e-selos')) {
+		wp_enqueue_script( 'produtor-do-bem-animations-protocolos-e-selos', get_template_directory_uri() . '/src/js/animations/protocolos-e-selos.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+	}
+
+	wp_enqueue_script( 'produtor-do-bem-animations-globals', get_template_directory_uri() . '/src/js/animations/globals.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-theme', get_template_directory_uri() . '/src/js/theme.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 
 	// Localizar script para AJAX
@@ -44,4 +49,4 @@
 		'nonce' => wp_create_nonce( 'multi_step_form_nonce' )
 	));
 }
-add_action( 'wp_enqueue_scripts', 'produtor_do_bem_scripts' ); 
+add_action( 'wp_enqueue_scripts', 'produtor_do_bem_scripts' );
