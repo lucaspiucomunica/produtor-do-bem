@@ -23,15 +23,17 @@ if (!$hero_titulo) {
                 <div class="hero-content">
                     <div class="titulo">
                         <h1>
-                            <?php echo $hero_titulo; ?>
+                            <span class="title"><?php echo $hero_titulo; ?></span>
                             <span class="destaque"><?php echo $hero_titulo_destaque; ?></span>
                         </h1>
                     </div>
                     <div class="subtitulo">
-                        <span class="icon"><?php echo icon('pig'); ?></span>
-                        <span class="icon hidden"><?php echo icon('cow'); ?></span>
-                        <span class="icon hidden"><?php echo icon('chicken'); ?></span>
-                        <span class="icon hidden"><?php echo icon('egg'); ?></span>
+                        <div class="icons">
+                            <span class="icon"><?php echo icon('pig'); ?></span>
+                            <span class="icon"><?php echo icon('cow'); ?></span>
+                            <span class="icon"><?php echo icon('chicken'); ?></span>
+                            <span class="icon"><?php echo icon('egg'); ?></span>
+                        </div>
                         <p><?php echo $hero_subtitulo; ?></p>
                     </div>
                     <div class="botao">

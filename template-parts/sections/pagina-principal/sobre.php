@@ -230,7 +230,9 @@ if (!$sobre_titulo) {
         <div class="flex justify-center p-section-top animate-2">
             <div class="w-full">
                 <div class="texto-engajameto">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Ícone Logo Produtor do Bem" class="svg-inline">
+                    <div class="wrapper-svg">
+                        <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Ícone Logo Produtor do Bem" class="svg-inline">
+                    </div>
                     <div class="content-text">
                         <h2><?php echo $sobre_texto_engajamento; ?></h2>
                     </div>

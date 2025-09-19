@@ -32,15 +32,28 @@
         flex flex-row items-center justify-center gap-3
         text-center text-neutro-branco mb-6
     }
+    
+    .sections-pagina-principal-hero .hero-content .subtitulo p {
+        @apply
+        text-lg
+    }
+    
+    .sections-pagina-principal-hero .hero-content .subtitulo .icons {
+        @apply
+        relative
+        w-8 h-8 min-w-8 min-h-8
+    }
+
+    .sections-pagina-principal-hero .hero-content .subtitulo .icons .icon {
+        @apply
+        absolute
+        top-0 left-0
+        w-8 h-8 min-w-8 min-h-8
+    }
 
     .sections-pagina-principal-hero .hero-content .subtitulo svg {
         @apply
         w-8 h-8 min-w-8 min-h-8
-    }
-
-    .sections-pagina-principal-hero .hero-content .subtitulo p {
-        @apply
-        text-lg
     }
 
     .sections-pagina-principal-hero .hero-bg-video {
@@ -298,9 +311,14 @@
         w-full max-w-[1178px] mx-auto
     }
 
-    .sections-pagina-principal-sobre .texto-engajameto svg {
+    .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg {
         @apply
         w-full h-auto max-w-96
+    }
+
+    .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg svg {
+        @apply
+        w-full h-full
     }
 
     .sections-pagina-principal-sobre .texto-engajameto .content-text h2 {
