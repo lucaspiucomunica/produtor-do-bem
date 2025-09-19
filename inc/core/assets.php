@@ -26,6 +26,7 @@
 
 	if (is_page('fale-conosco')) {
 		wp_enqueue_script( 'produtor-do-bem-contact-form', get_template_directory_uri() . '/src/js/contact-form.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+		wp_enqueue_script( 'produtor-do-bem-animations-fale-conosco', get_template_directory_uri() . '/src/js/animations/fale-conosco.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 
 	if (is_front_page()) {

@@ -29,7 +29,7 @@ if (!$metodo_titulo) {
 
         <div class="flex">
             <div class="swiper swiper-cards-rotate">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper cursor-hover">
                     <?php $i = 0; foreach ($metodo_cards as $metodo_card) : $i++; ?>
                         <div class="swiper-slide">
                             <div class="card-rotate <?php 
