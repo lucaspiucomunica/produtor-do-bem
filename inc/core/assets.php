@@ -32,6 +32,10 @@
 		wp_enqueue_script( 'produtor-do-bem-animations-home', get_template_directory_uri() . '/src/js/animations/home.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 
+	if (is_page('quem-somos')) {
+		wp_enqueue_script( 'produtor-do-bem-animations-quem-somos', get_template_directory_uri() . '/src/js/animations/quem-somos.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+	}
+
 	wp_enqueue_script( 'produtor-do-bem-theme', get_template_directory_uri() . '/src/js/theme.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 
 	// Localizar script para AJAX

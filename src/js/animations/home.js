@@ -1,4 +1,4 @@
-function animateHeroSection() {
+function animateHomeHeroSection() {
     const siteHeader = document.querySelector('.site-header');
     const sectionHero = document.querySelector('#hero');
     const sectionHeroContent = sectionHero.querySelector('.hero-content');
@@ -92,7 +92,7 @@ function animateHeroSection() {
     }, '-=0.6');
 }
 
-function animateSobreSection() {
+function animateHomeSobreSection() {
     const sectionSobre = document.querySelector('#sobre');
     const sectionSobreTitle = sectionSobre.querySelector('.animate-1 h2');
     const sectionSobreDescription = sectionSobre.querySelector('.animate-1 p');
@@ -208,7 +208,7 @@ function animateSobreSection() {
     });
 }
 
-function animateCertificacoesSection() {
+function animateHomeCertificacoesSection() {
     const sectionCertificacoes = document.querySelector('#certificacoes');
     const sectionCertificacoesContent = sectionCertificacoes.querySelector('.cta-certificacoes');
     const sectionCertificacoesTitle = sectionCertificacoes.querySelector('.cta-certificacoes .titulo h2');
@@ -287,9 +287,9 @@ function animateCertificacoesSection() {
  * Função principal que inicializa todas as animações da página.
  */
 function initHomeAnimations() {
-    animateHeroSection();
-    animateSobreSection();
-    animateCertificacoesSection();
+    animateHomeHeroSection();
+    animateHomeSobreSection();
+    animateHomeCertificacoesSection();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
