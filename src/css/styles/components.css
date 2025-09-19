@@ -907,6 +907,12 @@
         @apply
         w-full
         flex flex-col items-start justify-start
+        relative
+    }
+
+    .list-big-link-row ul li:hover {
+        @apply
+        z-10
     }
 
     .list-big-link-row ul li a {
@@ -919,7 +925,7 @@
         transition-all duration-300
     }
     
-    .list-big-link-row ul li a:hover {
+    .list-big-link-row ul li:hover a {
         @apply
         bg-secundario-principal
     }
@@ -935,7 +941,7 @@
         transition-all duration-300
     }
     
-    .list-big-link-row ul li a:hover h4 {
+    .list-big-link-row ul li:hover a h4 {
         @apply
         text-primario-variacao-5
     }
@@ -946,7 +952,7 @@
         transition-all duration-300
     }
 
-    .list-big-link-row ul li a:hover p {
+    .list-big-link-row ul li:hover a p {
         @apply
         text-neutro-branco
     }
@@ -959,9 +965,10 @@
         min-w-[380px] min-h-[380px]
         max-w-[380px] max-h-[380px]
         transition-all duration-300
+        z-50
     }
     
-    .list-big-link-row ul li a:hover .list-big-link-row-image {
+    .list-big-link-row ul li:hover a .list-big-link-row-image {
         @apply
         opacity-100 scale-100
     }

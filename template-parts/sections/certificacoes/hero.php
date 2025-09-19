@@ -21,16 +21,18 @@ if (!$hero_titulo) {
             <div class="hero-content">
                 <div class="titulo">
                     <h1>
-                        <?php echo $hero_titulo; ?>
+                        <span class="title"><?php echo $hero_titulo; ?></span>
                         <span class="destaque"><?php echo $hero_titulo_destaque; ?></span>
                     </h1>
                 </div>
                 <div class="content-text">
                     <?php echo $hero_conteudo; ?>
                 </div>
-                <a href="<?php echo home_url('/fale-conosco'); ?>" class="btn btn-secondary">
-                    <span>Quero a certificação</span>
-                </a>
+                <div class="content-button">
+                    <a href="<?php echo home_url('/fale-conosco'); ?>" class="btn btn-secondary">
+                        <span>Quero a certificação</span>
+                    </a>
+                </div>
             </div>
 
             <div class="hero-ilustracoes">
