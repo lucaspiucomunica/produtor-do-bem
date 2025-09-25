@@ -130,7 +130,7 @@
 
     .site-header.site-header--2 .content-header {
         @apply
-        bg-neutro-preto/[0.04] backdrop-blur-none
+        bg-neutro-preto/[0.04]
     }
 
     .site-header.site-header--2 .site-menu > ul > li > a {
