@@ -29,7 +29,7 @@ if (!$hero_titulo) {
                         <span>Em breve</span>
                     </div>
                     <h1><?php echo $hero_titulo; ?></h1>
-                    <p><?php echo $hero_descricao; ?></p>
+                    <?php echo $hero_descricao; ?>
                     <a href="<?php echo home_url('/fale-conosco'); ?>" class="btn btn-secondary btn-outline">
                         <span>Quero a certificação</span>
                     </a>

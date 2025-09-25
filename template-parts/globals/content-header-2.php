@@ -21,6 +21,7 @@
                     'menu_class'     => 'main-menu',
                     'container'      => false,
                     'fallback_cb'    => false,
+                    'walker'         => new Produtor_Do_Bem_Menu_Walker(),
                 ));
                 ?>
             </div>

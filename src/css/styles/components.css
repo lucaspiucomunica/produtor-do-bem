@@ -1353,4 +1353,44 @@
         hidden
     }
 
+    /* Relation */
+
+    .relation {
+        @apply
+        flex items-center justify-start gap-4
+        p-6 rounded-2xl bg-neutro-principal
+    }
+
+    .relation svg {
+        @apply
+        w-6 h-6 min-w-6 min-h-6
+        *:fill-primario-principal
+    }
+
+    /* List Fontes */
+
+    .list-fontes {
+        @apply
+        flex flex-col items-start justify-start gap-2
+    }
+
+    .list-fontes li {
+        @apply
+        flex flex-row items-center justify-start gap-2
+    }
+    
+    .list-fontes li .number {
+        @apply
+        w-4 h-4 min-w-4 min-h-4
+        bg-primario-principal
+        rounded-full
+        flex items-center justify-center
+        text-neutro-branco text-xs font-semibold
+    }
+    
+    .list-fontes li .text {
+        @apply
+        text-neutro-variacao-5 text-sm font-semibold
+    }
+
 }

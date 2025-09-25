@@ -8,15 +8,15 @@
 // Campos ACF
 $protocolo = get_field('conheca');
 
-if (!$protocolo) {
+if (empty($protocolo) || empty($protocolo['protocolos'])) {
     return;
 }
 ?>
 
 <section id="protocolo" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex mb-10">
-            <div class="content-text">
+        <div class="flex mb-10 gap-10">
+            <div class="content-text max-w-[540px]">
                 <h2><?php echo $protocolo['titulo']; ?></h2>
             </div>
             
@@ -27,7 +27,10 @@ if (!$protocolo) {
 
         <div class="flex mb-6">
             <div class="content-text">
-                <p><?php echo $protocolo['relacao']; ?></p>
+                <div class="relation">
+                    <?php echo icon('hierarchy-3'); ?>
+                    <?php echo $protocolo['relacao']; ?>
+                </div>
             </div>
         </div>
 
@@ -40,7 +43,7 @@ if (!$protocolo) {
                         <h3 class="sr-only"><?php echo $item['nome_protocolo']; ?></h3>
                         <div class="tag-1 <?php echo $tag_class; ?>">
                             <img src="<?php echo get_template_directory_uri(); ?>/src/img/forma-pingo.svg" class="svg-inline">
-                            <span><?php echo $item['nome_protocolo']; ?></span>
+                            <span><?php echo $item['nome_protocolo']; ?><?php if (!empty($item['fonte'])) : ?><sup><?php echo $item['fonte']; ?></sup><?php endif; ?></span>
                         </div>
                     </div>
                     <div class="card-protocol-nivel-selo">
@@ -50,7 +53,9 @@ if (!$protocolo) {
                         <?php foreach ($item['lista'] as $item_item) : ?>
                             <li>
                                 <span class="card-protocol-nivel-lista-tag"><?php echo $item_item['tag']; ?></span>
-                                <span class="card-protocol-nivel-lista-texto"><?php echo $item_item['texto']; ?></span>
+                                <?php foreach ($item_item['textos'] as $texto_item) : ?>
+                                    <span class="card-protocol-nivel-lista-texto"><?php echo $texto_item['texto']; ?><?php if (!empty($texto_item['fonte'])) : ?><sup><?php echo $texto_item['fonte']; ?></sup><?php endif; ?></span>
+                                <?php endforeach; ?>
                             </li>
                         <?php endforeach; ?>
                     </ul>
@@ -72,5 +77,18 @@ if (!$protocolo) {
                 </div>
             <?php endforeach; ?>
         </div>
+
+        <?php if (!empty($protocolo['fontes'])) : ?>
+            <div class="flex mt-6">
+                <ul class="list-fontes">
+                    <?php $i = 0; foreach ($protocolo['fontes'] as $fonte) : $i++; ?>
+                        <li>
+                            <span class="number"><?php echo $i; ?></span>
+                            <span class="text"><?php echo $fonte['texto']; ?></span>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
     </div>
 </section>

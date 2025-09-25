@@ -45,6 +45,7 @@
 		wp_enqueue_script( 'produtor-do-bem-animations-certificacoes', get_template_directory_uri() . '/src/js/animations/certificacoes.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 
+	wp_enqueue_script( 'produtor-do-bem-menu', get_template_directory_uri() . '/src/js/menu.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-animations-globals', get_template_directory_uri() . '/src/js/animations/globals.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-theme', get_template_directory_uri() . '/src/js/theme.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 

@@ -27,18 +27,106 @@
         flex items-center gap-2
     }
 
+    .site-header .site-menu > ul > li {
+        @apply
+        relative
+        inline-flex items-center
+    }
+
     .site-header .site-menu > ul > li > a {
         @apply
         inline-flex items-center gap-2
         text-neutro-branco font-semibold text-lg text-center
         px-4 py-1 rounded-full
-        bg-transparent hover:bg-primario-variacao-4 transition-all duration-300
+        bg-transparent transition-all duration-300
+    }
+
+    .site-header .site-menu > ul > li:hover > a,
+    .site-header .site-menu > ul > li.active > a {
+        @apply
+        bg-primario-variacao-4
+    }
+
+    .site-header .site-menu > ul > li.menu-item-has-children > a {
+        @apply
+        pl-4 pr-10
     }
 
     .site-header .site-menu > ul > li.current-menu-item > a {
         @apply
         bg-primario-variacao-4
     }
+
+    .site-header .site-menu > ul > li > .submenu-toggle {
+        @apply
+        absolute top-1/2 right-1 -translate-y-1/2
+        inline-flex items-center justify-center
+        w-7 h-7 min-h-7 min-w-7 rounded-full
+        bg-transparent hover:bg-primario-principal
+        transition-all duration-300
+    }
+
+    .site-header .site-menu > ul > li > .submenu-toggle svg {
+        @apply
+        w-5 h-5 min-w-5 min-h-5
+        *:fill-neutro-branco
+        transition-all duration-300
+    }
+
+    .site-header .site-menu > ul > li > .submenu-toggle.active {
+        @apply
+        bg-primario-principal
+    }
+
+    .site-header .site-menu > ul > li > .submenu-toggle.active svg {
+        @apply
+        -rotate-180
+    }
+
+    .site-header .site-menu > ul > li > .sub-menu-wrapper {
+        @apply
+        hidden fixed top-0 left-0
+        w-full
+    }
+
+    .site-header .site-menu > ul > li > .sub-menu-wrapper.active {
+        @apply
+        flex
+    }
+
+    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu {
+        @apply
+        w-full
+        grid grid-flow-col auto-cols-fr gap-2
+        p-2 rounded-3xl
+        bg-limao-variacao-1
+    }
+
+    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li > a {
+        @apply
+        flex flex-col gap-2 items-center justify-center
+        text-center h-full hover:bg-limao-variacao-2
+        transition-all duration-300
+        p-2 rounded-2xl
+    }
+
+    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li.current-menu-item > a {
+        @apply
+        bg-limao-variacao-2
+    }
+
+    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-text {
+        @apply
+        text-sm font-semibold
+    }
+
+    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-icon svg {
+        @apply
+        w-8 h-8 min-w-8 min-h-8
+        *:fill-primario-variacao-3
+    }
+
+    /* Header 2 */
 
     .site-header.site-header--2 .content-header {
         @apply
@@ -48,7 +136,13 @@
     .site-header.site-header--2 .site-menu > ul > li > a {
         @apply
         text-primario-variacao-3
-        hover:bg-neutro-principal
+        bg-transparent
+    }
+
+    .site-header.site-header--2 .site-menu > ul > li:hover > a,
+    .site-header.site-header--2 .site-menu > ul > li.active > a {
+        @apply
+        bg-neutro-principal
     }
 
     .site-header.site-header--2 .site-menu > ul > li.current-menu-item > a {
@@ -56,9 +150,19 @@
         bg-neutro-principal
     }
 
-    .site-header .site-menu > ul > li > .sub-menu {
+    .site-header.site-header--2 .site-menu > ul > li > .submenu-toggle svg {
         @apply
-        hidden
+        *:fill-primario-variacao-3
+    }
+
+    .site-header.site-header--2 .site-menu > ul > li > .submenu-toggle {
+        @apply
+        hover:bg-limao-variacao-1
+    }
+
+    .site-header.site-header--2 .site-menu > ul > li > .submenu-toggle.active {
+        @apply
+        bg-limao-variacao-1
     }
 
     /* Footer */

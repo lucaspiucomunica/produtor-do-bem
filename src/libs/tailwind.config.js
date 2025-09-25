@@ -18,6 +18,10 @@ module.exports = {
     // Outras classes dinâmicas se necessário
     'p-section',
     'p-section-top',
+    'grid-cols-1',
+    'grid-cols-2',
+    'grid-cols-3',
+    'grid-cols-4',
   ],
 
   // Estilos
