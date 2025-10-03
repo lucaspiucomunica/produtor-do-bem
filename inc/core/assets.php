@@ -52,11 +52,17 @@
 	wp_enqueue_script( 'produtor-do-bem-menu', get_template_directory_uri() . '/src/js/menu.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-animations-globals', get_template_directory_uri() . '/src/js/animations/globals.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-theme', get_template_directory_uri() . '/src/js/theme.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+	wp_enqueue_script( 'produtor-do-bem-modal-denuncia', get_template_directory_uri() . '/src/js/modal-denuncia.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 
 	// Localizar script para AJAX
 	wp_localize_script( 'produtor-do-bem-contact-form', 'contact_form_ajax', array(
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'nonce' => wp_create_nonce( 'multi_step_form_nonce' )
+	));
+
+	wp_localize_script( 'produtor-do-bem-modal-denuncia', 'denuncia_ajax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'denuncia_form_nonce' )
 	));
 }
 add_action( 'wp_enqueue_scripts', 'produtor_do_bem_scripts' );

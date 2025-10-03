@@ -59,6 +59,16 @@
         p-3 rounded-full
     }
 
+    .btn.btn-icon.btn-small {
+        @apply
+        p-2
+    }
+
+    .btn.btn-icon.btn-small svg {
+        @apply
+        w-4 h-4 min-w-4 min-h-4
+    }
+
     /* Tags */
 
     .tag-1 {
@@ -217,6 +227,16 @@
     .content-icon.content-icon--secundario svg {
         @apply
         fill-primario-variacao-3
+    }
+
+    .content-icon.content-icon--danger {
+        @apply
+        bg-danger-principal
+    }
+
+    .content-icon.content-icon--danger svg {
+        @apply
+        fill-neutro-branco
     }
 
     /* Navegação de carrossel */
@@ -1391,6 +1411,140 @@
     .list-fontes li .text {
         @apply
         text-neutro-variacao-5 text-sm font-semibold
+    }
+
+    /* Modal */
+
+    .modal-overlay {
+        @apply
+        fixed inset-0 z-50
+        flex items-center justify-center
+        bg-primario-variacao-5/80 backdrop-blur-sm
+        transition-opacity duration-300
+    }
+
+    .modal-overlay.hidden {
+        @apply
+        opacity-0 pointer-events-none
+    }
+
+    .modal-container {
+        @apply
+        relative
+        w-full max-w-[600px] mx-4
+        bg-neutro-branco
+        rounded-3xl
+        shadow-2xl
+        max-h-[90vh] overflow-y-auto
+    }
+
+    /* Esconder scrollbar mas manter funcionalidade */
+    .modal-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .modal-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .modal-close {
+        @apply
+        absolute top-4 right-4 z-10
+    }
+
+    .modal-content {
+        @apply
+        p-10
+    }
+
+    .modal-state {
+        @apply
+        flex flex-col gap-6
+    }
+
+    .modal-state.hidden {
+        display: none;
+    }
+
+    .modal-header {
+        @apply
+        flex flex-row items-center gap-4
+    }
+
+    .modal-title {
+        @apply
+        text-3xl font-bold mb-1
+    }
+
+    .modal-description {
+        @apply
+        text-neutro-variacao-5
+    }
+
+    .modal-body {
+        @apply
+        flex flex-col gap-6
+    }
+
+    .modal-footer {
+        @apply
+        flex flex-col sm:flex-row items-center justify-center gap-4
+        mt-6
+    }
+
+    .modal-footer .btn {
+        @apply
+        w-full sm:w-auto
+    }
+
+    .modal-state.modal-state-success .modal-footer {
+        @apply
+        mt-0
+    }
+
+    .denuncia-form .form-fields {
+        @apply
+        flex flex-col gap-4
+    }
+
+    .denuncia-form .form-group {
+        @apply
+        flex flex-col gap-2
+    }
+
+    .denuncia-form .form-group > label {
+        @apply
+        text-sm font-semibold text-primario-principal
+    }
+
+    .denuncia-form .form-group input,
+    .denuncia-form .form-group textarea {
+        @apply
+        w-full
+        px-6 py-3
+        border-2 border-neutro-variacao-1
+        text-primario-variacao-5 text-lg
+        rounded-full
+        ring-0 ring-transparent outline-none
+        focus:ring-2 focus:ring-primario-principal
+        transition-all duration-300
+    }
+
+    .denuncia-form .form-group textarea {
+        @apply
+        rounded-2xl resize-none
+    }
+
+    .denuncia-form .form-group input::placeholder,
+    .denuncia-form .form-group textarea::placeholder {
+        @apply
+        text-neutro-variacao-3
+    }
+
+    .denuncia-form .form-group .error-message {
+        @apply
+        text-danger-principal text-xs font-semibold
     }
 
 }

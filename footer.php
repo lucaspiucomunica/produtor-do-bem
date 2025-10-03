@@ -10,6 +10,8 @@
         </div>
     </div>
 
+    <?php get_template_part('template-parts/modals/modal-denuncia'); ?>
+
     <?php wp_footer(); ?>
 
     </body>

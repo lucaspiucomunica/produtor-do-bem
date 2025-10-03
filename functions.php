@@ -29,3 +29,4 @@ require_once('inc/hooks/helpers.php');
 
 // AJAX handlers
 require_once('inc/ajax/contact-form-handler.php');
+require_once('inc/ajax/denuncia-handler.php');

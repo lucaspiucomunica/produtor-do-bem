@@ -78,7 +78,7 @@ $nome_e_cnpj = get_field('nome_e_cnpj', 'option');
                     </div>
 
                     <div class="content-extra">
-                        <button class="btn btn-danger btn-small">
+                        <button class="btn btn-danger btn-small" data-modal="denuncia">
                             <?php echo icon('warning-2'); ?>
                             <span>Quero fazer uma denúncia</span>
                         </button>

@@ -284,7 +284,7 @@
         </div>
 
         <div class="flex items-center justify-center">
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" data-modal="denuncia">
                 <?php echo icon('warning-2'); ?>
                 <span>Quero fazer uma denúncia</span>
             </button>
