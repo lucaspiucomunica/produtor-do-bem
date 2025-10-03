@@ -15,7 +15,7 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
 
 <section id="protocolo" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex mb-10 gap-10">
+        <div class="flex mb-10 gap-10 protocolo-content">
             <div class="content-text max-w-[540px]">
                 <h2><?php echo $protocolo['titulo']; ?></h2>
             </div>
@@ -25,7 +25,7 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
             </div>
         </div>
 
-        <div class="flex mb-6">
+        <div class="flex mb-6 protocolo-relation">
             <div class="content-text">
                 <div class="relation">
                     <?php echo icon('hierarchy-3'); ?>
@@ -34,7 +34,7 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
             </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-6 items-start">
+        <div class="grid grid-cols-3 gap-6 items-start protocolo-cards">
             <?php foreach ($protocolo['protocolos'] as $index => $item) :
                 $tag_class = ($index === 0) ? 'tag-1--primario-principal' : 'tag-1--primario-variacao-' . $index;
             ?>

@@ -35,7 +35,7 @@ if (!$hero_titulo) {
         </div>
 
         <?php if ($hero_destaques_subtitulo) : ?>
-        <div class="flex mt-20 mb-10">
+        <div class="flex mt-20 mb-10 hero-destaques-subtitulo">
             <div class="content-text content-text--light">
                 <h2><?php echo $hero_destaques_subtitulo; ?></h2>
             </div>
@@ -61,7 +61,7 @@ if (!$hero_titulo) {
         <?php endif; ?>
 
         <?php if ($hero_infos_extras) : ?>
-        <div class="flex mt-10">
+        <div class="flex mt-10 hero-infos-extras">
             <div class="content-text content-text--light">
                 <p><?php echo $hero_infos_extras; ?></p>
             </div>
