@@ -66,6 +66,7 @@ function animateCertificacoesMetodoSection() {
     const sectionMetodo = document.querySelector('#metodo');
     const sectionMetodoTitle = sectionMetodo.querySelector('.content-text h2');
     const sectionMetodoContent = sectionMetodo.querySelector('.content-text p');
+    const sectionMetodoNavigation = sectionMetodo.querySelector('.navigation-carrossel');
     const sectionMetodoCards = sectionMetodo.querySelectorAll('.card-rotate');
 
     const tlMetodo = gsap.timeline({
@@ -88,6 +89,12 @@ function animateCertificacoesMetodoSection() {
     tlMetodo.from(sectionMetodoContent, {
         opacity: 0,
         y: 40,
+        duration: 0.8,
+        ease: 'power2.inOut',
+    }, '-=0.6');
+
+    tlMetodo.from(sectionMetodoNavigation, {
+        opacity: 0,
         duration: 0.8,
         ease: 'power2.inOut',
     }, '-=0.6');

@@ -16,7 +16,7 @@ if (!$o_que_fazemos_titulo) {
 }
 ?>
 
-<section id="o-que-fazemos" class="<?php echo get_class_section(); ?> carrossel-o-que-fazemos">
+<section id="o-que-fazemos" class="<?php echo get_class_section(); ?>">
     <div class="container">
         <div class="flex mb-10">
             <div class="w-full flex items-end justify-between gap-10">
@@ -25,15 +25,17 @@ if (!$o_que_fazemos_titulo) {
                     <p class="max-w-[660px]"><?php echo $o_que_fazemos_descricao; ?></p>
                 </div>
 
-                <div class="navigation-carrossel">
-                    <div class="navigation-item navigation-item--prev">
-                        <div class="btn btn-icon">
-                            <?php echo icon('arrow-square-left'); ?>
+                <div class="swiper-carrossel-o-que-fazemos-navigation">
+                    <div class="navigation-carrossel">
+                        <div class="navigation-item navigation-item--prev">
+                            <div class="btn btn-icon">
+                                <?php echo icon('arrow-square-left'); ?>
+                            </div>
                         </div>
-                    </div>
-                    <div class="navigation-item navigation-item--next">
-                        <div class="btn btn-icon">
-                            <?php echo icon('arrow-square-right'); ?>
+                        <div class="navigation-item navigation-item--next">
+                            <div class="btn btn-icon">
+                                <?php echo icon('arrow-square-right'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -84,6 +86,20 @@ if (!$o_que_fazemos_titulo) {
                         <div class="content-text">
                             <h3><?php echo $o_que_fazemos_o_que_significa['titulo']; ?></h3>
                             <p><?php echo $o_que_fazemos_o_que_significa['descricao']; ?></p>
+                        </div>
+                        <div class="swiper-carrossel-o-que-significa-navigation mt-6">
+                            <div class="navigation-carrossel">
+                                <div class="navigation-item navigation-item--prev">
+                                    <div class="btn btn-icon">
+                                        <?php echo icon('arrow-square-left'); ?>
+                                    </div>
+                                </div>
+                                <div class="navigation-item navigation-item--next">
+                                    <div class="btn btn-icon">
+                                        <?php echo icon('arrow-square-right'); ?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="progress-carrossel"></div>
                     </div>

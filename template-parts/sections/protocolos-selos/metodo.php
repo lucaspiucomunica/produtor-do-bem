@@ -16,9 +16,24 @@ if (!$metodo_titulo) {
 
 <section id="metodo" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex mb-10">
+        <div class="flex items-end justify-between gap-10 mb-10">
             <div class="content-text max-w-[780px]">
                 <h2><?php echo $metodo_titulo; ?></h2>
+            </div>
+
+            <div class="swiper-cards-rotate-navigation">
+                <div class="navigation-carrossel">
+                    <div class="navigation-item navigation-item--prev">
+                        <div class="btn btn-icon">
+                            <?php echo icon('arrow-square-left'); ?>
+                        </div>
+                    </div>
+                    <div class="navigation-item navigation-item--next">
+                        <div class="btn btn-icon">
+                            <?php echo icon('arrow-square-right'); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

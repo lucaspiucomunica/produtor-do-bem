@@ -25,6 +25,21 @@ if (!$metodo_titulo) {
             <div class="content-text w-full">
                 <?php echo $metodo_conteudo; ?>
             </div>
+
+            <div class="swiper-cards-rotate-navigation">
+                <div class="navigation-carrossel">
+                    <div class="navigation-item navigation-item--prev">
+                        <div class="btn btn-icon">
+                            <?php echo icon('arrow-square-left'); ?>
+                        </div>
+                    </div>
+                    <div class="navigation-item navigation-item--next">
+                        <div class="btn btn-icon">
+                            <?php echo icon('arrow-square-right'); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="flex">

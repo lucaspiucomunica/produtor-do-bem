@@ -90,7 +90,7 @@ function animateQuemSomosOQueFazemosSection() {
     const sectionOQueFazemos = document.querySelector('#o-que-fazemos');
     const sectionOQueFazemosTitle = sectionOQueFazemos.querySelector('.content-text h2');
     const sectionOQueFazemosDescription = sectionOQueFazemos.querySelector('.content-text p');
-    const sectionOQueFazemosNavigation = sectionOQueFazemos.querySelector('.navigation-carrossel');
+    const sectionOQueFazemosCarrosselSignificaNavigation = sectionOQueFazemos.querySelector('.carrossel-o-que-significa .swiper-carrossel-o-que-significa-navigation');
     const sectionOQueFazemosSwiper = sectionOQueFazemos.querySelector('.swiper-o-que-fazemos');
     const sectionOQueFazemosCarrosselSignifica = sectionOQueFazemos.querySelector('.carrossel-o-que-significa');
     const sectionOQueFazemosCarrosselSignificaTitle = sectionOQueFazemos.querySelector('.carrossel-o-que-significa .content-text h3');
@@ -122,12 +122,11 @@ function animateQuemSomosOQueFazemosSection() {
         ease: 'power2.inOut'
     }, '-=0.6');
 
-    tlOQueFazemos.from(sectionOQueFazemosNavigation, {
+    tlOQueFazemos.from(sectionOQueFazemosCarrosselSignificaNavigation, {
         opacity: 0,
-        scale: 0.8,
         duration: 0.8,
         ease: 'power2.inOut'
-    }, '-=0.6');
+    }, '-=0.4');
     
     tlOQueFazemos.from(sectionOQueFazemosSwiper, {
         opacity: 0,

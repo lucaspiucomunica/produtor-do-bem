@@ -136,6 +136,7 @@ function animateProtocolosSelosCriteriosSection() {
 function animateProtocolosSelosMetodoSection() {
     const sectionMetodo = document.querySelector('#metodo');
     const sectionMetodoTitle = sectionMetodo.querySelector('.content-text h2');
+    const sectionMetodoNavigation = sectionMetodo.querySelector('.navigation-carrossel');
     const sectionMetodoCards = sectionMetodo.querySelectorAll('.card-rotate');
 
     const tlMetodo = gsap.timeline({
@@ -155,13 +156,19 @@ function animateProtocolosSelosMetodoSection() {
         ease: 'power2.inOut',
     });
 
+    tlMetodo.from(sectionMetodoNavigation, {
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power2.inOut',
+    }, '-=0.6');
+
     tlMetodo.from(sectionMetodoCards, {
         opacity: 0,
         rotate: 10,
         x: 400,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.4,
+        duration: 0.6,
+        ease: 'ease.inOut',
+        stagger: 0.2,
     }, '-=0.6');
 }
 
