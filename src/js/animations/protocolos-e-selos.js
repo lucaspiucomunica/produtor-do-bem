@@ -297,6 +297,7 @@ function animateProtocolosSelosProtocolosSection() {
     const sectionProtocolos = document.querySelector('#protocolos');
     const sectionProtocolosContent = sectionProtocolos.querySelector('.sections-protocolos-selos-protocolos-content');
     const sectionProtocolosTitle = sectionProtocolos.querySelector('.content-text h2');
+    const sectionProtocolosCards = sectionProtocolos.querySelectorAll('.card-protocolo-link-wrapper');
 
     gsap.from(sectionProtocolosContent, {
         scale: 0.8,
@@ -328,6 +329,14 @@ function animateProtocolosSelosProtocolosSection() {
         stagger: 0.05,
         ease: 'power2.inOut',
     });
+
+    tlProtocolos.from(sectionProtocolosCards, {
+        opacity: 0,
+        scale: 0.8,
+        duration: 0.4,
+        ease: 'power2.inOut',
+        stagger: 0.1,
+    }, '-=0.8');
 }
 
 function initProtocolosSelosAnimations() {

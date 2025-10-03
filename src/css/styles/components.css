@@ -737,6 +737,45 @@
         text-xs font-regular
     }
 
+    /* Card Link Protocolo */
+
+    .card-protocolo-link {
+        @apply
+        w-full h-full
+        px-6 py-8 border-2 border-secundario-principal rounded-3xl
+        flex items-center justify-between gap-6
+        transition-all duration-300
+    }
+
+    .card-protocolo-link-title {
+        @apply
+        text-2xl font-semibold
+    }
+
+    .protocolo-link-card-btn {
+        @apply
+        w-12 h-12 min-w-12 min-h-12
+        flex items-center justify-center
+        rounded-full bg-limao-variacao-1
+    }
+
+    .protocolo-link-card-btn svg {
+        @apply
+        w-6 h-6 min-w-6 min-h-6
+        fill-primario-variacao-3
+    }
+
+    .card-protocolo-link:hover {
+        @apply
+        bg-primario-variacao-5
+        border-primario-variacao-5
+    }
+
+    .card-protocolo-link:hover .card-protocolo-link-title {
+        @apply
+        text-limao-variacao-1
+    }
+
     /* CTA */
 
     .cta-1 {
