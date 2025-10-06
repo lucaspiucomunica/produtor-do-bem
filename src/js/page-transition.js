@@ -41,12 +41,12 @@ function firstVisitTransition() {
             // Remove overlay da DOM
             overlay.remove();
 
-            // Revela as barras e posiciona fora da tela (acima) para transitionOut
+            // Revela as barras e posiciona fora da tela (embaixo) para próximo transitionOut
             const bars = document.querySelectorAll('.page-transition-bar');
             if (bars.length > 0) {
                 const barsContainer = document.querySelector('.page-transition-bars');
                 gsap.set(barsContainer, { opacity: 1, visibility: 'visible' });
-                gsap.set(bars, { yPercent: -100 });
+                gsap.set(bars, { yPercent: 100 });
             }
 
             // Remove classe ativa do body
@@ -114,7 +114,7 @@ function firstVisitTransition() {
 
 /**
  * Transição de entrada (ao carregar página)
- * Barras sobem de baixo para cima revelando o conteúdo
+ * Barras sobem saindo da tela revelando o conteúdo
  */
 function transitionIn() {
     const bars = document.querySelectorAll('.page-transition-bar');
@@ -122,10 +122,10 @@ function transitionIn() {
     if (bars.length === 0) return Promise.resolve();
 
     return new Promise((resolve) => {
-        // Resetar posição inicial (barras cobrindo a tela de cima para baixo)
+        // Posição inicial: barras cobrindo a tela (vindas do transition out)
         gsap.set(bars, { yPercent: 0 });
 
-        // Timeline de entrada (barras sobem revelando conteúdo de baixo para cima)
+        // Timeline de entrada (barras sobem saindo da tela)
         const tl = gsap.timeline({
             onComplete: () => {
                 // IMPORTANTE: Adiciona animations-ready APÓS barras terminarem
@@ -140,8 +140,8 @@ function transitionIn() {
             duration: 0.8,
             ease: 'power2.inOut',
             stagger: {
-                each: 0.05,
-                from: 'start'
+                each: 0.1,
+                from: 'end'
             }
         });
     });
@@ -149,7 +149,7 @@ function transitionIn() {
 
 /**
  * Transição de saída (ao clicar em link)
- * Barras descem de cima para baixo cobrindo o conteúdo
+ * Barras preenchem a tela de baixo para cima
  */
 function transitionOut() {
     const bars = document.querySelectorAll('.page-transition-bar');
@@ -157,13 +157,13 @@ function transitionOut() {
     if (bars.length === 0) return Promise.resolve();
 
     return new Promise((resolve) => {
-        // Resetar posição inicial (barras fora da tela, acima)
-        gsap.set(bars, { yPercent: -100 });
+        // Resetar posição inicial (barras fora da tela, embaixo)
+        gsap.set(bars, { yPercent: 100 });
 
         // Adicionar classe ativa no body
         document.body.classList.add('page-transition-active');
 
-        // Timeline de saída (barras descem de cima para baixo cobrindo conteúdo)
+        // Timeline de saída (barras sobem preenchendo a tela)
         const tl = gsap.timeline({
             onComplete: () => {
                 resolve();
@@ -175,7 +175,7 @@ function transitionOut() {
             duration: 0.8,
             ease: 'power2.inOut',
             stagger: {
-                each: 0.05,
+                each: 0.1,
                 from: 'start'
             }
         });

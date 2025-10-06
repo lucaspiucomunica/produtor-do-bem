@@ -36,10 +36,10 @@ $is_first_visit = !$has_visited && $is_home;
     <?php endif; ?>
 
     <!-- Transições Subsequentes - Barras Coloridas (sempre presentes) -->
-    <div class="page-transition-bars" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; flex-direction: row; pointer-events: none; z-index: 1; <?php echo $is_first_visit ? 'opacity: 0; visibility: hidden;' : ''; ?>">
-        <div class="page-transition-bar bar-1" style="flex: 1; height: 100%; transform: translateY(0); will-change: transform;"></div>
-        <div class="page-transition-bar bar-2" style="flex: 1; height: 100%; transform: translateY(0); will-change: transform;"></div>
-        <div class="page-transition-bar bar-3" style="flex: 1; height: 100%; transform: translateY(0); will-change: transform;"></div>
-        <div class="page-transition-bar bar-4" style="flex: 1; height: 100%; transform: translateY(0); will-change: transform;"></div>
+    <div class="page-transition-bars" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; <?php echo $is_first_visit ? 'opacity: 0; visibility: hidden;' : ''; ?>">
+        <div class="page-transition-bar bar-1" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform: translateY(0); will-change: transform;"></div>
+        <div class="page-transition-bar bar-2" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform: translateY(0); will-change: transform;"></div>
+        <div class="page-transition-bar bar-3" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform: translateY(0); will-change: transform;"></div>
+        <div class="page-transition-bar bar-4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; transform: translateY(0); will-change: transform;"></div>
     </div>
 </div>

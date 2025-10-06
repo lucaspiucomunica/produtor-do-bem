@@ -78,19 +78,19 @@
 }
 
 .page-transition-bar.bar-1 {
-    @apply bg-primario-variacao-5;
+    @apply bg-neutro-variacao-6;
 }
 
 .page-transition-bar.bar-2 {
-    @apply bg-secundario-principal;
-}
-
-.page-transition-bar.bar-3 {
     @apply bg-limao-principal;
 }
 
+.page-transition-bar.bar-3 {
+    @apply bg-secundario-principal;
+}
+
 .page-transition-bar.bar-4 {
-    @apply bg-neutro-variacao-6;
+    @apply bg-primario-variacao-5;
 }
 
 /* =====================
