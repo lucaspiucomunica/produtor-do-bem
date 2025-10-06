@@ -30,7 +30,7 @@
 
 	// Swiper
 	wp_enqueue_script( 'produtor-do-bem-swiper', get_template_directory_uri() . '/src/js/libs/swiper-bundle.min.js', array(), PRODUTOR_DO_BEM_VERSION, true );
-	wp_enqueue_script( 'produtor-do-bem-slides-swiper', get_template_directory_uri() . '/src/js/slides-swiper.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+	wp_enqueue_script( 'produtor-do-bem-slides-swiper', get_template_directory_uri() . '/src/js/slides-swiper.js', array('produtor-do-bem-page-transition', 'produtor-do-bem-swiper'), PRODUTOR_DO_BEM_VERSION, true );
 
 	// Base Form (dependência para formulários)
 	wp_enqueue_script( 'produtor-do-bem-base-form', get_template_directory_uri() . '/src/js/base-form.js', array('produtor-do-bem-utils'), PRODUTOR_DO_BEM_VERSION, true );
@@ -85,6 +85,8 @@ add_action( 'wp_enqueue_scripts', 'produtor_do_bem_scripts' );
  */
 function produtor_do_bem_add_type_module($tag, $handle, $src) {
     $module_scripts = array(
+        'produtor-do-bem-page-transition',
+        'produtor-do-bem-slides-swiper',
         'produtor-do-bem-animations-globals',
         'produtor-do-bem-animations-home',
         'produtor-do-bem-animations-quem-somos',
