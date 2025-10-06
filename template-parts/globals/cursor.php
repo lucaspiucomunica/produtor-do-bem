@@ -9,6 +9,8 @@
     border-radius: 50%;
     pointer-events: none;
     z-index: 9999;
+    opacity: 0;
+    transform: scale(0);
 }
 </style>
 

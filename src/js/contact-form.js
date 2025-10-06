@@ -1,5 +1,7 @@
-class MultiStepForm {
+class MultiStepForm extends BaseForm {
     constructor() {
+        super('.multi-step-form-container form');
+
         this.currentStep = 1;
         this.totalSteps = 4;
 
@@ -9,6 +11,14 @@ class MultiStepForm {
         this.formSteps = document.querySelectorAll('.form-step');
 
         if (!this.formContainer) return;
+
+        this.selectors = {
+            step5: '.form-step[data-step="5"]',
+            nome: '#nome',
+            email: '#email',
+            telefone: '#telefone',
+            mensagem: '#mensagem'
+        };
 
         this.init();
     }
@@ -84,157 +94,83 @@ class MultiStepForm {
         this.sendFormData();
     }
 
-    sendFormData() {
-        // Verificar se variáveis AJAX estão disponíveis
-        if (typeof contact_form_ajax === 'undefined') {
-            console.error('Multi-step form - contact_form_ajax não está definido');
-            this.showErrorState();
-            return;
-        }
-
-        console.log('Multi-step form - Variáveis AJAX:', contact_form_ajax);
-
-        // Coletar dados do formulário
-        const formData = this.collectFormData();
-        console.log('Multi-step form - Dados coletados:', formData);
-
-        // Mostrar estado de loading
+    async sendFormData() {
         this.showLoadingState();
 
-        const requestData = {
-            action: 'submit_multi_step_form',
-            nonce: contact_form_ajax.nonce,
-            ...formData
-        };
-
-        console.log('Multi-step form - Dados sendo enviados:', requestData);
-
-        // Enviar via AJAX
-        fetch(contact_form_ajax.ajax_url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(requestData)
-        })
-        .then(response => {
-            console.log('Multi-step form - Resposta HTTP:', response);
-            return response.json();
-        })
-        .then(data => {
-            console.log('Multi-step form - Dados da resposta:', data);
-
-            if (data.success) {
-                console.log('Multi-step form - Sucesso:', data.data);
-                this.showSuccessState();
-            } else {
-                console.error('Multi-step form - Erro do servidor:', data.data);
-                this.showErrorState(data.data);
-            }
-        })
-        .catch(error => {
-            console.error('Multi-step form - Erro na requisição:', error);
-            this.showErrorState({ message: 'Erro de conexão', details: error.message });
-        });
+        try {
+            const formData = this.collectFormData();
+            await this.sendAjaxRequest(
+                window.contact_form_ajax,
+                'submit_multi_step_form',
+                formData
+            );
+            this.showSuccessState();
+        } catch (error) {
+            this.showErrorState({ details: error.message });
+        }
     }
 
     collectFormData() {
         return {
-            nome: document.getElementById('nome')?.value || '',
-            email: document.getElementById('email')?.value || '',
-            telefone: document.getElementById('telefone')?.value || '',
+            nome: document.querySelector(this.selectors.nome)?.value || '',
+            email: document.querySelector(this.selectors.email)?.value || '',
+            telefone: document.querySelector(this.selectors.telefone)?.value || '',
             'eu-sou': document.querySelector('input[name="eu-sou"]:checked')?.value || '',
             motivo: document.querySelector('input[name="motivo"]:checked')?.value || '',
-            mensagem: document.getElementById('mensagem')?.value || ''
+            mensagem: document.querySelector(this.selectors.mensagem)?.value || ''
         };
     }
 
     showLoadingState() {
-        const step5 = this.formContainer.querySelector('.form-step[data-step="5"]');
-        if (!step5) return;
-
-        const loadingState = step5.querySelector('.loading-state');
-        const successState = step5.querySelector('.success-state');
-        const errorState = step5.querySelector('.error-state');
-
-        loadingState?.classList.remove('hidden');
-        successState?.classList.add('hidden');
-        errorState?.classList.add('hidden');
+        const step5 = this.formContainer.querySelector(this.selectors.step5);
+        if (step5) this.showState('loading', step5);
     }
 
     showSuccessState() {
-        const step5 = this.formContainer.querySelector('.form-step[data-step="5"]');
+        const step5 = this.formContainer.querySelector(this.selectors.step5);
         if (!step5) return;
 
-        const loadingState = step5.querySelector('.loading-state');
-        const successState = step5.querySelector('.success-state');
-        const errorState = step5.querySelector('.error-state');
+        this.showState('success', step5);
 
-        loadingState?.classList.add('hidden');
-        successState?.classList.remove('hidden');
-        errorState?.classList.add('hidden');
-
-        // Configurar botão de nova mensagem
-        const newMessageButton = successState.querySelector('.btn-new-message');
+        const newMessageButton = step5.querySelector('.btn-new-message');
         if (newMessageButton) {
-            newMessageButton.onclick = () => this.resetForm();
+            newMessageButton.onclick = () => this.resetMultiStepForm();
         }
     }
 
     showErrorState(errorData = null) {
-        const step5 = this.formContainer.querySelector('.form-step[data-step="5"]');
+        const step5 = this.formContainer.querySelector(this.selectors.step5);
         if (!step5) return;
 
-        const loadingState = step5.querySelector('.loading-state');
-        const successState = step5.querySelector('.success-state');
-        const errorState = step5.querySelector('.error-state');
+        this.showState('error', step5);
 
-        loadingState?.classList.add('hidden');
-        successState?.classList.add('hidden');
-        errorState?.classList.remove('hidden');
+        if (errorData?.details) {
+            ThemeUtils.log('Multi-step form - Detalhes do erro:', errorData.details);
 
-        // Mostrar detalhes do erro se disponível
-        if (errorData && errorData.details) {
-            console.log('Multi-step form - Detalhes do erro:', errorData.details);
-
-            // Opcional: mostrar erro na interface
-            const errorDescription = errorState.querySelector('.step-description');
-            if (errorDescription && errorData.details) {
+            const errorDescription = step5.querySelector('.step-description');
+            if (errorDescription) {
                 errorDescription.textContent = `Erro: ${errorData.details}`;
             }
         }
 
-        // Configurar botões de retry
-        const retryButton = errorState.querySelector('.btn-retry');
-        const newMessageButton = errorState.querySelector('.btn-new-message');
+        const retryButton = step5.querySelector('.btn-retry');
+        const newMessageButton = step5.querySelector('.btn-new-message');
 
         if (retryButton) {
             retryButton.onclick = () => this.sendFormData();
         }
 
         if (newMessageButton) {
-            newMessageButton.onclick = () => this.resetForm();
+            newMessageButton.onclick = () => this.resetMultiStepForm();
         }
     }
 
-    resetForm() {
-        // Limpar todos os campos
-        const inputs = this.formContainer.querySelectorAll('input, textarea');
-        inputs.forEach(input => {
-            if (input.type === 'radio') {
-                input.checked = false;
-                input.closest('label')?.classList.remove('selected');
-            } else {
-                input.value = '';
-            }
-            this.clearFieldError(input);
-        });
+    resetMultiStepForm() {
+        super.resetForm();
 
-        // Limpar erros de grupos
         const formGroups = this.formContainer.querySelectorAll('.form-group');
         formGroups.forEach(group => this.clearGroupError(group));
 
-        // Voltar para o primeiro step
         this.currentStep = 1;
         this.updateUI();
     }
@@ -264,23 +200,13 @@ class MultiStepForm {
     }
 
     validateStep1(step) {
-        const nameInput = step.querySelector('#nome');
+        const nameInput = step.querySelector(this.selectors.nome);
         return this.validateRequiredField(nameInput, 'Por favor, digite seu nome');
     }
 
     validateStep2(step) {
-        const emailInput = step.querySelector('#email');
-        const isEmailValid = this.validateRequiredField(emailInput, 'Por favor, digite um e-mail válido');
-
-        if (isEmailValid && emailInput.value) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value)) {
-                this.showFieldError(emailInput, 'Por favor, digite um e-mail válido');
-                return false;
-            }
-        }
-
-        return isEmailValid;
+        const emailInput = step.querySelector(this.selectors.email);
+        return this.validateEmail(emailInput, 'Por favor, digite um e-mail válido');
     }
 
     validateStep3(step) {
@@ -314,62 +240,8 @@ class MultiStepForm {
     }
 
     validateStep4(step) {
-        const messageInput = step.querySelector('#mensagem');
+        const messageInput = step.querySelector(this.selectors.mensagem);
         return this.validateRequiredField(messageInput, 'Por favor, digite sua mensagem');
-    }
-
-    validateRequiredField(input, errorMessage) {
-        if (!input) return true;
-
-        const isValid = input.value.trim() !== '';
-
-        if (!isValid) {
-            this.showFieldError(input, errorMessage);
-        } else {
-            this.clearFieldError(input);
-        }
-
-        return isValid;
-    }
-
-    showFieldError(input, message) {
-        // Remove error anterior se existir
-        this.clearFieldError(input);
-
-        // Cria novo error-message
-        const errorElement = document.createElement('span');
-        errorElement.className = 'error-message';
-        errorElement.textContent = message;
-
-        // Insere após o input
-        input.parentElement.appendChild(errorElement);
-    }
-
-    clearFieldError(input) {
-        const errorElement = input.parentElement.querySelector('.error-message');
-        if (errorElement) {
-            errorElement.remove();
-        }
-    }
-
-    showGroupError(formGroup, message) {
-        // Remove error anterior se existir
-        this.clearGroupError(formGroup);
-
-        // Cria novo error-message
-        const errorElement = document.createElement('span');
-        errorElement.className = 'error-message';
-        errorElement.textContent = message;
-
-        // Insere no final do form-group
-        formGroup.appendChild(errorElement);
-    }
-
-    clearGroupError(formGroup) {
-        const errorElement = formGroup.querySelector('.error-message');
-        if (errorElement) {
-            errorElement.remove();
-        }
     }
 
     updateUI() {

@@ -1,25 +1,46 @@
+import { ANIMATION_CONFIG as CONFIG } from './animations-config.js';
+import { elementExists, createScrollTimeline, animateTitleLines, animateTitle, animateButton } from './animations-utils.js';
+
 function animateCursor() {
     const cursor = document.querySelector('.cursor');
 
-    if (!cursor) return;
+    if (!elementExists(cursor)) return;
 
     gsap.set(".cursor", {
         xPercent: -50,
         yPercent: -50
     });
-    
+
+    let hasAnimatedIn = false;
+
     const xTo = gsap.quickTo(".cursor", "x", {
         duration: .6,
-        ease: "power3"
+        ease: CONFIG.easing.smooth
     });
     const yTo = gsap.quickTo(".cursor", "y", {
         duration: .6,
-        ease: "power3"
+        ease: CONFIG.easing.smooth
     });
 
     window.addEventListener("mousemove", (e => {
-        xTo(e.clientX);
-        yTo(e.clientY)
+        if (!hasAnimatedIn) {
+            gsap.set(".cursor", {
+                x: e.clientX,
+                y: e.clientY
+            });
+
+            gsap.to(".cursor", {
+                opacity: 1,
+                scale: 1,
+                duration: 0.4,
+                ease: "back.out(1.7)"
+            });
+
+            hasAnimatedIn = true;
+        } else {
+            xTo(e.clientX);
+            yTo(e.clientY);
+        }
     }));
 
     const interactiveElements = document.querySelectorAll("a, button, .cursor-hover, .btn");
@@ -45,40 +66,14 @@ function animateCTA1() {
     const cta1Title = document.querySelector('.cta-1 h2 .title');
     const cta1Destaque = document.querySelector('.cta-1 h2 .destaque');
     const cta1Button = document.querySelector('.cta-1 .content-button');
-    
-    const tlCTA1 = gsap.timeline({
-        scrollTrigger: {
-            trigger: cta1,
-            start: "top 60%",
-            end: "bottom 20%",
-        }
-    });
 
-    const cta1TitleSplit = new SplitText(cta1Title, { type: "lines" });
-    tlCTA1.from(cta1TitleSplit.lines, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    });
+    if (!elementExists(cta1)) return;
 
-    const cta1DestaqueSplit = new SplitText(cta1Destaque, { type: "words" });
-    tlCTA1.from(cta1DestaqueSplit.words, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    }, '-=0.6');
+    const tlCTA1 = createScrollTimeline(cta1);
 
-    tlCTA1.from(cta1Button, {
-        opacity: 0,
-        y: 40,
-        scale: 0.5,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
+    animateTitleLines(tlCTA1, cta1Title, CONFIG.offset.none);
+    animateTitle(tlCTA1, cta1Destaque);
+    animateButton(tlCTA1, cta1Button);
 }
 
 function initGlobalsAnimations() {

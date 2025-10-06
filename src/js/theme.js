@@ -1,100 +1,52 @@
-// Arquivo JavaScript principal do tema
+const ProtocolCards = {
+    checkHeights() {
+        const protocolCards = document.querySelectorAll('.card-protocol');
 
-/**
- * Função para verificar se a lista de protocolos precisa do botão "Ver mais"
- * Compara a altura do .card-protocol-list com .card-protocol-list-wrapper
- * e adiciona a classe .card-protocol-more-active quando necessário
- */
-function checkProtocolCardHeights() {
-    // Seleciona todos os cards de protocolo
-    const protocolCards = document.querySelectorAll('.card-protocol');
-    
-    protocolCards.forEach(card => {
-        const listWrapper = card.querySelector('.card-protocol-list-wrapper');
-        const list = card.querySelector('.card-protocol-list');
-        const moreButton = card.querySelector('.card-protocol-more');
-        
-        // Verifica se todos os elementos existem
-        if (listWrapper && list && moreButton) {
-            // Obtém as alturas dos elementos
-            const wrapperHeight = listWrapper.offsetHeight;
-            const listHeight = list.offsetHeight;
-            
-            // Se a lista for maior que o wrapper, adiciona a classe ativa
-            if (listHeight > wrapperHeight) {
-                moreButton.classList.add('card-protocol-more-active');
-            } else {
-                moreButton.classList.remove('card-protocol-more-active');
+        protocolCards.forEach(card => {
+            const listWrapper = card.querySelector('.card-protocol-list-wrapper');
+            const list = card.querySelector('.card-protocol-list');
+            const moreButton = card.querySelector('.card-protocol-more');
+
+            if (listWrapper && list && moreButton) {
+                const wrapperHeight = listWrapper.offsetHeight;
+                const listHeight = list.offsetHeight;
+
+                moreButton.classList.toggle('card-protocol-more-active', listHeight > wrapperHeight);
             }
-        }
-    });
-}
+        });
+    },
 
-// Executa quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
-    checkProtocolCardHeights();
-});
+    toggle(card) {
+        const button = card.querySelector('.card-protocol-more button span');
+        if (!button) return;
 
-/**
- * Função para alternar o estado expandido/recolhido de um card de protocolo
- * @param {HTMLElement} card - O elemento .card-protocol
- */
-function toggleProtocolCard(card) {
-    const button = card.querySelector('.card-protocol-more button span');
-    
-    if (!button) return;
-    
-    // Verifica se o card está expandido
-    const isExpanded = card.classList.contains('card-protocol-expanded');
-    
-    if (isExpanded) {
-        // Recolher
-        card.classList.remove('card-protocol-expanded');
-        button.textContent = 'Ver todos';
-        card.dataset.expanded = 'false';
-    } else {
-        // Expandir
-        card.classList.add('card-protocol-expanded');
-        button.textContent = 'Ocultar';
-        card.dataset.expanded = 'true';
-    }
-}
+        const isExpanded = card.classList.contains('card-protocol-expanded');
 
-/**
- * Configura os event listeners para os botões de "Ver mais"
- */
-function setupProtocolCardToggle() {
-    const protocolCards = document.querySelectorAll('.card-protocol');
-    
-    protocolCards.forEach(card => {
-        const button = card.querySelector('.card-protocol-more button');
-        
-        if (button) {
-            // Remove event listener anterior se existir
-            button.removeEventListener('click', button.toggleHandler);
-            
-            // Cria nova função handler
-            button.toggleHandler = function(e) {
+        card.classList.toggle('card-protocol-expanded');
+        button.textContent = isExpanded ? 'Ver todos' : 'Ocultar';
+        card.dataset.expanded = !isExpanded;
+    },
+
+    init() {
+        const container = document.querySelector('.card-protocol')?.parentElement;
+        if (!container) return;
+
+        container.addEventListener('click', (e) => {
+            const button = e.target.closest('.card-protocol-more button');
+            if (button) {
                 e.preventDefault();
-                toggleProtocolCard(card);
-            };
-            
-            // Adiciona o event listener
-            button.addEventListener('click', button.toggleHandler);
-            
-            // Inicializa o estado como recolhido
+                const card = button.closest('.card-protocol');
+                this.toggle(card);
+            }
+        });
+
+        document.querySelectorAll('.card-protocol').forEach(card => {
             card.dataset.expanded = 'false';
-        }
-    });
-}
+        });
 
-// Executa quando o DOM estiver carregado
-document.addEventListener('DOMContentLoaded', function() {
-    checkProtocolCardHeights();
-    setupProtocolCardToggle();
-});
+        this.checkHeights();
+    }
+};
 
-// Recalcula as alturas quando a janela for redimensionada
-window.addEventListener('resize', function() {
-    checkProtocolCardHeights();
-});
+document.addEventListener('DOMContentLoaded', () => ProtocolCards.init());
+window.addEventListener('resize', ThemeUtils.debounce(() => ProtocolCards.checkHeights(), 250));

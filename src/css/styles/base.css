@@ -53,4 +53,40 @@
         @apply
         w-full h-auto;
     }
+
+    /* Previne mudanças de altura durante carregamento de Swiper */
+    .swiper {
+        min-height: 0;
+    }
+    
+    .swiper-wrapper {
+        transform: translate3d(0, 0, 0);
+    }
+
+    /* =====================
+       SISTEMA ANTI-FOUC
+       =====================
+       Previne flash de conteúdo não estilizado antes das animações
+       Elementos do conteúdo começam invisíveis e só aparecem quando animations-ready é adicionado
+       IMPORTANTE: Transições de página NÃO são afetadas por estas regras
+    */
+    
+    /* Elementos do conteúdo ficam invisíveis até animations-ready ser adicionado */
+    body:not(.animations-ready) [class*="animate-"],
+    body:not(.animations-ready) .hero-content > *,
+    body:not(.animations-ready) .section-content > *,
+    body:not(.animations-ready) section[id] > *:not(#hero):not(.hero-bg-video):not(.hero-bg-image):not(.hero-ilustracoes) {
+        opacity: 0 !important;
+    }
+
+    /* Header animado apenas na home */
+    body.home:not(.animations-ready) .site-header {
+        opacity: 0 !important;
+    }
+    
+    /* Elementos globais (cursor, CTAs) não são afetados pelo sistema FOUC */
+    .cursor,
+    .cta-1 {
+        opacity: 1 !important;
+    }
 }

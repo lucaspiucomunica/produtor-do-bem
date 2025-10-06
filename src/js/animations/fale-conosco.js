@@ -1,3 +1,6 @@
+import { ANIMATION_CONFIG as CONFIG } from './animations-config.js';
+import { animateTitle, animateText, animateScale, waitForTransition } from './animations-utils.js';
+
 function animateFaleConoscoHeroSection() {
     const sectionHero = document.querySelector('#hero');
     const sectionHeroTitle = sectionHero.querySelector('.content-text h1');
@@ -6,33 +9,16 @@ function animateFaleConoscoHeroSection() {
 
     const tlHero = gsap.timeline();
 
-    const sectionHeroTitleSplit = new SplitText(sectionHeroTitle, { type: "words" });
-    tlHero.from(sectionHeroTitleSplit.words, {
-        opacity: 0,
-        y: 80,
-        duration: 1,
-        ease: 'power2.inOut',
-        stagger: 0.2
-    });
-
-    tlHero.from(sectionHeroContentText, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
-
-    tlHero.from(sectionForm, {
-        opacity: 0,
-        scale: 0.8,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
+    animateTitle(tlHero, sectionHeroTitle, CONFIG.offset.none);
+    animateText(tlHero, sectionHeroContentText);
+    animateScale(tlHero, sectionForm);
 }
 
 function initFaleConoscoAnimations() {
-    animateFaleConoscoHeroSection();
+    // Aguarda transição completar antes de animar hero section
+    waitForTransition(() => {
+        animateFaleConoscoHeroSection();
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {

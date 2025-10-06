@@ -1,11 +1,19 @@
-class ModalDenuncia {
+class ModalDenuncia extends BaseForm {
     constructor() {
+        super('#form-denuncia');
+
         this.modal = document.getElementById('modal-denuncia');
-        this.form = document.getElementById('form-denuncia');
         this.openButtons = document.querySelectorAll('[data-modal="denuncia"]');
         this.closeButtons = this.modal?.querySelectorAll('.modal-close, .btn-close-modal');
 
         if (!this.modal || !this.form) return;
+
+        this.selectors = {
+            nome: '#denuncia-nome',
+            email: '#denuncia-email',
+            telefone: '#denuncia-telefone',
+            mensagem: '#denuncia-mensagem'
+        };
 
         this.init();
     }
@@ -54,7 +62,7 @@ class ModalDenuncia {
         const retryButton = this.modal.querySelector('.btn-retry');
         if (retryButton) {
             retryButton.addEventListener('click', () => {
-                this.showState('form');
+                this.showModalState('form');
             });
         }
     }
@@ -62,7 +70,7 @@ class ModalDenuncia {
     openModal() {
         this.modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        this.showState('form');
+        this.showModalState('form');
     }
 
     closeModal() {
@@ -71,11 +79,9 @@ class ModalDenuncia {
         this.resetForm();
     }
 
-    showState(state) {
+    showModalState(state) {
         const states = this.modal.querySelectorAll('.modal-state');
-        states.forEach(stateEl => {
-            stateEl.classList.add('hidden');
-        });
+        states.forEach(stateEl => stateEl.classList.add('hidden'));
 
         const activeState = this.modal.querySelector(`.modal-state-${state}`);
         if (activeState) {
@@ -84,33 +90,22 @@ class ModalDenuncia {
     }
 
     submitForm() {
-        if (!this.validateForm()) {
-            return;
-        }
+        if (!this.validateForm()) return;
 
-        this.showState('loading');
+        this.showModalState('loading');
         this.sendFormData();
     }
 
     validateForm() {
-        const mensagemInput = this.form.querySelector('#denuncia-mensagem');
-        const emailInput = this.form.querySelector('#denuncia-email');
+        const mensagemInput = this.form.querySelector(this.selectors.mensagem);
+        const emailInput = this.form.querySelector(this.selectors.email);
 
-        // Limpar erros anteriores
         this.clearErrors();
 
-        let isValid = true;
+        let isValid = this.validateRequiredField(mensagemInput, 'Por favor, escreva sua denúncia');
 
-        // Validar mensagem (obrigatória)
-        if (!mensagemInput.value.trim()) {
-            this.showFieldError(mensagemInput, 'Por favor, escreva sua denúncia');
-            isValid = false;
-        }
-
-        // Validar e-mail se preenchido
         if (emailInput.value.trim()) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value)) {
+            if (!ThemeUtils.validateEmail(emailInput.value)) {
                 this.showFieldError(emailInput, 'Por favor, digite um e-mail válido');
                 isValid = false;
             }
@@ -119,84 +114,32 @@ class ModalDenuncia {
         return isValid;
     }
 
-    showFieldError(input, message) {
-        const formGroup = input.closest('.form-group');
-        if (!formGroup) return;
-
-        const errorElement = document.createElement('span');
-        errorElement.className = 'error-message';
-        errorElement.textContent = message;
-        formGroup.appendChild(errorElement);
-    }
-
-    clearErrors() {
-        const errors = this.form.querySelectorAll('.error-message');
-        errors.forEach(error => error.remove());
-    }
-
-    sendFormData() {
-        // Verificar se variáveis AJAX estão disponíveis
-        if (typeof denuncia_ajax === 'undefined') {
-            console.error('Modal denúncia - denuncia_ajax não está definido');
-            this.showState('error');
-            return;
+    async sendFormData() {
+        try {
+            const formData = this.collectFormData();
+            await this.sendAjaxRequest(
+                window.denuncia_ajax,
+                'submit_denuncia',
+                formData
+            );
+            this.showModalState('success');
+        } catch (error) {
+            this.showModalState('error');
+            this.updateErrorMessage({ details: error.message });
         }
-
-        console.log('Modal denúncia - Variáveis AJAX:', denuncia_ajax);
-
-        // Coletar dados do formulário
-        const formData = this.collectFormData();
-        console.log('Modal denúncia - Dados coletados:', formData);
-
-        const requestData = {
-            action: 'submit_denuncia',
-            nonce: denuncia_ajax.nonce,
-            ...formData
-        };
-
-        console.log('Modal denúncia - Dados sendo enviados:', requestData);
-
-        // Enviar via AJAX
-        fetch(denuncia_ajax.ajax_url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(requestData)
-        })
-        .then(response => {
-            console.log('Modal denúncia - Resposta HTTP:', response);
-            return response.json();
-        })
-        .then(data => {
-            console.log('Modal denúncia - Dados da resposta:', data);
-
-            if (data.success) {
-                console.log('Modal denúncia - Sucesso:', data.data);
-                this.showState('success');
-            } else {
-                console.error('Modal denúncia - Erro do servidor:', data.data);
-                this.showState('error');
-                this.updateErrorMessage(data.data);
-            }
-        })
-        .catch(error => {
-            console.error('Modal denúncia - Erro na requisição:', error);
-            this.showState('error');
-        });
     }
 
     collectFormData() {
         return {
-            nome: this.form.querySelector('#denuncia-nome')?.value || '',
-            email: this.form.querySelector('#denuncia-email')?.value || '',
-            telefone: this.form.querySelector('#denuncia-telefone')?.value || '',
-            mensagem: this.form.querySelector('#denuncia-mensagem')?.value || ''
+            nome: this.form.querySelector(this.selectors.nome)?.value || '',
+            email: this.form.querySelector(this.selectors.email)?.value || '',
+            telefone: this.form.querySelector(this.selectors.telefone)?.value || '',
+            mensagem: this.form.querySelector(this.selectors.mensagem)?.value || ''
         };
     }
 
     updateErrorMessage(errorData) {
-        if (!errorData || !errorData.details) return;
+        if (!errorData?.details) return;
 
         const errorState = this.modal.querySelector('.modal-state-error');
         const errorDescription = errorState?.querySelector('.modal-description');
@@ -207,9 +150,8 @@ class ModalDenuncia {
     }
 
     resetForm() {
-        this.form.reset();
-        this.clearErrors();
-        this.showState('form');
+        super.resetForm();
+        this.showModalState('form');
     }
 }
 

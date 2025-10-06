@@ -1,3 +1,17 @@
+import { ANIMATION_CONFIG as CONFIG } from './animations-config.js';
+import {
+    elementExists,
+    createScrollTimeline,
+    animateTitleLines,
+    animateTitle,
+    animateText,
+    animateCards,
+    animateCardsWithScale,
+    animateScaleWithScrub,
+    animateSlideX,
+    waitForTransition
+} from './animations-utils.js';
+
 function animateQuemSomosHeroSection() {
     const sectionHero = document.querySelector('#hero');
     const sectionHeroTitle = sectionHero.querySelector('.hero-content .titulo h1 .title');
@@ -9,57 +23,26 @@ function animateQuemSomosHeroSection() {
 
     const tlHero = gsap.timeline();
 
-    const sectionHeroTitleSplit = new SplitText(sectionHeroTitle, { type: "lines" });
-    tlHero.from(sectionHeroTitleSplit.lines, {
-        opacity: 0,
-        y: 80,
-        duration: 1,
-        ease: 'power2.inOut',
-        stagger: 0.2
-    });
-
-    const sectionHeroTitleDestaqueSplit = new SplitText(sectionHeroTitleDestaque, { type: "words" });
-    tlHero.from(sectionHeroTitleDestaqueSplit.words, {
-        opacity: 0,
-        y: 80,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    }, '-=0.8');
-
-    tlHero.from(sectionHeroContentText, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.2
-    }, '-=0.6');
+    animateTitleLines(tlHero, sectionHeroTitle, CONFIG.offset.none, CONFIG.duration.slow);
+    animateTitleLines(tlHero, sectionHeroTitleDestaque, CONFIG.offset.tight);
+    animateText(tlHero, sectionHeroContentText);
 
     tlHero.from(sectionHeroImageContent, {
         opacity: 0,
-        scale: 0.8,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
+        scale: CONFIG.transform.scale.medium,
+        y: CONFIG.distance.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+    }, CONFIG.offset.normal);
 
-    tlHero.from(sectionHeroImageIcons, {
-        opacity: 0,
-        scale: 0.8,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.2
-    }, '-=0.6');
+    animateCards(tlHero, sectionHeroImageIcons);
 
-
-    gsap.set(sectionHeroImage, {
-        scale: 1,
-    });
+    gsap.set(sectionHeroImage, { scale: 1 });
 
     gsap.to(sectionHeroImage, {
-        scale: 1.2,
-        duration: 0.8,
-        ease: 'power2.inOut',
+        scale: CONFIG.transform.scale.large,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
         scrollTrigger: {
             trigger: sectionHero,
             start: "top 0%",
@@ -68,15 +51,13 @@ function animateQuemSomosHeroSection() {
         }
     });
 
-    gsap.set(sectionHeroImageIcons, {
-        y: 0,
-    });
-    
+    gsap.set(sectionHeroImageIcons, { y: 0 });
+
     gsap.to(sectionHeroImageIcons, {
-        y: -80,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05,
+        y: -CONFIG.distance.large,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+        stagger: CONFIG.stagger.fast,
         scrollTrigger: {
             trigger: sectionHero,
             start: "top 0%",
@@ -90,7 +71,8 @@ function animateQuemSomosOQueFazemosSection() {
     const sectionOQueFazemos = document.querySelector('#o-que-fazemos');
     const sectionOQueFazemosTitle = sectionOQueFazemos.querySelector('.content-text h2');
     const sectionOQueFazemosDescription = sectionOQueFazemos.querySelector('.content-text p');
-    const sectionOQueFazemosCarrosselSignificaNavigation = sectionOQueFazemos.querySelector('.carrossel-o-que-significa .swiper-carrossel-o-que-significa-navigation');
+    const sectionOQueFazemosCarrosselNavigation = sectionOQueFazemos.querySelector('.swiper-carrossel-o-que-fazemos-navigation');
+    const sectionOQueFazemosCarrosselSignificaNavigation = sectionOQueFazemos.querySelector('.swiper-carrossel-o-que-significa-navigation');
     const sectionOQueFazemosSwiper = sectionOQueFazemos.querySelector('.swiper-o-que-fazemos');
     const sectionOQueFazemosCarrosselSignifica = sectionOQueFazemos.querySelector('.carrossel-o-que-significa');
     const sectionOQueFazemosCarrosselSignificaTitle = sectionOQueFazemos.querySelector('.carrossel-o-que-significa .content-text h3');
@@ -98,56 +80,20 @@ function animateQuemSomosOQueFazemosSection() {
     const sectionOQueFazemosCarrosselSignificaProgress = sectionOQueFazemos.querySelector('.carrossel-o-que-significa .progress-carrossel');
     const sectionOQueFazemosCarrosselSignificaSwiper = sectionOQueFazemos.querySelector('.carrossel-o-que-significa .swiper-o-que-significa');
 
-    const tlOQueFazemos = gsap.timeline({
-        scrollTrigger: {
-            trigger: sectionOQueFazemos,
-            start: "top 60%",
-            end: "bottom 20%",
-        }
-    });
+    const tlOQueFazemos = createScrollTimeline(sectionOQueFazemos);
 
-    const splitTitle = new SplitText(sectionOQueFazemosTitle, { type: "words" });
-    tlOQueFazemos.from(splitTitle.words, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    });
+    animateTitle(tlOQueFazemos, sectionOQueFazemosTitle, CONFIG.offset.none);
+    animateText(tlOQueFazemos, sectionOQueFazemosDescription);
 
-    tlOQueFazemos.from(sectionOQueFazemosDescription, {
+    tlOQueFazemos.from(sectionOQueFazemosCarrosselNavigation, {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default
+    }, CONFIG.offset.loose);
 
-    tlOQueFazemos.from(sectionOQueFazemosCarrosselSignificaNavigation, {
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.4');
-    
-    tlOQueFazemos.from(sectionOQueFazemosSwiper, {
-        opacity: 0,
-        x: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
+    animateSlideX(tlOQueFazemos, sectionOQueFazemosSwiper);
 
-    gsap.from(sectionOQueFazemosCarrosselSignifica, {
-        scale: 0.8,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        scrollTrigger: {
-            trigger: sectionOQueFazemosCarrosselSignifica,
-            start: "0% 90%",
-            end: "50% 50%",
-            scrub: true,
-            once: true,
-        }
-    });
+    animateScaleWithScrub(sectionOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignifica);
 
     const tlOQueFazemosCarrosselSignifica = gsap.timeline({
         scrollTrigger: {
@@ -157,35 +103,17 @@ function animateQuemSomosOQueFazemosSection() {
         }
     });
 
-    const splitTitleOQueFazemosCarrosselSignifica = new SplitText(sectionOQueFazemosCarrosselSignificaTitle, { type: "words" });
-    tlOQueFazemosCarrosselSignifica.from(splitTitleOQueFazemosCarrosselSignifica.words, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05,
-    });
+    animateTitle(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaTitle, CONFIG.offset.none);
+    animateText(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaDescription);
 
-    tlOQueFazemosCarrosselSignifica.from(sectionOQueFazemosCarrosselSignificaDescription, {
+    tlOQueFazemosCarrosselSignifica.from(sectionOQueFazemosCarrosselSignificaNavigation, {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default
+    }, CONFIG.offset.loose);
 
-    tlOQueFazemosCarrosselSignifica.from(sectionOQueFazemosCarrosselSignificaProgress, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
-
-    tlOQueFazemosCarrosselSignifica.from(sectionOQueFazemosCarrosselSignificaSwiper, {
-        opacity: 0,
-        x: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
+    animateText(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaProgress);
+    animateSlideX(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaSwiper);
 }
 
 function animateQuemSomosProdutoresEEmpresasSection() {
@@ -194,38 +122,25 @@ function animateQuemSomosProdutoresEEmpresasSection() {
     const sectionProdutoresEEmpresasIconeLogo = sectionProdutoresEEmpresas.querySelector('.icone-logo');
     const sectionProdutoresEEmpresasLogos = sectionProdutoresEEmpresas.querySelectorAll('.item-logo img');
 
-    const tlProdutoresEEmpresas = gsap.timeline({
-        scrollTrigger: {
-            trigger: sectionProdutoresEEmpresas,
-            start: "top 60%",
-            end: "bottom 20%",
-        }
-    });
+    const tlProdutoresEEmpresas = createScrollTimeline(sectionProdutoresEEmpresas);
 
     tlProdutoresEEmpresas.from(sectionProdutoresEEmpresasIconeLogo, {
-        scale: 0.8,
+        scale: CONFIG.transform.scale.medium,
         opacity: 0,
-        duration: 0.8,
-        ease: 'power2.inOut',
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
     });
 
-    const splitTitleProdutoresEEmpresas = new SplitText(sectionProdutoresEEmpresasTitle, { type: "lines" });
-    tlProdutoresEEmpresas.from(splitTitleProdutoresEEmpresas.lines, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    }, '-=0.6');
+    animateTitleLines(tlProdutoresEEmpresas, sectionProdutoresEEmpresasTitle);
 
     tlProdutoresEEmpresas.from(sectionProdutoresEEmpresasLogos, {
         opacity: 0,
-        y: 40,
+        y: CONFIG.distance.medium,
         scale: 0.6,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.2
-    }, '-=0.6');
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+        stagger: CONFIG.stagger.medium
+    }, CONFIG.offset.normal);
 }
 
 function animateQuemSomosCTConsultivoSection() {
@@ -239,10 +154,10 @@ function animateQuemSomosCTConsultivoSection() {
     const sectionCTConsultivoProtocolosCards = sectionCTConsultivo.querySelectorAll('.animate-4 .card-protocol');
 
     gsap.from(sectionCTConsultivoContent, {
-        scale: 0.8,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
+        scale: CONFIG.transform.scale.medium,
+        y: CONFIG.distance.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
         scrollTrigger: {
             trigger: sectionCTConsultivo,
             start: "0% 90%",
@@ -251,71 +166,41 @@ function animateQuemSomosCTConsultivoSection() {
             once: true,
         }
     });
-    
-    const tlCTConsultivo = gsap.timeline({
-        scrollTrigger: {
-            trigger: sectionCTConsultivo,
-            start: "0% 60%",
-            end: "20% 50%",
-        }
-    });
 
-    const splitTitleCTConsultivo = new SplitText(sectionCTConsultivoTitle, { type: "words" });
-    tlCTConsultivo.from(splitTitleCTConsultivo.words, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    });
+    const tlCTConsultivo = createScrollTimeline(sectionCTConsultivo);
 
-    tlCTConsultivo.from(sectionCTConsultivoDescription, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
-    
-    tlCTConsultivo.from(sectionCTConsultivoEquipeTitle, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
+    animateTitle(tlCTConsultivo, sectionCTConsultivoTitle, CONFIG.offset.none);
+    animateText(tlCTConsultivo, sectionCTConsultivoDescription);
+    animateText(tlCTConsultivo, sectionCTConsultivoEquipeTitle);
+    animateCards(tlCTConsultivo, sectionCTConsultivoEquipePDB, CONFIG.offset.normal, CONFIG.stagger.fast);
 
-    tlCTConsultivo.from(sectionCTConsultivoEquipePDB, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05,
-    }, '-=0.6');
-
+    animateCardsWithScale(null, sectionCTConsultivoProtocolosCards);
     gsap.from(sectionCTConsultivoProtocolosCards, {
         opacity: 0,
-        scale: 0.8,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.2,
+        scale: CONFIG.transform.scale.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+        stagger: CONFIG.stagger.medium,
         scrollTrigger: {
             trigger: sectionCTConsultivoProtocolos,
             start: "0% 90%",
             end: "20% 50%",
         }
-    }, '-=0.6');
+    });
 }
 
-/**
- * Função principal que inicializa todas as animações da página.
- */
 function initQuemSomosAnimations() {
-    animateQuemSomosHeroSection();
+    // Aguarda transição completar antes de animar hero section
+    waitForTransition(() => {
+        animateQuemSomosHeroSection();
+    });
+
+    // Demais seções animam normalmente com scroll
     animateQuemSomosOQueFazemosSection();
     animateQuemSomosProdutoresEEmpresasSection();
     animateQuemSomosCTConsultivoSection();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicia as animações
     initQuemSomosAnimations();
 });

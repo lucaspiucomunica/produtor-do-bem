@@ -1,59 +1,60 @@
+import { ANIMATION_CONFIG as CONFIG } from './animations-config.js';
+import {
+    elementExists,
+    createScrollTimeline,
+    animateTitleLines,
+    animateTitle,
+    animateText,
+    animateButton,
+    animateCards,
+    animateScaleWithScrub,
+    animateSlideX,
+    waitForTransition
+} from './animations-utils.js';
+
 function animateHomeHeroSection() {
     const siteHeader = document.querySelector('.site-header');
     const sectionHero = document.querySelector('#hero');
-    const sectionHeroContent = sectionHero.querySelector('.hero-content');
-    const sectionHeroBgVideo = sectionHero.querySelector('.hero-bg-video');
+    const sectionHeroVideo = sectionHero.querySelector('.hero-bg-video video');
     const sectionHeroTitle = sectionHero.querySelector('.hero-content .titulo h1 .title');
     const sectionHeroTitleDestaque = sectionHero.querySelector('.hero-content .titulo h1 .destaque');
     const sectionHeroSubtitle = sectionHero.querySelector('.hero-content .subtitulo');
     const sectionHeroIcons = sectionHero.querySelectorAll('.hero-content .subtitulo .icon');
     const sectionHeroButton = sectionHero.querySelector('.hero-content .botao');
-    
+
     const tlHero = gsap.timeline();
     let tlHeroIcons;
 
-    // Código para animar o hero
-    
-    const sectionHeroTitleSplit = new SplitText(sectionHeroTitle, { type: "lines" });
-    tlHero.from(sectionHeroTitleSplit.lines, {
+    tlHero.from(sectionHeroVideo, {
         opacity: 0,
-        y: 80,
-        duration: 1,
-        ease: 'power2.inOut',
-        stagger: 0.2
+        scale: CONFIG.transform.scale.large,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
     });
 
-    const sectionHeroTitleDestaqueSplit = new SplitText(sectionHeroTitleDestaque, { type: "words" });
-    tlHero.from(sectionHeroTitleDestaqueSplit.words, {
-        opacity: 0,
-        y: 80,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    }, '-=0.4');
+    animateTitleLines(tlHero, sectionHeroTitle, CONFIG.offset.none, CONFIG.duration.slow);
+    animateTitle(tlHero, sectionHeroTitleDestaque, CONFIG.offset.loose);
 
     tlHero.from(sectionHeroSubtitle, {
         opacity: 0,
-        y: 40,
-        duration: 1,
-        ease: 'power2.inOut',
+        y: CONFIG.distance.medium,
+        duration: CONFIG.duration.slow,
+        ease: CONFIG.easing.default,
         onComplete: () => {
             if (tlHeroIcons) {
                 tlHeroIcons.play();
             }
         }
-    }, '-=0.6');
+    }, CONFIG.offset.normal);
 
     if (sectionHeroIcons.length > 1) {
-        // Define estado inicial: primeiro ícone visível, demais ocultos
         sectionHeroIcons.forEach((icon, index) => {
-            gsap.set(icon, { 
+            gsap.set(icon, {
                 opacity: index === 0 ? 1 : 0,
-                scale: index === 0 ? 1 : 0.8
+                scale: index === 0 ? 1 : CONFIG.transform.scale.medium
             });
         });
 
-        // Timeline infinito para alternância dos ícones
         tlHeroIcons = gsap.timeline({ repeat: -1, paused: true });
         const displayDuration = 1.5;
         const transitionDuration = 0.5;
@@ -65,31 +66,26 @@ function animateHomeHeroSection() {
             tlHeroIcons
                 .to(icon, {
                     opacity: 0,
-                    scale: 0.8,
+                    scale: CONFIG.transform.scale.medium,
                     duration: transitionDuration,
-                    ease: 'power2.inOut'
+                    ease: CONFIG.easing.default
                 }, `+=${displayDuration}`)
                 .to(nextIcon, {
                     opacity: 1,
                     scale: 1,
                     duration: transitionDuration,
-                    ease: 'power2.inOut'
+                    ease: CONFIG.easing.default
             });
         });
     }
-    
-    tlHero.from(sectionHeroButton, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
+
+    animateText(tlHero, sectionHeroButton, CONFIG.offset.normal, 0);
 
     tlHero.from(siteHeader, {
         y: -120,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default
+    }, CONFIG.offset.normal);
 }
 
 function animateHomeSobreSection() {
@@ -105,84 +101,23 @@ function animateHomeSobreSection() {
     const sectionSobreEngajamento = sectionSobre.querySelector('.animate-2');
     const sectionSobreEngajamentoTitle = sectionSobre.querySelector('.animate-2 h2');
     const sectionSobreEngajamentoImage = sectionSobre.querySelector('.animate-2 .wrapper-svg');
-    
-    const tlSobre = gsap.timeline({
-        scrollTrigger: {
-            trigger: sectionSobre,
-            start: "top 60%",
-            end: "bottom 20%",
-        }
-    });
 
-    const splitTitle = new SplitText(sectionSobreTitle, { type: "words" });
-    tlSobre.from(splitTitle.words, {
+    const tlSobre = createScrollTimeline(sectionSobre);
+
+    animateTitle(tlSobre, sectionSobreTitle, CONFIG.offset.none);
+    animateText(tlSobre, sectionSobreDescription);
+    animateText(tlSobre, sectionSobreCard1);
+    animateText(tlSobre, sectionSobreCard2);
+    animateCards(tlSobre, sectionSobreCards3, CONFIG.offset.normal, CONFIG.stagger.fast);
+    animateText(tlSobre, sectionSobreCard5);
+    animateText(tlSobre, sectionSobreCard6, CONFIG.offset.normal, CONFIG.stagger.fast);
+    animateText(tlSobre, sectionSobreCard7);
+
+    gsap.from(sectionSobreEngajamentoTitle, {
         opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05
-    });
-
-    tlSobre.from(sectionSobreDescription, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut'
-    }, '-=0.6');
-
-    tlSobre.from(sectionSobreCard1, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
-
-    tlSobre.from(sectionSobreCard2, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
-
-    tlSobre.from(sectionSobreCards3, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        stagger: 0.06,
-        ease: 'power2.inOut',
-    }, '-=0.6');
-
-    tlSobre.from(sectionSobreCard5, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
-
-    tlSobre.from(sectionSobreCard6, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        stagger: 0.05,
-        ease: 'power2.inOut',
-    }, '-=0.6');
-
-    tlSobre.from(sectionSobreCard7, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
-
-    // Animação da seção de engajamento
-
-    const splitEngajamentoTitle = new SplitText(sectionSobreEngajamentoTitle, { type: "words" });
-    gsap.from(splitEngajamentoTitle.words, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.08,
+        y: CONFIG.distance.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
         scrollTrigger: {
             trigger: sectionSobreEngajamento,
             start: "top 70%",
@@ -194,10 +129,10 @@ function animateHomeSobreSection() {
 
     gsap.from(sectionSobreEngajamentoImage, {
         opacity: 0,
-        scale:0.5,
-        x: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
+        scale: CONFIG.transform.scale.small,
+        x: CONFIG.distance.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
         scrollTrigger: {
             trigger: sectionSobreEngajamento,
             start: "top 70%",
@@ -217,19 +152,7 @@ function animateHomeCertificacoesSection() {
     const sectionCertificacoesIlustracao2 = sectionCertificacoes.querySelector('.cta-certificacoes .ilustracoes .ilustracao--2');
     const sectionCertificacoesButton = sectionCertificacoes.querySelector('.cta-certificacoes .botao');
 
-    gsap.from(sectionCertificacoesContent, {
-        scale: 0.8,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        scrollTrigger: {
-            trigger: sectionCertificacoes,
-            start: "0% 90%",
-            end: "50% 50%",
-            scrub: true,
-            once: true
-        }
-    });
+    animateScaleWithScrub(sectionCertificacoesContent, sectionCertificacoes);
 
     const tlCertificacoes = gsap.timeline({
         scrollTrigger: {
@@ -239,60 +162,47 @@ function animateHomeCertificacoesSection() {
         }
     });
 
-    const splitTitleCertificacoes = new SplitText(sectionCertificacoesTitle, { type: "words" });
-    tlCertificacoes.from(splitTitleCertificacoes.words, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.05,
-    });
-
-    tlCertificacoes.from(sectionCertificacoesText, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-        stagger: 0.2,
-    }, '-=0.6');
+    animateTitle(tlCertificacoes, sectionCertificacoesTitle, CONFIG.offset.none);
+    animateText(tlCertificacoes, sectionCertificacoesText);
 
     tlCertificacoes.from(sectionCertificacoesButton, {
-        scale: 0.8,
+        scale: CONFIG.transform.scale.medium,
         opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
+        y: CONFIG.distance.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+    }, CONFIG.offset.normal);
 
     tlCertificacoes.from(sectionCertificacoesIlustracao1, {
         opacity: 0,
-        x: -40,
-        y: 40,
-        scale: 0.8,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
+        x: -CONFIG.distance.medium,
+        y: CONFIG.distance.medium,
+        scale: CONFIG.transform.scale.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+    }, CONFIG.offset.normal);
 
     tlCertificacoes.from(sectionCertificacoesIlustracao2, {
         opacity: 0,
-        x: 40,
-        y: 40,
-        scale: 0.8,
-        duration: 0.8,
-        ease: 'power2.inOut',
-    }, '-=0.6');
+        x: CONFIG.distance.medium,
+        y: CONFIG.distance.medium,
+        scale: CONFIG.transform.scale.medium,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+    }, CONFIG.offset.normal);
 }
 
-/**
- * Função principal que inicializa todas as animações da página.
- */
 function initHomeAnimations() {
-    animateHomeHeroSection();
+    // Aguarda transição completar antes de animar hero section
+    waitForTransition(() => {
+        animateHomeHeroSection();
+    });
+
+    // Demais seções animam normalmente com scroll
     animateHomeSobreSection();
     animateHomeCertificacoesSection();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Inicia as animações
     initHomeAnimations();
 });

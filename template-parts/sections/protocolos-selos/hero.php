@@ -24,7 +24,7 @@ if (!$hero_titulo) {
                 <div class="titulo">
                     <h1>
                         <span class="title"><?php echo $hero_titulo; ?></span>
-                        <div>
+                        <div class="flex flex-row items-center gap-2">
                             <span class="destaque"><?php echo $hero_titulo_destaque; ?></span>
                             <div class="content-icon content-icon--secundario">
                                 <?php echo icon($hero_titulo_icone); ?>

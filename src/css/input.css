@@ -7,6 +7,9 @@
 /* Base e configurações fundamentais */
 @import './styles/base.css';
 
+/* Transições de página */
+@import './styles/transitions.css';
+
 /* Componentes reutilizáveis */
 @import './styles/components.css';
 

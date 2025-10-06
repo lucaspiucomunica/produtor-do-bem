@@ -16,7 +16,7 @@
 
 <body <?php body_class(); ?> class="overflow-x-hidden">
     <?php wp_body_open(); ?>
-    <!-- <?php get_template_part('template-parts/transition-page/transition-page-1'); ?> -->
+    <?php get_template_part('template-parts/transition-page/transition-page-1'); ?>
     <?php get_template_part('template-parts/globals/cursor'); ?>
     <div id="smooth-wrapper">
         <div id="smooth-content">

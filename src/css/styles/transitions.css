@@ -1,0 +1,115 @@
+/**
+ * Estilos de transição de página
+ *
+ * IMPORTANTE: Elementos de transição NUNCA são afetados pelo sistema anti-FOUC
+ * Eles devem estar sempre visíveis e prontos para animar
+ */
+
+/* Wrapper principal */
+.page-transition-wrapper {
+    @apply fixed top-0 left-0 w-full h-full pointer-events-none;
+    z-index: 9999;
+}
+
+/* =====================
+   TRANSIÇÃO PRIMEIRA VISITA
+   ===================== */
+
+.page-transition-first-visit {
+    @apply absolute top-0 left-0 w-full h-full bg-primario-variacao-5;
+    @apply flex items-center justify-center;
+    pointer-events: auto;
+    z-index: 2;
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Pingo central */
+.transition-pingo {
+    @apply relative flex items-center justify-center;
+    width: 200px;
+    height: 200px;
+    will-change: transform, opacity;
+}
+
+.transition-pingo img {
+    @apply w-full h-auto;
+    filter: brightness(0) saturate(100%)
+            invert(89%) sepia(83%) saturate(1824%)
+            hue-rotate(13deg) brightness(103%) contrast(105%); /* limao-variacao-1 */
+}
+
+/* Container de ícones animais */
+.transition-icons {
+    @apply absolute flex items-center justify-center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+}
+
+.transition-icons .icon {
+    @apply absolute flex items-center justify-center;
+    width: 60px;
+    height: 60px;
+    will-change: transform, opacity;
+}
+
+.transition-icons .icon svg {
+    @apply w-full h-full;
+    fill: #0D5E2B; /* primaria-variacao-3 */
+}
+
+/* =====================
+   TRANSIÇÕES SUBSEQUENTES - BARRAS
+   ===================== */
+
+.page-transition-bars {
+    @apply absolute top-0 left-0 w-full h-full flex flex-row;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.page-transition-bar {
+    @apply flex-1 h-full;
+    will-change: transform;
+    transform: translateY(0);
+}
+
+.page-transition-bar.bar-1 {
+    @apply bg-primario-variacao-5;
+}
+
+.page-transition-bar.bar-2 {
+    @apply bg-secundario-principal;
+}
+
+.page-transition-bar.bar-3 {
+    @apply bg-limao-principal;
+}
+
+.page-transition-bar.bar-4 {
+    @apply bg-neutro-variacao-6;
+}
+
+/* =====================
+   RESPONSIVO
+   ===================== */
+
+@media (max-width: 768px) {
+    .transition-pingo {
+        width: 150px;
+        height: 150px;
+    }
+
+    .transition-icons {
+        width: 60px;
+        height: 60px;
+    }
+
+    .transition-icons .icon {
+        width: 45px;
+        height: 45px;
+    }
+}
