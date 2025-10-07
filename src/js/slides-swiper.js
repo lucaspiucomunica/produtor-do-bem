@@ -1,5 +1,3 @@
-import { waitForTransition } from './page-transition.js';
-
 const SwiperSlides = {
     defaultConfig: {
         speed: 400,
@@ -67,8 +65,6 @@ const SwiperSlides = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Aguarda transição completar antes de inicializar Swiper
-    waitForTransition(() => {
-        SwiperSlides.init();
-    });
+    // Inicializa imediatamente para calcular dimensões corretas
+    SwiperSlides.init();
 });

@@ -94,7 +94,14 @@
     .swiper-cards-rotate {
         @apply
         w-full h-auto
-        overflow-visible
+        overflow-visible;
+        min-height: 420px;
+        contain: layout;
+    }
+
+    .swiper-cards-rotate .swiper-slide {
+        will-change: transform;
+        backface-visibility: hidden;
     }
 
     .swiper-cards-rotate .swiper-slide:nth-child(4n+1) {

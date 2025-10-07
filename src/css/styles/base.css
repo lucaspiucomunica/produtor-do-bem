@@ -83,7 +83,7 @@
     body.home:not(.animations-ready) .site-header {
         opacity: 0 !important;
     }
-    
+
     /* Elementos globais (cursor, CTAs) não são afetados pelo sistema FOUC */
     .cursor,
     .cta-1 {
