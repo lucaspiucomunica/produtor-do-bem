@@ -1,0 +1,22 @@
+@layer components {
+    /* ========================================
+       Navigation Components
+       ======================================== */
+
+    /* Navegação de carrossel */
+    .navigation-carrossel {
+        @apply
+        inline-flex items-center gap-2
+    }
+
+    .navigation-carrossel .navigation-item {
+        @apply
+        transition-all duration-300
+    }
+
+    .navigation-carrossel .navigation-item.swiper-button-disabled {
+        @apply
+        opacity-50 pointer-events-none cursor-not-allowed
+    }
+
+}

@@ -94,6 +94,19 @@ $nome_e_cnpj = get_field('nome_e_cnpj', 'option');
                             <?php echo icon('direct-notification'); ?>
                         </div>
                     </div>
+                    <div class="content-footer-newsletter-form">
+                        <div class="content-footer-newsletter-form-wrapper">
+                            <div class="form-field-wrapper">
+                                <input type="email" id="email" name="email" placeholder="Digite aqui seu e-mail" required class="form-field-input form-field-input--dark">
+                            </div>
+                            <button type="button" class="btn btn-primary">
+                                Assinar newsletter
+                            </button>
+                        </div>
+                    </div>
+                    <div class="content-footer-newsletter-disclaimer">
+                        <p>Ao assinar, autorizo o envio de newsletter e novos conteúdos sobre produção sustentável e a Produtor do Bem</p>
+                    </div>
                 </div>
             </div>
         </div>

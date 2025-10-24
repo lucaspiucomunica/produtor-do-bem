@@ -1,0 +1,290 @@
+@layer components {
+
+    /* ========================================
+       Form Components - Base Styles
+       ======================================== */
+
+    /* Form Field Wrapper */
+    .form-field-wrapper {
+        @apply
+        w-full
+        flex flex-col items-start justify-start gap-2
+    }
+
+    /* Form Field Label */
+    .form-field-label {
+        @apply
+        text-sm font-semibold
+    }
+
+    /* Form Field Input */
+    .form-field-input {
+        @apply
+        w-full
+        px-6 py-3
+        border-2 border-neutro-variacao-1
+        text-primario-variacao-5 text-lg
+        rounded-full
+        ring-0 ring-transparent outline-none
+        focus:ring-2 focus:ring-primario-principal
+        transition-all duration-300
+    }
+
+    .form-field-input::placeholder {
+        @apply
+        text-neutro-variacao-3
+    }
+
+    /* Form Field Input - Dark Variant */
+    .form-field-input--dark {
+        @apply
+        border-neutro-variacao-4
+        focus:ring-limao-variacao-1
+        focus:border-neutro-variacao-4
+    }
+
+    /* Form Field Textarea */
+    .form-field-textarea {
+        @apply
+        w-full
+        px-6 py-3
+        border-2 border-neutro-variacao-1
+        text-primario-variacao-5 text-lg
+        rounded-2xl resize-none
+        ring-0 ring-transparent outline-none
+        focus:ring-2 focus:ring-primario-principal
+        transition-all duration-300
+    }
+
+    .form-field-textarea::placeholder {
+        @apply
+        text-neutro-variacao-3
+    }
+
+    /* Form Field Textarea - Dark Variant */
+    .form-field-textarea--dark {
+        @apply
+        border-neutro-variacao-4
+        focus:ring-limao-variacao-1
+        focus:border-neutro-variacao-4
+    }
+
+    /* Form Field Error Message */
+    .form-field-error {
+        @apply
+        text-danger-principal text-xs font-semibold
+    }
+
+    /* Form Field Radio Group */
+    .form-field-radio-group {
+        @apply
+        w-full
+        flex flex-col items-start justify-start gap-2
+    }
+
+    /* Form Field Radio Option */
+    .form-field-radio-option {
+        @apply
+        w-full
+        px-4 py-3
+        border-2 border-neutro-variacao-1
+        rounded-xl
+        cursor-pointer
+        transition-all duration-200
+        hover:border-primario-principal
+        hover:bg-primario-principal/5
+    }
+
+    .form-field-radio-option.selected {
+        @apply
+        border-primario-principal
+        bg-neutro-principal
+        text-primario-principal
+    }
+
+    .form-field-radio-option input[type="radio"] {
+        @apply
+        hidden
+    }
+
+    .form-field-radio-option-title {
+        @apply
+        text-sm
+    }
+
+    /* ========================================
+       Multi-Step Form Specific Styles
+       ======================================== */
+
+    /* Progress Bar */
+    .progress-bar-container {
+        @apply
+        w-full
+        flex flex-col items-start justify-start gap-4
+    }
+
+    .progress-bar-container .progress-line-wrapper {
+        @apply
+        w-full relative
+        flex flex-col items-start justify-start
+    }
+
+    .progress-bar-container .progress-line-wrapper .progress-line {
+        @apply
+        w-full
+        h-2
+        bg-neutro-variacao-1
+        rounded-full
+    }
+
+    .progress-bar-container .progress-line-wrapper .progress-line-fill {
+        @apply
+        absolute top-0 left-0
+        h-2
+        bg-primario-principal
+        rounded-full
+        transition-all duration-300
+    }
+
+    .progress-bar-container .progress-steps {
+        @apply
+        w-full
+        grid grid-cols-4
+    }
+
+    .progress-bar-container .progress-steps .progress-step {
+        @apply
+        w-full
+        flex flex-col items-center justify-center
+        gap-2
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-number {
+        @apply
+        w-14 h-14 min-w-14 min-h-14
+        bg-neutro-variacao-1
+        rounded-full
+        flex items-center justify-center
+        text-neutro-variacao-5
+        text-2xl font-display font-semibold
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-number .number {
+        @apply
+        block
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-number .check {
+        @apply
+        hidden
+        *:fill-limao-variacao-1
+        w-6 h-6 min-w-6 min-h-6
+    }
+
+    .progress-bar-container .progress-steps .progress-step .progress-step-title {
+        @apply
+        text-neutro-variacao-5
+        text-sm font-semibold
+    }
+
+    .progress-bar-container .progress-steps .progress-step.checked .progress-step-number,
+    .progress-bar-container .progress-steps .progress-step.active .progress-step-number {
+        @apply
+        bg-primario-principal
+        text-neutro-branco
+    }
+
+    .progress-bar-container .progress-steps .progress-step.active .progress-step-title {
+        @apply
+        text-primario-variacao-5
+    }
+
+    .progress-bar-container .progress-steps .progress-step.checked .progress-step-number .number {
+        @apply
+        hidden
+    }
+
+    .progress-bar-container .progress-steps .progress-step.checked .progress-step-number .check {
+        @apply
+        flex items-center justify-center
+    }
+
+    /* Form Container */
+    .multi-step-form-container {
+        @apply
+        w-full
+        p-8 rounded-4xl
+        border-2 border-neutro-variacao-1
+        flex
+    }
+
+    .multi-step-form-container .form-step {
+        @apply
+        hidden
+        w-full
+    }
+
+    .multi-step-form-container .form-step.active {
+        @apply
+        block
+    }
+
+    .multi-step-form-container .form-step .step-content {
+        @apply
+        w-full
+        flex flex-col items-center gap-6
+    }
+
+    .multi-step-form-container .form-step .step-content .content-header {
+        @apply
+        w-full
+        flex flex-col items-center text-center
+    }
+
+    .multi-step-form-container .form-step .step-content .content-header .content-icon {
+        @apply
+        mb-4
+    }
+
+    .multi-step-form-container .form-step .step-content .content-header .step-title {
+        @apply
+        mb-2
+    }
+
+    .multi-step-form-container .form-step .step-content .content-header .step-description {
+        @apply
+        text-neutro-variacao-5
+    }
+
+    .multi-step-form-container .form-step .step-content .form-navigation {
+        @apply
+        w-full
+        flex flex-row items-center justify-center gap-4
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields {
+        @apply
+        w-full max-w-[400px] mx-auto
+        flex flex-col items-start justify-start gap-4
+    }
+
+    .multi-step-form-container .form-step .step-content .form-fields.text-area-group {
+        @apply
+        max-w-[600px]
+    }
+
+    /* ========================================
+       Modal Form Specific Styles
+       ======================================== */
+
+    .denuncia-form .form-fields {
+        @apply
+        flex flex-col gap-4
+    }
+
+    .denuncia-form .form-field-label {
+        @apply
+        text-primario-principal
+    }
+
+}

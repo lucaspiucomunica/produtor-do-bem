@@ -1,0 +1,76 @@
+@layer components {
+    /* ========================================
+       Button Components
+       ======================================== */
+
+    /* Base Button */
+    .btn {
+        @apply
+        inline-flex items-center justify-center gap-2
+        px-6 py-3
+        rounded-full
+        bg-primario-variacao-1 hover:bg-primario-variacao-3 transition-all duration-300
+        text-neutro-branco font-semibold text-lg text-center
+    }
+
+    .btn.btn-outline {
+        @apply
+        bg-transparent
+        text-primario-variacao-3
+        hover:bg-primario-variacao-1
+        hover:text-neutro-branco
+        -outline-offset-2 outline-2 outline outline-primario-variacao-1
+    }
+
+    .btn.btn-secondary {
+        @apply
+        bg-limao-variacao-1
+        text-primario-variacao-3
+        hover:bg-limao-variacao-2
+    }
+
+    .btn.btn-outline.btn-secondary {
+        @apply
+        bg-transparent
+        outline-limao-variacao-1
+        text-neutro-branco
+        hover:bg-limao-variacao-1
+        hover:text-primario-variacao-3
+    }
+
+    .btn.btn-danger {
+        @apply
+        bg-transparent
+        text-danger-principal
+        hover:bg-danger-principal
+        hover:text-neutro-branco
+        -outline-offset-2 outline-2 outline outline-danger-principal
+    }
+
+    .btn.btn-small {
+        @apply
+        px-4 py-2
+        text-base
+    }
+
+    .btn.btn-large {
+        @apply
+        px-8 py-4
+    }
+
+    .btn.btn-icon {
+        @apply
+        p-3 rounded-full
+    }
+
+    .btn.btn-icon.btn-small {
+        @apply
+        p-2
+    }
+
+    .btn.btn-icon.btn-small svg {
+        @apply
+        w-4 h-4 min-w-4 min-h-4
+    }
+
+}

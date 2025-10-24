@@ -306,7 +306,7 @@
         @apply
         w-full h-full 
         bg-neutro-variacao-6 rounded-4xl
-        p-8 flex items-center justify-center
+        p-8 flex flex-col items-start justify-center gap-3
     }
 
     .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-title {
@@ -317,5 +317,26 @@
     .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-title h3 {
         @apply
         text-base text-neutro-branco
+    }
+
+    .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-form {
+        @apply
+        w-full
+    }
+
+    .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-form-wrapper {
+        @apply
+        w-full
+        flex flex-col items-start justify-start gap-3
+    }
+
+    .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-form-wrapper .btn {
+        @apply
+        w-full
+    }
+
+    .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-disclaimer {
+        @apply
+        text-sm text-neutro-variacao-2
     }
 }

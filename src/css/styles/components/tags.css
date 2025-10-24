@@ -1,0 +1,69 @@
+@layer components {
+    /* ========================================
+       Tag Components
+       ======================================== */
+
+    .tag-1 {
+        @apply
+        inline-flex items-center justify-center gap-2
+        bg-neutro-principal
+        rounded-full
+        p-2 pr-4
+    }
+
+    .tag-1 svg {
+        @apply
+        w-4 h-4 min-w-4 min-h-4
+        *:fill-secundario-principal
+        -rotate-[135deg]
+    }
+
+    .tag-1 span {
+        @apply
+        text-primario-principal text-sm uppercase font-semibold
+    }
+
+    .tag-1.tag-1--primario-principal {
+        @apply
+        bg-primario-principal
+    }
+
+    .tag-1.tag-1--primario-principal svg,
+    .tag-1.tag-1--primario-variacao-1 svg,
+    .tag-1.tag-1--primario-variacao-2 svg,
+    .tag-1.tag-1--primario-variacao-3 svg,
+    .tag-1.tag-1--primario-variacao-4 svg {
+        @apply
+        *:fill-limao-variacao-1
+    }
+
+    .tag-1.tag-1--primario-principal span,
+    .tag-1.tag-1--primario-variacao-1 span,
+    .tag-1.tag-1--primario-variacao-2 span,
+    .tag-1.tag-1--primario-variacao-3 span,
+    .tag-1.tag-1--primario-variacao-4 span {
+        @apply
+        text-neutro-branco
+    }
+
+    .tag-1.tag-1--primario-variacao-1 {
+        @apply
+        bg-primario-variacao-2
+    }
+
+    .tag-1.tag-1--primario-variacao-2 {
+        @apply
+        bg-primario-variacao-3
+    }
+
+    .tag-1.tag-1--primario-variacao-3 {
+        @apply
+        bg-primario-variacao-4
+    }
+
+    .tag-1.tag-1--primario-variacao-4 {
+        @apply
+        bg-primario-variacao-5
+    }
+
+}

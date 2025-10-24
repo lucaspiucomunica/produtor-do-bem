@@ -28,24 +28,24 @@
                 <div class="modal-body">
                     <form id="form-denuncia" class="denuncia-form">
                         <div class="form-fields">
-                            <div class="form-group">
-                                <label for="denuncia-nome">Seu nome:</label>
-                                <input type="text" id="denuncia-nome" name="nome" placeholder="Digite seu nome (opcional)">
+                            <div class="form-field-wrapper">
+                                <label for="denuncia-nome" class="form-field-label">Seu nome:</label>
+                                <input type="text" id="denuncia-nome" name="nome" placeholder="Digite seu nome (opcional)" class="form-field-input">
                             </div>
 
-                            <div class="form-group">
-                                <label for="denuncia-email">Seu e-mail:</label>
-                                <input type="email" id="denuncia-email" name="email" placeholder="seu@email.com (opcional)">
+                            <div class="form-field-wrapper">
+                                <label for="denuncia-email" class="form-field-label">Seu e-mail:</label>
+                                <input type="email" id="denuncia-email" name="email" placeholder="seu@email.com (opcional)" class="form-field-input">
                             </div>
 
-                            <div class="form-group">
-                                <label for="denuncia-telefone">Seu telefone:</label>
-                                <input type="tel" id="denuncia-telefone" name="telefone" placeholder="(00) 00000-0000 (opcional)">
+                            <div class="form-field-wrapper">
+                                <label for="denuncia-telefone" class="form-field-label">Seu telefone:</label>
+                                <input type="tel" id="denuncia-telefone" name="telefone" placeholder="(00) 00000-0000 (opcional)" class="form-field-input">
                             </div>
 
-                            <div class="form-group">
-                                <label for="denuncia-mensagem">Sua denúncia: *</label>
-                                <textarea id="denuncia-mensagem" name="mensagem" rows="6" placeholder="Descreva sua denúncia com o máximo de detalhes possível"></textarea>
+                            <div class="form-field-wrapper">
+                                <label for="denuncia-mensagem" class="form-field-label">Sua denúncia: *</label>
+                                <textarea id="denuncia-mensagem" name="mensagem" rows="6" placeholder="Descreva sua denúncia com o máximo de detalhes possível" class="form-field-textarea"></textarea>
                             </div>
                         </div>
 

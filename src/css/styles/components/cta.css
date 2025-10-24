@@ -1,0 +1,49 @@
+@layer components {
+    /* ========================================
+       CTA Components
+       ======================================== */
+
+    .cta-1 {
+        @apply
+        p-section
+    }
+
+    .cta-1 .content-cta {
+        @apply
+        w-full max-w-[800px]
+        flex items-center justify-center gap-14
+    }
+
+    .cta-1 .content-cta .content-text {
+        @apply
+        max-w-[440px]
+    }
+
+    .cta-1 .content-cta .content-text h2 {
+        @apply
+        text-5xl leading-tight
+    }
+
+    .cta-1 .content-text h2 .destaque {
+        @apply
+        text-primario-principal
+    }
+
+    .cta-1 .content-button {
+        @apply
+        relative
+        min-w-52 min-h-52
+    }
+
+    .cta-1 .content-button .btn-cta-base {
+        @apply
+        w-full h-auto
+    }
+
+    .cta-1 .content-button .btn-cta-icon {
+        @apply
+        absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+        w-16 h-16
+    }
+
+}

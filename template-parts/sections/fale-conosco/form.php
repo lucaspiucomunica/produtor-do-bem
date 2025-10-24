@@ -73,9 +73,9 @@
                         </div>
 
                         <div class="form-fields">
-                            <div class="form-group">
-                                <label for="nome">Seu nome: *</label>
-                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                            <div class="form-field-wrapper">
+                                <label for="nome" class="form-field-label">Seu nome: *</label>
+                                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required class="form-field-input">
                             </div>
                         </div>
 
@@ -99,14 +99,14 @@
                         </div>
 
                         <div class="form-fields">
-                            <div class="form-group">
-                                <label for="email">Seu e-mail: *</label>
-                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            <div class="form-field-wrapper">
+                                <label for="email" class="form-field-label">Seu e-mail: *</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required class="form-field-input">
                             </div>
 
-                            <div class="form-group">
-                                <label for="telefone">Seu telefone:</label>
-                                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+                            <div class="form-field-wrapper">
+                                <label for="telefone" class="form-field-label">Seu telefone:</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" class="form-field-input">
                             </div>
                         </div>
 
@@ -133,54 +133,54 @@
                         </div>
 
                         <div class="form-fields">
-                            <div class="form-group">
-                                <label>Eu sou: *</label>
-                                <div class="form-group-options">
-                                    <label>
+                            <div class="form-field-wrapper">
+                                <label class="form-field-label">Eu sou: *</label>
+                                <div class="form-field-radio-group">
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="eu-sou" value="produtor">
-                                        <span class="form-group-option-title">Produtor</span>
+                                        <span class="form-field-radio-option-title">Produtor</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="eu-sou" value="varejista">
-                                        <span class="form-group-option-title">Varejista</span>
+                                        <span class="form-field-radio-option-title">Varejista</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="eu-sou" value="consumidor">
-                                        <span class="form-group-option-title">Consumidor</span>
+                                        <span class="form-field-radio-option-title">Consumidor</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="eu-sou" value="outro">
-                                        <span class="form-group-option-title">Outro</span>
+                                        <span class="form-field-radio-option-title">Outro</span>
                                     </label>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label>Motivo do contato: *</label>
-                                <div class="form-group-options">
-                                    <label>
+                            <div class="form-field-wrapper">
+                                <label class="form-field-label">Motivo do contato: *</label>
+                                <div class="form-field-radio-group">
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="motivo" value="orcamento">
-                                        <span class="form-group-option-title">Orçamento</span>
+                                        <span class="form-field-radio-option-title">Orçamento</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="motivo" value="orcamento-servico">
-                                        <span class="form-group-option-title">Orçamento ou serviço</span>
+                                        <span class="form-field-radio-option-title">Orçamento ou serviço</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="motivo" value="duvidas">
-                                        <span class="form-group-option-title">Tenho dúvidas</span>
+                                        <span class="form-field-radio-option-title">Tenho dúvidas</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="motivo" value="sugestoes">
-                                        <span class="form-group-option-title">Tenho sugestões</span>
+                                        <span class="form-field-radio-option-title">Tenho sugestões</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="motivo" value="criticas">
-                                        <span class="form-group-option-title">Tenho críticas</span>
+                                        <span class="form-field-radio-option-title">Tenho críticas</span>
                                     </label>
-                                    <label>
+                                    <label class="form-field-radio-option">
                                         <input type="radio" name="motivo" value="outro-motivo">
-                                        <span class="form-group-option-title">Outro motivo</span>
+                                        <span class="form-field-radio-option-title">Outro motivo</span>
                                     </label>
                                 </div>
                             </div>
@@ -209,9 +209,9 @@
                         </div>
 
                         <div class="form-fields text-area-group">
-                            <div class="form-group">
-                                <label for="mensagem">Sua mensagem: *</label>
-                                <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva com o máximo de detalhes possível" required></textarea>
+                            <div class="form-field-wrapper">
+                                <label for="mensagem" class="form-field-label">Sua mensagem: *</label>
+                                <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva com o máximo de detalhes possível" required class="form-field-textarea"></textarea>
                             </div>
                         </div>
 
@@ -291,23 +291,3 @@
         </div>
     </div>
 </section>
-
-<!-- Contact Form 7 Hidden Form -->
-<div class="hidden">
-    <?php
-    // Buscar formulário por título ou usar shortcode direto
-    $contact_form = get_posts(array(
-        'post_type' => 'wpcf7_contact_form',
-        'title' => 'Formulário de contato',
-        'post_status' => 'publish',
-        'numberposts' => 1
-    ));
-
-    if ($contact_form) {
-        echo do_shortcode('[contact-form-7 id="' . $contact_form[0]->ID . '"]');
-    } else {
-        // Fallback case - formulário será processado via AJAX
-        echo '<!-- Contact Form 7 não configurado - usando fallback AJAX -->';
-    }
-    ?>
-</div>

@@ -1,0 +1,94 @@
+@layer components {
+    /* ========================================
+       Modal Components
+       ======================================== */
+
+    .modal-overlay {
+        @apply
+        fixed inset-0 z-50
+        flex items-center justify-center
+        bg-primario-variacao-5/80 backdrop-blur-sm
+        transition-opacity duration-300
+    }
+
+    .modal-overlay.hidden {
+        @apply
+        opacity-0 pointer-events-none
+    }
+
+    .modal-container {
+        @apply
+        relative
+        w-full max-w-[600px] mx-4
+        bg-neutro-branco
+        rounded-3xl
+        shadow-2xl
+        max-h-[90vh] overflow-y-auto
+    }
+
+    /* Esconder scrollbar mas manter funcionalidade */
+    .modal-container::-webkit-scrollbar {
+        display: none;
+    }
+
+    .modal-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .modal-close {
+        @apply
+        absolute top-4 right-4 z-10
+    }
+
+    .modal-content {
+        @apply
+        p-10
+    }
+
+    .modal-state {
+        @apply
+        flex flex-col gap-6
+    }
+
+    .modal-state.hidden {
+        display: none;
+    }
+
+    .modal-header {
+        @apply
+        flex flex-row items-center gap-4
+    }
+
+    .modal-title {
+        @apply
+        text-3xl font-bold mb-1
+    }
+
+    .modal-description {
+        @apply
+        text-neutro-variacao-5
+    }
+
+    .modal-body {
+        @apply
+        flex flex-col gap-6
+    }
+
+    .modal-footer {
+        @apply
+        flex flex-col sm:flex-row items-center justify-center gap-4
+        mt-6
+    }
+
+    .modal-footer .btn {
+        @apply
+        w-full sm:w-auto
+    }
+
+    .modal-state.modal-state-success .modal-footer {
+        @apply
+        mt-0
+    }
+
+}

@@ -1,0 +1,110 @@
+@layer components {
+    /* ========================================
+       Content Components
+       ======================================== */
+
+    /* Content Image */
+    .content-image {
+        @apply
+        w-full h-auto
+    }
+
+    .content-image.content-image--rounded-full {
+        @apply
+        rounded-full overflow-hidden
+    }
+
+    .content-image.content-image--square {
+        @apply
+        aspect-square overflow-hidden
+    }
+
+    /* Content Text */
+    .content-text {
+        @apply
+        w-full
+    }
+
+    .content-text h2 {
+        @apply
+        mb-3
+    }
+
+    .content-text h3 {
+        @apply
+        mb-3
+    }
+
+    .content-text p {
+        @apply
+        mb-4 text-lg
+    }
+
+    .content-text *:last-child {
+        @apply
+        mb-0
+    }
+
+    .content-text.content-text--light {
+        @apply
+        text-neutro-branco
+    }
+
+    /* Content Icon */
+    .content-icon {
+        @apply
+        min-h-16 min-w-16 rounded-2xl bg-neutro-variacao-1
+        inline-flex items-center justify-center
+    }
+
+    .content-icon.content-icon--large {
+        @apply
+        min-h-20 min-w-20 rounded-3xl
+    }
+
+    .content-icon.content-icon--bigger {
+        @apply
+        min-h-24 min-w-24 rounded-3xl
+    }
+
+    .content-icon svg {
+        @apply
+        min-w-8 min-h-8
+    }
+
+    .content-icon.content-icon--bigger svg {
+        @apply
+        min-w-10 min-h-10
+    }
+
+    .content-icon.content-icon--primario {
+        @apply
+        bg-primario-variacao-3
+    }
+
+    .content-icon.content-icon--primario svg {
+        @apply
+        fill-limao-variacao-1
+    }
+
+    .content-icon.content-icon--secundario {
+        @apply
+        bg-limao-variacao-1
+    }
+
+    .content-icon.content-icon--secundario svg {
+        @apply
+        fill-primario-variacao-3
+    }
+
+    .content-icon.content-icon--danger {
+        @apply
+        bg-danger-principal
+    }
+
+    .content-icon.content-icon--danger svg {
+        @apply
+        fill-neutro-branco
+    }
+
+}
