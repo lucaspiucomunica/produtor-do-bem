@@ -1,0 +1,130 @@
+@layer components {
+    /* ========================================
+       Toast Components
+       ======================================== */
+
+    .toast-container {
+        @apply
+        fixed bottom-6 right-6 z-[100]
+        flex flex-col gap-3
+        pointer-events-none
+    }
+
+    .toast {
+        @apply
+        relative
+        w-full min-w-[320px] max-w-[400px]
+        bg-neutro-branco
+        rounded-xl
+        shadow-2xl
+        overflow-hidden
+        pointer-events-auto
+    }
+
+    .toast-content {
+        @apply
+        flex items-center gap-3
+        px-4 pt-4 pb-6
+    }
+
+    .toast-icon {
+        @apply
+        flex-shrink-0
+        w-8 h-8
+    }
+
+    .toast-icon .iconpdb,
+    .toast-icon img {
+        @apply
+        w-full h-full
+    }
+
+    .toast-message {
+        @apply
+        flex-1
+        text-sm font-body font-regular
+        text-neutro-preto
+    }
+
+    .toast-close {
+        @apply
+        inline-flex items-center justify-center
+        w-6 h-6 ml-4
+        cursor-pointer
+        transition-opacity duration-200
+        hover:opacity-70
+    }
+
+    .toast-close .iconpdb,
+    .toast-close img {
+        @apply
+        w-full h-full
+    }
+
+    .toast-progress {
+        @apply
+        absolute bottom-2 left-6 right-6
+        h-1
+        bg-neutro-principal
+        overflow-hidden rounded-full
+    }
+
+    .toast-progress-bar {
+        @apply
+        h-full
+        w-0
+        rounded-full
+    }
+
+    /* ========================================
+       Toast Types
+       ======================================== */
+
+    /* Success Toast */
+    .toast-success .toast-icon {
+        @apply
+        fill-primario-principal text-primario-principal
+    }
+
+    .toast-success .toast-icon .iconpdb,
+    .toast-success .toast-icon img {
+        filter: invert(37%) sepia(80%) saturate(634%) hue-rotate(96deg) brightness(94%) contrast(93%);
+    }
+
+    .toast-success .toast-progress-bar {
+        @apply
+        bg-primario-principal
+    }
+
+    /* Error Toast */
+    .toast-error .toast-icon {
+        @apply
+        fill-danger-principal text-danger-principal
+    }
+
+    .toast-error .toast-icon .iconpdb,
+    .toast-error .toast-icon img {
+        filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(332deg) brightness(95%) contrast(90%);
+    }
+
+    .toast-error .toast-progress-bar {
+        @apply
+        bg-danger-principal
+    }
+
+    /* ========================================
+       Responsive
+       ======================================== */
+
+    @media (max-width: 640px) {
+        .toast-container {
+            @apply
+            right-4 left-4 bottom-4
+        }
+
+        .toast {
+            @apply
+            min-w-full
+        }
+    }
+}

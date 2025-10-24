@@ -70,7 +70,7 @@
     }
 
     /* Form Field Error Message */
-    .form-field-error {
+    .form-field-wrapper .error-message {
         @apply
         text-danger-principal text-xs font-semibold
     }

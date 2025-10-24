@@ -18,6 +18,7 @@
 /* Componentes reutilizáveis - Cards e Modals */
 @import './styles/components/cards.css';
 @import './styles/components/modals.css';
+@import './styles/components/toast.css';
 
 /* Componentes reutilizáveis - Formulários */
 @import './styles/components/forms.css';

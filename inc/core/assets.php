@@ -35,6 +35,9 @@
 	// Base Form (dependência para formulários)
 	wp_enqueue_script( 'produtor-do-bem-base-form', get_template_directory_uri() . '/src/js/base-form.js', array('produtor-do-bem-utils'), PRODUTOR_DO_BEM_VERSION, true );
 
+	// Toast (sistema global de notificações)
+	wp_enqueue_script( 'produtor-do-bem-toast', get_template_directory_uri() . '/src/js/toast.js', array('produtor-do-bem-gsap'), PRODUTOR_DO_BEM_VERSION, true );
+
 	// Páginas específicas
 	if (is_page('fale-conosco')) {
 		wp_enqueue_script( 'produtor-do-bem-contact-form', get_template_directory_uri() . '/src/js/contact-form.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
@@ -66,6 +69,7 @@
 	wp_enqueue_script( 'produtor-do-bem-animations-globals', get_template_directory_uri() . '/src/js/animations/globals.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-theme', get_template_directory_uri() . '/src/js/theme.js', array('produtor-do-bem-utils'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-modal-denuncia', get_template_directory_uri() . '/src/js/modal-denuncia.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
+	wp_enqueue_script( 'produtor-do-bem-newsletter-form', get_template_directory_uri() . '/src/js/newsletter-form.js', array('produtor-do-bem-base-form', 'produtor-do-bem-toast'), PRODUTOR_DO_BEM_VERSION, true );
 
 	// Localizar script para AJAX
 	wp_localize_script( 'produtor-do-bem-contact-form', 'contact_form_ajax', array(
@@ -76,6 +80,11 @@
 	wp_localize_script( 'produtor-do-bem-modal-denuncia', 'denuncia_ajax', array(
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'nonce' => wp_create_nonce( 'denuncia_form_nonce' )
+	));
+
+	wp_localize_script( 'produtor-do-bem-newsletter-form', 'newsletter_ajax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'newsletter_form_nonce' )
 	));
 }
 add_action( 'wp_enqueue_scripts', 'produtor_do_bem_scripts' );

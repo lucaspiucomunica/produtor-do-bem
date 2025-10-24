@@ -95,14 +95,14 @@ $nome_e_cnpj = get_field('nome_e_cnpj', 'option');
                         </div>
                     </div>
                     <div class="content-footer-newsletter-form">
-                        <div class="content-footer-newsletter-form-wrapper">
-                            <div class="form-field-wrapper">
-                                <input type="email" id="email" name="email" placeholder="Digite aqui seu e-mail" required class="form-field-input form-field-input--dark">
+                        <form id="newsletter-form" class="content-footer-newsletter-form-wrapper">
+                            <div class="form-group form-field-wrapper">
+                                <input type="email" id="newsletter-email" name="email" placeholder="Digite aqui seu e-mail" required class="form-field-input form-field-input--dark">
                             </div>
-                            <button type="button" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary btn-submit-newsletter">
                                 Assinar newsletter
                             </button>
-                        </div>
+                        </form>
                     </div>
                     <div class="content-footer-newsletter-disclaimer">
                         <p>Ao assinar, autorizo o envio de newsletter e novos conteúdos sobre produção sustentável e a Produtor do Bem</p>
