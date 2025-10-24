@@ -1,11 +1,11 @@
 class MultiStepForm extends BaseForm {
     constructor() {
-        super('.multi-step-form-container form');
+        super('.multi-step-form-container');
 
         this.currentStep = 1;
         this.totalSteps = 4;
 
-        this.formContainer = document.querySelector('.multi-step-form-container');
+        this.formContainer = this.form;
         this.progressBar = document.querySelector('.progress-line-fill');
         this.progressSteps = document.querySelectorAll('.progress-step');
         this.formSteps = document.querySelectorAll('.form-step');
@@ -48,7 +48,7 @@ class MultiStepForm extends BaseForm {
     }
 
     setupRadioOptions() {
-        const radioGroups = this.formContainer.querySelectorAll('.form-group-options');
+        const radioGroups = this.formContainer.querySelectorAll('.form-field-radio-group');
 
         radioGroups.forEach(group => {
             const radioInputs = group.querySelectorAll('input[type="radio"]');
@@ -165,8 +165,24 @@ class MultiStepForm extends BaseForm {
         }
     }
 
+    clearErrors() {
+        if (!this.formContainer) return;
+        const errors = this.formContainer.querySelectorAll('.error-message');
+        errors.forEach(error => error.remove());
+    }
+
     resetMultiStepForm() {
-        super.resetForm();
+        this.clearErrors();
+
+        const inputs = this.formContainer.querySelectorAll('input, textarea');
+        inputs.forEach(input => {
+            if (input.type === 'radio' || input.type === 'checkbox') {
+                input.checked = false;
+                input.closest('label')?.classList.remove('selected');
+            } else {
+                input.value = '';
+            }
+        });
 
         const formGroups = this.formContainer.querySelectorAll('.form-group');
         formGroups.forEach(group => this.clearGroupError(group));
@@ -210,7 +226,7 @@ class MultiStepForm extends BaseForm {
     }
 
     validateStep3(step) {
-        const radioGroups = step.querySelectorAll('.form-group-options');
+        const radioGroups = step.querySelectorAll('.form-field-radio-group');
         let isValid = true;
 
         radioGroups.forEach(group => {

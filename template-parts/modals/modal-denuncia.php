@@ -61,7 +61,7 @@
             <!-- Loading State -->
             <div class="modal-state modal-state-loading hidden">
                 <div class="modal-header">
-                    <div class="content-icon content-icon--danger content-icon--large">
+                    <div class="content-icon content-icon--primario content-icon--large">
                         <div class="loading-icon">
                             <?php echo icon('3-dots-more'); ?>
                         </div>
