@@ -2,11 +2,13 @@
     /* Header */
     .site-header {
         @apply
-        absolute top-3 left-3 right-3 z-50
+        relative z-50
+        /* absolute top-3 left-3 right-3 z-50 */
     }
 
     .site-header .content-header {
         @apply
+        absolute top-3 left-3 right-3 z-50
         flex items-center justify-between
         p-6 rounded-3xl
         bg-neutro-preto/[0.08] backdrop-blur-lg
@@ -22,18 +24,18 @@
         w-auto h-auto min-h-12
     }
 
-    .site-header .site-menu > ul {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul {
         @apply
         flex items-center gap-2
     }
 
-    .site-header .site-menu > ul > li {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li {
         @apply
         relative
         inline-flex items-center
     }
 
-    .site-header .site-menu > ul > li > a {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > a {
         @apply
         inline-flex items-center gap-2
         text-neutro-branco font-semibold text-lg text-center
@@ -41,23 +43,23 @@
         bg-transparent transition-all duration-300
     }
 
-    .site-header .site-menu > ul > li:hover > a,
-    .site-header .site-menu > ul > li.active > a {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li:hover > a,
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li.active > a {
         @apply
         bg-primario-variacao-4
     }
 
-    .site-header .site-menu > ul > li.menu-item-has-children > a {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li.menu-item-has-children > a {
         @apply
         pl-4 pr-10
     }
 
-    .site-header .site-menu > ul > li.current-menu-item > a {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li.current-menu-item > a {
         @apply
         bg-primario-variacao-4
     }
 
-    .site-header .site-menu > ul > li > .submenu-toggle {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .submenu-toggle {
         @apply
         absolute top-1/2 right-1 -translate-y-1/2
         inline-flex items-center justify-center
@@ -66,35 +68,35 @@
         transition-all duration-300
     }
 
-    .site-header .site-menu > ul > li > .submenu-toggle svg {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .submenu-toggle svg {
         @apply
         w-5 h-5 min-w-5 min-h-5
         *:fill-neutro-branco
         transition-all duration-300
     }
 
-    .site-header .site-menu > ul > li > .submenu-toggle.active {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .submenu-toggle.active {
         @apply
         bg-primario-principal
     }
 
-    .site-header .site-menu > ul > li > .submenu-toggle.active svg {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .submenu-toggle.active svg {
         @apply
         -rotate-180
     }
 
-    .site-header .site-menu > ul > li > .sub-menu-wrapper {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .sub-menu-wrapper {
         @apply
         hidden fixed top-0 left-0
         w-full
     }
 
-    .site-header .site-menu > ul > li > .sub-menu-wrapper.active {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .sub-menu-wrapper.active {
         @apply
         flex
     }
 
-    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .sub-menu-wrapper .sub-menu {
         @apply
         w-full
         grid grid-flow-col auto-cols-fr gap-2
@@ -102,7 +104,7 @@
         bg-limao-variacao-1
     }
 
-    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li > a {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .sub-menu-wrapper .sub-menu > li > a {
         @apply
         flex flex-col gap-2 items-center justify-center
         text-center h-full hover:bg-limao-variacao-2
@@ -110,17 +112,17 @@
         p-2 rounded-2xl
     }
 
-    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li.current-menu-item > a {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .sub-menu-wrapper .sub-menu > li.current-menu-item > a {
         @apply
         bg-limao-variacao-2
     }
 
-    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-text {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-text {
         @apply
         text-sm font-semibold
     }
 
-    .site-header .site-menu > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-icon svg {
+    .site-header .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-icon svg {
         @apply
         w-8 h-8 min-w-8 min-h-8
         *:fill-primario-variacao-3
@@ -133,36 +135,62 @@
         bg-neutro-preto/[0.04]
     }
 
-    .site-header.site-header--2 .site-menu > ul > li > a {
+    .site-header.site-header--2 .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > a {
         @apply
         text-primario-variacao-3
         bg-transparent
     }
 
-    .site-header.site-header--2 .site-menu > ul > li:hover > a,
-    .site-header.site-header--2 .site-menu > ul > li.active > a {
+    .site-header.site-header--2 .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li:hover > a,
+    .site-header.site-header--2 .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li.active > a {
         @apply
         bg-neutro-principal
     }
 
-    .site-header.site-header--2 .site-menu > ul > li.current-menu-item > a {
+    .site-header.site-header--2 .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li.current-menu-item > a {
         @apply
         bg-neutro-principal
     }
 
-    .site-header.site-header--2 .site-menu > ul > li > .submenu-toggle svg {
+    .site-header.site-header--2 .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .submenu-toggle svg {
         @apply
         *:fill-primario-variacao-3
     }
 
-    .site-header.site-header--2 .site-menu > ul > li > .submenu-toggle {
+    .site-header.site-header--2 .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .submenu-toggle {
         @apply
         hover:bg-limao-variacao-1
     }
 
-    .site-header.site-header--2 .site-menu > ul > li > .submenu-toggle.active {
+    .site-header.site-header--2 .site-menu .site-menu-desktop .site-menu-desktop-content > ul > li > .submenu-toggle.active {
         @apply
         bg-limao-variacao-1
+    }
+
+    /* Header - Menu mobile */
+
+    .site-header .site-menu-mobile-wrapper {
+        @apply
+        fixed top-0 left-0 w-screen h-auto min-h-screen
+        bg-neutro-variacao-1 z-50
+        /* opacity-0 invisible */
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-header {
+        @apply
+        flex flex-row items-center justify-between
+        px-6 pt-6
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-header .logo svg {
+        @apply
+        w-auto h-12
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content {
+        @apply
+        p-6 pt-12
+        flex items-start gap-20
     }
 
     /* Footer */

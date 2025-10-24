@@ -15,15 +15,37 @@
                 </a>
             </div>
             <div class="site-menu">
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'menu-main',
-                    'menu_class'     => 'main-menu',
-                    'container'      => false,
-                    'fallback_cb'    => false,
-                    'walker'         => new Produtor_Do_Bem_Menu_Walker(),
-                ));
-                ?>
+                <div class="site-menu-desktop xl:block hidden">
+                    <div class="site-menu-desktop-content">
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'menu-main',
+                            'menu_class'     => 'main-menu',
+                            'container'      => false,
+                            'fallback_cb'    => false,
+                            'walker'         => new Produtor_Do_Bem_Menu_Walker(),
+                        ));
+                        ?>
+                    </div>
+                </div>
+
+                <div class="site-menu-mobile xl:hidden block">
+                    <button class="btn btn-icon btn-secondary">
+                        <?php echo icon('menu'); ?>
+                    </button>
+
+                    <div class="site-menu-mobile-content">
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'menu-main',
+                            'menu_class'     => 'main-menu',
+                            'container'      => false,
+                            'fallback_cb'    => false,
+                            'walker'         => new Produtor_Do_Bem_Menu_Walker(),
+                        ));
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
 

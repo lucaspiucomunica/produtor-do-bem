@@ -89,3 +89,43 @@ class Produtor_Do_Bem_Menu_Walker extends Walker_Nav_Menu {
         $output .= "</li>\n";
     }
 }
+
+/**
+ * Custom Walker para menu mobile - Apenas Páginas
+ *
+ * Filtra e exibe apenas páginas normais (exclui protocolos)
+ */
+class Produtor_Do_Bem_Menu_Walker_Pages extends Produtor_Do_Bem_Menu_Walker {
+
+    /**
+     * Filtra os itens do menu para exibir apenas páginas (não protocolos)
+     */
+    public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+        // Ignora itens do tipo protocolo
+        if ( $element->object === 'protocolo' && $element->type === 'post_type' ) {
+            return;
+        }
+
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    }
+}
+
+/**
+ * Custom Walker para menu mobile - Apenas Protocolos
+ *
+ * Filtra e exibe apenas protocolos com seus ícones ACF
+ */
+class Produtor_Do_Bem_Menu_Walker_Protocolos extends Produtor_Do_Bem_Menu_Walker {
+
+    /**
+     * Filtra os itens do menu para exibir apenas protocolos
+     */
+    public function display_element( $element, &$children_elements, $max_depth, $depth, $args, &$output ) {
+        // Exibe apenas itens do tipo protocolo
+        if ( $element->object !== 'protocolo' || $element->type !== 'post_type' ) {
+            return;
+        }
+
+        parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
+    }
+}

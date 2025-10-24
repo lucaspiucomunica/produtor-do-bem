@@ -1,10 +1,10 @@
 const SubMenu = {
     setPosition() {
-        const siteHeader = document.querySelector('.site-header');
+        const contentHeader = document.querySelector('.site-header .content-header');
         const subMenus = document.querySelectorAll('.sub-menu-wrapper');
 
-        if (siteHeader && subMenus.length > 0) {
-            const topValue = siteHeader.offsetHeight + 12;
+        if (contentHeader && subMenus.length > 0) {
+            const topValue = contentHeader.offsetHeight + contentHeader.offsetTop;
             subMenus.forEach(subMenu => {
                 subMenu.style.top = `${topValue}px`;
             });

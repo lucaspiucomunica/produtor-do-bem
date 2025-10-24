@@ -8,12 +8,6 @@ yarn-error.log*
 # Descomente a linha abaixo se quiser ignorar o CSS compilado
 src/css/output.css
 
-# Package lock files (opcional - alguns preferem committar)
-# package-lock.json
-
-# WordPress specific
-wp-config.php
-wp-content/uploads/
 .htaccess
 
 # IDE/Editor files
@@ -23,13 +17,6 @@ wp-content/uploads/
 *.swo
 *~
 
-# System files
-# Example plugin
-/wp-content/plugins/hello.php
-
-# Uploads
-/wp-content/uploads/
-
 # Log files
 *.log
 
@@ -38,19 +25,3 @@ wp-content/uploads/
 
 # vscode
 .vscode/
-
-# All plugins
-#
-# Note: If you wish to whitelist plugins,
-# uncomment the next line
-#/wp-content/plugins
-
-# All themes
-#
-# Note: If you wish to whitelist themes,
-# uncomment the next line
-#/wp-content/themes
-
-# IA
-CLAUDE.md
-.cursor/
