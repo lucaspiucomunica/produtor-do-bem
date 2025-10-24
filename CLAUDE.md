@@ -40,10 +40,11 @@ npm run build:css-prod
     - `input.css` - Ponto de entrada principal importando todos os estilos
     - `output.css` - CSS compilado (não editar diretamente)
     - `styles/` - Módulos CSS organizados (base, components, layout, sections, utilities)
+      - `components/` - Componentes CSS individuais (buttons, cards, forms, toast, etc.)
   - `js/` - Módulos JavaScript
     - `animations/` - Animações GSAP específicas por página
     - `libs/` - Bibliotecas de terceiros (GSAP, Swiper)
-    - Módulos utilitários: `utils.js`, `theme.js`, `menu.js`, `page-transition.js`, etc.
+    - Módulos utilitários: `utils.js`, `theme.js`, `menu.js`, `page-transition.js`, `toast.js`, `newsletter-form.js`, etc.
   - `img/iconpdb/` - Biblioteca de ícones SVG
   - `libs/` - Módulos Node e ferramentas de build (Tailwind)
 
@@ -74,6 +75,24 @@ echo icon('arrow-right-01', 'w-6 h-6 fill-blue-500'); // com classes adicionais
 
 Ícones são armazenados em `src/img/iconpdb/` com prefixo `iconpdb-{nome}.svg`.
 
+### Sistema de Toast
+
+Sistema global de notificações (`src/js/toast.js`) com:
+- **Tipos**: success, error
+- **Animações GSAP**: Entrada e saída suaves
+- **Auto-close**: Configurável por duração
+- **Empilhamento**: Múltiplos toasts simultâneos
+- **Progress bar**: Barra de progresso visual
+- **Responsivo**: Adaptação para mobile
+
+```javascript
+// Uso básico
+Toast.show('success', 'Mensagem de sucesso!', 4000);
+Toast.show('error', 'Mensagem de erro!', 8000);
+```
+
+Estilos em `src/css/styles/components/toast.css` com design system consistente.
+
 ### Funções Auxiliares Personalizadas
 
 Helpers principais em `inc/hooks/helpers.php`:
@@ -88,11 +107,12 @@ Walker personalizado: `Produtor_Do_Bem_Menu_Walker` (estende `Walker_Nav_Menu`) 
 
 ### Formulários AJAX
 
-Dois handlers de formulário AJAX:
+Três handlers de formulário AJAX:
 - **Formulário de Contato**: `handle_multi_step_contact_form()` - Integração de formulário multi-steps com Contact Form 7
 - **Formulário de Denúncia**: `handle_denuncia_form()` - Envio de relatórios/denúncias
+- **Formulário de Newsletter**: `handle_newsletter_form()` - Inscrição na newsletter via Contact Form 7
 
-Ambos os handlers:
+Todos os handlers:
 - Verificam nonces para segurança
 - Sanitizam todas as entradas
 - Requerem plugin Contact Form 7
@@ -136,6 +156,25 @@ Design tokens personalizados em `src/libs/tailwind.config.js`:
 **Container:** Largura máxima de 1600px no breakpoint 2xl
 
 **Safelist:** Classes dinâmicas de `get_class_section()` estão na safelist para prevenir remoção.
+
+### Organização dos Componentes CSS
+
+Os componentes CSS foram reorganizados em arquivos individuais em `src/css/styles/components/`:
+
+- **`buttons.css`** - Estilos de botões e elementos interativos
+- **`cards.css`** - Componentes de card e containers
+- **`content.css`** - Tipografia e conteúdo textual
+- **`cta.css`** - Call-to-action e elementos de conversão
+- **`forms.css`** - Formulários e elementos de input
+- **`lists.css`** - Listas e elementos de navegação
+- **`modals.css`** - Modais e overlays
+- **`navigation.css`** - Navegação e menus
+- **`steps.css`** - Componentes de progresso e steps
+- **`tags.css`** - Tags e badges
+- **`timeline.css`** - Timeline e elementos cronológicos
+- **`toast.css`** - Sistema de notificações toast
+
+Todos os componentes são importados em `src/css/input.css` na ordem correta de dependências.
 
 ### Regras do Cursor
 
