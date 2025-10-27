@@ -277,14 +277,10 @@
        Modal Form Specific Styles
        ======================================== */
 
-    .denuncia-form .form-fields {
+    .denuncia-form .form-fields,
+    .download-protocolo-form .form-fields {
         @apply
         flex flex-col gap-4
-    }
-
-    .denuncia-form .form-field-label {
-        @apply
-        text-primario-principal
     }
 
 }

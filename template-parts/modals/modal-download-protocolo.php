@@ -16,8 +16,8 @@
             <!-- Form State -->
             <div class="modal-state modal-state-form">
                 <div class="modal-header">
-                    <div class="content-icon content-icon--danger content-icon--large">
-                        <?php echo icon('warning-2'); ?>
+                    <div class="content-icon content-icon--primario content-icon--large">
+                        <?php echo icon('document-download'); ?>
                     </div>
                     <div class="modal-header-content">
                         <h2 class="modal-title">Protocolo</h2>
@@ -99,8 +99,8 @@
                         </div>
                     </div>
                     <div class="modal-header-content">
-                        <h2 class="modal-title">Protocolo baixado!</h2>
-                        <p class="modal-description">Seu protocolo foi baixado com sucesso.</p>
+                        <h2 class="modal-title">Download iniciado!</h2>
+                        <p class="modal-description">O download do protocolo foi iniciado automaticamente. Se o download não iniciar, <a href="#" target="_blank" id="manual-download-link" style="display:none;" class="underline font-semibold text-primario-principal">clique aqui para baixar</a>.</p>
                     </div>
                 </div>
 

@@ -31,3 +31,4 @@ require_once('inc/hooks/helpers.php');
 require_once('inc/ajax/contact-form-handler.php');
 require_once('inc/ajax/denuncia-handler.php');
 require_once('inc/ajax/newsletter-handler.php');
+require_once('inc/ajax/download-protocolo-handler.php');

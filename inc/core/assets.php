@@ -69,6 +69,7 @@
 	wp_enqueue_script( 'produtor-do-bem-animations-globals', get_template_directory_uri() . '/src/js/animations/globals.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-theme', get_template_directory_uri() . '/src/js/theme.js', array('produtor-do-bem-utils'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-modal-denuncia', get_template_directory_uri() . '/src/js/modal-denuncia.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
+	wp_enqueue_script( 'produtor-do-bem-modal-download-protocolo', get_template_directory_uri() . '/src/js/modal-download-protocolo.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-newsletter-form', get_template_directory_uri() . '/src/js/newsletter-form.js', array('produtor-do-bem-base-form', 'produtor-do-bem-toast'), PRODUTOR_DO_BEM_VERSION, true );
 
 	// Localizar script para AJAX
@@ -85,6 +86,13 @@
 	wp_localize_script( 'produtor-do-bem-newsletter-form', 'newsletter_ajax', array(
 		'ajax_url' => admin_url( 'admin-ajax.php' ),
 		'nonce' => wp_create_nonce( 'newsletter_form_nonce' )
+	));
+
+	wp_localize_script( 'produtor-do-bem-modal-download-protocolo', 'download_protocolo_ajax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' ),
+		'nonce' => wp_create_nonce( 'download_protocolo_form_nonce' ),
+		'post_id' => get_the_ID(),
+		'post_title' => get_the_title()
 	));
 }
 add_action( 'wp_enqueue_scripts', 'produtor_do_bem_scripts' );
