@@ -75,4 +75,18 @@
         text-base
     }
 
+    /* CTA 2 Fixed (para animação de scroll) */
+    .cta-2-fixed {
+        @apply
+        fixed bottom-6 left-0 right-0
+        z-40
+        pointer-events-none
+    }
+
+    .cta-2-fixed .cta-2 {
+        @apply
+        pointer-events-auto
+        shadow-2xl
+    }
+
 }

@@ -93,26 +93,28 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
         <?php endif; ?>
 
         <?php if ($protocolo['cta_option']) : ?>
-            <div class="flex mt-6">
-                <div class="cta-2">
-                    <div class="content-left">
-                        <div class="content-icon content-icon--primario">
-                            <?php echo icon($icone); ?>
+            <div class="cta-2-fixed">
+                <div class="container">
+                    <div class="cta-2">
+                        <div class="content-left">
+                            <div class="content-icon content-icon--primario">
+                                <?php echo icon($icone); ?>
+                            </div>
+                            <div class="content-text">
+                                <h3 class="content-text-title">Baixe o protocolo completo</h3>
+                                <p class="content-text-description">Tenha acesso a todos os detalhes técnicos, critérios de avaliação e diretrizes para implementação do protocolo.</p>
+                            </div>
                         </div>
-                        <div class="content-text">
-                            <h3 class="content-text-title">Baixe o protocolo completo</h3>
-                            <p class="content-text-description">Tenha acesso a todos os detalhes técnicos, critérios de avaliação e diretrizes para implementação do protocolo.</p>
-                        </div>
-                    </div>
-                    <div class="content-right">
-                        <div class="content-button">
-                            <!-- <a href="<?php echo $protocolo['arquivo_protocolo']['url']; ?>" class="btn" download>
-                                <span>Baixar protocolo</span>
-                            </a> -->
-                            <button id="download-protocolo" class="btn btn-is-icon" data-modal="download-protocolo">
-                                <span>Baixar protocolo</span>
-                                <?php echo icon('document-download'); ?>
-                            </button>
+                        <div class="content-right">
+                            <div class="content-button">
+                                <!-- <a href="<?php echo $protocolo['arquivo_protocolo']['url']; ?>" class="btn" download>
+                                    <span>Baixar protocolo</span>
+                                </a> -->
+                                <button id="download-protocolo" class="btn btn-is-icon" data-modal="download-protocolo">
+                                    <span>Baixar protocolo</span>
+                                    <?php echo icon('document-download'); ?>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

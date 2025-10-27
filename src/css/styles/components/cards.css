@@ -94,6 +94,11 @@
         pt-10
     }
 
+    .card-secondary .card-secondary-conteudo a {
+        @apply
+        text-primario-principal font-semibold underline hover:text-primario-variacao-3 transition-all duration-300
+    }
+
     /* Card People */
     .card-people {
         @apply

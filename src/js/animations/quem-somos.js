@@ -6,7 +6,6 @@ import {
     animateTitle,
     animateText,
     animateCards,
-    animateCardsWithScale,
     animateScaleWithScrub,
     animateSlideX,
     waitForTransition
@@ -174,7 +173,6 @@ function animateQuemSomosCTConsultivoSection() {
     animateText(tlCTConsultivo, sectionCTConsultivoEquipeTitle);
     animateCards(tlCTConsultivo, sectionCTConsultivoEquipePDB, CONFIG.offset.normal, CONFIG.stagger.fast);
 
-    animateCardsWithScale(null, sectionCTConsultivoProtocolosCards);
     gsap.from(sectionCTConsultivoProtocolosCards, {
         opacity: 0,
         scale: CONFIG.transform.scale.medium,

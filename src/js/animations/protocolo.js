@@ -92,6 +92,71 @@ function apendiceBccEccAnimation() {
     animateSlideY(tlApendiceBccEcc, apendiceBccEcc.querySelector('.sections-cpt-protocolo-apendice-bcc-ecc-content'), CONFIG.distance.medium, CONFIG.offset.none);
 }
 
+function ctaProtocoloAnimation() {
+    const protocolo = document.querySelector('#protocolo');
+    const ctaWrapper = document.querySelector('.cta-2')?.parentElement;
+    const cta = document.querySelector('.cta-2');
+
+    if (!elementExists(protocolo) || !elementExists(cta) || !elementExists(ctaWrapper)) return;
+
+    // Remove classe hidden e adiciona classe fixed
+    ctaWrapper.classList.remove('hidden');
+    ctaWrapper.classList.add('cta-2-fixed');
+
+    // Move o CTA para fora do #smooth-content para que o position fixed funcione corretamente
+    document.body.appendChild(ctaWrapper);
+
+    // Define estado inicial (escondido abaixo usando transform)
+    gsap.set(ctaWrapper, {
+        y: '100%',
+        opacity: 0
+    });
+
+    // Cria ScrollTrigger para controlar entrada e saída do CTA
+    ScrollTrigger.create({
+        trigger: protocolo,
+        start: "top 10%",  // Quando o topo da seção atingir 90% da viewport (topo - 10%)
+        end: "bottom 80%", // Quando o final da seção atingir 120% da viewport (bottom + 20%)
+        // markers: true,
+        onEnter: () => {
+            // CTA entra de baixo para cima
+            gsap.to(ctaWrapper, {
+                y: '0%',
+                opacity: 1,
+                duration: CONFIG.duration.normal,
+                ease: CONFIG.easing.default
+            });
+        },
+        onLeave: () => {
+            // CTA sai para baixo
+            gsap.to(ctaWrapper, {
+                y: '100%',
+                opacity: 0,
+                duration: CONFIG.duration.normal,
+                ease: CONFIG.easing.default
+            });
+        },
+        onEnterBack: () => {
+            // CTA volta quando faz scroll para cima
+            gsap.to(ctaWrapper, {
+                y: '0%',
+                opacity: 1,
+                duration: CONFIG.duration.normal,
+                ease: CONFIG.easing.default
+            });
+        },
+        onLeaveBack: () => {
+            // CTA sai para baixo quando sai da área de trigger voltando
+            gsap.to(ctaWrapper, {
+                y: '100%',
+                opacity: 0,
+                duration: CONFIG.duration.normal,
+                ease: CONFIG.easing.default
+            });
+        }
+    });
+}
+
 function initProtocoloAnimations() {
     // Aguarda transição completar antes de animar hero sections
     waitForTransition(() => {
@@ -102,6 +167,7 @@ function initProtocoloAnimations() {
     // Demais seções animam normalmente com scroll
     protocoloAnimation();
     apendiceBccEccAnimation();
+    ctaProtocoloAnimation();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
