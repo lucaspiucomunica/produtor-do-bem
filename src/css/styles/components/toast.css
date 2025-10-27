@@ -63,7 +63,7 @@
 
     .toast-progress {
         @apply
-        absolute bottom-2 left-6 right-6
+        absolute bottom-2 left-4 right-4
         h-1
         bg-neutro-principal
         overflow-hidden rounded-full
