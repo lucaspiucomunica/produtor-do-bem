@@ -73,4 +73,9 @@
         w-4 h-4 min-w-4 min-h-4
     }
 
+    .btn.btn-is-icon span {
+        @apply
+        pl-0.5
+    }
+
 }

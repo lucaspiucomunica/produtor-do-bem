@@ -46,4 +46,33 @@
         w-16 h-16
     }
 
+    /* CTA 2 */
+
+    .cta-2 {
+        @apply
+        w-full
+        flex items-center justify-between gap-10
+        bg-limao-variacao-1 p-6 rounded-3xl
+    }
+
+    .cta-2 .content-left {
+        @apply
+        flex items-center justify-center gap-6
+    }
+
+    .cta-2 .content-left .content-text > * {
+        @apply
+        mb-0
+    }
+
+    .cta-2 .content-left .content-text .content-text-title {
+        @apply
+        text-2xl
+    }
+
+    .cta-2 .content-left .content-text .content-text-description {
+        @apply
+        text-base
+    }
+
 }
