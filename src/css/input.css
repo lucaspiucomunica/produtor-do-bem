@@ -34,7 +34,8 @@
 @import './styles/slides-swiper.css';
 
 /* Layout (header, footer, etc.) */
-@import './styles/layout.css';
+@import './styles/header.css';
+@import './styles/footer.css';
 
 /* Seções específicas do site */
 @import './styles/sections.css';

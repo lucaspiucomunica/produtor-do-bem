@@ -21,12 +21,4 @@
     <div id="smooth-wrapper">
         <div id="smooth-content">
             <div class="site">
-                <?php 
-                // Pega o parâmetro passado para get_header()
-                $header_type = get_query_var('header_type', '1');
-                
-                // Define qual template part usar baseado no tipo
-                $header_template = 'template-parts/globals/content-header-' . $header_type;
-                
-                get_template_part($header_template); 
-                ?>         
+                <?php get_template_part('template-parts/globals/content-header'); ?>         

@@ -21,7 +21,7 @@
                     </div>
                     <div class="modal-header-content">
                         <h2 class="modal-title">Protocolo</h2>
-                        <p class="modal-description">Preencha o formulário abaixo para baixar o protocolo completo.</p>
+                        <p class="modal-description">Preencha o formulário abaixo para fazer o download do protocolo completo.</p>
                     </div>
                 </div>
 
@@ -29,12 +29,12 @@
                     <form id="form-download-protocolo" class="download-protocolo-form">
                         <div class="form-fields">
                             <div class="form-field-wrapper">
-                                <label for="download-protocolo-nome" class="form-field-label">Seu nome:</label>
+                                <label for="download-protocolo-nome" class="form-field-label">Seu nome: *</label>
                                 <input type="text" id="download-protocolo-nome" name="nome" placeholder="Digite seu nome" class="form-field-input">
                             </div>
 
                             <div class="form-field-wrapper">
-                                <label for="download-protocolo-email" class="form-field-label">Seu e-mail:</label>
+                                <label for="download-protocolo-email" class="form-field-label">Seu e-mail: *</label>
                                 <input type="email" id="download-protocolo-email" name="email" placeholder="seu@email.com" class="form-field-input">
                             </div>
 

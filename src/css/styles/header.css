@@ -1,0 +1,280 @@
+@layer components {
+    /* ========================================
+       Header
+       ======================================== */
+
+    /* Header - Geral */
+    .site-header {
+        @apply
+        relative z-50
+        /* absolute top-3 left-3 right-3 z-50 */
+    }
+
+    .site-header .site-header-content {
+        @apply
+        absolute top-3 left-3 right-3 z-50
+        flex items-center justify-between
+        p-6 rounded-3xl
+        bg-neutro-preto/[0.08] backdrop-blur-lg
+    }
+
+    .site-header .site-header-content .site-header-content-left {
+        @apply
+        flex items-center gap-10
+    }
+
+    .site-header .site-header-content .site-header-logo svg {
+        @apply
+        w-auto h-auto min-h-12
+    }
+
+    /* Header - 1 */
+
+    .site-header .site-header-content .site-header-menu .site-menu-desktop > ul {
+        @apply
+        flex items-center gap-2
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li {
+        @apply
+        relative
+        inline-flex items-center
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > a {
+        @apply
+        inline-flex items-center gap-2
+        text-neutro-branco font-semibold text-lg text-center
+        px-4 py-1 rounded-full
+        bg-transparent transition-all duration-300
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li:hover > a,
+    .site-header .site-header-menu .site-menu-desktop > ul > li.active > a {
+        @apply
+        bg-primario-variacao-4
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li.menu-item-has-children > a {
+        @apply
+        pl-4 pr-10
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li.current-menu-item > a {
+        @apply
+        bg-primario-variacao-4
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .submenu-toggle {
+        @apply
+        absolute top-1/2 right-1 -translate-y-1/2
+        inline-flex items-center justify-center
+        w-7 h-7 min-h-7 min-w-7 rounded-full
+        bg-transparent hover:bg-primario-principal
+        transition-all duration-300
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .submenu-toggle svg {
+        @apply
+        w-5 h-5 min-w-5 min-h-5
+        *:fill-neutro-branco
+        transition-all duration-300
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .submenu-toggle.active {
+        @apply
+        bg-primario-principal
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .submenu-toggle.active svg {
+        @apply
+        -rotate-180
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .sub-menu-wrapper {
+        @apply
+        hidden fixed top-0 left-0
+        w-full
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .sub-menu-wrapper.active {
+        @apply
+        flex
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .sub-menu-wrapper .sub-menu {
+        @apply
+        w-full
+        grid grid-flow-col auto-cols-fr gap-2
+        p-2 rounded-3xl
+        bg-limao-variacao-1
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .sub-menu-wrapper .sub-menu > li > a {
+        @apply
+        flex flex-col gap-2 items-center justify-center
+        text-center h-full hover:bg-limao-variacao-2
+        transition-all duration-300
+        p-2 rounded-2xl
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .sub-menu-wrapper .sub-menu > li.current-menu-item > a {
+        @apply
+        bg-limao-variacao-2
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-text {
+        @apply
+        text-sm font-semibold
+    }
+
+    .site-header .site-header-menu .site-menu-desktop > ul > li > .sub-menu-wrapper .sub-menu > li > a .menu-item-icon svg {
+        @apply
+        w-8 h-8 min-w-8 min-h-8
+        *:fill-primario-variacao-3
+    }
+
+    /* Header - 2 */
+
+    .site-header.site-header--2 .site-header-content {
+        @apply
+        bg-neutro-preto/[0.04]
+    }
+
+    .site-header.site-header--2 .site-header-menu .site-menu-desktop > ul > li > a {
+        @apply
+        text-primario-variacao-3
+        bg-transparent
+    }
+
+    .site-header.site-header--2 .site-header-menu .site-menu-desktop > ul > li:hover > a,
+    .site-header.site-header--2 .site-header-menu .site-menu-desktop > ul > li.active > a {
+        @apply
+        bg-neutro-principal
+    }
+
+    .site-header.site-header--2 .site-header-menu .site-menu-desktop > ul > li.current-menu-item > a {
+        @apply
+        bg-neutro-principal
+    }
+
+    .site-header.site-header--2 .site-header-menu .site-menu-desktop > ul > li > .submenu-toggle svg {
+        @apply
+        *:fill-primario-variacao-3
+    }
+
+    .site-header.site-header--2 .site-header-menu .site-menu-desktop > ul > li > .submenu-toggle {
+        @apply
+        hover:bg-limao-variacao-1
+    }
+
+    .site-header.site-header--2 .site-header-menu .site-menu-desktop > ul > li > .submenu-toggle.active {
+        @apply
+        bg-limao-variacao-1
+    }
+
+    /* Header - Menu mobile */
+
+    .site-header .site-menu-mobile-wrapper {
+        @apply
+        fixed top-0 left-0 w-full h-auto min-h-screen
+        bg-primario-variacao-5 text-neutro-branco z-50
+        /* opacity-0 invisible */
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-header {
+        @apply
+        flex flex-row items-center justify-between
+        px-6 pt-6
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-header .logo svg {
+        @apply
+        w-auto h-12
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content {
+        @apply
+        px-6 py-12
+        flex items-start gap-24
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .title {
+        @apply
+        text-xs uppercase text-neutro-variacao-3
+        inline-flex mb-4
+    }
+
+    /* Site Menu Mobile - Pages */
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages {
+        @apply
+        flex flex-col items-start justify-start gap-10
+        w-full max-w-[240px]
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul {
+        @apply
+        flex flex-col items-start justify-start gap-4
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul > li {
+        @apply
+        w-full
+        font-display font-semibold text-2xl
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul > li > a {
+        @apply
+        hover:text-limao-variacao-1 transition-all duration-300
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul > li.current-menu-item > a {
+        @apply
+        text-limao-variacao-1
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul > li > .submenu-toggle {
+        @apply
+        hidden
+    }
+    
+    /* Site Menu Mobile - Protocolos */
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos {
+        @apply
+        w-full flex flex-col items-start justify-start gap-10
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos ul {
+        @apply
+        grid grid-cols-4 gap-3
+    }
+    
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos ul > li {
+        @apply
+        w-full h-full
+    }
+    
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos ul > li > a {
+        @apply
+        flex items-center justify-start gap-4
+        p-4 rounded-2xl
+        bg-primario-variacao-4
+        w-full h-full
+        font-semibold text-lg leading-tight
+        hover:bg-limao-variacao-1 hover:text-primario-variacao-3 transition-all duration-300
+    }
+
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos ul > li.current-menu-item > a {
+        @apply
+        bg-limao-variacao-1 text-primario-variacao-3
+    }
+
+    /* Site Menu Mobile - Redes Sociais */
+
+    .site-header .site-menu-mobile-wrapper .content-redes-sociais-list {
+        @apply
+        flex flex-row items-center justify-start gap-2
+    }
+}

@@ -1,6 +1,6 @@
 const SubMenu = {
     setPosition() {
-        const contentHeader = document.querySelector('.site-header .content-header');
+        const contentHeader = document.querySelector('.site-header .site-header-content');
         const subMenus = document.querySelectorAll('.sub-menu-wrapper');
 
         if (contentHeader && subMenus.length > 0) {
