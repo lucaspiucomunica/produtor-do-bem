@@ -20,7 +20,7 @@
 
     .site-header .site-header-content .site-header-content-left {
         @apply
-        flex items-center gap-10
+        flex xl:flex-row flex-row-reverse items-center xl:gap-10 gap-6
     }
 
     .site-header .site-header-content .site-header-logo svg {
@@ -29,6 +29,11 @@
     }
 
     /* Header - 1 */
+
+    .site-header .site-header-content .site-header-menu .site-menu-desktop {
+        @apply
+        xl:block hidden
+    }
 
     .site-header .site-header-content .site-header-menu .site-menu-desktop > ul {
         @apply
@@ -179,7 +184,11 @@
         @apply
         fixed top-0 left-0 w-full h-auto min-h-screen
         bg-primario-variacao-5 text-neutro-branco z-50
-        /* opacity-0 invisible */
+    }
+
+    .site-header .site-menu-mobile-wrapper.site-menu-mobile-wrapper-hidden {
+        @apply
+        opacity-0 invisible
     }
 
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-header {
@@ -262,7 +271,7 @@
         p-4 rounded-2xl
         bg-primario-variacao-4
         w-full h-full
-        font-semibold text-lg leading-tight
+        font-semibold text-base leading-tight
         hover:bg-limao-variacao-1 hover:text-primario-variacao-3 transition-all duration-300
     }
 

@@ -26,10 +26,10 @@ $btn_classes = ($header_type === '1') ? 'btn btn-secondary btn-outline' : 'btn';
                 </a>
             </div>
             <div class="site-header-menu">
-                <button class="btn btn-icon btn-secondary xl:hidden inline-flex">
+                <button class="btn btn-icon btn-secondary xl:hidden inline-flex" id="menu-mobile-open" aria-label="Abrir menu mobile">
                     <?php echo icon('menu'); ?>
                 </button>
-                <div class="site-menu-desktop xl:block hidden">
+                <div class="site-menu-desktop">
                     <?php
                     wp_nav_menu(array(
                         'theme_location' => 'menu-main',
@@ -50,13 +50,13 @@ $btn_classes = ($header_type === '1') ? 'btn btn-secondary btn-outline' : 'btn';
         </div>
     </div>
 
-    <div class="site-menu-mobile-wrapper xl:hidden block">
+    <div class="site-menu-mobile-wrapper site-menu-mobile-wrapper-hidden">
         <div class="site-menu-mobile-header">
             <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>" class="logo">
                 <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem-branco.svg" alt="Logo" class="svg-inline">
             </a>
 
-            <button class="btn btn-icon btn-secondary">
+            <button class="btn btn-icon btn-secondary" id="menu-mobile-close" aria-label="Fechar menu mobile">
                 <?php echo icon('close-circle'); ?>
             </button>
         </div>
