@@ -13,4 +13,9 @@
         @apply
         py-20
     }
+
+    .container {
+        @apply
+        lg:px-10 px-8
+    }
 }

@@ -1,7 +1,16 @@
 import { ANIMATION_CONFIG as CONFIG } from './animations-config.js';
 import { elementExists, createScrollTimeline, animateTitleLines, animateTitle, animateButton } from './animations-utils.js';
 
+function isTouchDevice() {
+    const hasCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+    const hasNoHover = window.matchMedia('(hover: none)').matches;
+
+    return hasCoarsePointer || hasNoHover;
+}
+
 function animateCursor() {
+    if (isTouchDevice()) return;
+
     const cursor = document.querySelector('.cursor');
 
     if (!elementExists(cursor)) return;

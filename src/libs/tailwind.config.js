@@ -99,7 +99,6 @@ module.exports = {
       // Container
       container: {
         center: true,
-        padding: '2.5rem',
         screens: {
           sm: '100%',
           md: '100%',

@@ -48,8 +48,8 @@ if (!$sobre_titulo) {
             </div>
         </div>
 
-        <div class="flex items-stretch gap-6 mb-6">
-            <div class="w-full">
+        <div class="grid xl:grid-cols-8 lg:grid-cols-9 grid-cols-8 items-stretch gap-6 mb-6">
+            <div class="lg:col-span-4 col-span-5">
                 <div class="card card-1">
                     <?php if ($card_1_texto || $card_1_ilustracao): ?>                  
                         <?php if ($card_1_texto): ?>
@@ -70,7 +70,7 @@ if (!$sobre_titulo) {
                 </div>
             </div>
 
-            <div class="w-full max-w-[320px]">
+            <div class="xl:col-span-2 col-span-3">
                 <div class="card card-2">
                     <?php if ($card_2_texto || $card_2_ilustracao): ?>                  
                         <?php if ($card_2_texto): ?>
@@ -91,7 +91,7 @@ if (!$sobre_titulo) {
                 </div>
             </div>
 
-            <div class="w-full max-w-[320px]">
+            <div class="lg:col-span-2 col-span-8">
                 <div class="cards-vertical">
                     <div class="card card-3">
                         <?php if ($card_3_texto || $card_3_icone): ?>                  
@@ -132,8 +132,8 @@ if (!$sobre_titulo) {
             </div>
         </div>
 
-        <div class="flex items-stretch gap-6">
-            <div class="w-1/3">
+        <div class="grid lg:grid-cols-3 grid-cols-2 gap-6">
+            <div class="lg:col-span-1 col-span-2">
                 <div class="card card-5">
                     <?php if ($card_5_texto || $card_5_imagem): ?>                  
                         <?php if ($card_5_texto): ?>
@@ -153,7 +153,7 @@ if (!$sobre_titulo) {
                 </div>
             </div>
 
-            <div class="w-1/3">
+            <div class="col-span-1">
                 <div class="card card-6">
                     <?php if ($card_6_texto || $card_6_icones): ?>                  
                         <?php if ($card_6_texto): ?>
@@ -191,7 +191,7 @@ if (!$sobre_titulo) {
                 </div>
             </div>
 
-            <div class="w-1/3">
+            <div class="col-span-1">
                 <div class="card card-7">
                     <?php if ($card_7_texto || $card_7_imagens): ?>                  
                         <div class="card-7-content">

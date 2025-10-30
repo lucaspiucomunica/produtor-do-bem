@@ -17,7 +17,7 @@ $nome_e_cnpj = get_field('nome_e_cnpj', 'option');
 
 <footer class="site-footer" id="site-footer">
     <div class="content-footer">
-        <div class="flex items-stretch">
+        <div class="flex lg:flex-row flex-col-reverse items-stretch gap-10">
             <div class="w-full">
                 <div class="content-footer-left">
                     <div class="content-footer-logo">
@@ -86,7 +86,7 @@ $nome_e_cnpj = get_field('nome_e_cnpj', 'option');
                 </div>
             </div>
 
-            <div class="w-full max-w-[540px]">
+            <div class="w-full lg:max-w-[540px] max-w-full">
                 <div class="content-footer-newsletter">
                     <div class="content-footer-newsletter-title">
                         <h3>Assine nossa newsletter e fique por dentro das novidades sobre produção sustentável e a Produtor do Bem</h3>

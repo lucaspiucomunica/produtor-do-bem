@@ -9,7 +9,7 @@
     .site-footer .content-footer,
     .site-footer .content-copyright {
         @apply
-        p-10
+        lg:px-10 px-8 py-10
     }
 
     .site-footer .content-footer {
@@ -105,7 +105,7 @@
 
     .site-footer .content-footer .content-footer-left .content-menu ul > li > a {
         @apply
-        font-semibold hover:underline
+        font-semibold hover:underline text-nowrap
     }
 
     .site-footer .content-footer .content-footer-newsletter {

@@ -18,7 +18,7 @@
 
     .sections-pagina-principal-hero .hero-content .titulo h1 {
         @apply
-        text-5xl/[56px] text-center text-neutro-branco
+        lg:text-5xl/[56px] text-4xl/[48px] text-center text-neutro-branco
         flex flex-col items-center mb-6
     }
 
@@ -112,6 +112,11 @@
         text-xl text-neutro-branco
     }
 
+    .sections-pagina-principal-sobre .card-2-illustration {
+        @apply
+        max-w-[260px] mx-auto
+    }
+
     .sections-pagina-principal-sobre .card-2-illustration svg {
         @apply
         w-full h-full
@@ -119,13 +124,14 @@
 
     .sections-pagina-principal-sobre .cards-vertical {
         @apply
-        grid grid-rows-2 gap-6 items-stretch
+        grid lg:grid-rows-2 grid-rows-1 lg:grid-cols-1 grid-cols-7 gap-6 items-stretch
         h-full
     }
 
     .sections-pagina-principal-sobre .cards-vertical .card-3 {
         @apply
         h-auto
+        lg:first:col-span-1 first:col-span-3 lg:last:col-span-1 last:col-span-4
     }
 
     .sections-pagina-principal-sobre .card-3 {
@@ -147,7 +153,7 @@
 
     .sections-pagina-principal-sobre .card-5 {
         @apply
-        relative
+        relative lg:min-h-[auto] min-h-[320px]
         p-8
         flex flex-col justify-end
         before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:z-10
@@ -232,14 +238,18 @@
 
     .sections-pagina-principal-sobre .card-6-connection .rounded-inverted {
         @apply
-        w-4 h-4 min-w-4 min-h-4 overflow-hidden relative
+        xl:w-4 xl:h-4 xl:min-w-4 xl:min-h-4 
+        w-2 h-2 min-w-2 min-h-2 
+        overflow-hidden relative
         bg-neutro-branco
     }
 
     .sections-pagina-principal-sobre .card-6-connection .rounded-inverted:before {
         @apply
         content-[''] absolute bottom-0 left-0 w-full h-full z-10
-        w-8 h-8 min-w-8 min-h-8 rounded-full
+        xl:w-8 xl:h-8 xl:min-w-8 xl:min-h-8 
+        w-4 h-4 min-w-4 min-h-4 
+        rounded-full
         bg-primario-variacao-5
     }
 
@@ -307,13 +317,13 @@
 
     .sections-pagina-principal-sobre .texto-engajameto {
         @apply
-        flex flex-row gap-20 items-center
+        flex flex-row lg:gap-20 gap-10 items-center
         w-full max-w-[1178px] mx-auto
     }
 
     .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg {
         @apply
-        w-full h-auto max-w-96
+        w-full h-auto lg:max-w-96 max-w-56
     }
 
     .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg svg {
@@ -323,7 +333,7 @@
 
     .sections-pagina-principal-sobre .texto-engajameto .content-text h2 {
         @apply
-        text-5xl/[56px]
+        lg:text-5xl/[56px] text-4xl/[48px]
     }
 
     /* Certificações - Página Principal */
@@ -358,7 +368,7 @@
 
     .sections-pagina-principal-certificacoes .cta-certificacoes .content-text p {
         @apply
-        max-w-[860px] mx-auto
+        xl:max-w-[860px] max-w-[660px] mx-auto
     }
 
     .sections-pagina-principal-certificacoes .cta-certificacoes .ilustracoes {
@@ -369,7 +379,7 @@
 
     .sections-pagina-principal-certificacoes .cta-certificacoes .ilustracoes .ilustracao img {
         @apply
-        w-full h-auto max-w-[308px]
+        w-full h-auto lg:max-w-[308px] max-w-[268px]
     }
 
     /* Hero - Quem Somos */
