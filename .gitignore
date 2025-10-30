@@ -7,6 +7,7 @@ yarn-error.log*
 # Build/Compiled files
 # Descomente a linha abaixo se quiser ignorar o CSS compilado
 src/css/output.css
+src/css/output.min.css
 
 .htaccess
 
