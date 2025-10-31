@@ -16,10 +16,10 @@ $ct_consultivo_protocolos = get_field('ct_consultivo_protocolos');
 <section id="ct-consultivo" class="<?php echo get_class_section(); ?>">
     <div class="container">
         <div class="section-content">
-            <div class="flex gap-10 px-10 mb-20 animate-1">
+            <div class="flex lg:flex-row flex-col lg:gap-10 gap-6 lg:px-10 md:px-8 px-6 mb-20 animate-1">
                 <div class="w-auto">
                     <div class="content-text content-text--light">
-                        <h2 class="text-nowrap"><?php echo $ct_consultivo_titulo; ?></h2>
+                        <h2 class="lg:text-nowrap text-wrap"><?php echo $ct_consultivo_titulo; ?></h2>
                     </div>
                 </div>
                 <div class="w-full">
@@ -29,7 +29,7 @@ $ct_consultivo_protocolos = get_field('ct_consultivo_protocolos');
                 </div>
             </div>
 
-            <div class="flex px-10 mb-10 animate-2">
+            <div class="flex lg:px-10 md:px-8 px-6 mb-10 animate-2">
                 <div class="w-full">
                     <div class="content-text content-text--light">
                         <h3><?php echo $ct_consultivo_equipe_pdb_titulo; ?></h3>
@@ -37,9 +37,9 @@ $ct_consultivo_protocolos = get_field('ct_consultivo_protocolos');
                 </div>
             </div>
 
-            <div class="flex px-10 mb-20 animate-3">
+            <div class="flex lg:px-10 md:px-8 px-6 mb-20 animate-3">
                 <div class="w-full">
-                    <div class="grid grid-cols-7 gap-6">
+                    <div class="grid lg:grid-cols-7 sm:grid-cols-4 grid-cols-1 gap-6">
                         <?php foreach ($ct_consultivo_equipe_pdb as $item) : ?>
                             <div class="w-full">
                                 <div class="card-people">
@@ -59,7 +59,7 @@ $ct_consultivo_protocolos = get_field('ct_consultivo_protocolos');
 
             <div class="flex px-3 pb-3 animate-4">
                 <div class="w-full">
-                    <div class="grid grid-cols-2 gap-3">
+                    <div class="grid sm:grid-cols-2 grid-cols-1 gap-3">
                         <?php foreach ($ct_consultivo_protocolos as $item) : ?>
                             <div class="w-full">
                                 <div class="card-protocol">

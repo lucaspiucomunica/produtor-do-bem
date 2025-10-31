@@ -14,7 +14,7 @@
 
     .card-primary .card-primary-icon {
         @apply
-        pl-8 py-8
+        md:pl-8 pl-6 py-8
         flex flex-row justify-start
         w-full relative z-10
     }
@@ -61,7 +61,7 @@
 
     .card-primary .card-primary-text {
         @apply
-        px-8 pb-8
+        md:px-8 px-6 pb-8
     }
 
     .card-primary .card-primary-text h3 {
@@ -71,7 +71,7 @@
 
     .card-primary-connection-line {
         @apply
-        absolute top-1/2 -translate-y-1/2 left-40 -right-18 h-4
+        absolute top-1/2 -translate-y-1/2 md:left-40 left-36 md:-right-18 xxs:-right-16 -right-14 h-4
         bg-secundario-principal
     }
 
@@ -79,19 +79,19 @@
     .card-secondary {
         @apply
         border-2 border-neutro-variacao-1
-        p-10 rounded-4xl
+        sm:px-10 px-6 py-10 rounded-4xl
         flex flex-col justify-between
         w-full h-full
     }
 
     .card-secondary .card-secondary-titulo h4 {
         @apply
-        text-5xl text-primario-principal
+        xl:text-5xl sm:text-4xl text-3xl text-primario-principal
     }
 
     .card-secondary .card-secondary-conteudo {
         @apply
-        pt-10
+        sm:pt-10 pt-6
     }
 
     .card-secondary .card-secondary-conteudo a {
@@ -102,7 +102,7 @@
     /* Card People */
     .card-people {
         @apply
-        flex flex-col items-center justify-center
+        flex sm:flex-col flex-row items-center sm:justify-center justify-start
         gap-4
     }
 
@@ -120,8 +120,8 @@
 
     .card-people .text {
         @apply
-        text-neutro-branco text-center
-        flex flex-col items-center justify-center gap-1
+        text-neutro-branco sm:text-center text-left
+        flex flex-col sm:items-center items-start justify-center gap-1
     }
 
     .card-people .text h4 {

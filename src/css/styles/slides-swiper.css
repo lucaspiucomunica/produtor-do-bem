@@ -60,7 +60,7 @@
 
     .swiper-o-que-fazemos .swiper-slide:first-child .card-primary-connection-line {
         @apply
-        left-36
+        md:left-36 left-32
     }
 
     .swiper-o-que-fazemos .swiper-slide:last-child .card-primary .card-primary-connection-line {
@@ -72,10 +72,17 @@
 
     .carrossel-o-que-significa .progress-carrossel {
         @apply
-        absolute bottom-0 left-0 w-full h-1 top-[auto]
+        lg:absolute relative 
+        lg:mt-0 mt-6
+        bottom-0 left-0 w-full h-1 top-[auto]
         bg-neutro-variacao-1
         rounded-full overflow-hidden
         z-10
+    }
+
+    .carrossel-o-que-significa .group-swiper-navigation-progressbar {
+        @apply
+        flex flex-row items-center justify-between gap-10
     }
 
     .carrossel-o-que-significa .progress-carrossel .swiper-pagination-progressbar-fill {

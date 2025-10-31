@@ -21,7 +21,7 @@
 
     .cta-1 .content-cta .content-text h2 {
         @apply
-        text-5xl leading-tight
+        md:text-5xl text-4xl leading-tight
     }
 
     .cta-1 .content-text h2 .destaque {
@@ -32,7 +32,7 @@
     .cta-1 .content-button {
         @apply
         relative
-        min-w-52 min-h-52
+        md:min-w-52 min-w-48 md:min-h-52 min-h-48
     }
 
     .cta-1 .content-button .btn-cta-base {

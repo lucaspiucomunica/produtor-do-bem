@@ -19,8 +19,8 @@ if (!$hero_titulo) {
 
 <section id="hero" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex items-center justify-center gap-10">
-            <div class="w-5/12">
+        <div class="flex sm:flex-row flex-col items-center justify-center gap-10">
+            <div class="lg:w-5/12 md:w-6/12 sm:w-5/12 w-full">
                 <div class="hero-content">
                     <div class="titulo">
                         <h1>
@@ -34,7 +34,7 @@ if (!$hero_titulo) {
                 </div>
             </div>
 
-            <div class="w-5/12">
+            <div class="lg:w-5/12 md:w-6/12 sm:w-7/12 w-full">
                 <div class="hero-image">
                     <div class="hero-image-content">
                         <img src="<?php echo $hero_imagem['url']; ?>" alt="<?php echo $hero_imagem['alt']; ?>">

@@ -102,17 +102,32 @@ function animateQuemSomosOQueFazemosSection() {
         }
     });
 
+    const isMobile = window.innerWidth < 1024;
+
     animateTitle(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaTitle, CONFIG.offset.none);
     animateText(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaDescription);
 
-    tlOQueFazemosCarrosselSignifica.from(sectionOQueFazemosCarrosselSignificaNavigation, {
-        opacity: 0,
-        duration: CONFIG.duration.normal,
-        ease: CONFIG.easing.default
-    }, CONFIG.offset.loose);
+    if (isMobile) {
+        // Mobile: anima swiper antes dos controles
+        animateSlideX(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaSwiper);
+        tlOQueFazemosCarrosselSignifica.from(sectionOQueFazemosCarrosselSignificaNavigation, {
+            opacity: 0,
+            duration: CONFIG.duration.normal,
+            ease: CONFIG.easing.default
+        }, CONFIG.offset.loose);
+        animateText(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaProgress);
 
-    animateText(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaProgress);
-    animateSlideX(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaSwiper);
+    } else {
+        // Desktop: ordem original
+        tlOQueFazemosCarrosselSignifica.from(sectionOQueFazemosCarrosselSignificaNavigation, {
+            opacity: 0,
+            duration: CONFIG.duration.normal,
+            ease: CONFIG.easing.default
+        }, CONFIG.offset.loose);
+
+        animateText(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaProgress);
+        animateSlideX(tlOQueFazemosCarrosselSignifica, sectionOQueFazemosCarrosselSignificaSwiper);
+    }
 }
 
 function animateQuemSomosProdutoresEEmpresasSection() {

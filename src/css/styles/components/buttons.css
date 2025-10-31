@@ -10,7 +10,7 @@
         xs:px-6 px-5 xs:py-3 py-2.5
         rounded-full
         bg-primario-variacao-1 hover:bg-primario-variacao-3 transition-all duration-300
-        text-neutro-branco font-semibold md:text-lg xs:text-base text-sm text-center
+        text-neutro-branco font-semibold md:text-lg xs:text-base text-sm text-center xs:leading-normal leading-tight
     }
 
     .btn.btn-outline {

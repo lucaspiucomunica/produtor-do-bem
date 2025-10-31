@@ -20,7 +20,13 @@
 
     .site-header .site-header-content .site-header-content-left {
         @apply
-        flex xl:flex-row flex-row-reverse items-center xl:gap-10 xs:gap-6 gap-4
+        flex xl:flex-row xxs:flex-row-reverse flex-row items-center xxs:justify-start justify-between xl:gap-10 xs:gap-6 gap-4
+        xxs:w-auto w-full
+    }
+
+    .site-header .site-header-content .site-header-content-right {
+        @apply
+        xxs:block hidden
     }
 
     .site-header .site-header-content .site-header-logo svg {

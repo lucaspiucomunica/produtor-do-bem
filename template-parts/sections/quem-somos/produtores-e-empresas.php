@@ -23,7 +23,7 @@ $produtores_e_empresas_logos = get_field('produtores_e_empresas_logos');
             </div>
         </div>
 
-        <div class="flex items-center justify-center gap-20">
+        <div class="flex items-center justify-center flex-wrap md:gap-20 gap-10">
             <?php foreach ($produtores_e_empresas_logos as $logo) : ?>
                 <div class="item-logo w-auto">
                     <img src="<?php echo $logo['url']; ?>" alt="<?php echo $logo['alt']; ?>" class="w-auto h-auto max-w-[208px] max-h-[112px]">

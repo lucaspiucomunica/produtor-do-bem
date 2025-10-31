@@ -21,13 +21,13 @@ $btn_classes = ($header_type === '1') ? 'btn btn-secondary btn-outline' : 'btn';
     <div class="site-header-content">
         <div class="site-header-content-left">
             <div class="site-header-logo">
-                <div class="xs-plus:block hidden">
+                <div class="xs-plus:block xxs:hidden block">
                     <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>">
                         <img src="<?php echo get_template_directory_uri(); ?>/src/img/<?php echo esc_attr($logo_desktop); ?>" alt="Logo" class="svg-inline">
                     </a>
                 </div>
 
-                <div class="xs-plus:hidden block">
+                <div class="xs-plus:hidden xxs:block hidden">
                     <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>" class="logo">
                         <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Logo" class="svg-inline">
                     </a>
@@ -51,7 +51,7 @@ $btn_classes = ($header_type === '1') ? 'btn btn-secondary btn-outline' : 'btn';
             </div>
         </div>
 
-        <div class="content-right">
+        <div class="site-header-content-right">
             <a href="/certificacoes" class="<?php echo esc_attr($btn_classes); ?>">
                 <span>Obter a certificação</span>
             </a>
@@ -60,13 +60,13 @@ $btn_classes = ($header_type === '1') ? 'btn btn-secondary btn-outline' : 'btn';
 
     <div class="site-menu-mobile-wrapper site-menu-mobile-wrapper-hidden">
         <div class="site-menu-mobile-header">
-            <div class="xs-plus:hidden block">
+            <div class="xs-plus:hidden xxs:block hidden">
                 <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/img/<?php echo esc_attr($logo_desktop); ?>" alt="Logo" class="svg-inline">
                 </a>
             </div>
 
-            <div class="xs-plus:block hidden">
+            <div class="xs-plus:block xxs:hidden block">
                 <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>" class="logo">
                     <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Logo" class="svg-inline">
                 </a>

@@ -126,15 +126,14 @@ const ProtocolCards = {
     },
 
     init() {
-        const container = document.querySelector('.card-protocol')?.parentElement;
-        if (!container) return;
-
-        container.addEventListener('click', (e) => {
+        document.addEventListener('click', (e) => {
             const button = e.target.closest('.card-protocol-more button');
             if (button) {
                 e.preventDefault();
                 const card = button.closest('.card-protocol');
-                this.toggle(card);
+                if (card) {
+                    this.toggle(card);
+                }
             }
         });
 
