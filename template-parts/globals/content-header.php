@@ -21,9 +21,17 @@ $btn_classes = ($header_type === '1') ? 'btn btn-secondary btn-outline' : 'btn';
     <div class="site-header-content">
         <div class="site-header-content-left">
             <div class="site-header-logo">
-                <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>">
-                    <img src="<?php echo get_template_directory_uri(); ?>/src/img/<?php echo esc_attr($logo_desktop); ?>" alt="Logo" class="svg-inline">
-                </a>
+                <div class="xs-plus:block hidden">
+                    <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>">
+                        <img src="<?php echo get_template_directory_uri(); ?>/src/img/<?php echo esc_attr($logo_desktop); ?>" alt="Logo" class="svg-inline">
+                    </a>
+                </div>
+
+                <div class="xs-plus:hidden block">
+                    <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>" class="logo">
+                        <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Logo" class="svg-inline">
+                    </a>
+                </div>
             </div>
             <div class="site-header-menu">
                 <button class="btn btn-icon btn-secondary xl:hidden inline-flex" id="menu-mobile-open" aria-label="Abrir menu mobile">
@@ -52,9 +60,17 @@ $btn_classes = ($header_type === '1') ? 'btn btn-secondary btn-outline' : 'btn';
 
     <div class="site-menu-mobile-wrapper site-menu-mobile-wrapper-hidden">
         <div class="site-menu-mobile-header">
-            <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>" class="logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem-branco.svg" alt="Logo" class="svg-inline">
-            </a>
+            <div class="xs-plus:hidden block">
+                <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>">
+                    <img src="<?php echo get_template_directory_uri(); ?>/src/img/<?php echo esc_attr($logo_desktop); ?>" alt="Logo" class="svg-inline">
+                </a>
+            </div>
+
+            <div class="xs-plus:block hidden">
+                <a href="<?php echo home_url(); ?>" rel="home" aria-label="<?php bloginfo('name'); ?>" class="logo">
+                    <img src="<?php echo get_template_directory_uri(); ?>/src/img/icone-logo-produtor-do-bem.svg" alt="Logo" class="svg-inline">
+                </a>
+            </div>
 
             <button class="btn btn-icon btn-secondary" id="menu-mobile-close" aria-label="Fechar menu mobile">
                 <?php echo icon('close-circle'); ?>

@@ -1,21 +1,21 @@
 @layer utilities {
     .p-section-top {
         @apply
-        pt-20
+        xs-plus:pt-20 pt-16
     }
 
     .p-section-bottom {
         @apply
-        pb-20
+        xs-plus:pb-20 pb-16
     }
 
     .p-section {
         @apply
-        py-20
+        xs-plus:py-20 py-16
     }
 
     .container {
         @apply
-        lg:px-10 md:px-8 sm:px-6 px-4
+        lg:px-10 md:px-8 px-6
     }
 }

@@ -13,7 +13,7 @@
     .sections-pagina-principal-hero .hero-content {
         @apply
         flex flex-col justify-between sm:items-center items-start
-        w-full max-w-[916px] mx-auto pt-16 z-10 relative
+        w-full max-w-[916px] mx-auto pt-[140px] pb-[80px] z-10 relative
     }
 
     .sections-pagina-principal-hero .hero-content .titulo h1 {
@@ -127,7 +127,7 @@
 
     .sections-pagina-principal-sobre .cards-vertical {
         @apply
-        grid lg:grid-rows-2 grid-rows-1 lg:grid-cols-1 sm-plus:grid-cols-7 grid-cols-1 sm:gap-6 gap-4 items-stretch
+        grid lg:grid-rows-2 grid-rows-1 lg:grid-cols-1 sm-plus:grid-cols-7 grid-cols-1 gap-6 items-stretch
         h-full
     }
 
@@ -321,13 +321,13 @@
 
     .sections-pagina-principal-sobre .texto-engajameto {
         @apply
-        flex flex-row lg:gap-20 gap-10 items-center
-        w-full max-w-[1178px] mx-auto
+        flex sm-plus:flex-row flex-col lg:gap-20 gap-10 sm-plus:items-center items-start
+        w-full sm-plus:max-w-[1178px] max-w-full mx-auto
     }
 
     .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg {
         @apply
-        w-full h-auto lg:max-w-96 md:max-w-56 max-w-40
+        w-full h-auto lg:max-w-96 md:max-w-56 sm-plus:max-w-40 max-w-24
     }
 
     .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg svg {
@@ -345,7 +345,7 @@
     .sections-pagina-principal-certificacoes .cta-certificacoes {
         @apply
         bg-primario-variacao-5
-        pt-20 md:pb-20 pb-56 lg:px-10 md:px-8 px-6
+        xs-plus:pt-20 pt-16 md:pb-20 sm:pb-56 pb-32 lg:px-10 md:px-8 px-6
         rounded-4xl
         flex flex-col justify-between items-center relative overflow-hidden
     }

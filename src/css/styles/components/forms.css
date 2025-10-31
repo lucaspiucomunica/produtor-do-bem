@@ -21,9 +21,9 @@
     .form-field-input {
         @apply
         w-full
-        px-6 py-3
+        sm:px-6 px-5 sm:py-3 py-2.5
         border-2 border-neutro-variacao-1
-        text-primario-variacao-5 text-lg
+        text-primario-variacao-5 sm:text-lg xs:text-base text-sm
         rounded-full
         ring-0 ring-transparent outline-none
         focus:ring-2 focus:ring-primario-principal

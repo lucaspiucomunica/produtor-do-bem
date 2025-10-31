@@ -48,7 +48,7 @@ if (!$sobre_titulo) {
             </div>
         </div>
 
-        <div class="grid xl:grid-cols-8 lg:grid-cols-9 grid-cols-8 items-stretch sm:gap-6 gap-4 sm:mb-6 mb-4">
+        <div class="grid xl:grid-cols-8 lg:grid-cols-9 grid-cols-8 items-stretch gap-6 mb-6">
             <div class="lg:col-span-4 md:col-span-5 sm-plus:col-span-4 col-span-8">
                 <div class="card card-1">
                     <?php if ($card_1_texto || $card_1_ilustracao): ?>                  
@@ -132,7 +132,7 @@ if (!$sobre_titulo) {
             </div>
         </div>
 
-        <div class="grid lg:grid-cols-3 grid-cols-2 sm:gap-6 gap-4">
+        <div class="grid lg:grid-cols-3 grid-cols-2 gap-6">
             <div class="lg:col-span-1 col-span-2">
                 <div class="card card-5">
                     <?php if ($card_5_texto || $card_5_imagem): ?>                  

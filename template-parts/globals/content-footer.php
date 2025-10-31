@@ -114,7 +114,7 @@ $nome_e_cnpj = get_field('nome_e_cnpj', 'option');
 
     <div class="content-copyright">
         <div class="flex">
-            <div class="w-full flex justify-between gap-10">
+            <div class="w-full flex lg:flex-row flex-col justify-between l:gap-10 gap-4">
                 <p>&copy; <?php echo date('Y'); ?> Produtor do Bem. Todos os direitos reservados.</p>
                 <p>Produtor do Bem Certificação de Sustentabilidade Ltda. 48.054.375/0001-60</p>
             </div>

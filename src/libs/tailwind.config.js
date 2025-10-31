@@ -41,6 +41,9 @@ module.exports = {
     extend: {
       // Breakpoints
       screens: {
+        'xxs': '340px',
+        'xs-plus': '420px',
+        'xs': '480px',
         'sm-plus': '580px',
       },
 

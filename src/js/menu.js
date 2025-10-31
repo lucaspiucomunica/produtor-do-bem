@@ -104,6 +104,19 @@ const MobileMenu = {
         document.body.style.paddingRight = '';
     },
 
+    checkMenuHeight() {
+        if (!this.wrapper) return;
+
+        const viewportHeight = window.innerHeight;
+        const wrapperHeight = this.wrapper.scrollHeight;
+
+        if (wrapperHeight > viewportHeight) {
+            this.wrapper.classList.add('menu-scrollable');
+        } else {
+            this.wrapper.classList.remove('menu-scrollable');
+        }
+    },
+
     open() {
         if (this.isOpen || !this.wrapper) return;
 
@@ -117,7 +130,10 @@ const MobileMenu = {
             {
                 opacity: 1,
                 duration: 0.3,
-                ease: 'power2.out'
+                ease: 'power2.out',
+                onComplete: () => {
+                    this.checkMenuHeight();
+                }
             }
         );
     },
@@ -133,6 +149,7 @@ const MobileMenu = {
             ease: 'power2.in',
             onComplete: () => {
                 this.wrapper.classList.add('site-menu-mobile-wrapper-hidden');
+                this.wrapper.classList.remove('menu-scrollable');
                 this.unlockScroll();
             }
         });
@@ -179,4 +196,9 @@ document.addEventListener('DOMContentLoaded', () => {
     SubMenu.init();
     MobileMenu.init();
 });
-window.addEventListener('resize', ThemeUtils.debounce(() => SubMenu.setPosition(), 250));
+window.addEventListener('resize', ThemeUtils.debounce(() => {
+    SubMenu.setPosition();
+    if (MobileMenu.isOpen) {
+        MobileMenu.checkMenuHeight();
+    }
+}, 250));

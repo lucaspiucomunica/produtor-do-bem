@@ -20,12 +20,12 @@
 
     .site-header .site-header-content .site-header-content-left {
         @apply
-        flex xl:flex-row flex-row-reverse items-center xl:gap-10 gap-6
+        flex xl:flex-row flex-row-reverse items-center xl:gap-10 xs:gap-6 gap-4
     }
 
     .site-header .site-header-content .site-header-logo svg {
         @apply
-        w-auto h-auto md:min-h-12 min-h-10 sm-plus:max-h-full max-h-8
+        w-auto h-auto md:min-h-12 xs:min-h-10 min-h-9 sm-plus:max-h-full max-h-8
     }
 
     /* Header - 1 */
@@ -194,7 +194,7 @@
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-header {
         @apply
         flex flex-row items-center justify-between
-        px-6 py-6 bg-primario-variacao-5
+        px-6 py-6 bg-primario-variacao-5 border-b border-primario-variacao-4
     }
 
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-header .logo svg {
@@ -204,8 +204,8 @@
 
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content {
         @apply
-        px-6 pt-6 pb-12
-        flex items-start lg:gap-24 md:gap-14 gap-8
+        px-6 py-6
+        flex xs:flex-row flex-col items-start lg:gap-24 md:gap-14 gap-8
     }
 
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .title {
@@ -218,8 +218,8 @@
 
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages {
         @apply
-        flex flex-col items-start justify-start gap-10
-        w-full max-w-[240px]
+        flex xs:flex-col flex-row items-start justify-start gap-10
+        w-full sm-plus:max-w-[240px] xs:max-w-[180px] max-w-full
     }
 
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul {
@@ -230,7 +230,7 @@
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul > li {
         @apply
         w-full
-        font-display font-semibold md:text-2xl text-xl
+        font-display font-semibold md:text-2xl sm:text-xl text-lg
     }
 
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-pages ul > li > a {
@@ -255,9 +255,14 @@
         w-full flex flex-col items-start justify-start gap-10
     }
 
+    .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos .site-menu-mobile-content-protocolos-item {
+        @apply
+        w-full
+    }
+
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos ul {
         @apply
-        grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3
+        grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 xs:grid-cols-1 xs-plus:grid-cols-2 grid-cols-1 gap-3
     }
     
     .site-header .site-menu-mobile-wrapper .site-menu-mobile-content .site-menu-mobile-content-protocolos ul > li {
@@ -285,5 +290,22 @@
     .site-header .site-menu-mobile-wrapper .content-redes-sociais-list {
         @apply
         flex flex-row items-center justify-start gap-2
+    }
+
+    /* Site Menu Mobile - Scroll Behavior */
+
+    .site-header .site-menu-mobile-wrapper.menu-scrollable {
+        @apply
+        flex flex-col h-screen overflow-hidden
+    }
+
+    .site-header .site-menu-mobile-wrapper.menu-scrollable .site-menu-mobile-header {
+        @apply
+        flex-shrink-0
+    }
+
+    .site-header .site-menu-mobile-wrapper.menu-scrollable .site-menu-mobile-content {
+        @apply
+        flex-1 overflow-y-auto overflow-x-hidden
     }
 }
