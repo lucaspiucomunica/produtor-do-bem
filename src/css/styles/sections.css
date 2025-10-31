@@ -6,20 +6,20 @@
     .sections-pagina-principal-hero {
         @apply
         bg-primario-variacao-5
-        min-h-[calc(100vh-40px)] rounded-b-[80px]
+        min-h-[calc(100vh-40px)] md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
         flex items-center justify-center relative overflow-hidden
     }
 
     .sections-pagina-principal-hero .hero-content {
         @apply
-        flex flex-col justify-between items-center
+        flex flex-col justify-between sm:items-center items-start
         w-full max-w-[916px] mx-auto pt-16 z-10 relative
     }
 
     .sections-pagina-principal-hero .hero-content .titulo h1 {
         @apply
-        lg:text-5xl/[56px] text-4xl/[48px] text-center text-neutro-branco
-        flex flex-col items-center mb-6
+        lg:text-5xl/[56px] text-4xl/[48px] sm:text-center text-left text-neutro-branco
+        flex flex-col sm:items-center items-start mb-6
     }
 
     .sections-pagina-principal-hero .hero-content .titulo h1 .destaque {
@@ -35,25 +35,28 @@
     
     .sections-pagina-principal-hero .hero-content .subtitulo p {
         @apply
-        text-lg
+        text-lg text-left
     }
     
     .sections-pagina-principal-hero .hero-content .subtitulo .icons {
         @apply
         relative
-        w-8 h-8 min-w-8 min-h-8
+        sm:w-8 sm:h-8 sm:min-w-8 sm:min-h-8 w-16 h-16 min-w-16 min-h-16
+        sm:rounded-none rounded-2xl sm:bg-transparent bg-limao-variacao-1
     }
 
     .sections-pagina-principal-hero .hero-content .subtitulo .icons .icon {
         @apply
         absolute
-        top-0 left-0
+        sm:top-0 sm:left-0
+        top-1/2 left-1/2 sm:translate-x-[0] sm:translate-y-[0] -translate-x-1/2 -translate-y-1/2
         w-8 h-8 min-w-8 min-h-8
     }
 
     .sections-pagina-principal-hero .hero-content .subtitulo svg {
         @apply
         w-8 h-8 min-w-8 min-h-8
+        sm:fill-neutro-branco fill-primario-variacao-3
     }
 
     .sections-pagina-principal-hero .hero-bg-video {
@@ -82,7 +85,7 @@
 
     .sections-pagina-principal-sobre .card-1-text {
         @apply
-        px-8 pt-8 pb-6
+        md:px-8 px-6 pt-8 pb-6
     }
 
     .sections-pagina-principal-sobre .card-1-text h3 {
@@ -92,13 +95,13 @@
 
     .sections-pagina-principal-sobre .card-1-illustration svg {
         @apply
-        w-full h-full
+        w-full h-full md:min-w-full sm-plus:min-w-[140%] min-w-full
     }
 
     .sections-pagina-principal-sobre .card-2 {
         @apply
         bg-primario-variacao-5
-        px-8 pt-8
+        md:px-8 px-6 pt-8
         flex flex-col justify-between
     }
 
@@ -124,20 +127,20 @@
 
     .sections-pagina-principal-sobre .cards-vertical {
         @apply
-        grid lg:grid-rows-2 grid-rows-1 lg:grid-cols-1 grid-cols-7 gap-6 items-stretch
+        grid lg:grid-rows-2 grid-rows-1 lg:grid-cols-1 sm-plus:grid-cols-7 grid-cols-1 sm:gap-6 gap-4 items-stretch
         h-full
     }
 
     .sections-pagina-principal-sobre .cards-vertical .card-3 {
         @apply
         h-auto
-        lg:first:col-span-1 first:col-span-3 lg:last:col-span-1 last:col-span-4
+        lg:first:col-span-1 sm-plus:first:col-span-3 first:col-span-1 lg:last:col-span-1 sm-plus:last:col-span-4 last:col-span-1
     }
 
     .sections-pagina-principal-sobre .card-3 {
         @apply
         bg-neutro-principal
-        p-8
+        py-8 md:px-8 px-6
         flex flex-col justify-between
     }
 
@@ -154,7 +157,7 @@
     .sections-pagina-principal-sobre .card-5 {
         @apply
         relative lg:min-h-[auto] min-h-[320px]
-        p-8
+        py-8 md:px-8 px-6
         flex flex-col justify-end
         before:content-[''] before:absolute before:top-0 before:left-0 before:w-full before:h-full before:z-10
         before:bg-gradient-to-b before:from-primario-variacao-5/0 before:via-primario-variacao-5/40 before:to-primario-variacao-5
@@ -182,14 +185,14 @@
 
     .sections-pagina-principal-sobre .card-6 {
         @apply
-        p-8
+        py-8 md:px-8 px-6
         bg-primario-variacao-5
         flex flex-col justify-between
     }
 
     .sections-pagina-principal-sobre .card-6-text {
         @apply
-        max-w-[290px]
+        sm:max-w-[290px] max-w-full
     }
 
     .sections-pagina-principal-sobre .card-6-text h3 {
@@ -205,8 +208,8 @@
 
     .sections-pagina-principal-sobre .card-6-icon {
         @apply
-        w-full aspect-square
-        rounded-3xl bg-neutro-principal
+        w-full sm:max-h-full max-h-24 aspect-square
+        md:rounded-3xl rounded-2xl bg-neutro-principal
         flex items-center justify-center
         shadow-custom-1
         relative z-10
@@ -216,7 +219,8 @@
 
     .sections-pagina-principal-sobre .card-6-icon svg {
         @apply
-        w-12 h-12 min-w-12 min-h-12
+        md:w-12 md:h-12 md:min-w-12 md:min-h-12 
+        w-10 h-10 min-w-10 min-h-10
     }
 
     .sections-pagina-principal-sobre .card-6-connection {
@@ -265,7 +269,7 @@
 
     .sections-pagina-principal-sobre .card-7 {
         @apply
-        p-8
+        py-8 md:px-8 px-6
         bg-limao-variacao-1
         flex flex-col justify-between
     }
@@ -282,7 +286,7 @@
 
     .sections-pagina-principal-sobre .card-7-images > * {
         @apply
-        w-1/4 min-w-14 rounded-3xl overflow-hidden
+        w-1/4 md:min-w-14 min-w-[auto] md:rounded-3xl rounded-2xl overflow-hidden sm:max-h-full max-h-24
         first:-order-2
     }
 
@@ -294,7 +298,7 @@
 
     .sections-pagina-principal-sobre .card-7-icon svg {
         @apply
-        w-full h-auto max-w-14
+        w-full h-auto md:max-w-14 max-w-10
         *:fill-limao-variacao-1
     }
 
@@ -323,7 +327,7 @@
 
     .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg {
         @apply
-        w-full h-auto lg:max-w-96 max-w-56
+        w-full h-auto lg:max-w-96 md:max-w-56 max-w-40
     }
 
     .sections-pagina-principal-sobre .texto-engajameto .wrapper-svg svg {
@@ -333,7 +337,7 @@
 
     .sections-pagina-principal-sobre .texto-engajameto .content-text h2 {
         @apply
-        lg:text-5xl/[56px] text-4xl/[48px]
+        lg:text-5xl/[56px] md:text-4xl/[48px] text-3xl/[40px]
     }
 
     /* Certificações - Página Principal */
@@ -341,7 +345,7 @@
     .sections-pagina-principal-certificacoes .cta-certificacoes {
         @apply
         bg-primario-variacao-5
-        py-20 px-10
+        pt-20 md:pb-20 pb-56 lg:px-10 md:px-8 px-6
         rounded-4xl
         flex flex-col justify-between items-center relative overflow-hidden
     }
@@ -373,13 +377,13 @@
 
     .sections-pagina-principal-certificacoes .cta-certificacoes .ilustracoes {
         @apply
-        absolute -bottom-10 -left-20 -right-20 z-0
-        flex flex-row justify-between
+        absolute -bottom-10 md:-left-20 -left-0 md:-right-20 -right-0 z-0
+        flex flex-row justify-between md:gap-0 gap-10
     }
 
     .sections-pagina-principal-certificacoes .cta-certificacoes .ilustracoes .ilustracao img {
         @apply
-        w-full h-auto lg:max-w-[308px] max-w-[268px]
+        w-full h-auto lg:max-w-[308px] md:max-w-[268px] max-w-full
     }
 
     /* Hero - Quem Somos */

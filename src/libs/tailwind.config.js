@@ -39,6 +39,11 @@ module.exports = {
   // Estilos
   theme: {
     extend: {
+      // Breakpoints
+      screens: {
+        'sm-plus': '580px',
+      },
+
       // Spacing
       spacing: {
         '18': '4.5rem',

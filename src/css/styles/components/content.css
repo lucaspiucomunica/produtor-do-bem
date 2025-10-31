@@ -37,7 +37,7 @@
 
     .content-text p {
         @apply
-        mb-4 text-lg
+        mb-4 md:text-lg text-base
     }
 
     .content-text *:last-child {

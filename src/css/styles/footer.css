@@ -2,14 +2,14 @@
     /* Footer */
     .site-footer {
         @apply
-        bg-neutro-preto rounded-t-[80px]
+        bg-neutro-preto md:rounded-t-[80px] sm:rounded-t-[64px] rounded-t-[48px]
         relative z-10
     }
 
     .site-footer .content-footer,
     .site-footer .content-copyright {
         @apply
-        lg:px-10 px-8 py-10
+        lg:px-10 md:px-8 sm:px-6 px-4 sm:pt-10 pb-10 pt-4
     }
 
     .site-footer .content-footer {
@@ -112,7 +112,7 @@
         @apply
         w-full h-full 
         bg-neutro-variacao-6 rounded-4xl
-        p-8 flex flex-col items-start justify-center gap-3
+        py-8 sm:px-8 px-6 flex flex-col items-start justify-center gap-3
     }
 
     .site-footer .content-footer .content-footer-newsletter .content-footer-newsletter-title {
