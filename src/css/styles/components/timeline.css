@@ -10,14 +10,15 @@
 
     .timeline-1 .timeline-1-items {
         @apply
-        flex flex-col items-end gap-10
+        flex flex-col items-end lg-plus:gap-10 gap-6
+        lg-plus:pl-0 sm:pl-16 pl-12
     }
 
     .timeline-1 .timeline-1-item {
         @apply
         max-w-[800px] w-full
-        flex flex-row items-center gap-10
-        pl-3 py-3 pr-6
+        flex sm-plus:flex-row flex-col sm-plus:items-center items-start lg-plus:gap-10 gap-6
+        sm-plus:pl-3 pl-6 sm-plus:py-3 py-8 sm-plus:pr-4 pr-6
         rounded-3xl
         bg-neutro-principal outline-2 outline outline-neutro-variacao-1
     }
@@ -41,10 +42,12 @@
     .timeline-1 .timeline-1-item-count-number {
         @apply
         flex flex-col items-center justify-center gap-2
-        w-30 h-30 min-w-30 min-h-30
+        lg:w-30 lg:h-30 lg:min-w-30 lg:min-h-30
+        sm-plus:w-24 sm-plus:h-24 sm-plus:min-w-24 sm-plus:min-h-24
+        w-20 h-20 min-w-20 min-h-20
         bg-primario-variacao-5 text-limao-variacao-1
         rounded-2xl
-        text-6xl font-display font-semibold
+        lg:text-6xl text-4xl font-display font-semibold
     }
 
     .timeline-1 .timeline-1-item:last-child .timeline-1-item-count-number {
@@ -55,7 +58,9 @@
 
     .timeline-1 .timeline-1-item-count-icon {
         @apply
-        w-30 h-30 min-w-30 min-h-30
+        lg:w-30 lg:h-30 lg:min-w-30 lg:min-h-30
+        sm-plus:w-24 sm-plus:h-24 sm-plus:min-w-24 sm-plus:min-h-24
+        w-20 h-20 min-w-20 min-h-20
         flex items-center justify-center
         rounded-2xl
         bg-limao-variacao-1 text-primario-variacao-5
@@ -63,18 +68,20 @@
 
     .timeline-1 .timeline-1-item-count-icon svg {
         @apply
-        w-10 h-10 min-w-10 min-h-10
+        lg:w-10 lg:h-10 lg:min-w-10 lg:min-h-10
+        sm-plus:w-8 sm-plus:h-8 sm-plus:min-w-8 sm-plus:min-h-8
+        w-6 h-6 min-w-6 min-h-6
         fill-primario-variacao-3
     }
 
     .timeline-1 .timeline-1-item-content {
         @apply
-        w-full
+        w-full sm-plus:py-4 py-0
     }
 
     .timeline-1 .timeline-1-item-content h3 {
         @apply
-        text-2xl font-regular
+        lg-plus:text-2xl text-xl font-regular
     }
 
     .timeline-1 .timeline-1-item-content h3 strong {
@@ -89,7 +96,7 @@
 
     .timeline-1 .timeline-1-line {
         @apply
-        absolute top-14 bottom-14 left-0 w-10 z-0
+        absolute top-14 bottom-14 left-0 sm:w-8 w-6 z-0
     }
 
     .timeline-1 .timeline-1-line-line {
@@ -112,7 +119,8 @@
 
     .timeline-1 .timeline-1-line-dot {
         @apply
-        w-8 h-8 bg-neutro-variacao-2 rounded-full
+        sm:w-8 sm:h-8 w-6 h-6
+        bg-neutro-variacao-2 rounded-full
         transition-all duration-300
     }
 

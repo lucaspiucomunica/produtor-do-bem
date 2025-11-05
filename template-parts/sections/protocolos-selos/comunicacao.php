@@ -28,9 +28,9 @@ if (!$comunicacao_titulo) {
                     </div>
                 </div>
 
-                <div class="flex cards-connection-1">
+                <div class="flex lg-plus:flex-row flex-col cards-connection-1">
                     <?php foreach ($comunicacao_cards as $index => $comunicacao_card) : ?>
-                        <div class="w-1/3">
+                        <div class="lg-plus:w-1/3 w-full">
                             <div class="card-image-1">
                                 <div class="content-image">
                                     <img src="<?php echo $comunicacao_card['imagem']['url']; ?>" alt="<?php echo $comunicacao_card['imagem']['alt']; ?>">

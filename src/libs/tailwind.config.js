@@ -13,27 +13,19 @@ module.exports = {
     // Classes geradas dinamicamente pela função get_class_section()
     {
       pattern: /^sections-.*/,
-      variants: ['sm', 'md', 'lg', 'xl', '2xl'],
+      variants: ['xxs', 'xs-plus', 'xs', 'sm-plus', 'sm', 'md-plus', 'md', 'lg-plus', 'lg', 'xl-plus', 'xl', '2xl'],
+    },
+    {
+      pattern: /^grid-cols-(1[0-2]|[1-9])$/,
+      variants: ['xxs', 'xs-plus', 'xs', 'sm-plus', 'sm', 'md-plus', 'md', 'lg-plus', 'lg', 'xl-plus', 'xl', '2xl'],
+    },
+    {
+      pattern: /^col-span-(1[0-2]|[1-9])$/,
+      variants: ['xxs', 'xs-plus', 'xs', 'sm-plus', 'sm', 'md-plus', 'md', 'lg-plus', 'lg', 'xl-plus', 'xl', '2xl'],
     },
     // Outras classes dinâmicas se necessário
     'p-section',
     'p-section-top',
-    'grid-cols-1',
-    'grid-cols-2',
-    'grid-cols-3',
-    'grid-cols-4',
-    'col-span-1',
-    'col-span-2',
-    'col-span-3',
-    'col-span-4',
-    'col-span-5',
-    'col-span-6',
-    'col-span-7',
-    'col-span-8',
-    'col-span-9',
-    'col-span-10',
-    'col-span-11',
-    'col-span-12',
   ],
 
   // Estilos
@@ -45,6 +37,11 @@ module.exports = {
         'xs-plus': '420px',
         'xs': '480px',
         'sm-plus': '580px',
+        'sm': '640px',
+        'md': '768px',
+        'lg-plus': '924px',
+        'lg': '1024px',
+        'xl-plus': '1200px',
       },
 
       // Spacing

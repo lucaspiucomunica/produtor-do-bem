@@ -218,11 +218,11 @@
     /* Card Rotate */
     .card-rotate {
         @apply
-        w-full min-h-[420px] h-full
+        w-full lg-plus:min-h-[420px] min-h-[360px] h-full
         rounded-4xl
         outline-2 -outline-offset-2 outline outline-secundario-principal
         bg-neutro-branco
-        p-10
+        py-10 sm:px-10 px-6
         flex flex-col items-start justify-between gap-10
     }
 
@@ -360,7 +360,11 @@
 
     .cards-connection-1 .card-connection-1 {
         @apply
-        min-w-8 my-5 bg-limao-variacao-1
+        min-w-8 
+        lg-plus:my-5 my-0 
+        lg-plus:mx-0 mx-5
+        bg-limao-variacao-1
+        lg-plus:min-h-[auto] min-h-8
         relative
     }
 
@@ -371,12 +375,19 @@
 
     .cards-connection-1 .card-connection-1 .rounded-top {
         @apply
-        absolute -top-4 left-0 w-full
+        absolute 
+        lg-plus:-top-4 top-0 
+        lg-plus:left-0 -left-4 
+        w-full
     }
 
     .cards-connection-1 .card-connection-1 .rounded-bottom {
         @apply
-        absolute -bottom-4 left-0 w-full
+        absolute 
+        lg-plus:-bottom-4 bottom-0
+        lg-plus:left-0 left-[inherit] 
+        lg-plus:right-[inherit] -right-5
+        lg-plus:w-full w-auto
     }
 
     /* Card Protocolo Nivel */
@@ -497,14 +508,14 @@
     .card-protocolo-link {
         @apply
         w-full h-full
-        px-6 py-8 border-2 border-secundario-principal rounded-3xl
+        xxs:px-6 px-4 sm:py-8 py-6 border-2 border-secundario-principal rounded-3xl
         flex items-center justify-between gap-6
         transition-all duration-300
     }
 
     .card-protocolo-link-title {
         @apply
-        text-2xl font-semibold
+        sm:text-2xl text-xl font-semibold
     }
 
     .protocolo-link-card-btn {

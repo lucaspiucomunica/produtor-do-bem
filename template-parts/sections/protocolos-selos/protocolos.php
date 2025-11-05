@@ -23,7 +23,7 @@ if (!$protocolos_titulo) {
                     </div>
                 </div>
 
-                <div class="grid grid-cols-10 gap-6">
+                <div class="grid xl-plus:grid-cols-10 grid-cols-12 gap-6">
                     <?php
                     $args = array(
                         'post_type' => 'protocolo',
@@ -37,7 +37,7 @@ if (!$protocolos_titulo) {
                         while ($protocolos_query->have_posts()) : $protocolos_query->the_post();
                             $col_span = ($index < 10) ? $col_spans[$index] : 6;
                             ?>
-                            <div class="card-protocolo-link-wrapper col-span-<?php echo $col_span; ?>">
+                            <div class="card-protocolo-link-wrapper xl-plus:col-span-<?php echo $col_span; ?> lg:col-span-4 md:col-span-6 col-span-12">
                                 <a href="<?php the_permalink(); ?>" class="card-protocolo-link">
                                     <h3 class="card-protocolo-link-title"><?php the_title(); ?></h3>
                                     <div class="protocolo-link-card-btn">

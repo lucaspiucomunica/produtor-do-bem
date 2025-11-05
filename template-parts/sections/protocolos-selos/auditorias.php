@@ -17,15 +17,15 @@ if (!$auditorias_titulo) {
 
 <section id="auditorias" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex items-center gap-10">
-            <div class="w-1/2">
+        <div class="flex md:flex-row flex-col items-center gap-10">
+            <div class="md:w-1/2 w-full">
                 <div class="content-text">
                     <h2><?php echo $auditorias_titulo; ?></h2>
                     <?php echo $auditorias_conteudo; ?>
                 </div>
             </div>
 
-            <div class="w-1/2">
+            <div class="md:w-1/2 w-full">
                 <div class="flex items-center gap-4">
                     <div class="w-1/2">
                         <div class="content-image animate-1">

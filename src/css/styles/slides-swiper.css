@@ -101,8 +101,8 @@
     .swiper-cards-rotate {
         @apply
         w-full h-auto
-        overflow-visible;
-        min-height: 420px;
+        overflow-visible
+        lg-plus:min-h-[420px] min-h-[360px];
         contain: layout;
     }
 

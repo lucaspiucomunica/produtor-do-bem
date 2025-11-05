@@ -82,7 +82,21 @@ const SwiperSlides = {
             selector: '.swiper-cards-rotate',
             options: {
                 spaceBetween: 0,
-                slidesPerView: 3,
+                slidesPerView: 1,
+                breakpoints: {
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    480: {
+                        slidesPerView: 1.35,
+                    },
+                    340: {
+                        slidesPerView: 1.15,
+                    }
+                },
                 navigation: {
                     nextEl: '.swiper-cards-rotate-navigation .navigation-carrossel .navigation-item--next',
                     prevEl: '.swiper-cards-rotate-navigation .navigation-carrossel .navigation-item--prev',

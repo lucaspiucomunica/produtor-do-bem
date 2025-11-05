@@ -499,20 +499,21 @@
         @apply
         relative
         bg-primario-variacao-5
-        pt-36 pb-24 rounded-b-[80px]
+        pt-36 pb-24 md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
         flex items-center justify-center relative overflow-hidden
     }
 
     .sections-protocolos-selos-hero .hero-content {
         @apply
         flex flex-col justify-between items-center
-        w-full max-w-[760px] mx-auto pt-16 z-10 relative
+        w-full max-w-[760px] mx-auto md:pt-16 sm-plus:pt-10 xs:pt-6 pt-0 z-10 relative
     }
 
     .sections-protocolos-selos-hero .hero-content .titulo h1 {
         @apply
-        text-5xl/[56px] text-center text-neutro-branco
+        lg:text-5xl/[56px] xxs:text-4xl/[48px] text-3xl/[40px] text-center text-neutro-branco
         flex flex-col items-center mb-6
+        lg-plus:max-w-[724px] max-w-[660px]
     }
 
     .sections-protocolos-selos-hero .hero-content .titulo h1 .destaque {
@@ -562,7 +563,7 @@
 
     .sections-protocolos-selos-comunicacao-content {
         @apply
-        w-full px-10 p-section
+        w-full md:px-10 xxs:px-6 px-4 p-section
         bg-primario-variacao-5
         rounded-4xl
     }
@@ -576,7 +577,7 @@
 
     .sections-protocolos-selos-cta .content-text h2 {
         @apply
-        text-5xl/[56px] 
+        lg:text-5xl/[56px] xxs:text-4xl/[48px] text-3xl/[40px] 
         max-w-[1220px] mx-auto
     }
 
@@ -613,7 +614,7 @@
         @apply
         relative
         bg-primario-variacao-5
-        pt-48 pb-24 rounded-b-[80px]
+        pt-48 pb-24 md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
         flex items-center justify-center relative overflow-hidden
     }
 
@@ -714,7 +715,7 @@
         @apply
         relative
         bg-primario-variacao-5
-        pt-48 pb-24 rounded-b-[80px]
+        pt-48 pb-24 md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
         flex items-center justify-center relative overflow-hidden
     }
 
@@ -727,7 +728,7 @@
 
     .sections-certificacoes-hero .hero-content .titulo h1 {
         @apply
-        text-5xl/[56px] text-center text-neutro-branco
+        lg:text-5xl/[56px] xxs:text-4xl/[48px] text-3xl/[40px] text-center text-neutro-branco
         flex flex-col items-center
     }
 

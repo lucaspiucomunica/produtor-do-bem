@@ -16,7 +16,7 @@ if (!$metodo_titulo) {
 
 <section id="metodo" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex items-end justify-between gap-10 mb-10">
+        <div class="flex sm:flex-row flex-col sm:items-end items-start justify-between gap-10 mb-10">
             <div class="content-text max-w-[780px]">
                 <h2><?php echo $metodo_titulo; ?></h2>
             </div>

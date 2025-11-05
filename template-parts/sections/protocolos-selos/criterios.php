@@ -17,8 +17,8 @@ if (!$criterios_titulo) {
 
 <section id="criterios" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex items-end gap-10 mb-20">
-            <div class="content-text max-w-[480px]">
+        <div class="flex lg:flex-row flex-col lg:items-end items-start lg:gap-10 gap-6 p-section-bottom">
+            <div class="content-text lg:max-w-[480px] max-w-full">
                 <h2><?php echo $criterios_titulo; ?></h2>
             </div>
             
