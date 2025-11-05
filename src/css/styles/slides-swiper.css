@@ -82,7 +82,7 @@
 
     .carrossel-o-que-significa .group-swiper-navigation-progressbar {
         @apply
-        flex flex-row items-center justify-between gap-10
+        flex flex-row items-center justify-between sm:gap-10 gap-6
     }
 
     .carrossel-o-que-significa .progress-carrossel .swiper-pagination-progressbar-fill {

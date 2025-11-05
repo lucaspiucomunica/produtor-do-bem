@@ -79,14 +79,14 @@
     .card-secondary {
         @apply
         border-2 border-neutro-variacao-1
-        sm:px-10 px-6 py-10 rounded-4xl
+        sm:px-10 px-6 xs-plus:py-10 py-8 rounded-4xl
         flex flex-col justify-between
         w-full h-full
     }
 
     .card-secondary .card-secondary-titulo h4 {
         @apply
-        xl:text-5xl sm:text-4xl text-3xl text-primario-principal
+        xl:text-5xl sm:text-4xl xs-plus:text-2xl text-xl text-primario-principal
     }
 
     .card-secondary .card-secondary-conteudo {
@@ -99,6 +99,11 @@
         text-primario-principal font-semibold underline hover:text-primario-variacao-3 transition-all duration-300
     }
 
+    .card-secondary .card-secondary-conteudo.content-text p {
+        @apply
+        md:text-lg xs-plus:text-base text-sm
+    }
+
     /* Card People */
     .card-people {
         @apply
@@ -108,7 +113,9 @@
 
     .card-people .image {
         @apply
-        w-auto h-auto min-w-20 min-h-20 max-w-20 max-h-20
+        w-auto h-auto 
+        xxs:min-w-20 xxs:min-h-20 xxs:max-w-20 xxs:max-h-20
+        min-w-16 min-h-16 max-w-16 max-h-16
         rounded-full overflow-hidden
         aspect-square
     }
@@ -169,6 +176,7 @@
         px-6 pb-3
         border-b-2 border-limao-variacao-1
         text-neutro-branco
+        xxs:text-base text-sm
 
         first:pt-0 last:pb-0 last:border-b-0
     }

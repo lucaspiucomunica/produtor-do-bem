@@ -11,7 +11,7 @@
     .cta-1 .content-cta {
         @apply
         w-full max-w-[800px]
-        flex items-center justify-center gap-14
+        flex xs-plus:flex-row flex-col xs-plus:items-center items-center justify-center xs:gap-14 xs-plus:gap-8 gap-4
     }
 
     .cta-1 .content-cta .content-text {
@@ -21,7 +21,7 @@
 
     .cta-1 .content-cta .content-text h2 {
         @apply
-        md:text-5xl text-4xl leading-tight
+        md:text-5xl sm-plus:text-4xl text-3xl leading-tight xs-plus:text-left text-center
     }
 
     .cta-1 .content-text h2 .destaque {
@@ -32,7 +32,8 @@
     .cta-1 .content-button {
         @apply
         relative
-        md:min-w-52 min-w-48 md:min-h-52 min-h-48
+        md:min-w-52 sm-plus:min-w-48 xs:min-w-36 xs-plus:min-w-28 min-w-20 xs-plus:max-w-full max-w-36
+        md:min-h-52 sm-plus:min-h-48 xs:min-h-36 xs-plus:min-h-28 min-h-20 xs-plus:max-h-full max-h-36
     }
 
     .cta-1 .content-button .btn-cta-base {
@@ -43,7 +44,10 @@
     .cta-1 .content-button .btn-cta-icon {
         @apply
         absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-        w-16 h-16
+        sm-plus:w-16 sm-plus:h-16 
+        xs:w-10 xs:h-10 
+        xs-plus:w-8 xs-plus:h-8 
+        w-10 h-10
     }
 
     /* CTA 2 */

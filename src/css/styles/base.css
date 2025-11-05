@@ -22,7 +22,7 @@
 
     h1 {
         @apply
-        lg:text-5xl text-4xl;
+        lg:text-5xl xxs:text-4xl text-3xl;
     }
 
     h2 {

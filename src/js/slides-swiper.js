@@ -40,7 +40,7 @@ const SwiperSlides = {
             selector: '.swiper-o-que-significa',
             options: {
                 spaceBetween: 16,
-                slidesPerView: 1.15,
+                slidesPerView: 1,
                 freeMode: {
                     enabled: true,
                     minimumVelocity: 0.01,
@@ -57,16 +57,23 @@ const SwiperSlides = {
                 breakpoints: {
                     1024: {
                         spaceBetween: 40,
+                        slidesPerView: 1.25,
                     },
                     768: {
                         spaceBetween: 32,
+                        slidesPerView: 1.25,
                     },
                     640: {
                         spaceBetween: 24,
                         slidesPerView: 1.25,
                     },
+                    480: {
+                        spaceBetween: 24,
+                        slidesPerView: 1.15,
+                    },
                     340: {
                         spaceBetween: 24,
+                        slidesPerView: 1,
                     }
                 }
             }

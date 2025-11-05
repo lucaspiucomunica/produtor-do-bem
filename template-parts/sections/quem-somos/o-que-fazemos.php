@@ -19,7 +19,7 @@ if (!$o_que_fazemos_titulo) {
 <section id="o-que-fazemos" class="<?php echo get_class_section(); ?>">
     <div class="container">
         <div class="flex mb-10">
-            <div class="w-full flex items-end justify-between gap-10">
+            <div class="w-full flex xs-plus:flex-row flex-col xs-plus:items-end items-start justify-between xs-plus:gap-10 gap-6">
                 <div class="content-text">
                     <h2><?php echo $o_que_fazemos_titulo; ?></h2>
                     <p class="max-w-[660px]"><?php echo $o_que_fazemos_descricao; ?></p>
