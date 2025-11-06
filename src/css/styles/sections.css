@@ -660,7 +660,7 @@
     .sections-cpt-protocolo-hero-em-breve .hero-destaque {
         @apply
         flex flex-col items-start justify-between gap-6
-        p-10 outline-2 outline outline-secundario-principal
+        lg:px-10 md:px-8 px-6 py-10 outline-2 outline outline-secundario-principal
         rounded-3xl
     }
 
@@ -715,7 +715,7 @@
         @apply
         relative
         bg-primario-variacao-5
-        pt-48 pb-24 md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
+        lg:pt-48 xs:pt-44 pt-36 sm:pb-24 sm-plus:pb-56 pb-40 md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
         flex items-center justify-center relative overflow-hidden
     }
 
@@ -723,7 +723,7 @@
         @apply
         relative z-10
         flex flex-col items-center space-y-6
-        w-full max-w-[776px] mx-auto
+        w-full lg:max-w-[776px] sm:max-w-[586px] max-w-[420px] mx-auto
     }
 
     .sections-certificacoes-hero .hero-content .titulo h1 {
@@ -744,13 +744,13 @@
 
     .sections-certificacoes-hero .hero-ilustracoes {
         @apply
-        absolute -bottom-10 -left-20 -right-20 z-0
+        absolute -bottom-10 -left-20 -right-20 z-0 gap-10
         flex flex-row justify-between
     }
 
     .sections-certificacoes-hero .hero-ilustracoes .hero-ilustracao {
         @apply
-        w-full h-auto max-w-[408px]
+        w-full h-auto lg:max-w-[408px] md:max-w-[328px] sm:max-w-[288px] sm-plus:max-w-[328px] max-w-[268px]
     }
 
     /* Método - Certificações */

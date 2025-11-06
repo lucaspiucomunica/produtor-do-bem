@@ -107,11 +107,8 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
                         </div>
                         <div class="content-right">
                             <div class="content-button">
-                                <!-- <a href="<?php echo $protocolo['arquivo_protocolo']['url']; ?>" class="btn" download>
-                                    <span>Baixar protocolo</span>
-                                </a> -->
                                 <button id="download-protocolo" class="btn btn-is-icon" data-modal="download-protocolo">
-                                    <span>Baixar protocolo</span>
+                                    <span class="text-nowrap">Baixar protocolo</span>
                                     <?php echo icon('document-download'); ?>
                                 </button>
                             </div>

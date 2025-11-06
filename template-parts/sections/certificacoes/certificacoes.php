@@ -19,7 +19,7 @@ if (!$certificacoes_titulo) {
     <div class="container">
         <div class="flex">
             <div class="<?php echo get_class_section(); ?>-content">
-                <header class="px-10">
+                <header class="lg:px-10 sm:px-8 xxs:px-6 px-4">
                     <div class="content-text content-text--light">
                         <h2><?php echo $certificacoes_titulo; ?></h2>
                     </div>
@@ -33,8 +33,10 @@ if (!$certificacoes_titulo) {
                         <?php foreach ($certificacoes_bem_estar_animal as $certificacao) : ?>
                             <li>
                                 <a href="<?php echo $certificacao['destino']; ?>">
-                                    <h4><?php echo $certificacao['titulo']; ?></h4>
-                                    <p><?php echo $certificacao['descricao']; ?></p>
+                                    <div class="list-big-link-row-content">
+                                        <h4><?php echo $certificacao['titulo']; ?></h4>
+                                        <p><?php echo $certificacao['descricao']; ?></p>
+                                    </div>
                                     <div class="list-big-link-row-image">
                                         <?php if ($certificacao['escolha_imagem'] === 'foto') : ?>
                                             <div class="foto">
@@ -46,6 +48,11 @@ if (!$certificacoes_titulo) {
                                                 <div class="forma-pingo"></div>
                                             </div>
                                         <?php endif; ?>
+                                    </div>
+                                    <div class="list-big-link-row-cta-mobile">
+                                        <div class="btn btn-icon btn-secondary">
+                                            <?php echo icon('arrow-right-01'); ?>
+                                        </div>
                                     </div>
                                 </a>
                             </li>
@@ -61,8 +68,10 @@ if (!$certificacoes_titulo) {
                         <?php foreach ($certificacoes_outras as $certificacao) : ?>
                             <li>
                                 <a href="<?php echo $certificacao['destino']; ?>">
-                                    <h4><?php echo $certificacao['titulo']; ?></h4>
-                                    <p><?php echo $certificacao['descricao']; ?></p>
+                                    <div class="list-big-link-row-content">
+                                        <h4><?php echo $certificacao['titulo']; ?></h4>
+                                        <p><?php echo $certificacao['descricao']; ?></p>
+                                    </div>
                                     <div class="list-big-link-row-image">
                                         <?php if ($certificacao['escolha_imagem'] === 'foto') : ?>
                                             <div class="foto">
@@ -74,6 +83,11 @@ if (!$certificacoes_titulo) {
                                                 <div class="forma-pingo"></div>
                                             </div>
                                         <?php endif; ?>
+                                    </div>
+                                    <div class="list-big-link-row-cta-mobile">
+                                        <div class="btn btn-icon btn-secondary">
+                                            <?php echo icon('arrow-right-01'); ?>
+                                        </div>
                                     </div>
                                 </a>
                             </li>

@@ -17,25 +17,27 @@ if (!$metodo_titulo) {
 
 <section id="metodo" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex items-end gap-10 mb-10">
-            <div class="content-text max-w-[480px] w-full">
+        <div class="flex xl:flex-row flex-col xl:items-end items-start xl:gap-10 gap-6 mb-10">
+            <div class="content-text xl-plus:max-w-[480px] max-w-full w-full">
                 <h2><?php echo $metodo_titulo; ?></h2>
             </div>
 
-            <div class="content-text w-full">
-                <?php echo $metodo_conteudo; ?>
-            </div>
+            <div class="flex md:flex-row flex-col md:items-end items-start md:gap-10 gap-6">
+                <div class="content-text w-full">
+                    <?php echo $metodo_conteudo; ?>
+                </div>
 
-            <div class="swiper-cards-rotate-navigation">
-                <div class="navigation-carrossel">
-                    <div class="navigation-item navigation-item--prev">
-                        <div class="btn btn-icon">
-                            <?php echo icon('arrow-square-left'); ?>
+                <div class="swiper-cards-rotate-navigation">
+                    <div class="navigation-carrossel">
+                        <div class="navigation-item navigation-item--prev">
+                            <div class="btn btn-icon">
+                                <?php echo icon('arrow-square-left'); ?>
+                            </div>
                         </div>
-                    </div>
-                    <div class="navigation-item navigation-item--next">
-                        <div class="btn btn-icon">
-                            <?php echo icon('arrow-square-right'); ?>
+                        <div class="navigation-item navigation-item--next">
+                            <div class="btn btn-icon">
+                                <?php echo icon('arrow-square-right'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>

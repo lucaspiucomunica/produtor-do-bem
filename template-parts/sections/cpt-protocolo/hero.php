@@ -43,7 +43,7 @@ if (!$hero_titulo) {
         <?php endif; ?>
         
         <?php if ($hero_destaques) : ?>
-        <div class="grid grid-cols-<?php echo count($hero_destaques); ?> gap-6 mt-10">
+        <div class="grid lg:grid-cols-<?php echo count($hero_destaques); ?> grid-cols-2 gap-6 mt-10">
             <?php foreach ($hero_destaques as $destaque) : ?>
                 <div class="hero-destaque">
                     <div class="content-icon content-icon--secundario content-icon--large">

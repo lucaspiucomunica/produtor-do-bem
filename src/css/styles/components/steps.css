@@ -12,17 +12,18 @@
     .passo-a-passo-1-item {
         @apply
         w-full
-        flex flex-row items-center justify-start
+        flex xs:flex-row flex-col xs:items-center items-start justify-start
         bg-neutro-principal
-        p-3 pr-10
+        xs:pl-3 xs:py-3 xs:pr-10
+        py-8 pl-6 pr-6 
         rounded-4xl
-        space-x-10
+        xs:space-x-10 space-x-0
     }
 
     .passo-a-passo-1-item-count {
         @apply
         flex flex-row items-stretch justify-start gap-3
-        min-w-[400px]
+        xl-plus:min-w-[400px] lg:min-w-[320px] md:min-w-[260px] min-w-[auto]
     }
 
     .passo-a-passo-1-item:nth-child(5n+2) .passo-a-passo-1-item-count {
@@ -36,10 +37,12 @@
     .passo-a-passo-1-item-count .number {
         @apply
         flex flex-col items-center justify-center gap-2
-        w-30 h-30 min-w-30 min-h-30
+        lg:w-30 lg:h-30 lg:min-w-30 lg:min-h-30
+        sm-plus:w-24 sm-plus:h-24 sm-plus:min-w-24 sm-plus:min-h-24
+        w-20 h-20 min-w-20 min-h-20
         bg-primario-variacao-5 text-limao-variacao-1
         rounded-2xl
-        text-6xl font-display font-semibold
+        lg:text-6xl text-4xl font-display font-semibold
     }
 
     /* Padrão de cores alternado a cada 5 itens */
@@ -68,7 +71,9 @@
     .passo-a-passo-1-item-count .image {
         @apply
         flex flex-col items-center justify-center
-        w-30 h-30 min-w-30 min-h-30
+        lg:w-30 lg:h-30 lg:min-w-30 lg:min-h-30
+        sm-plus:w-24 sm-plus:h-24 sm-plus:min-w-24 sm-plus:min-h-24
+        w-20 h-20 min-w-20 min-h-20
         rounded-2xl overflow-hidden
     }
 
@@ -79,7 +84,9 @@
 
     .passo-a-passo-1-item-count .icon svg {
         @apply
-        w-10 h-10 min-w-10 min-h-10
+        lg:w-10 lg:h-10 lg:min-w-10 lg:min-h-10
+        sm-plus:w-8 sm-plus:h-8 sm-plus:min-w-8 sm-plus:min-h-8
+        w-6 h-6 min-w-6 min-h-6
         fill-primario-variacao-3
     }
 
@@ -107,12 +114,12 @@
     .passo-a-passo-1-item-content .content-text {
         @apply
         w-full
-        py-4
+        xs:pt-4 pb-0 pt-4
     }
 
     .passo-a-passo-1-item-content .content-text h3 {
         @apply
-        text-2xl
+        lg-plus:text-2xl text-xl
     }
 
     .passo-a-passo-1-item-content .content-text a {

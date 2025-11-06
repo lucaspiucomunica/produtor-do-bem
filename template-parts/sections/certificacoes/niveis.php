@@ -24,7 +24,7 @@ if (!$niveis_titulo) {
             </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-6">
+        <div class="grid md:grid-cols-3 grid-cols-1 gap-6">
             <?php foreach ($niveis_cards as $niveis_card) : ?>
                 <div class="card-nivel-certificacao">
                     <div class="card-nivel-certificacao-header">
