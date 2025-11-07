@@ -43,7 +43,7 @@ function initProtocoloTabs() {
             tabs.style.left = '0';
             tabs.style.right = '0';
             tabs.style.width = '100%';
-            tabs.style.zIndex = '50';
+            tabs.style.zIndex = '40';
             
             if (window.innerWidth >= 340) {
                 tabs.style.paddingLeft = '24px';

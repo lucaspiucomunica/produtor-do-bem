@@ -55,7 +55,7 @@
     .cta-2 {
         @apply
         w-full
-        flex sm:flex-row flex-col sm:items-center items-start justify-between sm:gap-10 gap-2
+        flex sm:flex-row flex-col sm:items-center items-start justify-between sm:gap-10 xxs:gap-2 gap-3
         bg-limao-variacao-1 sm:px-6 px-4 sm:py-6 py-5
         sm:rounded-t-3xl sm:rounded-b-3xl
         rounded-t-2xl rounded-b-none
@@ -78,12 +78,12 @@
 
     .cta-2 .content-left .content-text .content-text-title {
         @apply
-        lg:text-2xl text-xl
+        lg:text-2xl xxs:text-xl text-lg
     }
 
     .cta-2 .content-left .content-text .content-text-description {
         @apply
-        lg:text-base text-sm
+        lg:text-base xxs:text-sm text-xs
     }
 
     /* CTA 2 Fixed (para animação de scroll) */

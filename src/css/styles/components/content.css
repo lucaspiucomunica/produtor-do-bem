@@ -59,7 +59,7 @@
 
     .content-icon.content-icon--large {
         @apply
-        min-h-20 min-w-20 rounded-3xl
+        sm:min-h-20 sm:min-w-20 min-h-16 min-w-16 sm:rounded-3xl rounded-2xl
     }
 
     .content-icon.content-icon--bigger {

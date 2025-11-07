@@ -49,7 +49,7 @@
         w-full
         px-6 py-3
         border-2 border-neutro-variacao-1
-        text-primario-variacao-5 text-lg
+        text-primario-variacao-5 sm:text-lg xs:text-base text-sm
         rounded-2xl resize-none
         ring-0 ring-transparent outline-none
         focus:ring-2 focus:ring-primario-principal
@@ -161,12 +161,14 @@
 
     .progress-bar-container .progress-steps .progress-step .progress-step-number {
         @apply
-        w-14 h-14 min-w-14 min-h-14
+        sm:w-14 sm:h-14 sm:min-w-14 sm:min-h-14 
+        xs-plus:w-12 xs-plus:h-12 xs-plus:min-w-12 xs-plus:min-h-12
+        w-8 h-8 min-w-8 min-h-8
         bg-neutro-variacao-1
         rounded-full
         flex items-center justify-center
         text-neutro-variacao-5
-        text-2xl font-display font-semibold
+        sm:text-2xl xs-plus:text-xl text-lg font-display font-semibold
     }
 
     .progress-bar-container .progress-steps .progress-step .progress-step-number .number {
@@ -178,13 +180,14 @@
         @apply
         hidden
         *:fill-limao-variacao-1
-        w-6 h-6 min-w-6 min-h-6
+        sm:w-6 sm:h-6 sm:min-w-6 sm:min-h-6 
+        w-5 h-5 min-w-5 min-h-5
     }
 
     .progress-bar-container .progress-steps .progress-step .progress-step-title {
         @apply
         text-neutro-variacao-5
-        text-sm font-semibold
+        xs-plus:text-sm xxs:text-xs text-[10px] xs-plus:px-0 px-1 font-semibold
     }
 
     .progress-bar-container .progress-steps .progress-step.checked .progress-step-number,
@@ -213,7 +216,7 @@
     .multi-step-form-container {
         @apply
         w-full
-        p-8 rounded-4xl
+        sm:px-8 px-6 py-8 rounded-4xl
         border-2 border-neutro-variacao-1
         flex
     }
@@ -249,6 +252,7 @@
     .multi-step-form-container .form-step .step-content .content-header .step-title {
         @apply
         mb-2
+        lg:text-4xl sm:text-3xl text-2xl
     }
 
     .multi-step-form-container .form-step .step-content .content-header .step-description {
@@ -259,7 +263,12 @@
     .multi-step-form-container .form-step .step-content .form-navigation {
         @apply
         w-full
-        flex flex-row items-center justify-center gap-4
+        flex sm:flex-row flex-col items-center justify-center sm:gap-4 gap-2
+    }
+
+    .multi-step-form-container .form-step .step-content .form-navigation .btn {
+        @apply
+        sm:w-auto w-full
     }
 
     .multi-step-form-container .form-step .step-content .form-fields {

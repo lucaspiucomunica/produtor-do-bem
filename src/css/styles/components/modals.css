@@ -43,7 +43,7 @@
 
     .modal-content {
         @apply
-        p-10
+        sm:px-10 xs:px-8 xxs:px-6 px-4 xs:py-10 py-8
     }
 
     .modal-state {
@@ -62,12 +62,13 @@
 
     .modal-title {
         @apply
-        text-3xl font-bold mb-1
+        sm:text-3xl text-2xl font-bold mb-1
     }
 
     .modal-description {
         @apply
         text-neutro-variacao-5
+        sm:text-base text-sm
     }
 
     .modal-body {

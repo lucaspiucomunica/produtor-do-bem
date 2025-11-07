@@ -796,7 +796,7 @@
     .sections-fale-conosco-hero {
         @apply
         relative
-        pt-48 pb-10
+        md:pt-48 xs:pt-44 pt-36 pb-10
     }
 
     .sections-fale-conosco-hero .content-text h1 {
