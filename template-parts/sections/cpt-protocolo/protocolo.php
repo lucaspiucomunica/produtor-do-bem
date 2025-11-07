@@ -16,7 +16,7 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
 
 <section id="protocolo" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex mb-10 gap-10 protocolo-content">
+        <div class="flex sm:flex-row flex-col sm:mb-10 mb-6 sm:gap-10 gap-6 protocolo-content">
             <div class="content-text max-w-[540px]">
                 <h2><?php echo $protocolo['titulo']; ?></h2>
             </div>
@@ -26,7 +26,7 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
             </div>
         </div>
 
-        <div class="flex mb-6 protocolo-relation">
+        <div class="flex sm:mb-6 mb-0 protocolo-relation">
             <div class="content-text">
                 <div class="relation">
                     <?php echo icon('hierarchy-3'); ?>
@@ -35,8 +35,8 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
             </div>
         </div>
 
-        <div class="lg:hidden flex protocolo-tabs lg:max-w-full max-w-[620px] mx-auto" data-tabs-type="scroll">
-            <div class="tabs">
+        <div class="lg:hidden flex justify-center protocolo-tabs" data-tabs-type="scroll">
+            <div class="tabs max-w-[620px]">
                 <div class="tabs-wrapper">
                     <div class="tabs-items">
                         <?php foreach ($protocolo['protocolos'] as $tab_index => $tab_item) :
@@ -96,7 +96,7 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
         </div>
 
         <?php if (!empty($protocolo['fontes'])) : ?>
-            <div class="flex mt-6">
+            <div class="flex mt-6 lg:max-w-full max-w-[620px] mx-auto">
                 <ul class="list-fontes">
                     <?php $i = 0; foreach ($protocolo['fontes'] as $fonte) : $i++; ?>
                         <li>

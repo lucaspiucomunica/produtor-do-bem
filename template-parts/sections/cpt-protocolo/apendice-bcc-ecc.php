@@ -18,7 +18,7 @@ if (!$protocolo) {
         <div class="container">
             <div class="flex">
                 <div class="<?php echo get_class_section(); ?>-content">
-                    <div class="flex">
+                    <div class="flex md:flex-row flex-col items-start gap-10 justify-between">
                         <div class="content-left">
                             <div class="content-text content-text--light">
                                 <h2>Apêndice BCC/ECC</h2>
@@ -35,7 +35,7 @@ if (!$protocolo) {
                                     <span><?php echo $protocolo['link_apendice']['title']; ?></span>
                                 </a>
                             <?php endif; ?>
-                        </div>s
+                        </div>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@ import {
     animateText,
     animateSlideX,
     animateSlideY,
+    animateFadeIn,
     waitForTransition
 } from './animations-utils.js';
 
@@ -17,8 +18,16 @@ function heroProtocoloAnimation() {
 
     const timeline = gsap.timeline();
 
-    animateIcon(timeline, hero.querySelector('.hero-header-icon'));
-    animateTitle(timeline, hero.querySelector('.content-text h1'));
+    const shouldAnimateIcon = window.innerWidth >= 640;
+
+    if (shouldAnimateIcon) {
+        animateIcon(timeline, hero.querySelector('.hero-header-icon'));
+    }
+    animateTitle(
+        timeline,
+        hero.querySelector('.content-text h1'),
+        shouldAnimateIcon ? CONFIG.offset.normal : CONFIG.offset.none
+    );
     animateText(timeline, hero.querySelectorAll('.content-text p'));
     animateTitle(timeline, hero.querySelector('.hero-destaques-subtitulo .content-text h2'));
 
@@ -46,8 +55,17 @@ function heroEmBreveProtocoloAnimation() {
 
     const timeline = gsap.timeline();
 
-    animateIcon(timeline, heroEmBreve.querySelector('.hero-header-icon'));
-    animateSlideX(timeline, heroEmBreve.querySelector('.content-text .tag-1'));
+    const shouldAnimateIcon = window.innerWidth >= 640;
+
+    if (shouldAnimateIcon) {
+        animateIcon(timeline, heroEmBreve.querySelector('.hero-header-icon'));
+    }
+    animateSlideX(
+        timeline,
+        heroEmBreve.querySelector('.content-text .tag-1'),
+        CONFIG.distance.medium,
+        shouldAnimateIcon ? CONFIG.offset.normal : CONFIG.offset.none
+    );
     animateTitle(timeline, heroEmBreve.querySelector('.content-text h1'));
     animateText(timeline, heroEmBreve.querySelectorAll('.content-text p'));
     animateText(timeline, heroEmBreve.querySelector('.content-text .btn-wrapper'));
@@ -63,11 +81,12 @@ function protocoloAnimation() {
     animateTitle(tlProtocolo, protocolo.querySelector('.protocolo-content .content-text h2'), CONFIG.offset.none);
     animateText(tlProtocolo, protocolo.querySelectorAll('.protocolo-content .content-text p'));
     animateSlideY(tlProtocolo, protocolo.querySelector('.protocolo-relation'));
+    animateSlideY(tlProtocolo, protocolo.querySelector('.protocolo-tabs'));
 
     // Não anima cards em mobile quando tabs estão ativos para não interferir com ScrollTriggers
     const hasTabs = document.querySelector('[data-tabs-type="scroll"]');
     if (!hasTabs) {
-        animateSlideY(tlProtocolo, protocolo.querySelectorAll('.protocolo-cards .card-protocol-nivel'));
+        animateFadeIn(tlProtocolo, protocolo.querySelectorAll('.protocolo-cards .card-protocol-nivel'));
     }
 
     const listFontes = protocolo.querySelector('.list-fontes');

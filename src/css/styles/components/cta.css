@@ -55,13 +55,20 @@
     .cta-2 {
         @apply
         w-full
-        flex items-center justify-between gap-10
-        bg-limao-variacao-1 p-6 rounded-3xl
+        flex sm:flex-row flex-col sm:items-center items-start justify-between sm:gap-10 gap-2
+        bg-limao-variacao-1 sm:px-6 px-4 sm:py-6 py-5
+        sm:rounded-t-3xl sm:rounded-b-3xl
+        rounded-t-2xl rounded-b-none
     }
 
     .cta-2 .content-left {
         @apply
         flex items-center justify-center gap-6
+    }
+
+    .cta-2 .content-left .content-icon {
+        @apply
+        sm:flex hidden
     }
 
     .cta-2 .content-left .content-text > * {
@@ -71,18 +78,18 @@
 
     .cta-2 .content-left .content-text .content-text-title {
         @apply
-        text-2xl
+        lg:text-2xl text-xl
     }
 
     .cta-2 .content-left .content-text .content-text-description {
         @apply
-        text-base
+        lg:text-base text-sm
     }
 
     /* CTA 2 Fixed (para animação de scroll) */
     .cta-2-fixed {
         @apply
-        fixed bottom-6 left-0 right-0
+        fixed sm:bottom-6 bottom-0 left-0 right-0
         z-40
         pointer-events-none
     }

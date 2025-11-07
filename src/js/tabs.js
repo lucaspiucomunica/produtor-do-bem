@@ -44,6 +44,14 @@ function initProtocoloTabs() {
             tabs.style.right = '0';
             tabs.style.width = '100%';
             tabs.style.zIndex = '50';
+            
+            if (window.innerWidth >= 340) {
+                tabs.style.paddingLeft = '24px';
+                tabs.style.paddingRight = '24px';
+            } else {
+                tabs.style.paddingLeft = '16px';
+                tabs.style.paddingRight = '16px';
+            }
         },
         onLeave: () => {
             // Fixa tabs no final do último elemento quando passar
@@ -72,6 +80,8 @@ function initProtocoloTabs() {
             tabs.style.right = '';
             tabs.style.width = '';
             tabs.style.zIndex = '';
+            tabs.style.paddingLeft = '';
+            tabs.style.paddingRight = '';
         }
     });
 

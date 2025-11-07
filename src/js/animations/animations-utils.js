@@ -127,6 +127,20 @@ export function animateSlideY(timeline, element, distance = CONFIG.distance.medi
 }
 
 /**
+ * Anima elemento com fade in (apenas opacity)
+ */
+export function animateFadeIn(timeline, element, offset = CONFIG.offset.normal, stagger = CONFIG.stagger.medium) {
+    if (!elementExists(element)) return;
+
+    timeline.from(element, {
+        opacity: 0,
+        duration: CONFIG.duration.normal,
+        stagger: stagger,
+        ease: CONFIG.easing.default,
+    }, offset);
+}
+
+/**
  * Anima ícone (fade + slide + rotate)
  */
 export function animateIcon(timeline, element, offset = CONFIG.offset.none) {
