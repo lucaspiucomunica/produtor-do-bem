@@ -61,6 +61,7 @@
 	}
 
 	if (is_singular('protocolo')) {
+		wp_enqueue_script( 'produtor-do-bem-tabs', get_template_directory_uri() . '/src/js/tabs.js', array('produtor-do-bem-gsap', 'produtor-do-bem-gsap-scroll-trigger'), PRODUTOR_DO_BEM_VERSION, true );
 		wp_enqueue_script( 'produtor-do-bem-animations-protocolo', get_template_directory_uri() . '/src/js/animations/protocolo.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 

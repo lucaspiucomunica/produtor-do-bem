@@ -14,6 +14,8 @@
 @import './styles/components/buttons.css';
 @import './styles/components/content.css';
 @import './styles/components/tags.css';
+@import './styles/components/tabs.css';
+
 
 /* Componentes reutilizáveis - Cards e Modals */
 @import './styles/components/cards.css';

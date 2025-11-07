@@ -63,7 +63,12 @@ function protocoloAnimation() {
     animateTitle(tlProtocolo, protocolo.querySelector('.protocolo-content .content-text h2'), CONFIG.offset.none);
     animateText(tlProtocolo, protocolo.querySelectorAll('.protocolo-content .content-text p'));
     animateSlideY(tlProtocolo, protocolo.querySelector('.protocolo-relation'));
-    animateSlideY(tlProtocolo, protocolo.querySelectorAll('.protocolo-cards .card-protocol-nivel'));
+
+    // Não anima cards em mobile quando tabs estão ativos para não interferir com ScrollTriggers
+    const hasTabs = document.querySelector('[data-tabs-type="scroll"]');
+    if (!hasTabs) {
+        animateSlideY(tlProtocolo, protocolo.querySelectorAll('.protocolo-cards .card-protocol-nivel'));
+    }
 
     const listFontes = protocolo.querySelector('.list-fontes');
     if (elementExists(listFontes)) {

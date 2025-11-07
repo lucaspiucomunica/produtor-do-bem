@@ -1,0 +1,37 @@
+@layer components {
+    /* ========================================
+       Tabs
+       ======================================== */
+
+    .tabs {
+        @apply
+        flex items-center justify-center w-full
+    }
+
+    .tabs-wrapper {
+        @apply
+        w-full
+        pt-6 mb-6
+        bg-neutro-branco
+        sticky top-0 z-10
+    }
+
+    .tabs-items {
+        @apply
+        w-full
+        border-b border-neutro-variacao-1
+        px-6 flex flex-row items-center justify-start gap-3
+        overflow-x-auto
+    }
+
+    .tab-button {
+        @apply
+        p-4 bg-neutro-principal rounded-t-2xl font-semibold
+    }
+
+    .tab-button--active {
+        @apply
+        bg-primario-principal text-neutro-branco
+    }
+
+}

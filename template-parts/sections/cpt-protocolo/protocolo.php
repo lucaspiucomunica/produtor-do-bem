@@ -35,11 +35,27 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
             </div>
         </div>
 
-        <div class="grid grid-cols-3 gap-6 items-start protocolo-cards">
+        <div class="lg:hidden flex protocolo-tabs lg:max-w-full max-w-[620px] mx-auto" data-tabs-type="scroll">
+            <div class="tabs">
+                <div class="tabs-wrapper">
+                    <div class="tabs-items">
+                        <?php foreach ($protocolo['protocolos'] as $tab_index => $tab_item) :
+                            $active_class = ($tab_index === 0) ? 'tab-button--active' : '';
+                        ?>
+                            <button class="tab-button <?php echo $active_class; ?>">
+                                <span><?php echo $tab_item['nome_protocolo'];?></span>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid lg:grid-cols-3 grid-cols-1 gap-6 items-start protocolo-cards lg:max-w-full max-w-[620px] mx-auto">
             <?php foreach ($protocolo['protocolos'] as $index => $item) :
                 $tag_class = ($index === 0) ? 'tag-1--primario-principal' : 'tag-1--primario-variacao-' . $index;
             ?>
-                <div class="card-protocol-nivel">
+                <div class="card-protocol-nivel" data-tab-index="<?php echo $index; ?>">
                     <div class="card-protocol-nivel-header">
                         <h3 class="sr-only"><?php echo $item['nome_protocolo']; ?></h3>
                         <div class="tag-1 <?php echo $tag_class; ?>">
