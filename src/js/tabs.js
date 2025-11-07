@@ -85,11 +85,40 @@ function initProtocoloTabs() {
         }
     });
 
+    // Função para rolar tab no container
+    function scrollTabIntoView(button, index, totalTabs) {
+        const container = tabs.querySelector('.tabs-items');
+        if (!container) return;
+
+        const containerWidth = container.offsetWidth;
+        const buttonLeft = button.offsetLeft;
+        const buttonWidth = button.offsetWidth;
+
+        let scrollPosition;
+
+        if (index === 0) {
+            // Primeira tab: alinha à esquerda
+            scrollPosition = 0;
+        } else if (index === totalTabs - 1) {
+            // Última tab: alinha à direita
+            scrollPosition = container.scrollWidth - containerWidth;
+        } else {
+            // Tabs intermediárias: centraliza
+            scrollPosition = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+        }
+
+        container.scrollTo({
+            left: scrollPosition,
+            behavior: 'smooth'
+        });
+    }
+
     // Função para ativar tab
     function activateTab(index) {
         tabButtons.forEach(btn => btn.classList.remove('tab-button--active'));
         if (tabButtons[index]) {
             tabButtons[index].classList.add('tab-button--active');
+            scrollTabIntoView(tabButtons[index], index, tabButtons.length);
         }
     }
 

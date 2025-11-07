@@ -20,14 +20,27 @@
         @apply
         w-full
         border-b border-neutro-variacao-1
-        xxs:px-6 px-4 flex flex-row items-center justify-start gap-3
-        overflow-x-auto
+        xxs:px-6 px-4 flex flex-row items-stretch justify-start gap-3
+        overflow-x-auto;
+
+        /* Esconde scrollbar mantendo funcionalidade */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE e Edge */
+    }
+
+    .tabs-items::-webkit-scrollbar {
+        display: none; /* Chrome, Safari e Opera */
     }
 
     .tab-button {
         @apply
         p-4 bg-neutro-principal rounded-t-2xl font-semibold text-sm md:text-base leading-tight
-        min-w-[156px]
+        inline-flex items-center justify-center
+    }
+
+    .tab-button span {
+        @apply
+        text-nowrap
     }
 
     .tab-button--active {
