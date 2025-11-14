@@ -12,6 +12,7 @@
 
     <?php get_template_part('template-parts/modals/modal-denuncia'); ?>
     <?php get_template_part('template-parts/modals/modal-download-protocolo'); ?>
+    <?php get_template_part('template-parts/modals/modal-criterios'); ?>
 
     <?php wp_footer(); ?>
 

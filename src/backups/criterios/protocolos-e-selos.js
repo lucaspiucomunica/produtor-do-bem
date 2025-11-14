@@ -44,12 +44,56 @@ function animateProtocolosSelosHeroSection() {
 function animateProtocolosSelosCriteriosSection() {
     const sectionCriterios = document.querySelector('#criterios');
     const sectionCriteriosTitle = sectionCriterios.querySelector('.content-text h2');
-    const sectionCriteriosDescription = sectionCriterios.querySelectorAll('.content-text p');
+    const sectionCriteriosDescription = sectionCriterios.querySelector('.content-text p');
+    const sectionCriteriosTimeline = sectionCriterios.querySelector('.timeline-1');
+    const sectionCriteriosTimelineLineProgress = sectionCriterios.querySelector('.timeline-1-line-line-progress');
+    const sectionCriteriosTimelineDots = sectionCriterios.querySelectorAll('.timeline-1-line-dot');
+    const sectionCriteriosTimelineItems = sectionCriterios.querySelectorAll('.timeline-1-item');
 
     const tlCriterios = createScrollTimeline(sectionCriterios);
 
     animateTitle(tlCriterios, sectionCriteriosTitle, CONFIG.offset.none);
     animateText(tlCriterios, sectionCriteriosDescription);
+    animateText(tlCriterios, sectionCriteriosTimeline);
+
+    sectionCriteriosTimelineItems.forEach((item, index) => {
+        const dot = sectionCriteriosTimelineDots[index];
+
+        ScrollTrigger.create({
+            trigger: item,
+            start: "top 60%",
+            onEnter: () => {
+                item.classList.add('item-active');
+                dot.classList.add('item-active');
+            },
+        });
+    });
+
+    if (sectionCriteriosTimelineItems.length > 0) {
+        const firstItem = sectionCriteriosTimelineItems[0];
+        const lastItem = sectionCriteriosTimelineItems[sectionCriteriosTimelineItems.length - 1];
+
+        const progressTween = gsap.to(sectionCriteriosTimelineLineProgress, {
+            height: '100%',
+            ease: 'none',
+            paused: true
+        });
+
+        let maxProgress = 0;
+
+        ScrollTrigger.create({
+            trigger: firstItem,
+            start: 'top 60%',
+            endTrigger: lastItem,
+            end: 'top 60%',
+            onUpdate: self => {
+                if (self.progress > maxProgress) {
+                    maxProgress = self.progress;
+                    progressTween.progress(maxProgress);
+                }
+            }
+        });
+    }
 }
 
 function animateProtocolosSelosMetodoSection() {

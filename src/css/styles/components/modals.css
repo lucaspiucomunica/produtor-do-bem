@@ -19,11 +19,17 @@
     .modal-container {
         @apply
         relative
-        w-full max-w-[600px] mx-4
+        w-full max-w-[600px] 
+        lg:m-10 md:m-8 xxs:m-6 m-4
         bg-neutro-branco
         rounded-3xl
         shadow-2xl
         max-h-[90vh] overflow-y-auto
+    }
+
+    .modal-container.modal-fullview {
+        @apply
+        max-w-full h-full
     }
 
     /* Esconder scrollbar mas manter funcionalidade */
@@ -90,6 +96,19 @@
     .modal-state.modal-state-success .modal-footer {
         @apply
         mt-0
+    }
+
+    /* Modal Critérios */
+
+    #modal-criterios .modal-container {
+        @apply
+        bg-primario-variacao-2
+    }
+
+    #modal-criterios .modal-content {
+        @apply
+        p-0
+        w-full h-full
     }
 
 }

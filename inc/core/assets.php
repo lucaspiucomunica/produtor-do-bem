@@ -71,6 +71,7 @@
 	wp_enqueue_script( 'produtor-do-bem-theme', get_template_directory_uri() . '/src/js/theme.js', array('produtor-do-bem-utils'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-modal-denuncia', get_template_directory_uri() . '/src/js/modal-denuncia.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-modal-download-protocolo', get_template_directory_uri() . '/src/js/modal-download-protocolo.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
+	wp_enqueue_script( 'produtor-do-bem-modal-criterios', get_template_directory_uri() . '/src/js/modal-criterios.js', PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-newsletter-form', get_template_directory_uri() . '/src/js/newsletter-form.js', array('produtor-do-bem-base-form', 'produtor-do-bem-toast'), PRODUTOR_DO_BEM_VERSION, true );
 
 	// Localizar script para AJAX

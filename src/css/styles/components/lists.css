@@ -182,4 +182,127 @@
         text-neutro-variacao-5 text-sm font-semibold
     }
 
+    /* ========================================
+       Criterios List
+       ======================================== */
+
+    .criterios-list {
+        @apply
+        flex flex-col items-start justify-start gap-4 p-3 bg-primario-principal rounded-4xl
+    }
+
+    .criterios-list-item {
+        @apply
+        flex items-center justify-between w-full p-3
+        rounded-3xl bg-primario-variacao-1
+        border-2 border-transparent hover:border-limao-variacao-1
+        transition-all duration-300
+        cursor-pointer
+    }
+
+    .criterios-list-item-content-header {
+        @apply
+        flex items-center justify-start gap-2 pr-6
+    }
+    
+    .criterios-list-item-content-number {
+        @apply
+        flex flex-col items-center justify-center
+        w-20 h-20 min-w-20 min-h-20
+        border-2 border-limao-variacao-1 text-limao-variacao-1
+        rounded-2xl
+        text-5xl font-display font-semibold
+    }
+
+    .criterios-list-item-content-icon {
+        @apply
+        flex flex-col items-center justify-center
+        w-20 h-20 min-w-20 min-h-20
+        bg-neutro-principal rounded-2xl
+    }
+
+    .criterios-list-item-content-icon svg {
+        @apply
+        w-8 h-8 min-w-8 min-h-8
+        *:fill-primario-variacao-3
+    }
+
+    .criterios-list-item-content-text {
+        @apply
+        flex flex-col items-start justify-start gap-1 pl-2
+    }
+
+    .criterios-list-item-content-title h3 {
+        @apply
+        text-xl font-semibold text-neutro-branco
+    }
+
+    .criterios-list-item-content-description {
+        @apply
+        text-sm text-neutro-variacao-1
+    }
+
+    .criterios-list-item-content-more {
+        @apply
+        inline-flex items-center justify-center
+        p-2 rounded-full border-2 border-limao-variacao-1
+    }
+
+    .criterios-list-item-content-more span {
+        @apply
+        text-sm text-neutro-branco font-semibold text-nowrap px-2
+    }
+
+    .criterios-list-item-content-more svg {
+        @apply
+        w-6 h-6 min-w-6 min-h-6
+        *:fill-neutro-branco
+    }
+
+    .criterios-list-item.criterios-list-item-destaque {
+        @apply
+        bg-limao-variacao-1 border-transparent
+        hover:border-primario-variacao-3
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-number {
+        @apply
+        border-primario-variacao-3 text-primario-variacao-3
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-icon {
+        @apply
+        bg-primario-principal
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-icon svg {
+        @apply
+        *:fill-limao-variacao-1
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-title h3 {
+        @apply
+        text-primario-variacao-3
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-description {
+        @apply
+        text-primario-variacao-3
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-more {
+        @apply
+        border-0 bg-primario-variacao-3
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-more span {
+        @apply
+        text-neutro-branco
+    }
+
+    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-more svg {
+        @apply
+        *:fill-neutro-branco
+    }
+
 }

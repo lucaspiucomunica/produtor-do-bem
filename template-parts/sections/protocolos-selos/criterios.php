@@ -8,6 +8,7 @@
 // Campos ACF
 $criterios_titulo = get_field('criterios_titulo');
 $criterio_conteudo = get_field('criterio_conteudo');
+$criterio_itens = get_field('criterios_itens');
 
 if (!$criterios_titulo) {
     return;
@@ -16,13 +17,47 @@ if (!$criterios_titulo) {
 
 <section id="criterios" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex lg:flex-row flex-col lg:items-end items-start lg:gap-10 gap-6 p-section-bottom">
-            <div class="content-text lg:max-w-[480px] max-w-full">
-                <h2><?php echo $criterios_titulo; ?></h2>
+        <div class="flex items-start gap-10">
+            <div class="w-full max-w-[548px]">
+                <div class="content-text lg:max-w-[480px] max-w-full">
+                    <h2><?php echo $criterios_titulo; ?></h2>
+                    <?php echo $criterio_conteudo; ?>
+                    <p class="flex items-center gap-2">
+                        <?php echo icon('mouse-circle', 'fill-primario-variacao-3'); ?>
+                        <strong>Clique em cada um para saber mais.</strong>
+                    </p>
+                </div>
             </div>
-            
-            <div class="content-text">
-                <?php echo $criterio_conteudo; ?>
+
+            <div class="w-full">
+                <div class="criterios-list">
+                    <?php $count = 0; $total = count($criterio_itens); foreach ($criterio_itens as $criterio_item) : $count++; ?>
+                        <div class="criterios-list-item <?php echo ($count === $total) ? 'criterios-list-item-destaque' : ''; ?>" data-modal="criterios">
+                            <div class="criterios-list-item-content-header">
+                                <div class="criterios-list-item-content-number">
+                                    <?php echo $count; ?>
+                                </div>
+                                <div class="criterios-list-item-content-icon">
+                                    <?php echo icon($criterio_item['criterio']['icone']); ?>
+                                </div>  
+                                <div class="criterios-list-item-content-text">
+                                    <div class="criterios-list-item-content-title">
+                                        <h3><?php echo $criterio_item['criterio']['nome']; ?></h3>
+                                    </div>
+                                    <?php if ($criterio_item['criterio']['descricao']) : ?>
+                                    <div class="criterios-list-item-content-description">
+                                        <?php echo $criterio_item['criterio']['descricao']; ?>
+                                    </div>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="criterios-list-item-content-more">
+                                <span>Clique para ver detalhes</span>
+                                <?php echo icon('maximize-3'); ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
             </div>
         </div>
     </div>
