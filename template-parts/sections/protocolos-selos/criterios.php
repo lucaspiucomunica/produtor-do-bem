@@ -8,7 +8,6 @@
 // Campos ACF
 $criterios_titulo = get_field('criterios_titulo');
 $criterio_conteudo = get_field('criterio_conteudo');
-$criterio_itens = get_field('criterio_itens');
 
 if (!$criterios_titulo) {
     return;
@@ -24,40 +23,6 @@ if (!$criterios_titulo) {
             
             <div class="content-text">
                 <?php echo $criterio_conteudo; ?>
-            </div>
-        </div>
-
-        <div class="flex justify-center">
-            <div class="timeline-1 max-w-[876px]">
-                <div class="timeline-1-line">
-                    <div class="timeline-1-line-dots">
-                        <?php foreach ($criterio_itens as $criterio_item) : ?>
-                            <div class="timeline-1-line-dot"></div>
-                        <?php endforeach; ?>
-                    </div>
-                    <div class="timeline-1-line-line">
-                        <div class="timeline-1-line-line-progress" style="height: 0%"></div>
-                    </div>
-                </div>
-                <div class="timeline-1-items">
-                    <?php $count = 0; foreach ($criterio_itens as $criterio_item) : $count++; ?>
-                        <div class="timeline-1-item">
-                            <div class="timeline-1-item-count">
-                                <div class="timeline-1-item-count-number">
-                                    <?php echo $count; ?>
-                                </div>
-                                <div class="timeline-1-item-count-icon">
-                                    <?php echo icon($criterio_item['icone']); ?>
-                                </div>
-                            </div>
-                            <div class="timeline-1-item-content">
-                                <div class="content-text">
-                                    <h3><strong><?php echo $criterio_item['titulo']; ?></strong> <?php echo $criterio_item['texto']; ?></h3>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
             </div>
         </div>
     </div>
