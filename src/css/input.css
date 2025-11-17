@@ -42,5 +42,8 @@
 /* Seções específicas do site */
 @import './styles/sections.css';
 
+/* Slide - Critérios */
+@import './styles/slide-criterios.css';
+
 /* Classes utilitárias customizadas */
 @import './styles/utilities.css';	

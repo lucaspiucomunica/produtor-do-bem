@@ -66,4 +66,16 @@
         bg-primario-variacao-5
     }
 
+    /* Small */
+
+    .tag-1.tag-1-small {
+        @apply
+        p-1.5 pr-3
+    }
+
+    .tag-1.tag-1-small svg {
+        @apply
+        w-3.5 h-3.5 min-w-3.5 min-h-3.5
+    }
+
 }

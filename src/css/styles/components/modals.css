@@ -44,7 +44,7 @@
 
     .modal-close {
         @apply
-        absolute top-4 right-4 z-10
+        absolute top-4 right-4 z-50
     }
 
     .modal-content {

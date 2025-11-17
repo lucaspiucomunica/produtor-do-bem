@@ -11,8 +11,14 @@
     </div>
 
     <?php get_template_part('template-parts/modals/modal-denuncia'); ?>
-    <?php get_template_part('template-parts/modals/modal-download-protocolo'); ?>
-    <?php get_template_part('template-parts/modals/modal-criterios'); ?>
+    
+    <?php if (is_singular('protocolo')) : ?>
+        <?php get_template_part('template-parts/modals/modal-download-protocolo'); ?>
+    <?php endif; ?>
+    
+    <?php if (is_page_template('page-protocolos-selos.php')) : ?>
+        <?php get_template_part('template-parts/modals/modal-criterios'); ?>
+    <?php endif; ?>
 
     <?php wp_footer(); ?>
 

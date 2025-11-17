@@ -1,0 +1,190 @@
+@layer components {
+    /* Slide - Critérios */
+    .slide-criterios-texts {
+        @apply
+        absolute top-0 left-0 w-full h-full z-10
+        p-10
+    }
+
+    .slide-criterios-item {
+        @apply
+        w-6/12 h-full
+    }
+
+    .slide-criterios-item .criterio-item {
+        @apply
+        w-full h-full bg-primario-variacao-5 rounded-4xl overflow-hidden
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content {
+        @apply
+        flex flex-col items-start justify-start
+        h-full
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header {
+        @apply
+        w-full flex items-center justify-start gap-2 p-6
+        bg-primario-variacao-4 rounded-b-4xl
+    }
+    
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-number {
+        @apply
+        flex flex-col items-center justify-center
+        w-20 h-20 min-w-20 min-h-20
+        border-2 border-limao-variacao-1 text-limao-variacao-1
+        rounded-2xl
+        text-5xl font-display font-semibold
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-icon {
+        @apply
+        flex flex-col items-center justify-center
+        w-20 h-20 min-w-20 min-h-20
+        bg-limao-variacao-1 rounded-2xl
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-icon svg {
+        @apply
+        w-8 h-8 min-w-8 min-h-8
+        *:fill-primario-variacao-3
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-text {
+        @apply
+        flex flex-col items-start justify-start gap-2 pl-2
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-text .criterio-item-content-title h2 {
+        @apply
+        text-2xl font-semibold text-neutro-branco
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas {
+        @apply
+        w-full p-6
+        flex-1 overflow-y-auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas::-webkit-scrollbar {
+        display: none; /* Chrome/Safari/Opera */
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-header {
+        @apply
+        mb-4
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-header h3 {
+        @apply
+        text-xl font-semibold text-neutro-branco
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list {
+        @apply
+        grid grid-cols-2 gap-4
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item {
+        @apply
+        flex flex-col items-start justify-start
+        w-full
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content {
+        @apply
+        w-full h-full relative z-10
+        flex flex-col items-start justify-start gap-4
+        bg-neutro-principal px-4 py-6 rounded-3xl
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content h4 {
+        @apply
+        text-base font-semibold text-primario-variacao-3
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content ul {
+        @apply
+        w-full
+        flex flex-col items-start justify-start
+        list-none
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content ul li {
+        @apply
+        w-full
+        flex flex-row items-center justify-start gap-2
+        py-3 first:pt-0 last:pb-0
+        border-b border-neutro-variacao-1
+        last:border-b-0
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content ul li svg {
+        @apply
+        w-6 h-6 min-w-6 min-h-6
+        *:fill-primario-variacao-3
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content ul li span {
+        @apply
+        text-sm
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content-result {
+        @apply
+        w-full
+        flex flex-row items-center justify-start gap-2
+        bg-primario-variacao-3 px-4 pt-12 pb-6 -mt-6 rounded-b-3xl
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-navigation {
+        @apply
+        w-full
+        flex flex-row items-center justify-start gap-2
+        p-6 bg-primario-variacao-4 rounded-t-4xl
+        relative
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-navigation .btn-nav {
+        @apply
+        w-full
+    }
+
+    .slide-criterios-images {
+        @apply
+        absolute top-0 right-0 w-7/12 h-full overflow-hidden
+    }
+
+    .slide-criterios-images .slide-criterios-image {
+        @apply
+        w-full h-full object-cover
+    }
+
+    .slide-criterios-images .slide-criterios-image img {
+        @apply
+        w-full h-full object-cover
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+        @apply
+        absolute -top-12 left-0 right-0 z-20
+        flex flex-row items-center justify-center gap-2
+        h-12 p-6
+        text-sm text-neutro-branco/80
+        pointer-events-none
+        opacity-0
+        bg-gradient-to-t from-primario-variacao-5 to-transparent
+        transition-all duration-300;
+    }
+
+    .scroll-indicator.active {
+        @apply
+        opacity-100
+    }
+
+    /* Critério - Item */
+
+}

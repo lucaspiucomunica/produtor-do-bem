@@ -31,8 +31,8 @@ if (!$criterios_titulo) {
 
             <div class="w-full">
                 <div class="criterios-list">
-                    <?php $count = 0; $total = count($criterio_itens); foreach ($criterio_itens as $criterio_item) : $count++; ?>
-                        <div class="criterios-list-item <?php echo ($count === $total) ? 'criterios-list-item-destaque' : ''; ?>" data-modal="criterios">
+                    <?php $count = 0; $total = count($criterio_itens); foreach ($criterio_itens as $index => $criterio_item) : $count++; ?>
+                        <div class="criterios-list-item <?php echo ($count === $total) ? 'criterios-list-item-destaque' : ''; ?> cursor-hover" data-modal="criterios" data-index="<?php echo $index; ?>">
                             <div class="criterios-list-item-content-header">
                                 <div class="criterios-list-item-content-number">
                                     <?php echo $count; ?>
