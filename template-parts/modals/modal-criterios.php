@@ -27,12 +27,14 @@
                                 <div class="criterio-item-content">
                                     <div class="criterio-item-content-header">
                                         <div class="criterio-item-content-header-content">
-                                            <div class="criterio-item-content-number">
-                                                <?php echo $count; ?>
+                                            <div class="criterio-item-content-header-content-icon">
+                                                <div class="criterio-item-content-number">
+                                                    <?php echo $count; ?>
+                                                </div>
+                                                <div class="criterio-item-content-icon">
+                                                    <?php echo icon($criterio_item['criterio']['icone']); ?>
+                                                </div>  
                                             </div>
-                                            <div class="criterio-item-content-icon">
-                                                <?php echo icon($criterio_item['criterio']['icone']); ?>
-                                            </div>  
                                             <div class="criterio-item-content-text">
                                                 <div class="criterio-item-content-title">
                                                     <h2><?php echo $criterio_item['criterio']['nome']; ?></h2>

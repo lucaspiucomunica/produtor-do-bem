@@ -217,7 +217,7 @@ class ModalCriterios {
 
         // Title: split text chars
         if (title) {
-            const split = new SplitText(title, { type: 'chars' });
+            const split = new SplitText(title, { type: 'words,chars' });
             gsap.set(split.chars, { opacity: 0, y: 20 });
 
             tl.to(split.chars, {
@@ -302,6 +302,7 @@ class ModalCriterios {
         this.currentSlide = index;
         this.updateNavigationButtons();
         this.checkScrollOnCurrentSlide();
+        this.scrollSlideToTop();
 
         // Animar elementos internos após o modal abrir
         const currentSlideElement = slideTexts[index];
@@ -346,6 +347,7 @@ class ModalCriterios {
 
         this.currentSlide = index;
         this.updateNavigationButtons();
+        this.scrollSlideToTop();
 
         setTimeout(() => {
             this.checkScrollOnCurrentSlide();
@@ -422,6 +424,17 @@ class ModalCriterios {
 
         const hasScrollbar = scrollableContent.scrollHeight > scrollableContent.clientHeight;
         scrollIndicator.classList.toggle('active', hasScrollbar);
+    }
+
+    scrollSlideToTop() {
+        const modalContainer = this.modal.querySelector('.modal-container');
+        if (modalContainer) {
+            gsap.to(modalContainer, {
+                scrollTop: 0,
+                duration: 0.5,
+                ease: 'power2.out'
+            });
+        }
     }
 }
 

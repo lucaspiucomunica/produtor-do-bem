@@ -246,17 +246,14 @@
         @apply
         inline-flex items-center justify-center
         p-2 rounded-full border-2 border-limao-variacao-1
-    }
-
-    .criterios-list-item-content-more span {
-        @apply
-        text-sm text-neutro-branco font-semibold text-nowrap px-2
+        transition-all duration-300
     }
 
     .criterios-list-item-content-more svg {
         @apply
         w-6 h-6 min-w-6 min-h-6
         *:fill-neutro-branco
+        *:transition-all *:duration-300
     }
 
     .criterios-list-item.criterios-list-item-destaque {
@@ -295,14 +292,29 @@
         border-0 bg-primario-variacao-3
     }
 
-    .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-more span {
-        @apply
-        text-neutro-branco
-    }
-
     .criterios-list-item.criterios-list-item-destaque .criterios-list-item-content-more svg {
         @apply
         *:fill-neutro-branco
     }
 
+    .criterios-list-item:hover .criterios-list-item-content-more {
+        @apply
+        bg-limao-variacao-1
+    }
+
+    .criterios-list-item:hover .criterios-list-item-content-more svg {
+        @apply
+        *:fill-primario-variacao-3
+    }
+
+    .criterios-list-item.criterios-list-item-destaque:hover .criterios-list-item-content-more {
+        @apply
+        bg-primario-variacao-3
+        transition-all duration-300
+    }   
+    
+    .criterios-list-item.criterios-list-item-destaque:hover .criterios-list-item-content-more svg {
+        @apply
+        *:fill-neutro-branco
+    }
 }

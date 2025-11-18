@@ -17,7 +17,7 @@ if (!$criterios_titulo) {
 
 <section id="criterios" class="<?php echo get_class_section(); ?>">
     <div class="container">
-        <div class="flex items-start gap-10">
+        <div class="flex lg:flex-row flex-col lg:items-start items-center gap-10">
             <div class="w-full max-w-[548px]">
                 <div class="content-text lg:max-w-[480px] max-w-full">
                     <h2><?php echo $criterios_titulo; ?></h2>
@@ -29,7 +29,7 @@ if (!$criterios_titulo) {
                 </div>
             </div>
 
-            <div class="w-full">
+            <div class="w-full lg:max-w-full max-w-[648px]">
                 <div class="criterios-list">
                     <?php $count = 0; $total = count($criterio_itens); foreach ($criterio_itens as $index => $criterio_item) : $count++; ?>
                         <div class="criterios-list-item <?php echo ($count === $total) ? 'criterios-list-item-destaque' : ''; ?> cursor-hover" data-modal="criterios" data-index="<?php echo $index; ?>">
@@ -52,7 +52,6 @@ if (!$criterios_titulo) {
                                 </div>
                             </div>
                             <div class="criterios-list-item-content-more">
-                                <span>Clique para ver detalhes</span>
                                 <?php echo icon('maximize-3'); ?>
                             </div>
                         </div>

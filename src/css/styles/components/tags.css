@@ -78,4 +78,9 @@
         w-3.5 h-3.5 min-w-3.5 min-h-3.5
     }
 
+    .tag-1.tag-1-small span {
+        @apply
+        sm-plus:text-xs text-[12px]
+    }
+
 }
