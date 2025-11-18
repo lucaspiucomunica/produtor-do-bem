@@ -24,8 +24,25 @@
 
     .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header {
         @apply
-        w-full flex items-center justify-start gap-2 p-6
+        w-full flex flex-col items-start justify-start gap-4 p-6
         bg-primario-variacao-4 rounded-b-4xl
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-header-content {
+        @apply
+        flex flex-row items-center justify-start gap-2
+    }
+    
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-header-description {
+        @apply
+        flex flex-row items-center justify-start gap-3 max-w-[612px]
+        text-base text-neutro-principal font-semibold
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-header-description svg {
+        @apply
+        w-6 h-6 min-w-6 min-h-6
+        *:fill-limao-variacao-1
     }
     
     .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-header .criterio-item-content-number {
@@ -124,7 +141,12 @@
     .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content ul li svg {
         @apply
         w-6 h-6 min-w-6 min-h-6
-        *:fill-primario-variacao-3
+        *:fill-primario-principal
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item.criterio-item-content-caracteristicas-list-item-negativo .criterio-item-content-caracteristicas-list-item-content ul li svg {
+        @apply
+        *:fill-danger-principal
     }
 
     .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content ul li span {
@@ -135,8 +157,50 @@
     .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content-result {
         @apply
         w-full
-        flex flex-row items-center justify-start gap-2
+        flex flex-col items-start justify-center gap-2
         bg-primario-variacao-3 px-4 pt-12 pb-6 -mt-6 rounded-b-3xl
+        text-neutro-branco
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content-result .criterio-item-content-caracteristicas-list-item-content-result-title {
+        @apply
+        flex flex-row items-center justify-start gap-2
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content-result .criterio-item-content-caracteristicas-list-item-content-result-text {
+        @apply
+       text-sm
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content-result .criterio-item-content-caracteristicas-list-item-content-result-title h5 {
+        @apply
+        text-base font-semibold
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item-content-result .criterio-item-content-caracteristicas-list-item-content-result-title svg {
+        @apply
+        w-6 h-6 min-w-6 min-h-6
+        *:fill-neutro-branco
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item.criterio-item-content-caracteristicas-list-item-positivo .criterio-item-content-caracteristicas-list-item-content-result {
+        @apply
+        bg-primario-principal
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item.criterio-item-content-caracteristicas-list-item-positivo .criterio-item-content-caracteristicas-list-item-content-result .criterio-item-content-caracteristicas-list-item-content-result-title h5 {
+        @apply
+        text-limao-variacao-1
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item.criterio-item-content-caracteristicas-list-item-positivo .criterio-item-content-caracteristicas-list-item-content-result .criterio-item-content-caracteristicas-list-item-content-result-title svg {
+        @apply
+        *:fill-limao-variacao-1
+    }
+
+    .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas-list-item.criterio-item-content-caracteristicas-list-item-negativo .criterio-item-content-caracteristicas-list-item-content-result {
+        @apply
+        bg-danger-principal
     }
 
     .slide-criterios-item .criterio-item .criterio-item-navigation {
@@ -154,7 +218,7 @@
 
     .slide-criterios-images {
         @apply
-        absolute top-0 right-0 w-7/12 h-full overflow-hidden
+        absolute top-0 right-0 w-7/12 h-full overflow-hidden rounded-l-4xl
     }
 
     .slide-criterios-images .slide-criterios-image {
@@ -173,7 +237,7 @@
         absolute -top-12 left-0 right-0 z-20
         flex flex-row items-center justify-center gap-2
         h-12 p-6
-        text-sm text-neutro-branco/80
+        text-sm text-neutro-branco/80 font-semibold
         pointer-events-none
         opacity-0
         bg-gradient-to-t from-primario-variacao-5 to-transparent

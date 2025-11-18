@@ -26,21 +26,30 @@
                             <div class="criterio-item">
                                 <div class="criterio-item-content">
                                     <div class="criterio-item-content-header">
-                                        <div class="criterio-item-content-number">
-                                            <?php echo $count; ?>
-                                        </div>
-                                        <div class="criterio-item-content-icon">
-                                            <?php echo icon($criterio_item['criterio']['icone']); ?>
-                                        </div>  
-                                        <div class="criterio-item-content-text">
-                                            <div class="criterio-item-content-title">
-                                                <h2><?php echo $criterio_item['criterio']['nome']; ?></h2>
+                                        <div class="criterio-item-content-header-content">
+                                            <div class="criterio-item-content-number">
+                                                <?php echo $count; ?>
                                             </div>
-                                            <div class="tag-1 tag-1--primario-principal tag-1-small">
-                                                <img src="<?php echo get_template_directory_uri(); ?>/src/img/forma-pingo.svg" class="svg-inline">
-                                                <span>Domínio <?php echo $count; ?> de <?php echo count($criterio_itens); ?></span>
+                                            <div class="criterio-item-content-icon">
+                                                <?php echo icon($criterio_item['criterio']['icone']); ?>
+                                            </div>  
+                                            <div class="criterio-item-content-text">
+                                                <div class="criterio-item-content-title">
+                                                    <h2><?php echo $criterio_item['criterio']['nome']; ?></h2>
+                                                </div>
+                                                <div class="tag-1 tag-1--primario-principal tag-1-small">
+                                                    <img src="<?php echo get_template_directory_uri(); ?>/src/img/forma-pingo.svg" class="svg-inline">
+                                                    <span>Domínio <?php echo $count; ?> de <?php echo count($criterio_itens); ?></span>
+                                                </div>
                                             </div>
                                         </div>
+
+                                        <?php if ($criterio_item['criterio']['descricao']) : ?>
+                                        <div class="criterio-item-content-header-description">
+                                            <?php echo icon('star'); ?>
+                                            <?php echo $criterio_item['criterio']['descricao']; ?>
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
 
                                     <div class="criterio-item-content-caracteristicas">
@@ -64,13 +73,15 @@
                                                 </div>
                                                 <?php if ($criterio_item['criterio']['resultado_positivo']) : ?>
                                                 <div class="criterio-item-content-caracteristicas-list-item-content-result">
-                                                    <?php echo icon('happy');?>
-                                                    <div class="criterio-item-content-caracteristicas-list-item-content-result-text">
+                                                    <div class="criterio-item-content-caracteristicas-list-item-content-result-title">
+                                                        <?php echo icon('happy');?>
                                                         <h5><?php echo $criterio_item['criterio']['resultado_positivo']['titulo']; ?></h5>
-                                                        <?php if ($criterio_item['criterio']['resultado_positivo']['texto']) : ?>
-                                                            <p><?php echo $criterio_item['criterio']['resultado_positivo']['texto']; ?></p>
-                                                        <?php endif; ?>
                                                     </div>
+                                                    <?php if ($criterio_item['criterio']['resultado_positivo']['texto']) : ?>
+                                                        <div class="criterio-item-content-caracteristicas-list-item-content-result-text">
+                                                            <p><?php echo $criterio_item['criterio']['resultado_positivo']['texto']; ?></p>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <?php endif; ?>
                                             </div>
@@ -91,13 +102,15 @@
                                                 </div>
                                                 <?php if ($criterio_item['criterio']['resultado_negativo']) : ?>
                                                 <div class="criterio-item-content-caracteristicas-list-item-content-result">
-                                                    <?php echo icon('emoji-sad');?>
-                                                    <div class="criterio-item-content-caracteristicas-list-item-content-result-text">
+                                                    <div class="criterio-item-content-caracteristicas-list-item-content-result-title">
+                                                        <?php echo icon('emoji-sad');?>
                                                         <h5><?php echo $criterio_item['criterio']['resultado_negativo']['titulo']; ?></h5>
-                                                        <?php if ($criterio_item['criterio']['resultado_negativo']['texto']) : ?>
-                                                            <p><?php echo $criterio_item['criterio']['resultado_negativo']['texto']; ?></p>
-                                                        <?php endif; ?>
                                                     </div>
+                                                    <?php if ($criterio_item['criterio']['resultado_negativo']['texto']) : ?>
+                                                        <div class="criterio-item-content-caracteristicas-list-item-content-result-text">
+                                                            <p><?php echo $criterio_item['criterio']['resultado_negativo']['texto']; ?></p>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 </div>
                                                 <?php endif; ?>
                                             </div>
