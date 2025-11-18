@@ -1,4 +1,27 @@
 class ModalCriterios {
+    // Configurações de animação
+    static ANIMATIONS = {
+        duration: {
+            out: 0.3,
+            in: 0.4,
+            elements: 0.6,
+            stagger: 0.08
+        },
+        ease: {
+            in: 'power2.in',
+            out: 'power2.out',
+            elastic: 'elastic.out(1, 0.5)'
+        },
+        transforms: {
+            slideX: 140,
+            slideScale: { min: 0.8, max: 1.2 },
+            slideRotate: 10,
+            elementScale: 0,
+            elementY: 30,
+            elementX: -30
+        }
+    };
+
     constructor() {
         this.modal = document.getElementById('modal-criterios');
         this.openButtons = document.querySelectorAll('[data-modal="criterios"]');
@@ -25,7 +48,6 @@ class ModalCriterios {
     }
 
     setupEventListeners() {
-        // Botões de abrir modal
         this.openButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -34,21 +56,18 @@ class ModalCriterios {
             });
         });
 
-        // Botões de fechar modal
         this.closeButtons.forEach(button => {
             button.addEventListener('click', () => {
                 this.closeModal();
             });
         });
 
-        // Fechar ao clicar no overlay
         this.modal.addEventListener('click', (e) => {
             if (e.target === this.modal) {
                 this.closeModal();
             }
         });
 
-        // Fechar com ESC e navegação com setas
         document.addEventListener('keydown', (e) => {
             if (!this.modal.classList.contains('hidden')) {
                 if (e.key === 'Escape') {
@@ -61,7 +80,6 @@ class ModalCriterios {
             }
         });
 
-        // Navegação - adicionar listeners em todos os botões
         this.btnsPrev?.forEach(btn => {
             btn.addEventListener('click', () => this.prevSlide());
         });
@@ -71,11 +89,193 @@ class ModalCriterios {
         });
     }
 
+    // Animação de saída do slide
+    animateSlideOut(textElement, imageElement, direction) {
+        const { duration, ease, transforms } = ModalCriterios.ANIMATIONS;
+        const tl = gsap.timeline();
+
+        tl.to(textElement, {
+            opacity: 0,
+            x: -transforms.slideX * direction,
+            scale: transforms.slideScale.min,
+            rotate: -transforms.slideRotate * direction,
+            duration: duration.out,
+            ease: ease.in,
+            onComplete: () => {
+                textElement.classList.add('hidden');
+            }
+        });
+
+        tl.to(imageElement, {
+            opacity: 0,
+            duration: duration.out,
+            scale: transforms.slideScale.max,
+            ease: ease.in,
+            onComplete: () => {
+                imageElement.classList.add('hidden');
+            }
+        }, '<');
+
+        return tl;
+    }
+
+    // Animação de entrada do slide
+    animateSlideIn(textElement, imageElement, direction) {
+        const { duration, ease, transforms } = ModalCriterios.ANIMATIONS;
+        const tl = gsap.timeline();
+
+        tl.call(() => {
+            textElement.classList.remove('hidden');
+            imageElement.classList.remove('hidden');
+        });
+
+        tl.set(textElement, {
+            opacity: 0,
+            scale: transforms.slideScale.min,
+            rotate: transforms.slideRotate * direction,
+            x: transforms.slideX * direction
+        });
+
+        tl.set(imageElement, {
+            opacity: 0,
+            scale: transforms.slideScale.max
+        });
+
+        tl.to(textElement, {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            rotate: 0,
+            duration: duration.in,
+            ease: ease.out
+        });
+
+        tl.to(imageElement, {
+            opacity: 1,
+            scale: 1,
+            duration: duration.in,
+            ease: ease.out
+        }, '<');
+
+        return tl;
+    }
+
+    // Animação dos elementos internos do slide
+    animateSlideElements(slideElement) {
+        const { duration, ease, transforms } = ModalCriterios.ANIMATIONS;
+        const tl = gsap.timeline();
+
+        const number = slideElement.querySelector('.criterio-item-content-number');
+        const icon = slideElement.querySelector('.criterio-item-content-icon');
+        const title = slideElement.querySelector('.criterio-item-content-title');
+        const description = slideElement.querySelector('.criterio-item-content-header-description');
+        const tag = slideElement.querySelector('.tag-1');
+        const caracteristicasHeader = slideElement.querySelector('.criterio-item-content-caracteristicas-header');
+        const caracteristicasItems = slideElement.querySelectorAll('.criterio-item-content-caracteristicas-list-item');
+
+        // Preparar elementos
+        gsap.set([number, icon], {
+            scale: transforms.elementScale,
+            opacity: 0
+        });
+
+        if (description) {
+            gsap.set(description, {
+                opacity: 0
+            });
+        }
+
+        gsap.set(tag, {
+            opacity: 0,
+            x: -transforms.elementX
+        });
+
+        gsap.set([caracteristicasHeader, ...caracteristicasItems], {
+            opacity: 0,
+            y: transforms.elementY
+        });
+
+        // Number: scale in
+        if (number) {
+            tl.to(number, {
+                scale: 1,
+                opacity: 1,
+                duration: duration.elements,
+                ease: ease.out
+            }, 0.1);
+        }
+
+        // Icon: scale in
+        if (icon) {
+            tl.to(icon, {
+                scale: 1,
+                opacity: 1,
+                duration: duration.elements,
+                ease: ease.out
+            }, 0.2);
+        }
+
+        // Title: split text chars
+        if (title) {
+            const split = new SplitText(title, { type: 'chars' });
+            gsap.set(split.chars, { opacity: 0, y: 20 });
+
+            tl.to(split.chars, {
+                opacity: 1,
+                y: 0,
+                duration: 0.5,
+                stagger: 0.03,
+                ease: ease.out
+            }, 0.3);
+        }
+
+        // Description: fade in
+        if (description) {
+            tl.to(description, {
+                opacity: 1,
+                duration: duration.elements,
+                ease: ease.out
+            }, 0.4);
+        }
+
+        // Tag: fade in right
+        if (tag) {
+            tl.to(tag, {
+                opacity: 1,
+                x: 0,
+                duration: duration.elements,
+                ease: ease.out
+            }, 0.5);
+        }
+
+        // Características header: fade in up
+        if (caracteristicasHeader) {
+            tl.to(caracteristicasHeader, {
+                opacity: 1,
+                y: 0,
+                duration: duration.elements,
+                ease: ease.out
+            }, 0.6);
+        }
+
+        // Características items: fade in up com stagger
+        if (caracteristicasItems.length > 0) {
+            tl.to(caracteristicasItems, {
+                opacity: 1,
+                y: 0,
+                duration: duration.elements,
+                stagger: ModalCriterios.ANIMATIONS.duration.stagger,
+                ease: ease.out
+            }, 0.7);
+        }
+
+        return tl;
+    }
+
     openModal(index = 0) {
         this.modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
 
-        // Inicializar slides (esconder todos)
         const slideTexts = this.modal.querySelectorAll('.slide-criterios-item');
         const slideImages = this.modal.querySelectorAll('.slide-criterios-image');
 
@@ -102,6 +302,12 @@ class ModalCriterios {
         this.currentSlide = index;
         this.updateNavigationButtons();
         this.checkScrollOnCurrentSlide();
+
+        // Animar elementos internos após o modal abrir
+        const currentSlideElement = slideTexts[index];
+        if (currentSlideElement) {
+            this.animateSlideElements(currentSlideElement);
+        }
     }
 
     closeModal() {
@@ -110,7 +316,6 @@ class ModalCriterios {
     }
 
     goToSlide(index) {
-        // Se já estamos no slide, não fazer nada
         if (this.currentSlide === index) {
             return;
         }
@@ -124,81 +329,20 @@ class ModalCriterios {
         const currentImage = slideImages[this.currentSlide];
         const nextImage = slideImages[index];
 
-        // Verificar se os elementos existem
         if (!currentText || !nextText || !currentImage || !nextImage) {
             return;
         }
 
-        // Resetar scroll de todas as áreas de características
-        const scrollableAreas = this.modal.querySelectorAll('.criterio-item-content-caracteristicas');
-        scrollableAreas.forEach(area => {
-            area.scrollTop = 0;
-        });
-
-        // Timeline GSAP
         const tl = gsap.timeline();
 
-        // Animar saída do texto atual
-        tl.to(currentText, {
-            opacity: 0,
-            x: -140 * direction,
-            scale: 0.8,
-            rotate: -10 * direction,
-            duration: 0.3,
-            ease: 'power2.in',
-            onComplete: () => {
-                currentText.classList.add('hidden');
-            }
-        });
+        // Animar saída
+        tl.add(this.animateSlideOut(currentText, currentImage, direction));
 
-        // Animar saída da imagem atual (em paralelo)
-        tl.to(currentImage, {
-            opacity: 0,
-            duration: 0.3,
-            scale: 1.2,
-            ease: 'power2.in',
-            onComplete: () => {
-                currentImage.classList.add('hidden');
-            }
-        }, '<');
+        // Animar entrada
+        tl.add(this.animateSlideIn(nextText, nextImage, direction));
 
-        // Preparar próximos elementos (remover hidden ANTES do set)
-        tl.call(() => {
-            nextText.classList.remove('hidden');
-            nextImage.classList.remove('hidden');
-        });
-
-        // Configurar estado inicial do próximo texto
-        tl.set(nextText, {
-            opacity: 0,
-            scale: 0.8,
-            rotate: 10 * direction,
-            x: 140 * direction
-        });
-
-        // Configurar estado inicial da próxima imagem
-        tl.set(nextImage, {
-            opacity: 0,
-            scale: 1.2
-        });
-
-        // Animar entrada do próximo texto
-        tl.to(nextText, {
-            opacity: 1,
-            x: 0,
-            scale: 1,
-            rotate: 0,
-            duration: 0.4,
-            ease: 'power2.out'
-        });
-
-        // Animar entrada da próxima imagem (em paralelo com o texto)
-        tl.to(nextImage, {
-            opacity: 1,
-            scale: 1,
-            duration: 0.4,
-            ease: 'power2.out'
-        }, '<');
+        // Animar elementos internos
+        tl.add(this.animateSlideElements(nextText), '-=0.2');
 
         this.currentSlide = index;
         this.updateNavigationButtons();
@@ -206,6 +350,11 @@ class ModalCriterios {
         setTimeout(() => {
             this.checkScrollOnCurrentSlide();
         }, 50);
+
+        const scrollableAreas = this.modal.querySelectorAll('.criterio-item-content-caracteristicas');
+        scrollableAreas.forEach(area => {
+            area.scrollTop = 0;
+        });
     }
 
     nextSlide() {
@@ -245,12 +394,10 @@ class ModalCriterios {
     }
 
     setupScrollDetection() {
-        // Verificar scroll ao redimensionar a janela
         window.addEventListener('resize', () => {
             this.checkScrollOnCurrentSlide();
         });
 
-        // Adicionar listeners de scroll em cada área de características
         const scrollableAreas = this.modal?.querySelectorAll('.criterio-item-content-caracteristicas');
         scrollableAreas?.forEach(area => {
             area.addEventListener('scroll', () => {
@@ -273,14 +420,9 @@ class ModalCriterios {
 
         if (!scrollableContent || !scrollIndicator) return;
 
-        // Verificar se o conteúdo tem scrollbar
         const hasScrollbar = scrollableContent.scrollHeight > scrollableContent.clientHeight;
-
-        // Toggle classe active
         scrollIndicator.classList.toggle('active', hasScrollbar);
     }
-
-    // GSAP
 }
 
 document.addEventListener('DOMContentLoaded', () => {
