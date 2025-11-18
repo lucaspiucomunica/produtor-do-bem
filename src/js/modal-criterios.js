@@ -19,6 +19,7 @@ class ModalCriterios {
         this.btnsNext = this.modal?.querySelectorAll('.btn-next');
         this.totalSlides = this.modal?.querySelectorAll('.slide-criterios-item').length || 0;
         this.scrollIndicators = this.modal?.querySelectorAll('.scroll-indicator');
+
         this.setupEventListeners();
         this.setupScrollDetection();
     }
@@ -73,7 +74,34 @@ class ModalCriterios {
     openModal(index = 0) {
         this.modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
-        this.goToSlide(index);
+
+        // Inicializar slides (esconder todos)
+        const slideTexts = this.modal.querySelectorAll('.slide-criterios-item');
+        const slideImages = this.modal.querySelectorAll('.slide-criterios-image');
+
+        slideTexts.forEach((slide, i) => {
+            if (i !== index) {
+                slide.classList.add('hidden');
+                gsap.set(slide, { opacity: 1, x: 0, scale: 1, rotate: 0 });
+            } else {
+                slide.classList.remove('hidden');
+                gsap.set(slide, { opacity: 1, x: 0, scale: 1, rotate: 0 });
+            }
+        });
+
+        slideImages.forEach((img, i) => {
+            if (i !== index) {
+                img.classList.add('hidden');
+                gsap.set(img, { opacity: 1, x: 0, scale: 1 });
+            } else {
+                img.classList.remove('hidden');
+                gsap.set(img, { opacity: 1, x: 0, scale: 1 });
+            }
+        });
+
+        this.currentSlide = index;
+        this.updateNavigationButtons();
+        this.checkScrollOnCurrentSlide();
     }
 
     closeModal() {
@@ -82,8 +110,24 @@ class ModalCriterios {
     }
 
     goToSlide(index) {
+        // Se já estamos no slide, não fazer nada
+        if (this.currentSlide === index) {
+            return;
+        }
+
         const slideTexts = this.modal.querySelectorAll('.slide-criterios-item');
         const slideImages = this.modal.querySelectorAll('.slide-criterios-image');
+
+        const direction = index > this.currentSlide ? 1 : -1;
+        const currentText = slideTexts[this.currentSlide];
+        const nextText = slideTexts[index];
+        const currentImage = slideImages[this.currentSlide];
+        const nextImage = slideImages[index];
+
+        // Verificar se os elementos existem
+        if (!currentText || !nextText || !currentImage || !nextImage) {
+            return;
+        }
 
         // Resetar scroll de todas as áreas de características
         const scrollableAreas = this.modal.querySelectorAll('.criterio-item-content-caracteristicas');
@@ -91,20 +135,74 @@ class ModalCriterios {
             area.scrollTop = 0;
         });
 
-        // Textos: toggle hidden (slide será feito depois)
-        slideTexts.forEach((slide, i) => {
-            slide.classList.toggle('hidden', i !== index);
+        // Timeline GSAP
+        const tl = gsap.timeline();
+
+        // Animar saída do texto atual
+        tl.to(currentText, {
+            opacity: 0,
+            x: -140 * direction,
+            scale: 0.8,
+            rotate: -10 * direction,
+            duration: 0.3,
+            ease: 'power2.in',
+            onComplete: () => {
+                currentText.classList.add('hidden');
+            }
         });
 
-        // Imagens: toggle hidden (fade será adicionado no CSS)
-        slideImages.forEach((img, i) => {
-            img.classList.toggle('hidden', i !== index);
+        // Animar saída da imagem atual (em paralelo)
+        tl.to(currentImage, {
+            opacity: 0,
+            duration: 0.3,
+            scale: 1.2,
+            ease: 'power2.in',
+            onComplete: () => {
+                currentImage.classList.add('hidden');
+            }
+        }, '<');
+
+        // Preparar próximos elementos (remover hidden ANTES do set)
+        tl.call(() => {
+            nextText.classList.remove('hidden');
+            nextImage.classList.remove('hidden');
         });
+
+        // Configurar estado inicial do próximo texto
+        tl.set(nextText, {
+            opacity: 0,
+            scale: 0.8,
+            rotate: 10 * direction,
+            x: 140 * direction
+        });
+
+        // Configurar estado inicial da próxima imagem
+        tl.set(nextImage, {
+            opacity: 0,
+            scale: 1.2
+        });
+
+        // Animar entrada do próximo texto
+        tl.to(nextText, {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            rotate: 0,
+            duration: 0.4,
+            ease: 'power2.out'
+        });
+
+        // Animar entrada da próxima imagem (em paralelo com o texto)
+        tl.to(nextImage, {
+            opacity: 1,
+            scale: 1,
+            duration: 0.4,
+            ease: 'power2.out'
+        }, '<');
 
         this.currentSlide = index;
         this.updateNavigationButtons();
 
-        // Verificar indicador de scroll após trocar de slide
         setTimeout(() => {
             this.checkScrollOnCurrentSlide();
         }, 50);
@@ -127,18 +225,18 @@ class ModalCriterios {
     }
 
     updateNavigationButtons() {
-        this.btnsPrev?.forEach((btn, index) => {
+        this.btnsPrev?.forEach(btn => {
             const textElement = btn.querySelector('span');
-            if (index === 0) {
+            if (this.currentSlide === 0) {
                 textElement.textContent = 'Sair';
             } else {
                 textElement.textContent = 'Anterior';
             }
         });
 
-        this.btnsNext?.forEach((btn, index) => {
+        this.btnsNext?.forEach(btn => {
             const textElement = btn.querySelector('span');
-            if (index === this.totalSlides - 1) {
+            if (this.currentSlide === this.totalSlides - 1) {
                 textElement.textContent = 'Sair';
             } else {
                 textElement.textContent = 'Próximo';
@@ -182,7 +280,7 @@ class ModalCriterios {
         scrollIndicator.classList.toggle('active', hasScrollbar);
     }
 
-    // AQUI TAMBÉM FICARÁ ANIMAÇÃO DO GSAP DE ENTRADAS E SAÍDAS
+    // GSAP
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -224,6 +224,7 @@
     .slide-criterios-images .slide-criterios-image {
         @apply
         w-full h-full object-cover
+        absolute top-0 left-0
     }
 
     .slide-criterios-images .slide-criterios-image img {
