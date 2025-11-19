@@ -200,30 +200,43 @@
         cursor-pointer
     }
 
+    .criterios-list-item-wrapper {
+        @apply
+        w-full
+    }
+
     .criterios-list-item-content-header {
         @apply
-        flex items-center justify-start gap-2 pr-6
+        flex xs:flex-row flex-col xs:items-center items-start justify-start gap-2 pr-6
+    }
+
+    .criterios-list-item-content-header-content {
+        @apply
+        flex items-center justify-start gap-2
     }
     
     .criterios-list-item-content-number {
         @apply
         flex flex-col items-center justify-center
-        w-20 h-20 min-w-20 min-h-20
+        sm-plus:w-20 sm-plus:h-20 sm-plus:min-w-20 sm-plus:min-h-20
+        w-16 h-16 min-w-16 min-h-16
         border-2 border-limao-variacao-1 text-limao-variacao-1
         rounded-2xl
-        text-5xl font-display font-semibold
+        sm-plus:text-5xl text-4xl font-display font-semibold
     }
 
     .criterios-list-item-content-icon {
         @apply
         flex flex-col items-center justify-center
-        w-20 h-20 min-w-20 min-h-20
+        sm-plus:w-20 sm-plus:h-20 sm-plus:min-w-20 sm-plus:min-h-20
+        w-16 h-16 min-w-16 min-h-16
         bg-neutro-principal rounded-2xl
     }
 
     .criterios-list-item-content-icon svg {
         @apply
-        w-8 h-8 min-w-8 min-h-8
+        sm-plus:w-8 sm-plus:h-8 sm-plus:min-w-8 sm-plus:min-h-8
+        w-6 h-6 min-w-6 min-h-6
         *:fill-primario-variacao-3
     }
 
@@ -234,7 +247,7 @@
 
     .criterios-list-item-content-title h3 {
         @apply
-        text-xl font-semibold text-neutro-branco
+        sm-plus:text-xl text-lg font-semibold text-neutro-branco
     }
 
     .criterios-list-item-content-description {

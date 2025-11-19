@@ -32,27 +32,31 @@ if (!$criterios_titulo) {
             <div class="w-full lg:max-w-full max-w-[648px]">
                 <div class="criterios-list">
                     <?php $count = 0; $total = count($criterio_itens); foreach ($criterio_itens as $index => $criterio_item) : $count++; ?>
-                        <div class="criterios-list-item <?php echo ($count === $total) ? 'criterios-list-item-destaque' : ''; ?> cursor-hover" data-modal="criterios" data-index="<?php echo $index; ?>">
-                            <div class="criterios-list-item-content-header">
-                                <div class="criterios-list-item-content-number">
-                                    <?php echo $count; ?>
-                                </div>
-                                <div class="criterios-list-item-content-icon">
-                                    <?php echo icon($criterio_item['criterio']['icone']); ?>
-                                </div>  
-                                <div class="criterios-list-item-content-text">
-                                    <div class="criterios-list-item-content-title">
-                                        <h3><?php echo $criterio_item['criterio']['nome']; ?></h3>
+                        <div class="criterios-list-item-wrapper">
+                            <div class="criterios-list-item <?php echo ($count === $total) ? 'criterios-list-item-destaque' : ''; ?> cursor-hover" data-modal="criterios" data-index="<?php echo $index; ?>">
+                                <div class="criterios-list-item-content-header">
+                                    <div class="criterios-list-item-content-header-content">
+                                        <div class="criterios-list-item-content-number">
+                                            <?php echo $count; ?>
+                                        </div>
+                                        <div class="criterios-list-item-content-icon">
+                                            <?php echo icon($criterio_item['criterio']['icone']); ?>
+                                        </div> 
+                                    </div> 
+                                    <div class="criterios-list-item-content-text">
+                                        <div class="criterios-list-item-content-title">
+                                            <h3><?php echo $criterio_item['criterio']['nome']; ?></h3>
+                                        </div>
+                                        <?php if ($criterio_item['criterio']['descricao']) : ?>
+                                        <div class="criterios-list-item-content-description">
+                                            <?php echo $criterio_item['criterio']['descricao']; ?>
+                                        </div>
+                                        <?php endif; ?>
                                     </div>
-                                    <?php if ($criterio_item['criterio']['descricao']) : ?>
-                                    <div class="criterios-list-item-content-description">
-                                        <?php echo $criterio_item['criterio']['descricao']; ?>
-                                    </div>
-                                    <?php endif; ?>
                                 </div>
-                            </div>
-                            <div class="criterios-list-item-content-more">
-                                <?php echo icon('maximize-3'); ?>
+                                <div class="criterios-list-item-content-more">
+                                    <?php echo icon('maximize-3'); ?>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>

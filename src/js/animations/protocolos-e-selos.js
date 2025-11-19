@@ -45,11 +45,30 @@ function animateProtocolosSelosCriteriosSection() {
     const sectionCriterios = document.querySelector('#criterios');
     const sectionCriteriosTitle = sectionCriterios.querySelector('.content-text h2');
     const sectionCriteriosDescription = sectionCriterios.querySelectorAll('.content-text p');
+    const criteriosList = sectionCriterios.querySelector('.criterios-list');
+    const criteriosItems = sectionCriterios.querySelectorAll('.criterios-list-item-wrapper');
 
     const tlCriterios = createScrollTimeline(sectionCriterios);
 
     animateTitle(tlCriterios, sectionCriteriosTitle, CONFIG.offset.none);
     animateText(tlCriterios, sectionCriteriosDescription);
+
+    // Animar container da lista
+    tlCriterios.from(criteriosList, {
+        opacity: 0,
+        scale: 0.95,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+    }, CONFIG.offset.normal);
+
+    // Animar cada item da lista com stagger
+    tlCriterios.from(criteriosItems, {
+        opacity: 0,
+        scale: 0.95,
+        duration: CONFIG.duration.normal,
+        ease: CONFIG.easing.default,
+        stagger: CONFIG.stagger.medium
+    }, CONFIG.offset.tight);
 }
 
 function animateProtocolosSelosMetodoSection() {
