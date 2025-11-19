@@ -334,7 +334,18 @@ class ModalCriterios {
             return;
         }
 
-        const tl = gsap.timeline();
+        // Resetar scroll de todas as áreas de características imediatamente
+        const scrollableAreas = this.modal.querySelectorAll('.criterio-item-content-caracteristicas');
+        scrollableAreas.forEach(area => {
+            area.scrollTop = 0;
+        });
+
+        const tl = gsap.timeline({
+            onComplete: () => {
+                // Verificar scroll após animação completa
+                this.checkScrollOnCurrentSlide();
+            }
+        });
 
         // Animar saída
         tl.add(this.animateSlideOut(currentText, currentImage, direction));
@@ -348,15 +359,6 @@ class ModalCriterios {
         this.currentSlide = index;
         this.updateNavigationButtons();
         this.scrollSlideToTop();
-
-        setTimeout(() => {
-            this.checkScrollOnCurrentSlide();
-        }, 50);
-
-        const scrollableAreas = this.modal.querySelectorAll('.criterio-item-content-caracteristicas');
-        scrollableAreas.forEach(area => {
-            area.scrollTop = 0;
-        });
     }
 
     nextSlide() {
