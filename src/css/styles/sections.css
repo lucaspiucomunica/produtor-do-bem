@@ -66,7 +66,11 @@
 
     .sections-pagina-principal-hero .hero-bg-video video {
         @apply
-        w-full h-full object-cover object-center
+        w-full h-full object-cover object-center;
+
+        &::-webkit-media-controls {
+            display: none !important;
+        }
     }
 
     /* Sobre - Página Principal */

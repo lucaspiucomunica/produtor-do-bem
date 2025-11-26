@@ -46,7 +46,7 @@ if (!$hero_titulo) {
                 </div>
 
                 <div class="hero-bg-video">
-                    <video src="<?php echo get_template_directory_uri(); ?>/src/img/take-banner.webm" autoplay muted loop></video>
+                    <video src="<?php echo get_template_directory_uri(); ?>/src/img/take-banner.webm" autoplay muted loop playsinline disablepictureinpicture></video>
                 </div>
             </div>
         </div>

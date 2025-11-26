@@ -15,6 +15,9 @@ import {
 function animateHomeHeroSection() {
     const siteHeader = document.querySelector('.site-header');
     const sectionHero = document.querySelector('#hero');
+    
+    if (!elementExists(sectionHero)) return;
+    
     const sectionHeroVideo = sectionHero.querySelector('.hero-bg-video video');
     const sectionHeroTitle = sectionHero.querySelector('.hero-content .titulo h1 .title');
     const sectionHeroTitleDestaque = sectionHero.querySelector('.hero-content .titulo h1 .destaque');
@@ -90,6 +93,9 @@ function animateHomeHeroSection() {
 
 function animateHomeSobreSection() {
     const sectionSobre = document.querySelector('#sobre');
+    
+    if (!elementExists(sectionSobre)) return;
+    
     const sectionSobreTitle = sectionSobre.querySelector('.animate-1 h2');
     const sectionSobreDescription = sectionSobre.querySelector('.animate-1 p');
     const sectionSobreCard1 = sectionSobre.querySelector('.card-1');
@@ -113,10 +119,11 @@ function animateHomeSobreSection() {
     animateText(tlSobre, sectionSobreCard6, CONFIG.offset.normal, CONFIG.stagger.fast);
     animateText(tlSobre, sectionSobreCard7);
 
-    gsap.from(sectionSobreEngajamentoTitle, {
+    const splitEngajamentoTitle = new SplitText(sectionSobreEngajamentoTitle, { type: "words" });
+    gsap.from(splitEngajamentoTitle.words, {
         opacity: 0,
         y: CONFIG.distance.medium,
-        duration: CONFIG.duration.normal,
+        stagger: CONFIG.stagger.fast,
         ease: CONFIG.easing.default,
         scrollTrigger: {
             trigger: sectionSobreEngajamento,
@@ -145,6 +152,9 @@ function animateHomeSobreSection() {
 
 function animateHomeCertificacoesSection() {
     const sectionCertificacoes = document.querySelector('#certificacoes');
+    
+    if (!elementExists(sectionCertificacoes)) return;
+    
     const sectionCertificacoesContent = sectionCertificacoes.querySelector('.cta-certificacoes');
     const sectionCertificacoesTitle = sectionCertificacoes.querySelector('.cta-certificacoes .titulo h2');
     const sectionCertificacoesText = sectionCertificacoes.querySelectorAll('.cta-certificacoes .texto p');
