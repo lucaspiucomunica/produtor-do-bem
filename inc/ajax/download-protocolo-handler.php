@@ -126,14 +126,22 @@ function handle_download_protocolo_form() {
     $post_id = !empty($_POST['post_id']) ? intval($_POST['post_id']) : get_the_ID();
     error_log('Download protocolo form - Post ID: ' . $post_id);
 
-    $protocolo = get_field('conheca', $post_id);
     $arquivo_url = '';
 
-    if ($protocolo && !empty($protocolo['arquivo_protocolo']['url'])) {
-        $arquivo_url = $protocolo['arquivo_protocolo']['url'];
-        error_log('Download protocolo form - Arquivo URL encontrado: ' . $arquivo_url);
+    // Verificar primeiro o campo arquivo_protocolo_cta_fixo (usado no CTA do hero)
+    $arquivo_cta_fixo = get_field('arquivo_protocolo_cta_fixo', $post_id);
+    if ($arquivo_cta_fixo && !empty($arquivo_cta_fixo['url'])) {
+        $arquivo_url = $arquivo_cta_fixo['url'];
+        error_log('Download protocolo form - Arquivo URL encontrado (cta_fixo): ' . $arquivo_url);
     } else {
-        error_log('Download protocolo form - Arquivo não encontrado no ACF');
+        // Fallback para o campo conheca['arquivo_protocolo']
+        $protocolo = get_field('conheca', $post_id);
+        if ($protocolo && !empty($protocolo['arquivo_protocolo']['url'])) {
+            $arquivo_url = $protocolo['arquivo_protocolo']['url'];
+            error_log('Download protocolo form - Arquivo URL encontrado (conheca): ' . $arquivo_url);
+        } else {
+            error_log('Download protocolo form - Arquivo não encontrado no ACF');
+        }
     }
 
     if ($submission) {

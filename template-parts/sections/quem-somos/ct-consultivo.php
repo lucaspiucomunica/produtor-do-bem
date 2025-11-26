@@ -11,6 +11,9 @@ $ct_consultivo_descricao = get_field('ct_consultivo_descricao');
 $ct_consultivo_equipe_pdb = get_field('ct_consultivo_equipe_pdb');
 $ct_consultivo_equipe_pdb_titulo = 'Equipe Produtor do Bem';
 $ct_consultivo_protocolos = get_field('ct_consultivo_protocolos');
+
+// Controle de exibição de seções
+$hide_protocolos_section = true;
 ?>
 
 <section id="ct-consultivo" class="<?php echo get_class_section(); ?>">
@@ -57,6 +60,7 @@ $ct_consultivo_protocolos = get_field('ct_consultivo_protocolos');
                 </div>
             </div>
 
+            <?php if (!$hide_protocolos_section) : ?>
             <div class="flex px-3 pb-3 animate-4">
                 <div class="w-full">
                     <div class="grid sm:grid-cols-2 grid-cols-1 gap-3">
@@ -93,6 +97,7 @@ $ct_consultivo_protocolos = get_field('ct_consultivo_protocolos');
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>

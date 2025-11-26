@@ -485,7 +485,7 @@
 
     .sections-quem-somos-produtores-e-empresas {
         @apply
-        p-section
+        p-section-top
     }
 
     /* Comitê Técnico Consultivo - Quem Somos */
@@ -675,6 +675,11 @@
     .sections-cpt-protocolo-hero-em-breve .hero-destaque .content-text h3 {
         @apply
         text-2xl
+    }
+
+    .sections-cpt-protocolo-hero .cta-2-hero .content-text {
+        @apply
+        space-y-0
     }
 
     /* Protocolo - CPT Protocolo */

@@ -46,6 +46,11 @@ function heroProtocoloAnimation() {
     if (elementExists(heroInfosExtras)) {
         animateText(timeline, heroInfosExtras);
     }
+
+    const heroCtaFixo = hero.querySelector('.cta-2-hero');
+    if (elementExists(heroCtaFixo)) {
+        animateSlideY(timeline, heroCtaFixo);
+    }
 }
 
 function heroEmBreveProtocoloAnimation() {

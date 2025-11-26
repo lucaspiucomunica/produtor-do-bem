@@ -13,6 +13,7 @@ $hero_destaques = get_field('destaques');
 $hero_destaques_titulo = get_field('destaque_titulo');
 $hero_destaques_subtitulo = get_field('destaques_subtitulo');
 $hero_infos_extras = get_field('informacoes_extras');
+$arquivo_protocolo_cta_fixo = get_field('arquivo_protocolo_cta_fixo');
 
 if (!$hero_titulo) {
     return;
@@ -64,6 +65,30 @@ if (!$hero_titulo) {
         <div class="flex mt-10 hero-infos-extras">
             <div class="content-text content-text--light">
                 <p><?php echo $hero_infos_extras; ?></p>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <?php if ($arquivo_protocolo_cta_fixo) : ?>
+        <div class="cta-2-hero mt-10">
+            <div class="cta-2">
+                <div class="content-left">
+                    <div class="content-icon content-icon--primario">
+                        <?php echo icon($hero_icone); ?>
+                    </div>
+                    <div class="content-text">
+                        <h3 class="content-text-title">Baixe o protocolo completo</h3>
+                        <p class="content-text-description">Tenha acesso a todos os detalhes técnicos, critérios de avaliação e diretrizes para implementação do protocolo.</p>
+                    </div>
+                </div>
+                <div class="content-right">
+                    <div class="content-button">
+                        <button id="download-protocolo" class="btn btn-is-icon" data-modal="download-protocolo">
+                            <span class="text-nowrap">Baixar protocolo</span>
+                            <?php echo icon('document-download'); ?>
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
         <?php endif; ?>

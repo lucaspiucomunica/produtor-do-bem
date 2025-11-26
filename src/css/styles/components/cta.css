@@ -61,6 +61,11 @@
         rounded-t-2xl rounded-b-none
     }
 
+    .cta-2-hero .cta-2 {
+        @apply
+        sm:rounded-3xl rounded-2xl
+    }
+
     .cta-2 .content-left {
         @apply
         flex items-center justify-center gap-6
