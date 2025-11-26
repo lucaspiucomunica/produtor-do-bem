@@ -8,15 +8,18 @@ document.addEventListener('DOMContentLoaded', function() {
         effects: true,
         smoothTouch: 0.1,
         normalizeScroll: false,
-        ignoreMobileResize: true,
+        ignoreMobileResize: false,
         preventDefault: true
     });
 
-    window.refreshScrollSmoother = function() {
+    function refreshAll() {
         if (smoother) {
             smoother.refresh();
         }
-    };
+        ScrollTrigger.refresh();
+    }
+
+    window.refreshScrollSmoother = refreshAll;
 
     window.toggleScrollSmoother = function(enabled = true) {
         if (smoother) {
@@ -33,12 +36,12 @@ document.addEventListener('DOMContentLoaded', function() {
         smoother.scrollTo(selector, true, scrollPosition);
     };
 
-    const refreshSmoother = ThemeUtils.debounce(() => {
-        if (smoother) {
-            smoother.refresh();
-        }
-    }, 250);
+    const debouncedRefresh = ThemeUtils.debounce(refreshAll, 250);
 
-    window.addEventListener('resize', refreshSmoother);
-    window.addEventListener('load', () => setTimeout(refreshSmoother, 100));
+    window.addEventListener('resize', debouncedRefresh);
+    window.addEventListener('load', refreshAll);
+
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(refreshAll);
+    }
 });
