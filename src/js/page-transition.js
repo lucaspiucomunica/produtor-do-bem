@@ -274,3 +274,28 @@ document.addEventListener('DOMContentLoaded', () => {
     initPageTransition();
     setupLinkInterception();
 });
+
+// Trata navegação pelo histórico (botão voltar/avançar)
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        // Página restaurada do bfcache
+        const bars = document.querySelectorAll('.page-transition-bar');
+        
+        if (bars.length > 0) {
+            // Resetar estado
+            window.pageTransitionComplete = false;
+            document.body.classList.add('page-transition-active');
+            document.body.classList.remove('animations-ready');
+            
+            // Garantir barras visíveis e na posição correta
+            gsap.set(bars, { yPercent: 0 });
+            
+            // Executar transição de entrada
+            transitionIn().then(() => {
+                document.body.classList.remove('page-transition-active');
+                window.pageTransitionComplete = true;
+                document.dispatchEvent(new CustomEvent(PAGE_TRANSITION_COMPLETE));
+            });
+        }
+    }
+});
