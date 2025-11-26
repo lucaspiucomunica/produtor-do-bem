@@ -164,12 +164,15 @@ function pdb_submissions_list_page() {
             </div>
         </form>
 
-        <!-- Botão Exportar -->
-        <div style="margin: 15px 0;">
+        <!-- Botões de Ação -->
+        <div style="margin: 15px 0; display: flex; gap: 10px; align-items: center;">
             <a href="<?php echo wp_nonce_url(admin_url('admin.php?page=pdb-submissions&action=export_csv&form_filter=' . urlencode($form_filter) . '&date_from=' . urlencode($date_from) . '&date_to=' . urlencode($date_to)), 'pdb_export_submissions'); ?>" class="button button-secondary">
                 Exportar para CSV
             </a>
-            <span style="color: #666; margin-left: 10px;">
+            <button type="button" id="bulk-delete-btn" class="button" style="color: #a00; display: none;" onclick="bulkDeleteSubmissions();">
+                Excluir selecionados (<span id="selected-count">0</span>)
+            </button>
+            <span style="color: #666;">
                 Total: <strong><?php echo $query->found_posts; ?></strong> submissões
             </span>
         </div>
@@ -179,11 +182,12 @@ function pdb_submissions_list_page() {
             <table class="wp-list-table widefat fixed striped">
                 <thead>
                     <tr>
+                        <th style="width: 40px;"><input type="checkbox" id="select-all-submissions"></th>
                         <th style="width: 150px;">Data/Hora</th>
                         <th style="width: 200px;">Formulário</th>
                         <th style="width: 250px;">E-mail</th>
                         <th>Nome</th>
-                        <th style="width: 100px;">Ações</th>
+                        <th style="width: 150px;">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -205,13 +209,15 @@ function pdb_submissions_list_page() {
                             }
                         }
                         ?>
-                        <tr>
+                        <tr data-id="<?php echo $post_id; ?>">
+                            <td><input type="checkbox" class="submission-checkbox" value="<?php echo $post_id; ?>"></td>
                             <td><?php echo date('d/m/Y H:i', strtotime($submission_date)); ?></td>
                             <td><?php echo esc_html($form_name); ?></td>
                             <td><?php echo esc_html($submission_email ?: '-'); ?></td>
                             <td><?php echo esc_html($name ?: '-'); ?></td>
                             <td>
                                 <a href="#" class="button button-small" onclick="viewSubmission(<?php echo $post_id; ?>); return false;">Ver detalhes</a>
+                                <a href="#" class="button button-small" style="color: #a00;" onclick="deleteSubmission(<?php echo $post_id; ?>); return false;">Excluir</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
@@ -261,12 +267,41 @@ function pdb_submissions_list_page() {
     </div>
 
     <script>
+    var deleteNonce = '<?php echo wp_create_nonce('pdb_delete_submission'); ?>';
+    var viewNonce = '<?php echo wp_create_nonce('pdb_get_submission'); ?>';
+
+    // Selecionar todos os checkboxes
+    document.getElementById('select-all-submissions').addEventListener('change', function() {
+        var checkboxes = document.querySelectorAll('.submission-checkbox');
+        checkboxes.forEach(function(cb) {
+            cb.checked = this.checked;
+        }.bind(this));
+        updateBulkDeleteButton();
+    });
+
+    // Atualizar botão de exclusão em massa ao clicar em checkboxes individuais
+    document.querySelectorAll('.submission-checkbox').forEach(function(cb) {
+        cb.addEventListener('change', updateBulkDeleteButton);
+    });
+
+    function updateBulkDeleteButton() {
+        var checked = document.querySelectorAll('.submission-checkbox:checked');
+        var btn = document.getElementById('bulk-delete-btn');
+        var count = document.getElementById('selected-count');
+        
+        if (checked.length > 0) {
+            btn.style.display = 'inline-block';
+            count.textContent = checked.length;
+        } else {
+            btn.style.display = 'none';
+        }
+    }
+
     function viewSubmission(postId) {
-        // Buscar dados via AJAX
         jQuery.post(ajaxurl, {
             action: 'pdb_get_submission_details',
             post_id: postId,
-            nonce: '<?php echo wp_create_nonce('pdb_get_submission'); ?>'
+            nonce: viewNonce
         }, function(response) {
             if (response.success) {
                 var html = '<div style="max-height: 500px; overflow-y: auto;">';
@@ -279,7 +314,6 @@ function pdb_submissions_list_page() {
                 for (var key in response.data.form_data) {
                     if (key.startsWith('_wpcf7')) continue;
 
-                    // Converter arrays para string
                     var value = response.data.form_data[key];
                     if (Array.isArray(value)) {
                         value = value.join(', ');
@@ -296,11 +330,68 @@ function pdb_submissions_list_page() {
         });
     }
 
+    function deleteSubmission(postId) {
+        if (!confirm('Tem certeza que deseja excluir esta submissão?')) {
+            return;
+        }
+
+        jQuery.post(ajaxurl, {
+            action: 'pdb_delete_submission',
+            post_id: postId,
+            nonce: deleteNonce
+        }, function(response) {
+            if (response.success) {
+                var row = document.querySelector('tr[data-id="' + postId + '"]');
+                if (row) {
+                    row.remove();
+                }
+                alert('Submissão excluída com sucesso.');
+            } else {
+                alert('Erro ao excluir: ' + response.data);
+            }
+        });
+    }
+
+    function bulkDeleteSubmissions() {
+        var checked = document.querySelectorAll('.submission-checkbox:checked');
+        var ids = [];
+        checked.forEach(function(cb) {
+            ids.push(cb.value);
+        });
+
+        if (ids.length === 0) {
+            return;
+        }
+
+        if (!confirm('Tem certeza que deseja excluir ' + ids.length + ' submissão(ões)?')) {
+            return;
+        }
+
+        jQuery.post(ajaxurl, {
+            action: 'pdb_bulk_delete_submissions',
+            post_ids: ids,
+            nonce: deleteNonce
+        }, function(response) {
+            if (response.success) {
+                ids.forEach(function(id) {
+                    var row = document.querySelector('tr[data-id="' + id + '"]');
+                    if (row) {
+                        row.remove();
+                    }
+                });
+                document.getElementById('select-all-submissions').checked = false;
+                updateBulkDeleteButton();
+                alert(response.data.deleted + ' submissão(ões) excluída(s) com sucesso.');
+            } else {
+                alert('Erro ao excluir: ' + response.data);
+            }
+        });
+    }
+
     function closeSubmissionModal() {
         document.getElementById('submission-modal').style.display = 'none';
     }
 
-    // Fechar modal ao clicar fora
     window.onclick = function(event) {
         var modal = document.getElementById('submission-modal');
         if (event.target == modal) {
@@ -332,7 +423,7 @@ function pdb_submissions_emails_page() {
         SELECT
             pm.meta_value as email,
             COUNT(*) as total_submissions,
-            GROUP_CONCAT(DISTINCT pm2.meta_value ORDER BY pm2.meta_value SEPARATOR '|||') as forms
+            GROUP_CONCAT(pm2.meta_value SEPARATOR '|||') as forms
         FROM {$wpdb->postmeta} pm
         INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
         LEFT JOIN {$wpdb->postmeta} pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'form_name'
@@ -433,6 +524,63 @@ function pdb_ajax_get_submission_details() {
 }
 add_action('wp_ajax_pdb_get_submission_details', 'pdb_ajax_get_submission_details');
 
+// AJAX: Excluir uma submissão
+function pdb_ajax_delete_submission() {
+    check_ajax_referer('pdb_delete_submission', 'nonce');
+
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error('Sem permissão');
+    }
+
+    $post_id = intval($_POST['post_id']);
+
+    if (!$post_id) {
+        wp_send_json_error('ID inválido');
+    }
+
+    $post = get_post($post_id);
+    if (!$post || $post->post_type !== 'pdb_submission') {
+        wp_send_json_error('Submissão não encontrada');
+    }
+
+    $result = wp_delete_post($post_id, true);
+
+    if ($result) {
+        wp_send_json_success('Excluído com sucesso');
+    } else {
+        wp_send_json_error('Erro ao excluir');
+    }
+}
+add_action('wp_ajax_pdb_delete_submission', 'pdb_ajax_delete_submission');
+
+// AJAX: Excluir múltiplas submissões
+function pdb_ajax_bulk_delete_submissions() {
+    check_ajax_referer('pdb_delete_submission', 'nonce');
+
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error('Sem permissão');
+    }
+
+    $post_ids = isset($_POST['post_ids']) ? array_map('intval', $_POST['post_ids']) : array();
+
+    if (empty($post_ids)) {
+        wp_send_json_error('Nenhum ID fornecido');
+    }
+
+    $deleted = 0;
+    foreach ($post_ids as $post_id) {
+        $post = get_post($post_id);
+        if ($post && $post->post_type === 'pdb_submission') {
+            if (wp_delete_post($post_id, true)) {
+                $deleted++;
+            }
+        }
+    }
+
+    wp_send_json_success(array('deleted' => $deleted));
+}
+add_action('wp_ajax_pdb_bulk_delete_submissions', 'pdb_ajax_bulk_delete_submissions');
+
 // Exportar submissões para CSV
 function pdb_export_submissions_csv() {
     // Obter parâmetros de filtro
@@ -492,7 +640,7 @@ function pdb_export_submissions_csv() {
         $form_data = json_decode(get_post_meta($post_id, 'form_data', true), true);
 
         // Remover campos duplicados dos handlers AJAX
-        $fields_to_remove = array('nome', 'email', 'telefone', 'mensagem', 'nonce', 'action', 'post_id', 'protocolo');
+        $fields_to_remove = array('nome', 'email', 'telefone', 'mensagem', 'nonce', 'action', 'post_id');
         foreach ($fields_to_remove as $field) {
             if (isset($form_data[$field])) {
                 unset($form_data[$field]);
@@ -560,7 +708,7 @@ function pdb_export_emails_csv() {
         SELECT
             pm.meta_value as email,
             COUNT(*) as total_submissions,
-            GROUP_CONCAT(DISTINCT pm2.meta_value ORDER BY pm2.meta_value SEPARATOR '|||') as forms
+            GROUP_CONCAT(pm2.meta_value SEPARATOR '|||') as forms
         FROM {$wpdb->postmeta} pm
         INNER JOIN {$wpdb->posts} p ON pm.post_id = p.ID
         LEFT JOIN {$wpdb->postmeta} pm2 ON p.ID = pm2.post_id AND pm2.meta_key = 'form_name'

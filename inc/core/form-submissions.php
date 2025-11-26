@@ -66,7 +66,7 @@ function pdb_save_cf7_submission($contact_form) {
     // Remover campos duplicados dos handlers AJAX personalizados
     // Os handlers enviam campos como 'nome', 'email', 'telefone', 'mensagem'
     // que são mapeados para 'your-name', 'your-email', etc.
-    $fields_to_remove = array('nome', 'email', 'telefone', 'mensagem', 'nonce', 'action', 'post_id', 'protocolo');
+    $fields_to_remove = array('nome', 'email', 'telefone', 'mensagem', 'nonce', 'action', 'post_id');
 
     foreach ($fields_to_remove as $field) {
         if (isset($posted_data[$field])) {
