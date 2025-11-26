@@ -24,7 +24,7 @@
         bg-neutro-branco
         rounded-3xl
         shadow-2xl
-        max-h-[90vh] overflow-y-auto
+        max-h-[90dvh] overflow-y-auto
     }
 
     .modal-container.modal-fullview {

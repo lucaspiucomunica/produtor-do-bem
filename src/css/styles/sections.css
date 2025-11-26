@@ -6,7 +6,7 @@
     .sections-pagina-principal-hero {
         @apply
         bg-primario-variacao-5
-        min-h-[calc(100vh-40px)] md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
+        min-h-[calc(100dvh-40px)] md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
         flex items-center justify-center relative overflow-hidden
     }
 

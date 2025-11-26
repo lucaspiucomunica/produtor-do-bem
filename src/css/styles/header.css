@@ -188,7 +188,7 @@
 
     .site-header .site-menu-mobile-wrapper {
         @apply
-        fixed top-0 left-0 w-full h-auto min-h-screen
+        fixed top-0 left-0 w-full h-auto min-h-dvh
         bg-primario-variacao-5 text-neutro-branco z-50
     }
 
@@ -302,7 +302,7 @@
 
     .site-header .site-menu-mobile-wrapper.menu-scrollable {
         @apply
-        flex flex-col h-screen overflow-hidden
+        flex flex-col h-dvh overflow-hidden
     }
 
     .site-header .site-menu-mobile-wrapper.menu-scrollable .site-menu-mobile-header {
