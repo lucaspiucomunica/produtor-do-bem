@@ -16,6 +16,11 @@
         sticky top-0 z-10
     }
 
+    .protocolo-tabs-fixed {
+        @apply
+        fixed top-0 left-0 right-0 w-full z-40
+    }
+
     .tabs-items {
         @apply
         w-full

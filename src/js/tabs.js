@@ -1,93 +1,76 @@
 function initProtocoloTabs() {
-    const tabs = document.querySelector('[data-tabs-type="scroll"]');
+    const tabsWrapper = document.querySelector('[data-tabs-type="scroll"]');
+    const protocoloCards = document.querySelector('.protocolo-cards');
 
-    if (!tabs) return;
+    if (!tabsWrapper || !protocoloCards) return;
 
-    const tabButtons = tabs.querySelectorAll('.tab-button');
+    const tabButtons = tabsWrapper.querySelectorAll('.tab-button');
     const tabContents = document.querySelectorAll('[data-tab-index]');
 
     if (!tabButtons.length || !tabContents.length) return;
 
-    // Cria placeholder para ocupar o espaço quando tabs estiver fixo
-    const placeholder = document.createElement('div');
-    placeholder.className = 'protocolo-tabs-placeholder';
-    tabs.parentNode.insertBefore(placeholder, tabs);
-
-    let isFixed = false;
-
-    // Encontra o último elemento com data-tab-index
-    const lastTabContent = tabContents[tabContents.length - 1];
-
     // Altura dos tabs para calcular offset
-    const tabsHeight = tabs.offsetHeight;
+    const tabsHeight = tabsWrapper.offsetHeight;
 
-    // Cria ScrollTrigger para controlar comportamento fixo
+    // Remove classe sticky e adiciona classe fixed
+    tabsWrapper.classList.remove('sticky');
+    tabsWrapper.classList.add('protocolo-tabs-fixed');
+
+    // Move tabs para fora do #smooth-content para que o position fixed funcione corretamente
+    document.body.appendChild(tabsWrapper);
+
+    // Define estado inicial (escondido acima usando transform)
+    gsap.set(tabsWrapper, {
+        y: '-100%',
+        opacity: 0
+    });
+
+    // Cria ScrollTrigger para controlar entrada e saída dos tabs
     ScrollTrigger.create({
-        trigger: tabs,
-        start: "top top",
-        endTrigger: lastTabContent,
-        end: `bottom ${tabsHeight - 24}px`,
+        trigger: protocoloCards,
+        start: `top ${tabsHeight}px`,
+        end: `bottom ${+tabsHeight}px`,
         onEnter: () => {
-            if (isFixed) return;
-            isFixed = true;
-
-            // Captura altura antes de mover
-            placeholder.style.height = `${tabs.offsetHeight}px`;
-            placeholder.style.display = 'block';
-
-            // Move tabs para o body e fixa no topo
-            document.body.appendChild(tabs);
-
-            tabs.style.position = 'fixed';
-            tabs.style.top = '0';
-            tabs.style.left = '0';
-            tabs.style.right = '0';
-            tabs.style.width = '100%';
-            tabs.style.zIndex = '40';
-            
-            if (window.innerWidth >= 340) {
-                tabs.style.paddingLeft = '24px';
-                tabs.style.paddingRight = '24px';
-            } else {
-                tabs.style.paddingLeft = '16px';
-                tabs.style.paddingRight = '16px';
-            }
+            // Tabs entram de cima para baixo
+            gsap.to(tabsWrapper, {
+                y: '0%',
+                opacity: 1,
+                duration: 0.5,
+                ease: "power2.out"
+            });
         },
         onLeave: () => {
-            // Fixa tabs no final do último elemento quando passar
-            const lastContentRect = lastTabContent.getBoundingClientRect();
-            const scrollY = window.scrollY || window.pageYOffset;
-
-            tabs.style.position = 'absolute';
-            tabs.style.top = `${lastContentRect.bottom + scrollY - tabsHeight + 24}px`;
+            // Tabs saem para cima
+            gsap.to(tabsWrapper, {
+                y: '-100%',
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            });
         },
         onEnterBack: () => {
-            // Volta a fixar no topo quando rolar de volta
-            tabs.style.position = 'fixed';
-            tabs.style.top = '0';
+            // Tabs voltam quando faz scroll para cima
+            gsap.to(tabsWrapper, {
+                y: '0%',
+                opacity: 1,
+                duration: 0.5,
+                ease: "power2.out"
+            });
         },
         onLeaveBack: () => {
-            if (!isFixed) return;
-            isFixed = false;
-
-            // Retorna tabs para posição original
-            placeholder.parentNode.insertBefore(tabs, placeholder);
-            placeholder.style.display = 'none';
-
-            tabs.style.position = '';
-            tabs.style.top = '';
-            tabs.style.left = '';
-            tabs.style.right = '';
-            tabs.style.width = '';
-            tabs.style.zIndex = '';
-            tabs.style.paddingLeft = '';
-            tabs.style.paddingRight = '';
+            // Tabs saem para cima quando sai da área de trigger voltando
+            gsap.to(tabsWrapper, {
+                y: '-100%',
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            });
         }
     });
 
     // Função para rolar tab no container
     function scrollTabIntoView(button, index, totalTabs) {
-        const container = tabs.querySelector('.tabs-items');
+        const container = tabsWrapper.querySelector('.tabs-items');
         if (!container) return;
 
         const containerWidth = container.offsetWidth;
@@ -128,8 +111,6 @@ function initProtocoloTabs() {
             trigger: content,
             start: `top ${tabsHeight + 1}px`,
             end: `bottom ${tabsHeight - 1}px`,
-            // markers: true,
-            // id: `tab-${index}`,
             onEnter: () => activateTab(index),
             onEnterBack: () => activateTab(index)
         });

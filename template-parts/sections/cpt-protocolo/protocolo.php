@@ -26,7 +26,7 @@ if (empty($protocolo) || empty($protocolo['protocolos'])) {
             </div>
         </div>
 
-        <div class="flex sm:mb-6 mb-0 protocolo-relation">
+        <div class="flex mb-6 protocolo-relation">
             <div class="content-text">
                 <div class="relation">
                     <?php echo icon('hierarchy-3'); ?>
