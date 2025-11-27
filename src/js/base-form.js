@@ -136,3 +136,6 @@ class BaseForm {
         });
     }
 }
+
+// Expor globalmente para uso em outros scripts
+window.BaseForm = BaseForm;

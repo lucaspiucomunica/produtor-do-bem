@@ -28,3 +28,6 @@ const ThemeUtils = {
         }
     }
 };
+
+// Expor globalmente para uso em outros scripts
+window.ThemeUtils = ThemeUtils;

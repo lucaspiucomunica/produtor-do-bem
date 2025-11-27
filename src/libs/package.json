@@ -4,9 +4,13 @@
   "description": "Tema WordPress para a Produtor do Bem",
   "scripts": {
     "build:css-watch": "npx tailwindcss -i ../css/input.css -o ../css/output.css --watch",
-    "build:css-prod": "npx tailwindcss -i ../css/input.css -o ../css/output.min.css --minify"
+    "build:css-prod": "npx tailwindcss -i ../css/input.css -o ../css/output.min.css --minify",
+    "build:js-prod": "node build-js.mjs",
+    "build:js-watch": "node build-js.mjs --watch",
+    "build:all-prod": "npm run build:css-prod && npm run build:js-prod"
   },
   "devDependencies": {
+    "esbuild": "^0.24.0",
     "tailwindcss": "^3.4.17"
   },
   "dependencies": {
