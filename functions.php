@@ -21,6 +21,9 @@ require_once('inc/core/menu-walker.php');
 // Seletor de ícones no painel administrativo
 require_once('inc/core/admin-icon-selector.php');
 
+// Google Tag Manager (produção apenas)
+require_once('inc/core/gtm.php');
+
 // Sistema de submissões de formulários
 require_once('inc/core/form-submissions.php');
 require_once('inc/core/form-submissions-admin.php');
