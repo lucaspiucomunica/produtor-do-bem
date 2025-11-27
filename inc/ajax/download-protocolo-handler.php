@@ -75,6 +75,9 @@ function handle_download_protocolo_form() {
     // Nome do protocolo
     $form_data['protocolo'] = !empty($_POST['protocolo']) ? sanitize_text_field($_POST['protocolo']) : '';
 
+    // Variante do protocolo
+    $form_data['variant'] = !empty($_POST['variant']) ? sanitize_text_field($_POST['variant']) : '';
+
     error_log('Download protocolo form - Dados processados: ' . print_r($form_data, true));
 
     // Buscar o formulário Contact Form 7
@@ -124,23 +127,36 @@ function handle_download_protocolo_form() {
 
     // Obter URL do arquivo do protocolo
     $post_id = !empty($_POST['post_id']) ? intval($_POST['post_id']) : get_the_ID();
+    $variant = !empty($_POST['variant']) ? sanitize_text_field($_POST['variant']) : '';
     error_log('Download protocolo form - Post ID: ' . $post_id);
+    error_log('Download protocolo form - Variant: ' . $variant);
 
     $arquivo_url = '';
 
-    // Verificar primeiro o campo arquivo_protocolo_cta_fixo (usado no CTA do hero)
-    $arquivo_cta_fixo = get_field('arquivo_protocolo_cta_fixo', $post_id);
-    if ($arquivo_cta_fixo && !empty($arquivo_cta_fixo['url'])) {
-        $arquivo_url = $arquivo_cta_fixo['url'];
-        error_log('Download protocolo form - Arquivo URL encontrado (cta_fixo): ' . $arquivo_url);
-    } else {
-        // Fallback para o campo conheca['arquivo_protocolo']
+    // Verificar variante para buscar arquivo específico
+    if ($variant === 'apendice-bcc-ecc') {
         $protocolo = get_field('conheca', $post_id);
-        if ($protocolo && !empty($protocolo['arquivo_protocolo']['url'])) {
-            $arquivo_url = $protocolo['arquivo_protocolo']['url'];
-            error_log('Download protocolo form - Arquivo URL encontrado (conheca): ' . $arquivo_url);
+        if ($protocolo && !empty($protocolo['arquivo_apendice_bcc_ecc']['url'])) {
+            $arquivo_url = $protocolo['arquivo_apendice_bcc_ecc']['url'];
+            error_log('Download protocolo form - Arquivo URL encontrado (apendice-bcc-ecc): ' . $arquivo_url);
         } else {
-            error_log('Download protocolo form - Arquivo não encontrado no ACF');
+            error_log('Download protocolo form - Arquivo apêndice BCC/ECC não encontrado no ACF');
+        }
+    } else {
+        // Verificar primeiro o campo arquivo_protocolo_cta_fixo (usado no CTA do hero)
+        $arquivo_cta_fixo = get_field('arquivo_protocolo_cta_fixo', $post_id);
+        if ($arquivo_cta_fixo && !empty($arquivo_cta_fixo['url'])) {
+            $arquivo_url = $arquivo_cta_fixo['url'];
+            error_log('Download protocolo form - Arquivo URL encontrado (cta_fixo): ' . $arquivo_url);
+        } else {
+            // Fallback para o campo conheca['arquivo_protocolo']
+            $protocolo = get_field('conheca', $post_id);
+            if ($protocolo && !empty($protocolo['arquivo_protocolo']['url'])) {
+                $arquivo_url = $protocolo['arquivo_protocolo']['url'];
+                error_log('Download protocolo form - Arquivo URL encontrado (conheca): ' . $arquivo_url);
+            } else {
+                error_log('Download protocolo form - Arquivo não encontrado no ACF');
+            }
         }
     }
 

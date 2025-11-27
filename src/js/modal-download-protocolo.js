@@ -16,6 +16,20 @@ class ModalDownloadProtocolo extends BaseForm {
         };
 
         this.downloadUrl = null;
+        this.currentVariant = null;
+
+        // Textos padrão e por variante
+        this.defaultTexts = {
+            title: 'Protocolo',
+            description: 'Preencha o formulário abaixo para fazer o download do protocolo completo.'
+        };
+
+        this.variantTexts = {
+            'apendice-bcc-ecc': {
+                title: 'Protocolo BCC/ECC',
+                description: 'Preencha o formulário abaixo para fazer o download do protocolo completo.'
+            }
+        };
 
         this.init();
     }
@@ -30,7 +44,7 @@ class ModalDownloadProtocolo extends BaseForm {
         this.openButtons.forEach(button => {
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.openModal();
+                this.openModal(button);
             });
         });
 
@@ -100,10 +114,29 @@ class ModalDownloadProtocolo extends BaseForm {
         });
     }
 
-    openModal() {
+    openModal(button) {
+        // Capturar variante do botão
+        this.currentVariant = button?.dataset?.modalVariant || null;
+        
+        // Atualizar textos do modal
+        this.updateModalTexts();
+        
         this.modal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         this.showModalState('form');
+    }
+
+    updateModalTexts() {
+        const texts = this.currentVariant && this.variantTexts[this.currentVariant]
+            ? this.variantTexts[this.currentVariant]
+            : this.defaultTexts;
+
+        const formState = this.modal.querySelector('.modal-state-form');
+        const title = formState?.querySelector('.modal-title');
+        const description = formState?.querySelector('.modal-description');
+
+        if (title) title.textContent = texts.title;
+        if (description) description.textContent = texts.description;
     }
 
     closeModal() {
@@ -111,6 +144,7 @@ class ModalDownloadProtocolo extends BaseForm {
         document.body.style.overflow = '';
         this.resetForm();
         this.downloadUrl = null;
+        this.currentVariant = null;
     }
 
     showModalState(state) {
@@ -196,7 +230,8 @@ class ModalDownloadProtocolo extends BaseForm {
             telefone: this.form.querySelector(this.selectors.telefone)?.value || '',
             'eu-sou': euSouInput?.value || '',
             post_id: window.download_protocolo_ajax?.post_id || '',
-            protocolo: window.download_protocolo_ajax?.post_title || ''
+            protocolo: window.download_protocolo_ajax?.post_title || '',
+            variant: this.currentVariant || ''
         };
     }
 

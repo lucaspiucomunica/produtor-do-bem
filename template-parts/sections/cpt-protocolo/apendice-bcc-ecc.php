@@ -30,11 +30,11 @@ if (!$protocolo) {
                                 <?php echo $protocolo['conteudo_apendice']; ?>
                             </div>
 
-                            <?php if($protocolo['link_apendice']) : ?>
-                                <a href="<?php echo $protocolo['link_apendice']['url']; ?>" class="btn btn-secondary btn-outline">
-                                    <span><?php echo $protocolo['link_apendice']['title']; ?></span>
-                                </a>
-                            <?php endif; ?>
+                            <div class="content-button">
+                                <button id="download-apendice-bcc-ecc" class="btn btn-outline btn-secondary" data-modal="download-protocolo" data-modal-variant="apendice-bcc-ecc">
+                                    <span class="text-nowrap">Saiba mais</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
