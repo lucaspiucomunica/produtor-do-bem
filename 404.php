@@ -5,13 +5,7 @@
  * @package Produtor_do_Bem
  */
 
-get_header();
-?>
-
-<main class="site-main">
-    <h1>404</h1>
-</main>
-
-<?php
-get_footer();
+// Redirecionamento temporário para a home
+wp_redirect(home_url('/'), 302);
+exit;
 ?>
