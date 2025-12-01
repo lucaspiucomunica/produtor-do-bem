@@ -39,7 +39,8 @@
 @import './styles/header.css';
 @import './styles/footer.css';
 
-/* Seções específicas do site */
+/* Seções específicas e reutilizáveis do site */
+@import './styles/components/hero.css';
 @import './styles/sections.css';
 
 /* Slide - Critérios */

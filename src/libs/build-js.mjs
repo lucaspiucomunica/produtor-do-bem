@@ -88,6 +88,12 @@ const bundles = [
         outfile: resolve(pagesBundlesDir, 'protocolo.bundle.min.js'),
         format: 'esm',
     },
+    {
+        name: 'outros-servicos.bundle.min.js',
+        entryPoints: [resolve(jsDir, 'animations/outros-servicos.js')],
+        outfile: resolve(pagesBundlesDir, 'outros-servicos.bundle.min.js'),
+        format: 'esm',
+    },
 ];
 
 // Externals - bibliotecas que são carregadas separadamente

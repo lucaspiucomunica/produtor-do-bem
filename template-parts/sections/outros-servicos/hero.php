@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero Section - Protocolos e Selos
+ * Hero Section - Outros Serviços
  * 
  * @package Produtor_do_Bem
  */
@@ -8,9 +8,8 @@
 // Campos ACF
 $hero_titulo = get_field('hero_titulo');
 $hero_titulo_destaque = get_field('hero_titulo_destaque');
-$hero_titulo_icone = get_field('hero_titulo_icone');
-$hero_bg = get_field('hero_bg');
-$hero_titulo_conteudo = get_field('hero_titulo_conteudo');
+$hero_bg = get_field('hero_background');
+$hero_conteudo = get_field('hero_conteudo');
 
 if (!$hero_titulo) {
     return;
@@ -24,16 +23,11 @@ if (!$hero_titulo) {
                 <div class="titulo">
                     <h1>
                         <span class="title"><?php echo $hero_titulo; ?></span>
-                        <div class="flex sm-plus:flex-row flex-col items-center sm-plus:gap-2 gap-6">
-                            <span class="destaque"><?php echo $hero_titulo_destaque; ?></span>
-                            <div class="content-icon content-icon--secundario">
-                                <?php echo icon($hero_titulo_icone); ?>
-                            </div>
-                        </div>
+                        <span class="destaque"><?php echo $hero_titulo_destaque; ?></span>
                     </h1>
                 </div>
                 <div class="content-text">
-                    <?php echo $hero_titulo_conteudo; ?>
+                    <?php echo $hero_conteudo; ?>
                 </div>
             </div>
 

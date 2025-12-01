@@ -499,51 +499,14 @@
 
     /* Hero - Protocolos e Selos */
 
-    .sections-protocolos-selos-hero {
+    .section-hero-custom-1.sections-protocolos-selos-hero .hero-content {
         @apply
-        relative
-        bg-primario-variacao-5
-        pt-36 pb-24 md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
-        flex items-center justify-center relative overflow-hidden
+        max-w-[760px]
     }
 
-    .sections-protocolos-selos-hero .hero-content {
+    .section-hero-custom-1.sections-protocolos-selos-hero .hero-content .titulo h1 {
         @apply
-        flex flex-col justify-between items-center
-        w-full max-w-[760px] mx-auto md:pt-16 sm-plus:pt-10 xs:pt-6 pt-0 z-10 relative
-    }
-
-    .sections-protocolos-selos-hero .hero-content .titulo h1 {
-        @apply
-        lg:text-5xl/[56px] xxs:text-4xl/[48px] text-3xl/[40px] text-center text-neutro-branco
-        flex flex-col items-center mb-6
         lg-plus:max-w-[724px] max-w-[660px]
-    }
-
-    .sections-protocolos-selos-hero .hero-content .titulo h1 .destaque {
-        @apply
-        text-limao-variacao-1
-    }
-
-    .sections-protocolos-selos-hero .hero-content .content-text {
-        @apply
-        text-center text-neutro-branco
-    }
-
-    .sections-protocolos-selos-hero .hero-bg-image {
-        @apply
-        absolute top-0 left-0 w-full h-full z-0
-    }
-
-    .sections-protocolos-selos-hero .hero-bg-image img {
-        @apply
-        w-full h-full object-cover object-center
-    }
-
-    .sections-protocolos-selos-hero .hero-bg-image::before {
-        @apply
-        content-[''] absolute top-0 left-0 w-full h-full z-10
-        bg-primario-variacao-5/80
     }
 
     /* Critérios - Protocolos e Selos */
@@ -822,5 +785,15 @@
 
     /* Critérios - Modal Critérios */
 
-    
+    /* Hero - Outros Serviços */
+
+    .section-hero-custom-1.sections-outros-servicos-hero .hero-content {
+        @apply
+        max-w-[916px]
+    }
+
+    .section-hero-custom-1.sections-outros-servicos-hero .hero-content .content-text {
+        @apply
+        max-w-[762px]
+    }
 }

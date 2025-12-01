@@ -88,6 +88,10 @@ function produtor_do_bem_enqueue_dev_scripts() {
 		wp_enqueue_script( 'produtor-do-bem-animations-protocolo', get_template_directory_uri() . '/src/js/animations/protocolo.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 
+	if (is_page('outros-servicos')) {
+		wp_enqueue_script( 'produtor-do-bem-animations-outros-servicos', get_template_directory_uri() . '/src/js/animations/outros-servicos.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+	}
+
 	// Scripts globais
 	wp_enqueue_script( 'produtor-do-bem-menu', get_template_directory_uri() . '/src/js/menu.js', array('produtor-do-bem-utils'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-animations-globals', get_template_directory_uri() . '/src/js/animations/globals.js', array(), PRODUTOR_DO_BEM_VERSION, true );
@@ -139,6 +143,10 @@ function produtor_do_bem_enqueue_prod_scripts() {
 
 	if (is_singular('protocolo')) {
 		wp_enqueue_script( 'produtor-do-bem-protocolo-bundle', get_template_directory_uri() . '/src/js/bundles/pages/protocolo.bundle.min.js', array('produtor-do-bem-transitions-bundle', 'produtor-do-bem-gsap-scroll-trigger'), PRODUTOR_DO_BEM_VERSION, true );
+	}
+
+	if (is_page('outros-servicos')) {
+		wp_enqueue_script( 'produtor-do-bem-outros-servicos-bundle', get_template_directory_uri() . '/src/js/bundles/pages/outros-servicos.bundle.min.js', array('produtor-do-bem-transitions-bundle'), PRODUTOR_DO_BEM_VERSION, true );
 	}
 }
 
@@ -207,6 +215,7 @@ function produtor_do_bem_add_type_module($tag, $handle, $src) {
 		'produtor-do-bem-animations-fale-conosco',
 		'produtor-do-bem-animations-protocolo',
 		'produtor-do-bem-animations-protocolos-e-selos',
+		'produtor-do-bem-animations-outros-servicos',
 	);
 
 	// Scripts que precisam de type="module" em modo produção
@@ -219,6 +228,7 @@ function produtor_do_bem_add_type_module($tag, $handle, $src) {
 		'produtor-do-bem-fale-conosco-bundle',
 		'produtor-do-bem-protocolos-e-selos-bundle',
 		'produtor-do-bem-protocolo-bundle',
+		'produtor-do-bem-outros-servicos-bundle',
 	);
 
 	$module_scripts = $is_dev ? $dev_module_scripts : $prod_module_scripts;
