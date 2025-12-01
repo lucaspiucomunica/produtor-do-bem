@@ -151,6 +151,15 @@ function produtor_do_bem_localize_scripts($is_dev) {
 	$denuncia_handle = $is_dev ? 'produtor-do-bem-modal-denuncia' : 'produtor-do-bem-forms-bundle';
 	$newsletter_handle = $is_dev ? 'produtor-do-bem-newsletter-form' : 'produtor-do-bem-forms-bundle';
 	$download_protocolo_handle = $is_dev ? 'produtor-do-bem-modal-download-protocolo' : 'produtor-do-bem-forms-bundle';
+	$nonce_refresh_handle = $is_dev ? 'produtor-do-bem-nonce-refresh' : 'produtor-do-bem-nonce-refresh';
+
+	// Script de refresh de nonces (sempre carregado)
+	wp_enqueue_script( 'produtor-do-bem-nonce-refresh', get_template_directory_uri() . '/src/js/nonce-refresh.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+
+	// Variável global com ajax_url para refresh de nonces
+	wp_localize_script( $nonce_refresh_handle, 'pdb_ajax', array(
+		'ajax_url' => admin_url( 'admin-ajax.php' )
+	));
 
 	// Contact form (apenas na página fale-conosco)
 	if (is_page('fale-conosco')) {
