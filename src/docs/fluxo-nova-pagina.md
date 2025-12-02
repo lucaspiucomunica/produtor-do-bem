@@ -31,7 +31,54 @@ git checkout -b feat/page-nome-da-pagina
 
 ### 1.3 Registrar assets (se necessário)
 
-Adicionar em `inc/core/assets.php` os scripts/estilos específicos da página.
+Se a página possui JavaScript (animações), registrar em **2 arquivos**:
+
+#### 1.3.1 `src/libs/build-js.mjs`
+
+Adicionar entrada no array `bundles`:
+
+```javascript
+{
+    name: 'nome-da-pagina.bundle.min.js',
+    entryPoints: [resolve(jsDir, 'animations/nome-da-pagina.js')],
+    outfile: resolve(pagesBundlesDir, 'nome-da-pagina.bundle.min.js'),
+    format: 'esm',
+},
+```
+
+#### 1.3.2 `inc/core/assets.php`
+
+**4 pontos de edição:**
+
+**a) Em `produtor_do_bem_enqueue_dev_scripts()`:**
+
+```php
+if (is_page('nome-da-pagina')) {
+    wp_enqueue_script( 'produtor-do-bem-animations-nome-da-pagina', get_template_directory_uri() . '/src/js/animations/nome-da-pagina.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+}
+```
+
+**b) Em `produtor_do_bem_enqueue_prod_scripts()`:**
+
+```php
+if (is_page('nome-da-pagina')) {
+    wp_enqueue_script( 'produtor-do-bem-nome-da-pagina-bundle', get_template_directory_uri() . '/src/js/bundles/pages/nome-da-pagina.bundle.min.js', array('produtor-do-bem-transitions-bundle'), PRODUTOR_DO_BEM_VERSION, true );
+}
+```
+
+**c) No array `$dev_module_scripts`:**
+
+```php
+'produtor-do-bem-animations-nome-da-pagina',
+```
+
+**d) No array `$prod_module_scripts`:**
+
+```php
+'produtor-do-bem-nome-da-pagina-bundle',
+```
+
+> **Nota:** O WordPress usa `WP_DEBUG` para alternar entre modo dev (arquivos individuais) e prod (bundles minificados).
 
 ### 1.4 Build e commit
 

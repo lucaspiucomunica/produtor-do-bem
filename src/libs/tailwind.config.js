@@ -115,6 +115,7 @@ module.exports = {
       
       // Border Radius
       borderRadius: {
+        '8xl': '5rem',
         '6xl': '4.5rem',
         '4xl': '2.25rem',
         '2xl': '1.25rem',

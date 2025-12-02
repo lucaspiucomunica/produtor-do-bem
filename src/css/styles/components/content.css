@@ -19,6 +19,11 @@
         aspect-square overflow-hidden
     }
 
+    .content-image.content-image--rounded-8xl {
+        @apply
+        rounded-8xl overflow-hidden
+    }
+
     /* Content Text */
     .content-text {
         @apply
@@ -107,4 +112,14 @@
         fill-neutro-branco
     }
 
+    /* Content Group Image Icon Floating */
+    .content-group-image-icon-floating {
+        @apply
+        relative
+    }
+
+    .content-group-image-icon-floating .content-icon {
+        @apply
+        absolute bottom-20 -left-10
+    }
 }
