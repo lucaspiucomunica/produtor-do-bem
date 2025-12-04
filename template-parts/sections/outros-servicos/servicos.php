@@ -22,10 +22,10 @@ if (!$servicos) {
             $index++;
             $is_last = ($index === $total);
             $padding_class = $is_last ? 'p-section-top p-section-bottom' : 'p-section-top';
-            $flex_direction = ($index % 2 === 0) ? 'flex-row-reverse' : 'flex-row';
+            $flex_direction = ($index % 2 === 0) ? 'sm:flex-row-reverse flex-col' : 'sm:flex-row flex-col';
         ?>
-            <div class="flex <?php echo $flex_direction; ?> max-w-6xl mx-auto gap-20 items-center <?php echo $padding_class; ?>">
-                <div class="w-1/2">
+            <div class="flex <?php echo $flex_direction; ?> max-w-6xl mx-auto md:gap-20 sm:gap-14 gap-10 items-center <?php echo $padding_class; ?>">
+                <div class="sm:w-1/2 w-full">
                     <div class="content-text">
                         <?php echo $servico['conteudo']; ?>
                     </div>
@@ -38,7 +38,7 @@ if (!$servicos) {
                     <?php endif; ?>
                 </div>
 
-                <div class="w-1/2">
+                <div class="sm:w-1/2 w-full">
                     <div class="content-group-image-icon-floating">
                         <div class="content-image content-image--square content-image--rounded-8xl">
                             <img src="<?php echo $servico['imagem']['url']; ?>" alt="<?php echo $servico['imagem']['alt']; ?>">

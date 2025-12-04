@@ -21,7 +21,7 @@
 
     .content-image.content-image--rounded-8xl {
         @apply
-        rounded-8xl overflow-hidden
+        lg:rounded-8xl md:rounded-6xl rounded-4xl overflow-hidden
     }
 
     /* Content Text */
@@ -120,6 +120,6 @@
 
     .content-group-image-icon-floating .content-icon {
         @apply
-        absolute bottom-20 -left-10
+        absolute xl:bottom-20 xl:-left-10 sm:left-10 sm:bottom-10 left-6 bottom-6
     }
 }
