@@ -763,19 +763,6 @@
         p-section-top
     }
 
-    /* Hero - Fale Conosco */
-
-    .sections-fale-conosco-hero {
-        @apply
-        relative
-        md:pt-48 xs:pt-44 pt-36 pb-10
-    }
-
-    .sections-fale-conosco-hero .content-text h1 {
-        @apply
-        mb-6
-    }
-
     /* Form - Fale Conosco */
 
     .sections-fale-conosco-form {
@@ -795,5 +782,12 @@
     .section-hero-custom-1.sections-outros-servicos-hero .hero-content .content-text {
         @apply
         max-w-[762px]
+    }
+
+    /* Hero - FAQ */
+
+    .section-hero-custom-2.sections-faq-hero .content-text {
+        @apply
+        max-w-[800px] mx-auto
     }
 }

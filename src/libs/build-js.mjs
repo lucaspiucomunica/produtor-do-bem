@@ -94,6 +94,12 @@ const bundles = [
         outfile: resolve(pagesBundlesDir, 'outros-servicos.bundle.min.js'),
         format: 'esm',
     },
+    {
+        name: 'faq.bundle.min.js',
+        entryPoints: [resolve(jsDir, 'animations/faq.js')],
+        outfile: resolve(pagesBundlesDir, 'faq.bundle.min.js'),
+        format: 'esm',
+    },
 ];
 
 // Externals - bibliotecas que são carregadas separadamente

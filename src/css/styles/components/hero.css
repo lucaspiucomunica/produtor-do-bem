@@ -48,4 +48,17 @@
         content-[''] absolute top-0 left-0 w-full h-full z-10
         bg-primario-variacao-5/80
     }
+
+    /* Section Hero Custom - 2 */
+
+    .section-hero-custom-2 {
+        @apply
+        relative
+        md:pt-48 xs:pt-44 pt-36 pb-10
+    }
+
+    .section-hero-custom-2 .content-text h1 {
+        @apply
+        mb-6
+    }
 }
