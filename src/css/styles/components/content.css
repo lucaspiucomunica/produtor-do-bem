@@ -55,6 +55,27 @@
         text-neutro-branco
     }
 
+    .content-text a:not(.btn):not(.btn-cta):not(.btn-cta-icon):not(btn) {
+        @apply
+        text-primario-principal
+        underline
+    }
+
+    .content-text ul {
+        @apply
+        list-disc list-inside mb-4 pl-4
+    }
+
+    .content-text ul li {
+        @apply
+        md:text-lg text-base
+    }
+
+    .context-text ul li::marker {
+        @apply
+        text-secundario-principal
+    }
+
     /* Content Icon */
     .content-icon {
         @apply
@@ -122,4 +143,5 @@
         @apply
         absolute xl:bottom-20 xl:-left-10 sm:left-10 sm:bottom-10 left-6 bottom-6
     }
+    
 }

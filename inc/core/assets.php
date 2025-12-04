@@ -93,6 +93,7 @@ function produtor_do_bem_enqueue_dev_scripts() {
 	}
 
 	if (is_page('perguntas-frequentes')) {
+		wp_enqueue_script( 'produtor-do-bem-accordion', get_template_directory_uri() . '/src/js/accordion.js', array('produtor-do-bem-utils', 'produtor-do-bem-gsap'), PRODUTOR_DO_BEM_VERSION, true );
 		wp_enqueue_script( 'produtor-do-bem-animations-faq', get_template_directory_uri() . '/src/js/animations/faq.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 

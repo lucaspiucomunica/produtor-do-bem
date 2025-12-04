@@ -790,4 +790,11 @@
         @apply
         max-w-[800px] mx-auto
     }
+
+    /* FAQ - FAQ */
+
+    .sections-faq-faq {
+        @apply 
+        p-section-bottom relative
+    }
 }

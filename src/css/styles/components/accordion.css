@@ -1,0 +1,181 @@
+@layer components {
+    /* ========================================
+       FAQ Accordion Components
+       ======================================== */
+
+    /* Search Wrapper */
+    .faq-search-wrapper {
+        @apply
+        w-full
+        flex items-center justify-center
+        mb-10 md:mb-8 md:px-4
+    }
+
+    .faq-search {
+        @apply
+        relative
+        w-full max-w-[400px]
+        flex items-center
+    }
+
+    .faq-search-icon {
+        @apply
+        absolute left-6 top-1/2 -translate-y-1/2
+        pointer-events-none
+    }
+
+    .faq-search-icon .iconpdb {
+        @apply fill-neutro-variacao-3
+    }
+
+    .faq-search-input {
+        @apply
+        w-full
+        pl-16 pr-6 py-3
+        border-2 border-neutro-variacao-1 border-solid
+        bg-neutro-branco
+        text-neutro-variacao-3 text-lg font-body leading-7
+        rounded-full
+        outline-none
+        transition-all duration-300
+    }
+
+    .faq-search-input:focus {
+        @apply
+        border-primario-principal
+    }
+
+    .faq-search-input::placeholder {
+        @apply
+        text-neutro-variacao-3
+    }
+
+    /* Accordion Container */
+    .faq-accordion {
+        @apply
+        w-full max-w-[880px]
+        mx-auto
+        flex flex-col gap-6
+    }
+
+    /* FAQ Item */
+    .faq-item {
+        @apply
+        w-full
+        bg-neutro-principal
+        rounded-[24px]
+        overflow-hidden
+        transition-colors duration-300
+    }
+
+    .faq-item-hidden {
+        @apply hidden
+    }
+
+    .faq-item-active {
+        @apply
+        bg-limao-variacao-1
+    }
+
+    /* FAQ Item Header (Button) */
+    .faq-item-header {
+        @apply
+        w-full
+        flex items-center gap-6
+        sm:px-8 sm:py-8 xxs:px-6 px-4 py-6
+        cursor-pointer
+        transition-all duration-300
+        text-left
+        border-none
+        bg-transparent
+    }
+
+    .faq-item-header:hover {
+        @apply
+        opacity-90
+    }
+
+    /* FAQ Item Title */
+    .faq-item-title {
+        @apply
+        flex-1
+        text-xl font-display font-semibold leading-7
+        text-primario-variacao-5
+        m-0
+    }
+
+    /* FAQ Item Icon */
+    .faq-item-icon {
+        @apply
+        flex-shrink-0
+        sm:w-8 sm:h-8 w-6 h-6
+        origin-center
+    }
+
+    .faq-item-icon .iconpdb {
+        @apply
+        fill-primario-variacao-5
+        w-full h-full
+        origin-center
+    }
+
+    /* FAQ Item Content */
+    .faq-item-content {
+        @apply
+        overflow-hidden
+        h-0
+    }
+
+    .faq-item-body {
+        @apply
+        sm:px-8 sm:pb-8 xxs:px-6 px-4 pb-6
+        text-base font-body leading-6 text-primario-variacao-5
+    }
+
+    /* Empty State */
+    .faq-empty-state {
+        @apply
+        w-full max-w-[880px]
+        mx-auto
+        text-center
+    }
+
+    .faq-empty-message {
+        @apply
+        text-lg font-body text-neutro-variacao-3
+    }
+
+    /* Footer with Gradient */
+    .faq-footer {
+        @apply
+        absolute bottom-0 left-0 w-full h-[120px] xs:mb-20 mb-16
+        flex justify-center items-end
+    }
+
+    .faq-footer::before {
+        content: '';
+        @apply
+        absolute bottom-0 left-0 right-0
+        h-[120px]
+        bg-gradient-to-t from-neutro-branco to-transparent
+        pointer-events-none
+    }
+
+    .faq-footer .btn {
+        @apply
+        relative z-10
+    }
+
+    /* Footer quando todos os itens estão visíveis */
+    .faq-footer.faq-footer-expanded {   
+        @apply
+        relative
+        h-auto
+        pt-8
+        mb-0
+    }
+
+    .faq-footer-expanded::before {
+        @apply hidden
+    }
+}
