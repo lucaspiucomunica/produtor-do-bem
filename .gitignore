@@ -26,3 +26,5 @@ src/css/output.min.css
 
 # vscode
 .vscode/
+
+.env
