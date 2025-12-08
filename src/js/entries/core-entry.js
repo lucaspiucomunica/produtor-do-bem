@@ -12,3 +12,4 @@ import '../toast.js';
 import '../theme.js';
 import '../menu.js';
 import '../scroll-smoother.js';
+import '../accordion.js';
