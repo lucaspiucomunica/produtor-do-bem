@@ -5,7 +5,9 @@
  * @package Produtor_do_Bem
  */
 
-// Redirecionamento temporário para a home
-wp_redirect(home_url('/'), 302);
-exit;
+// Redirecionamento para a home se não estiver na home ou na página inicial
+if (!is_front_page() && !is_home()) {
+    wp_redirect(home_url());
+    exit;
+}
 ?>
