@@ -8,7 +8,9 @@ import {
     animateCards,
     animateScaleWithScrub,
     animateSlideX,
-    waitForTransition
+    waitForTransition,
+    initSectionAnimation,
+    signalHeroComplete
 } from './animations-utils.js';
 
 function animateQuemSomosHeroSection() {
@@ -20,7 +22,9 @@ function animateQuemSomosHeroSection() {
     const sectionHeroImage = sectionHero.querySelector('.hero-image .hero-image-content img');
     const sectionHeroImageIcons = sectionHero.querySelectorAll('.hero-image .hero-image-icons .hero-image-icon');
 
-    const tlHero = gsap.timeline();
+    const tlHero = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
 
     animateTitleLines(tlHero, sectionHeroTitle, CONFIG.offset.none, CONFIG.duration.slow);
     animateTitleLines(tlHero, sectionHeroTitleDestaque, CONFIG.offset.tight);
@@ -208,10 +212,10 @@ function initQuemSomosAnimations() {
         animateQuemSomosHeroSection();
     });
 
-    // Demais seções animam normalmente com scroll
-    animateQuemSomosOQueFazemosSection();
-    animateQuemSomosProdutoresEEmpresasSection();
-    animateQuemSomosCTConsultivoSection();
+    // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
+    initSectionAnimation('#o-que-fazemos', animateQuemSomosOQueFazemosSection);
+    initSectionAnimation('#produtores-e-empresas', animateQuemSomosProdutoresEEmpresasSection);
+    initSectionAnimation('#ct-consultivo', animateQuemSomosCTConsultivoSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

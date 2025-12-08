@@ -9,7 +9,9 @@ import {
     animateCards,
     animateScaleWithScrub,
     animateSlideX,
-    waitForTransition
+    waitForTransition,
+    initSectionAnimation,
+    signalHeroComplete
 } from './animations-utils.js';
 
 function animateHomeHeroSection() {
@@ -25,7 +27,9 @@ function animateHomeHeroSection() {
     const sectionHeroIcons = sectionHero.querySelectorAll('.hero-content .subtitulo .icon');
     const sectionHeroButton = sectionHero.querySelector('.hero-content .botao');
 
-    const tlHero = gsap.timeline();
+    const tlHero = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
     let tlHeroIcons;
 
     tlHero.from(sectionHeroVideo, {
@@ -208,9 +212,9 @@ function initHomeAnimations() {
         animateHomeHeroSection();
     });
 
-    // Demais seções animam normalmente com scroll
-    animateHomeSobreSection();
-    animateHomeCertificacoesSection();
+    // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
+    initSectionAnimation('#sobre', animateHomeSobreSection);
+    initSectionAnimation('#certificacoes', animateHomeCertificacoesSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

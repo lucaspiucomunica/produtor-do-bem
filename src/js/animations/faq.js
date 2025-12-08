@@ -4,7 +4,9 @@ import {
     animateText,
     elementExists,
     createScrollTimeline,
-    waitForTransition
+    waitForTransition,
+    initSectionAnimation,
+    signalHeroComplete
 } from './animations-utils.js';
 
 function animateFAQHeroSection() {
@@ -12,7 +14,9 @@ function animateFAQHeroSection() {
     const sectionFAQTitle = sectionFAQ.querySelector('.content-text h1');
     const sectionFAQContentText = sectionFAQ.querySelectorAll('.content-text p');
 
-    const tlHero = gsap.timeline();
+    const tlHero = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
 
     animateTitle(tlHero, sectionFAQTitle, CONFIG.offset.none);
     animateText(tlHero, sectionFAQContentText);
@@ -61,9 +65,9 @@ function initFAQAnimations() {
         animateFAQHeroSection();
     });
 
-    // Animar seção de busca e items do accordion
-    animateFaqSearch();
-    animateFaqItems();
+    // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
+    initSectionAnimation('.faq-search-wrapper', animateFaqSearch);
+    initSectionAnimation('.faq-accordion', animateFaqItems);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

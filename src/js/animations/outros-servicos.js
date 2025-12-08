@@ -3,7 +3,9 @@ import {
     elementExists,
     createScrollTimeline,
     animateTitleLines,
-    waitForTransition
+    waitForTransition,
+    initSectionAnimation,
+    signalHeroComplete
 } from './animations-utils.js';
 
 function animateOutrosServicosHeroSection() {
@@ -13,7 +15,9 @@ function animateOutrosServicosHeroSection() {
     const sectionHeroContentText = sectionHero.querySelector('.hero-content .content-text');
     const sectionHeroBgImage = sectionHero.querySelector('.hero-bg-image img');
 
-    const tlHero = gsap.timeline();
+    const tlHero = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
 
     tlHero.from(sectionHeroBgImage, {
         opacity: 0,
@@ -117,8 +121,8 @@ function initOutrosServicosAnimations() {
         animateOutrosServicosHeroSection();
     });
 
-    // Demais seções animam normalmente com scroll
-    animateOutrosServicosServicosSection();
+    // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
+    initSectionAnimation('#servicos', animateOutrosServicosServicosSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

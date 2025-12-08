@@ -8,7 +8,9 @@ import {
     animateButton,
     animateScaleWithScrub,
     animateOnScroll,
-    waitForTransition
+    waitForTransition,
+    initSectionAnimation,
+    signalHeroComplete
 } from './animations-utils.js';
 
 function animateCertificacoesHeroSection() {
@@ -20,7 +22,9 @@ function animateCertificacoesHeroSection() {
     const sectionHeroIlustracao1 = sectionHero.querySelector('.hero-ilustracoes .hero-ilustracao--1');
     const sectionHeroIlustracao2 = sectionHero.querySelector('.hero-ilustracoes .hero-ilustracao--2');
 
-    const tlHero = gsap.timeline();
+    const tlHero = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
 
     animateTitleLines(tlHero, sectionHeroTitle, CONFIG.offset.none, CONFIG.duration.slow);
     animateTitleLines(tlHero, sectionHeroTitleDestaque, CONFIG.offset.tight);
@@ -172,11 +176,11 @@ function initCertificacoesAnimations() {
         animateCertificacoesHeroSection();
     });
 
-    // Demais seções animam normalmente com scroll
-    animateCertificacoesMetodoSection();
-    animateCertificacoesNiveisSection();
-    animateCertificacoesCertificacoesSection();
-    animateCertificacoesComoObterSection();
+    // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
+    initSectionAnimation('#metodo', animateCertificacoesMetodoSection);
+    initSectionAnimation('#niveis', animateCertificacoesNiveisSection);
+    initSectionAnimation('#certificacoes', animateCertificacoesCertificacoesSection);
+    initSectionAnimation('#como-obter', animateCertificacoesComoObterSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

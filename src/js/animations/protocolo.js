@@ -8,7 +8,9 @@ import {
     animateSlideX,
     animateSlideY,
     animateFadeIn,
-    waitForTransition
+    waitForTransition,
+    initSectionAnimation,
+    signalHeroComplete
 } from './animations-utils.js';
 
 function heroProtocoloAnimation() {
@@ -16,7 +18,9 @@ function heroProtocoloAnimation() {
 
     if (!elementExists(hero)) return;
 
-    const timeline = gsap.timeline();
+    const timeline = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
 
     const shouldAnimateIcon = window.innerWidth >= 640;
 
@@ -58,7 +62,9 @@ function heroEmBreveProtocoloAnimation() {
 
     if (!elementExists(heroEmBreve)) return;
 
-    const timeline = gsap.timeline();
+    const timeline = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
 
     const shouldAnimateIcon = window.innerWidth >= 640;
 
@@ -190,14 +196,22 @@ function ctaProtocoloAnimation() {
 function initProtocoloAnimations() {
     // Aguarda transição completar antes de animar hero sections
     waitForTransition(() => {
-        heroProtocoloAnimation();
-        heroEmBreveProtocoloAnimation();
+        const hero = document.querySelector('.sections-cpt-protocolo-hero');
+        const heroEmBreve = document.querySelector('.sections-cpt-protocolo-hero-em-breve');
+
+        if (hero) {
+            heroProtocoloAnimation();
+        } else if (heroEmBreve) {
+            heroEmBreveProtocoloAnimation();
+        } else {
+            signalHeroComplete();
+        }
     });
 
-    // Demais seções animam normalmente com scroll
-    protocoloAnimation();
-    apendiceBccEccAnimation();
-    ctaProtocoloAnimation();
+    // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
+    initSectionAnimation('#protocolo', protocoloAnimation);
+    initSectionAnimation('#apendice', apendiceBccEccAnimation);
+    initSectionAnimation('#protocolo', ctaProtocoloAnimation);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

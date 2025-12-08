@@ -267,3 +267,41 @@ export function animateOnScroll(element, trigger, configKey = 'item', animationP
  * Aguarda a transição de página completar antes de executar animações
  */
 export { waitForTransition };
+
+// Evento para sinalizar fim da animação do Hero
+export const HERO_ANIMATION_COMPLETE = 'heroAnimationComplete';
+
+/**
+ * Sinaliza que a animação do Hero terminou
+ */
+export function signalHeroComplete() {
+    document.dispatchEvent(new CustomEvent(HERO_ANIMATION_COMPLETE));
+}
+
+/**
+ * Inicializa animação de seção com sequenciamento inteligente
+ * Se a seção está na viewport inicial, aguarda o Hero completar
+ */
+export function initSectionAnimation(sectionSelector, animationFn, options = {}) {
+    const section = document.querySelector(sectionSelector);
+    if (!section) return;
+
+    const threshold = options.viewportThreshold || 0.6;
+    const rect = section.getBoundingClientRect();
+    const viewportHeight = window.innerHeight;
+    const triggerPoint = viewportHeight * threshold;
+    const isInInitialViewport = rect.top < triggerPoint;
+
+    if (isInInitialViewport) {
+        // Mantém seção invisível enquanto aguarda Hero (previne FOUC)
+        gsap.set(section, { opacity: 0 });
+
+        document.addEventListener(HERO_ANIMATION_COMPLETE, () => {
+            // Restaura visibilidade e executa animação
+            gsap.set(section, { opacity: 1 });
+            animationFn();
+        }, { once: true });
+    } else {
+        animationFn();
+    }
+}

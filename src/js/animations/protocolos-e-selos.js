@@ -8,7 +8,9 @@ import {
     animateSlideX,
     animateCardsWithScale,
     animateScaleWithScrub,
-    waitForTransition
+    waitForTransition,
+    initSectionAnimation,
+    signalHeroComplete
 } from './animations-utils.js';
 
 function animateProtocolosSelosHeroSection() {
@@ -19,7 +21,9 @@ function animateProtocolosSelosHeroSection() {
     const sectionHeroContentText = sectionHero.querySelector('.hero-content .content-text');
     const sectionHeroBgImage = sectionHero.querySelector('.hero-bg-image img');
 
-    const tlHero = gsap.timeline();
+    const tlHero = gsap.timeline({
+        onComplete: signalHeroComplete
+    });
 
     tlHero.from(sectionHeroBgImage, {
         opacity: 0,
@@ -196,13 +200,13 @@ function initProtocolosSelosAnimations() {
         animateProtocolosSelosHeroSection();
     });
 
-    // Demais seções animam normalmente com scroll
-    animateProtocolosSelosCriteriosSection();
-    animateProtocolosSelosMetodoSection();
-    animateProtocolosSelosComunicacaoSection();
-    animateProtocolosSelosCTASection();
-    animateProtocolosSelosAuditoriasSection();
-    animateProtocolosSelosProtocolosSection();
+    // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
+    initSectionAnimation('#criterios', animateProtocolosSelosCriteriosSection);
+    initSectionAnimation('#metodo', animateProtocolosSelosMetodoSection);
+    initSectionAnimation('#comunicacao', animateProtocolosSelosComunicacaoSection);
+    initSectionAnimation('#cta', animateProtocolosSelosCTASection);
+    initSectionAnimation('#auditorias', animateProtocolosSelosAuditoriasSection);
+    initSectionAnimation('#protocolos', animateProtocolosSelosProtocolosSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
