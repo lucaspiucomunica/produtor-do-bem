@@ -1,0 +1,419 @@
+[
+    {
+        "key": "group_6931daca9f1ab",
+        "title": "Perguntas frequentes",
+        "fields": [
+            {
+                "key": "field_6931db13bb4c3",
+                "label": "Hero",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_6931dae6bb4c2",
+                "label": "Texto",
+                "name": "hero_texto",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "Título: Parágrafo 1 (H1)",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "visual",
+                "toolbar": "full",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_6931db1dbb4c4",
+                "label": "Perguntas",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_6931db25bb4c5",
+                "label": "FAQ",
+                "name": "faq",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "pagination": 1,
+                "rows_per_page": 10,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Adicionar linha",
+                "sub_fields": [
+                    {
+                        "key": "field_6931dbafbb4c6",
+                        "label": "Pergunta",
+                        "name": "pergunta",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_6931db25bb4c5"
+                    },
+                    {
+                        "key": "field_6931dbbdbb4c7",
+                        "label": "Resposta",
+                        "name": "resposta",
+                        "aria-label": "",
+                        "type": "wysiwyg",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "allow_in_bindings": 0,
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 1,
+                        "delay": 0,
+                        "parent_repeater": "field_6931db25bb4c5"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-faq.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    },
+    {
+        "key": "group_692e08558b8a3",
+        "title": "Outros serviços",
+        "fields": [
+            {
+                "key": "field_692ee4ec0882f",
+                "label": "Hero",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_692e086572384",
+                "label": "Título",
+                "name": "hero_titulo",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_692e08cc72385",
+                "label": "Destaque título",
+                "name": "hero_titulo_destaque",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_692e08e172386",
+                "label": "Background",
+                "name": "hero_background",
+                "aria-label": "",
+                "type": "image",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "40",
+                    "class": "",
+                    "id": ""
+                },
+                "return_format": "array",
+                "library": "all",
+                "min_width": "",
+                "min_height": "",
+                "min_size": "",
+                "max_width": "",
+                "max_height": "",
+                "max_size": "",
+                "mime_types": "",
+                "allow_in_bindings": 0,
+                "preview_size": "thumbnail"
+            },
+            {
+                "key": "field_692e08fe72387",
+                "label": "Conteúdo",
+                "name": "hero_conteudo",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "60",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "visual",
+                "toolbar": "basic",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
+                "key": "field_692ee50508830",
+                "label": "Serviços",
+                "name": "",
+                "aria-label": "",
+                "type": "tab",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "placement": "top",
+                "endpoint": 0,
+                "selected": 0
+            },
+            {
+                "key": "field_692ee56f08831",
+                "label": "Serviços",
+                "name": "servicos",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "layout": "block",
+                "pagination": 0,
+                "min": 0,
+                "max": 0,
+                "collapsed": "",
+                "button_label": "Adicionar linha",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_692ee5a208832",
+                        "label": "Conteúdo",
+                        "name": "conteudo",
+                        "aria-label": "",
+                        "type": "wysiwyg",
+                        "instructions": "Título: H2",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "allow_in_bindings": 0,
+                        "tabs": "all",
+                        "toolbar": "full",
+                        "media_upload": 0,
+                        "delay": 0,
+                        "parent_repeater": "field_692ee56f08831"
+                    },
+                    {
+                        "key": "field_692ee5ae08833",
+                        "label": "CTA",
+                        "name": "cta",
+                        "aria-label": "",
+                        "type": "link",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "allow_in_bindings": 0,
+                        "parent_repeater": "field_692ee56f08831"
+                    },
+                    {
+                        "key": "field_692ee5e608834",
+                        "label": "Imagem",
+                        "name": "imagem",
+                        "aria-label": "",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "40",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": "",
+                        "allow_in_bindings": 0,
+                        "preview_size": "thumbnail",
+                        "parent_repeater": "field_692ee56f08831"
+                    },
+                    {
+                        "key": "field_692ee5f008835",
+                        "label": "Ícone",
+                        "name": "icone",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Acesse <a href=\"\/wp-admin\/tools.php?page=icon-selector\" target=\"_blank\" style=\"font-weight:bold;>Ícones Produtor do Bem<\/a> e escolha um ícone.",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "30",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "parent_repeater": "field_692ee56f08831"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "page-outros-servicos.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "the_content"
+        ],
+        "active": true,
+        "description": "",
+        "show_in_rest": 0,
+        "display_title": ""
+    }
+]
