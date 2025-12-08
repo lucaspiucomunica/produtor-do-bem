@@ -63,7 +63,7 @@
 
     .content-text ul {
         @apply
-        list-disc list-inside mb-4 pl-4
+        list-disc mb-4 pl-5
     }
 
     .content-text ul li {
