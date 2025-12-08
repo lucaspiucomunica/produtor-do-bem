@@ -154,7 +154,7 @@ function produtor_do_bem_enqueue_prod_scripts() {
 		wp_enqueue_script( 'produtor-do-bem-outros-servicos-bundle', get_template_directory_uri() . '/src/js/bundles/pages/outros-servicos.bundle.min.js', array('produtor-do-bem-transitions-bundle'), PRODUTOR_DO_BEM_VERSION, true );
 	}
 
-	if (is_page('faq')) {
+	if (is_page('perguntas-frequentes')) {
 		wp_enqueue_script( 'produtor-do-bem-faq-bundle', get_template_directory_uri() . '/src/js/bundles/pages/faq.bundle.min.js', array('produtor-do-bem-transitions-bundle'), PRODUTOR_DO_BEM_VERSION, true );
 	}
 }
