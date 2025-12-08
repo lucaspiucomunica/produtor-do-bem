@@ -23,10 +23,11 @@ function animateFAQHeroSection() {
 }
 
 /**
- * Anima campo de busca do FAQ
+ * Anima campo de busca e items do FAQ em uma única timeline
  */
-function animateFaqSearch() {
+function animateFaqSection() {
     const searchWrapper = document.querySelector('.faq-search-wrapper');
+    const faqItems = document.querySelectorAll('.faq-item:not(.faq-item-hidden)');
 
     if (!elementExists(searchWrapper)) return;
 
@@ -38,25 +39,16 @@ function animateFaqSearch() {
         duration: CONFIG.duration.normal,
         ease: CONFIG.easing.default,
     }, CONFIG.offset.none);
-}
 
-/**
- * Anima items do accordion (apenas os 8 primeiros visíveis)
- */
-function animateFaqItems() {
-    const faqItems = document.querySelectorAll('.faq-item:not(.faq-item-hidden)');
-
-    if (!elementExists(faqItems) || faqItems.length === 0) return;
-
-    const timeline = createScrollTimeline(faqItems[0]);
-
-    timeline.from(faqItems, {
-        opacity: 0,
-        y: CONFIG.distance.medium,
-        duration: CONFIG.duration.normal,
-        stagger: CONFIG.stagger.fast,
-        ease: CONFIG.easing.default,
-    }, CONFIG.offset.none);
+    if (faqItems.length > 0) {
+        timeline.from(faqItems, {
+            opacity: 0,
+            y: CONFIG.distance.medium,
+            duration: CONFIG.duration.normal,
+            stagger: CONFIG.stagger.fast,
+            ease: CONFIG.easing.default,
+        }, CONFIG.offset.small);
+    }
 }
 
 function initFAQAnimations() {
@@ -66,8 +58,7 @@ function initFAQAnimations() {
     });
 
     // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
-    initSectionAnimation('.faq-search-wrapper', animateFaqSearch);
-    initSectionAnimation('.faq-accordion', animateFaqItems);
+    initSectionAnimation('.faq-search-wrapper', animateFaqSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
