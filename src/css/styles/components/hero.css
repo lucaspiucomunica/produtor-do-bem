@@ -33,6 +33,11 @@
         text-center text-neutro-branco
     }
 
+    .section-hero-custom-1 .hero-content .content-button {
+        @apply
+        mt-6
+    }
+
     .section-hero-custom-1 .hero-bg-image {
         @apply
         absolute top-0 left-0 w-full h-full z-0

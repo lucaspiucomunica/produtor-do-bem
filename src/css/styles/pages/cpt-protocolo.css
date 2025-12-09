@@ -1,0 +1,104 @@
+@layer components {
+    /* Hero - CPT Protocolo */
+
+    .sections-cpt-protocolo-hero,
+    .sections-cpt-protocolo-hero-em-breve {
+        @apply
+        relative
+        bg-primario-variacao-5
+        lg:pt-48 xs:pt-44 pt-36 p-section-bottom md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
+        flex items-center justify-center relative overflow-hidden
+    }
+
+    .sections-cpt-protocolo-hero-em-breve {
+        @apply
+        rounded-b-none
+        pb-48 -mb-24
+    }
+
+    .sections-cpt-protocolo-hero .hero-header,
+    .sections-cpt-protocolo-hero-em-breve .hero-header {
+        @apply
+        relative
+        flex flex-row md:items-center items-start md:gap-20 sm:gap-10 gap-4
+        max-w-5xl mx-auto w-full
+    }
+
+    .sections-cpt-protocolo-hero .hero-header-icon,
+    .sections-cpt-protocolo-hero-em-breve .hero-header-icon {
+        @apply
+        relative
+        sm:block hidden
+    }
+
+    .sections-cpt-protocolo-hero .hero-header-icon .hero-header-icon-logo,
+    .sections-cpt-protocolo-hero-em-breve .hero-header-icon .hero-header-icon-logo {
+        @apply
+        w-auto min-h-[224px] max-h-[224px]
+    }
+
+    .sections-cpt-protocolo-hero .hero-header-icon .iconpdb,
+    .sections-cpt-protocolo-hero-em-breve .hero-header-icon .iconpdb {
+        @apply
+        absolute
+        bottom-[58px] right-[47px] z-10
+        fill-limao-variacao-1
+    }
+
+    .sections-cpt-protocolo-hero .content-text,
+    .sections-cpt-protocolo-hero-em-breve .content-text {
+        @apply
+        space-y-6
+    }
+
+    .sections-cpt-protocolo-hero .hero-destaque,
+    .sections-cpt-protocolo-hero-em-breve .hero-destaque {
+        @apply
+        flex flex-col items-start justify-between gap-6
+        lg:px-10 md:px-8 px-6 py-10 outline-2 outline outline-secundario-principal
+        rounded-3xl
+    }
+
+    .sections-cpt-protocolo-hero .hero-destaque .content-text h3,
+    .sections-cpt-protocolo-hero-em-breve .hero-destaque .content-text h3 {
+        @apply
+        text-2xl
+    }
+
+    .sections-cpt-protocolo-hero .cta-2-hero .content-text {
+        @apply
+        space-y-0
+    }
+
+    /* Protocolo - CPT Protocolo */
+
+    .sections-cpt-protocolo-protocolo {
+        @apply
+        p-section-top
+    }
+
+    /* Apendice BCC e ECC - CPT Protocolo */
+
+    .sections-cpt-protocolo-apendice-bcc-ecc {
+        @apply
+        p-section-top
+    }
+
+    .sections-cpt-protocolo-apendice-bcc-ecc-content {
+        @apply
+        w-full p-section lg:px-10 md:px-8 px-6
+        bg-primario-variacao-5
+        rounded-4xl 
+        flex flex-row items-start justify-between gap-10
+    }
+
+    .sections-cpt-protocolo-apendice-bcc-ecc-content .content-left {
+        @apply
+        w-full max-w-[400px]
+    }
+
+    .sections-cpt-protocolo-apendice-bcc-ecc-content .content-right {
+        @apply
+        w-full
+    }
+}

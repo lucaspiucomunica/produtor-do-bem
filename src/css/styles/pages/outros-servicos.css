@@ -1,0 +1,13 @@
+@layer components {
+    /* Hero - Outros Serviços */
+
+    .section-hero-custom-1.sections-outros-servicos-hero .hero-content {
+        @apply
+        max-w-[916px]
+    }
+
+    .section-hero-custom-1.sections-outros-servicos-hero .hero-content .content-text {
+        @apply
+        max-w-[762px]
+    }
+}

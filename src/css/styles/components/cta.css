@@ -105,4 +105,11 @@
         shadow-2xl
     }
 
+    /* CTA 1- Global */
+
+    .template-parts-globals-cta-1 .content-cta .content-text {
+        @apply
+        max-w-full
+    }
+
 }

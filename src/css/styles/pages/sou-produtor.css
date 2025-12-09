@@ -1,0 +1,25 @@
+@layer components {
+    /* Hero - Sou Produtor */
+
+    .section-hero-custom-1.sections-sou-produtor-hero .hero-content .titulo h1 .title {
+        @apply
+        max-w-[748px]
+    }
+
+    .section-hero-custom-1.sections-sou-produtor-hero .hero-content .content-text {
+        @apply
+        max-w-[748px]
+    }
+
+    /* Intro - Sou Produtor */
+
+    .sections-sou-produtor-intro {
+        @apply
+        p-section relative
+    }
+
+    .sections-sou-produtor-intro .content-text {
+        @apply
+        max-w-[892px] mx-auto
+    }
+}

@@ -1,0 +1,78 @@
+@layer components {
+    /* Hero - Protocolos e Selos */
+
+    .section-hero-custom-1.sections-protocolos-selos-hero .hero-content {
+        @apply
+        max-w-[760px]
+    }
+
+    .section-hero-custom-1.sections-protocolos-selos-hero .hero-content .titulo h1 {
+        @apply
+        lg-plus:max-w-[724px] max-w-[660px]
+    }
+
+    /* Critérios - Protocolos e Selos */
+
+    .sections-protocolos-selos-criterios {
+        @apply
+        p-section-top
+    }
+
+    .sections-protocolos-selos-metodo {
+        @apply
+        p-section-top
+    }
+
+    /* Comunicação - Protocolos e Selos */
+
+    .sections-protocolos-selos-comunicacao {
+        @apply
+        p-section-top
+    }
+
+    .sections-protocolos-selos-comunicacao-content {
+        @apply
+        w-full md:px-10 xxs:px-6 px-4 p-section
+        bg-primario-variacao-5
+        rounded-4xl
+    }
+
+    /* CTA - Protocolos e Selos */
+
+    .sections-protocolos-selos-cta {
+        @apply
+        p-section-top
+    }
+
+    .sections-protocolos-selos-cta .content-text h2 {
+        @apply
+        lg:text-5xl/[56px] xxs:text-4xl/[48px] text-3xl/[40px] 
+        max-w-[1220px] mx-auto
+    }
+
+    .sections-protocolos-selos-cta .content-text h2 .destaque {
+        @apply
+        text-primario-principal
+    }
+    
+    /* Auditorias - Protocolos e Selos */
+
+    .sections-protocolos-selos-auditorias {
+        @apply
+        p-section-top
+    }
+
+    /* Protocolos - Protocolos e Selos */
+
+    .sections-protocolos-selos-protocolos {
+        @apply
+        p-section
+    }
+
+    .sections-protocolos-selos-protocolos-content {
+        @apply
+        w-full p-section
+        bg-neutro-principal
+        rounded-4xl
+    }
+}
