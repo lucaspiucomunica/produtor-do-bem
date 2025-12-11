@@ -11,6 +11,7 @@ get_header();
     <?php get_template_part('template-parts/sections/sou-produtor/hero'); ?>
     <?php get_template_part('template-parts/sections/sou-produtor/intro'); ?>
     <?php get_template_part('template-parts/sections/sou-produtor/produtor-do-bem'); ?>
+    <?php get_template_part('template-parts/sections/sou-produtor/conectamos'); ?>
 </main>
 
 <?php

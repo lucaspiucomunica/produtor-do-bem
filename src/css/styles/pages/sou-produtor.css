@@ -72,6 +72,37 @@
 
     .sections-sou-produtor-produtor-do-bem {
         @apply
+        p-section-top relative
+    }
+
+    /* Conectamos - Sou Produtor */
+
+    .sections-sou-produtor-conectamos {
+        @apply
         p-section relative
+    }
+
+    .sections-sou-produtor-conectamos .box {
+        @apply
+        px-10 py-20 rounded-4xl bg-limao-variacao-1
+    }
+
+    .sections-sou-produtor-conectamos .box .item {
+        @apply
+        w-full
+        flex flex-col justify-between gap-4
+        bg-neutro-branco
+        p-8 rounded-3xl
+    }
+
+    .sections-sou-produtor-conectamos .box .item h3 {
+        @apply
+        text-xl font-bold font-body
+    }
+
+    .sections-sou-produtor-conectamos .box .item svg {
+        @apply
+        w-10 h-10
+        *:fill-primario-variacao-3
     }
 }
