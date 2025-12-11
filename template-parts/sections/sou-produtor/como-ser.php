@@ -57,13 +57,16 @@ if (!$como_ser_titulo) {
             </div>
         </div>
 
-        <div class="flex justify-center">
-            <div class="max-w-[876px]">
-                <div class="content-text content-text--light text-center">
-                    <?php echo icon('warning-2'); ?>
+        <div class="flex flex-col items-center justify-center gap-10 mt-10">
+            <div class="disclaimer max-w-[876px]">
+                <?php echo icon('warning-2'); ?>
+                <div class="content-text content-text--light content-text--small">
                     <p><?php echo $como_ser_disclaimer; ?></p>
                 </div>
             </div>
+            <a href="/fale-conosco" class="btn btn-secondary">
+                <span>Seja um Produtor do Bem certificado</span>
+            </a>
         </div>
     </div>
 </section>

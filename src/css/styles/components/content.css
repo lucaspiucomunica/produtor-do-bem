@@ -76,6 +76,11 @@
         text-secundario-principal
     }
 
+    .content-text.content-text--small p {
+        @apply
+        text-sm
+    }
+
     /* Content Icon */
     .content-icon {
         @apply

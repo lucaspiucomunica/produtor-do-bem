@@ -245,6 +245,17 @@ function animateSouProdutorComoSerSection() {
     }
 }
 
+function animateSouProdutorDepoimentosSection() {
+    const sectionDepoimentos = document.querySelector('#depoimentos');
+    const sectionDepoimentosTitle = sectionDepoimentos.querySelector('.content-text h2');
+    const sectionDepoimentosText = sectionDepoimentos.querySelectorAll('.content-text p');
+
+    const tlDepoimentos = createScrollTimeline(sectionDepoimentos);
+
+    animateTitle(tlDepoimentos, sectionDepoimentosTitle, CONFIG.offset.none);
+    animateText(tlDepoimentos, sectionDepoimentosText);
+}
+
 function initSouProdutorAnimations() {
     // Aguarda transição completar antes de animar hero section
     waitForTransition(() => {
@@ -256,6 +267,7 @@ function initSouProdutorAnimations() {
     initSectionAnimation('#produtor-do-bem', animateSouProdutorPdbSection);
     initSectionAnimation('#conectamos', animateSouProdutorConectamosSection);
     initSectionAnimation('#como-ser', animateSouProdutorComoSerSection);
+    initSectionAnimation('#depoimentos', animateSouProdutorDepoimentosSection);
 
     // Inicializa efeito de hover na seção Conectamos
     initConectamosHoverEffect();
