@@ -12,6 +12,7 @@ get_header();
     <?php get_template_part('template-parts/sections/sou-produtor/intro'); ?>
     <?php get_template_part('template-parts/sections/sou-produtor/produtor-do-bem'); ?>
     <?php get_template_part('template-parts/sections/sou-produtor/conectamos'); ?>
+    <?php get_template_part('template-parts/sections/sou-produtor/como-ser'); ?>
 </main>
 
 <?php

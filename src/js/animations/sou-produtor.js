@@ -192,6 +192,59 @@ function animateSouProdutorConectamosSection() {
     animateScale(tlConectamos, sectionConectamosGrid, CONFIG.transform.scale.medium, CONFIG.offset.normal);
 }
 
+function animateSouProdutorComoSerSection() {
+    const sectionComoSer = document.querySelector('#como-ser');
+    const sectionComoSerTitle = sectionComoSer.querySelector('.content-text h2');
+    const sectionComoSerTimeline = sectionComoSer.querySelector('.timeline-1');
+    const sectionComoSerTimelineLineProgress = sectionComoSer.querySelector('.timeline-1-line-line-progress');
+    const sectionComoSerTimelineDots = sectionComoSer.querySelectorAll('.timeline-1-line-dot');
+    const sectionComoSerTimelineItems = sectionComoSer.querySelectorAll('.timeline-1-item');
+
+    const tlComoSer = createScrollTimeline(sectionComoSer);
+
+    animateTitle(tlComoSer, sectionComoSerTitle, CONFIG.offset.none);
+    animateText(tlComoSer, sectionComoSerTimeline);
+
+    sectionComoSerTimelineItems.forEach((item, index) => {
+        const dot = sectionComoSerTimelineDots[index];
+
+        ScrollTrigger.create({
+            trigger: item,
+            start: "top 60%",
+            onEnter: () => {
+                item.classList.add('item-active');
+                dot.classList.add('item-active');
+            },
+        });
+    });
+
+    if (sectionComoSerTimelineItems.length > 0) {
+        const firstItem = sectionComoSerTimelineItems[0];
+        const lastItem = sectionComoSerTimelineItems[sectionComoSerTimelineItems.length - 1];
+
+        const progressTween = gsap.to(sectionComoSerTimelineLineProgress, {
+            height: '100%',
+            ease: 'none',
+            paused: true
+        });
+
+        let maxProgress = 0;
+
+        ScrollTrigger.create({
+            trigger: firstItem,
+            start: 'top 60%',
+            endTrigger: lastItem,
+            end: 'top 60%',
+            onUpdate: self => {
+                if (self.progress > maxProgress) {
+                    maxProgress = self.progress;
+                    progressTween.progress(maxProgress);
+                }
+            }
+        });
+    }
+}
+
 function initSouProdutorAnimations() {
     // Aguarda transição completar antes de animar hero section
     waitForTransition(() => {
@@ -202,6 +255,7 @@ function initSouProdutorAnimations() {
     initSectionAnimation('#introducao', animateSouProdutorIntroSection);
     initSectionAnimation('#produtor-do-bem', animateSouProdutorPdbSection);
     initSectionAnimation('#conectamos', animateSouProdutorConectamosSection);
+    initSectionAnimation('#como-ser', animateSouProdutorComoSerSection);
 
     // Inicializa efeito de hover na seção Conectamos
     initConectamosHoverEffect();
