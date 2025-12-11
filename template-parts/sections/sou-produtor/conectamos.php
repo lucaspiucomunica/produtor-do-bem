@@ -14,7 +14,7 @@ if (!$conectamos_texto) {
 }
 ?>
 
-<section id="produtor-do-bem" class="<?php echo get_class_section(); ?>">
+<section id="conectamos" class="<?php echo get_class_section(); ?>">
     <div class="container">
         <div class="box">
             <div class="flex mb-10">

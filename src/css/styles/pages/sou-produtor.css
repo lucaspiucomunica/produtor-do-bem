@@ -91,18 +91,63 @@
         @apply
         w-full
         flex flex-col justify-between gap-4
-        bg-neutro-branco
+        bg-neutro-branco hover:bg-primario-variacao-3
         p-8 rounded-3xl
+        transition-all duration-[400]
     }
 
     .sections-sou-produtor-conectamos .box .item h3 {
         @apply
         text-xl font-bold font-body
+        transition-colors duration-[400]
+    }
+
+    .sections-sou-produtor-conectamos .box .item:hover h3 {
+        @apply
+        text-limao-principal
     }
 
     .sections-sou-produtor-conectamos .box .item svg {
         @apply
         w-10 h-10
         *:fill-primario-variacao-3
+        transition-all duration-[400]
+    }
+
+    .sections-sou-produtor-conectamos .box .item:hover svg {
+        @apply
+        *:fill-limao-variacao-1
+        scale-110
+        -rotate-3
+    }
+
+    /* Conectores - estados hover */
+    .sections-sou-produtor-conectamos .box .conector-linha svg,
+    .sections-sou-produtor-conectamos .box .conector-coluna svg {
+        @apply
+        *:transition-colors *:duration-[400]
+    }
+
+    .sections-sou-produtor-conectamos .box .conector-linha.active svg,
+    .sections-sou-produtor-conectamos .box .conector-coluna.active svg {
+        @apply
+        *:fill-primario-variacao-3
+    }
+
+    /* Otimizações de performance para hover */
+    .sections-sou-produtor-conectamos .box .item {
+        @apply
+        will-change-[background-color,transform]
+    }
+
+    .sections-sou-produtor-conectamos .box .item svg {
+        @apply
+        will-change-[transform]
+    }
+
+    .sections-sou-produtor-conectamos .box .conector-linha svg,
+    .sections-sou-produtor-conectamos .box .conector-coluna svg {
+        @apply
+        will-change-[fill]
     }
 }
