@@ -7,6 +7,7 @@ import {
     animateText,
     waitForTransition,
     initSectionAnimation,
+    animateFadeIn,
     animateButton,
     animateCards,
     signalHeroComplete,
@@ -247,13 +248,21 @@ function animateSouProdutorComoSerSection() {
 
 function animateSouProdutorDepoimentosSection() {
     const sectionDepoimentos = document.querySelector('#depoimentos');
+    const sectionDepoimentosBox = sectionDepoimentos.querySelector('.box');
     const sectionDepoimentosTitle = sectionDepoimentos.querySelector('.content-text h2');
     const sectionDepoimentosText = sectionDepoimentos.querySelectorAll('.content-text p');
+    const swiperCarrossel = sectionDepoimentos.querySelector('.swiper-depoimentos');
+    const depoimentoNav = sectionDepoimentos.querySelector('.depoimento-nav');
+    const depoimentoPagination = sectionDepoimentos.querySelector('.depoimento-pagination');
+
+    animateScaleWithScrub(sectionDepoimentosBox, sectionDepoimentos);
 
     const tlDepoimentos = createScrollTimeline(sectionDepoimentos);
 
-    animateTitle(tlDepoimentos, sectionDepoimentosTitle, CONFIG.offset.none);
-    animateText(tlDepoimentos, sectionDepoimentosText);
+    animateTitleLines(tlDepoimentos, sectionDepoimentosTitle, CONFIG.offset.none);
+    animateText(tlDepoimentos, sectionDepoimentosText, CONFIG.offset.normal);
+    animateScale(tlDepoimentos, swiperCarrossel, CONFIG.transform.scale.medium, CONFIG.offset.normal);
+    animateFadeIn(tlDepoimentos, depoimentoPagination, CONFIG.offset.normal);
 }
 
 function initSouProdutorAnimations() {

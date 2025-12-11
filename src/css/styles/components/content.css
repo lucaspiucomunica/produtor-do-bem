@@ -81,6 +81,11 @@
         text-sm
     }
 
+    .content-text.content-text--large p {
+        @apply
+        text-xl
+    }
+
     /* Content Icon */
     .content-icon {
         @apply

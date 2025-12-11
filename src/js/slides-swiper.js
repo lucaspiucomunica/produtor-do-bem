@@ -1,3 +1,14 @@
+// Função para aplicar scale nos slides do carrossel de depoimentos
+function updateSlideScale(swiper) {
+    swiper.slides.forEach((slide, index) => {
+        if (index === swiper.activeIndex) {
+            slide.style.transform = 'scale(1)';
+        } else {
+            slide.style.transform = 'scale(0.9)';
+        }
+    });
+}
+
 const SwiperSlides = {
     defaultConfig: {
         speed: 400,
@@ -102,6 +113,33 @@ const SwiperSlides = {
                     prevEl: '.swiper-cards-rotate-navigation .navigation-carrossel .navigation-item--prev',
                 }
             }
+        },
+        depoimentos: {
+            selector: '.swiper-depoimentos',
+            options: {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                spaceBetween: 16,
+                navigation: {
+                    nextEl: '.depoimento-nav-next',
+                    prevEl: '.depoimento-nav-prev',
+                },
+                pagination: {
+                    el: '.depoimento-pagination',
+                    clickable: true,
+                    renderBullet: (index, className) => {
+                        return `<span class="${className}"></span>`;
+                    }
+                },
+                on: {
+                    init: function() {
+                        updateSlideScale(this);
+                    },
+                    slideChange: function() {
+                        updateSlideScale(this);
+                    }
+                }
+            }
         }
     },
 
@@ -109,6 +147,12 @@ const SwiperSlides = {
         Object.values(this.configs).forEach(config => {
             const element = document.querySelector(config.selector);
             if (element) {
+                // Lógica especial para carrossel de depoimentos
+                if (config.selector === '.swiper-depoimentos') {
+                    const slideCount = element.querySelectorAll('.swiper-slide').length;
+                    config.options.loop = slideCount > 4;
+                }
+
                 new Swiper(config.selector, {
                     ...this.defaultConfig,
                     ...config.options
