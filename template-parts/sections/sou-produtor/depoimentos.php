@@ -23,7 +23,7 @@ if (!$depoimentos_texto) {
                 </div>
             </div>
 
-            <div class="flex flex-col gap-10">
+            <div class="flex flex-col gap-10 box-swiper">
                 <div class="swiper swiper-depoimentos">
                     <div class="swiper-wrapper">
                         <?php

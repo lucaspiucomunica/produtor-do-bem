@@ -149,8 +149,14 @@ const SwiperSlides = {
             if (element) {
                 // Lógica especial para carrossel de depoimentos
                 if (config.selector === '.swiper-depoimentos') {
-                    const slideCount = element.querySelectorAll('.swiper-slide').length;
-                    config.options.loop = slideCount > 4;
+                    const slides = element.querySelectorAll('.swiper-slide');
+                    const slideCount = slides.length;
+                    const swiperWrapper = element.querySelector('.swiper-wrapper');
+
+                    // Adiciona classe cursor-hover no wrapper se mais de 1 item
+                    if (slideCount > 1 && swiperWrapper) {
+                        swiperWrapper.classList.add('cursor-hover');
+                    }
                 }
 
                 new Swiper(config.selector, {
