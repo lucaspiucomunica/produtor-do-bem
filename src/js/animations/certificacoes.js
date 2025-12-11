@@ -159,7 +159,7 @@ function animateCertificacoesCertificacoesSection() {
 function animateCertificacoesComoObterSection() {
     const sectionComoObter = document.querySelector('#como-obter');
     const sectionComoObterTitle = sectionComoObter.querySelector('.content-text h2');
-    const sectionComoObterItems = sectionComoObter.querySelectorAll('.passo-a-passo-1-item');
+    const sectionComoObterItems = sectionComoObter.querySelectorAll('.lista-itens-icones-imagens-item');
 
     const tlComoObter = createScrollTimeline(sectionComoObter, 'veryEarly');
 

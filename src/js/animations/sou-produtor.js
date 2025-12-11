@@ -3,10 +3,13 @@ import {
     elementExists,
     createScrollTimeline,
     animateTitleLines,
+    animateTitle,
     waitForTransition,
     initSectionAnimation,
     animateButton,
-    signalHeroComplete
+    animateCards,
+    signalHeroComplete,
+    animateOnScroll
 } from './animations-utils.js';
 
 function animateSouProdutorHeroSection() {
@@ -39,16 +42,34 @@ function animateSouProdutorHeroSection() {
         stagger: CONFIG.stagger.medium
     }, CONFIG.offset.normal);
 
-    animateButton(tlHero, sectionHeroButton, CONFIG.offset.normal);
+    if (elementExists(sectionHeroButton)) {
+        animateButton(tlHero, sectionHeroButton, CONFIG.offset.normal);
+    }
 }
 
 function animateSouProdutorIntroSection() {
     const sectionIntro = document.querySelector('#introducao');
     const sectionIntroTitle = sectionIntro.querySelector('.content-text h2');
+    const sectionIntroCards = sectionIntro.querySelectorAll('.card');
 
     const tlIntro = createScrollTimeline(sectionIntro);
 
     animateTitleLines(tlIntro, sectionIntroTitle, CONFIG.offset.none);
+    animateCards(tlIntro, sectionIntroCards, CONFIG.offset.normal);
+}
+
+function animateSouProdutorPdbSection() {
+    const sectionPdb = document.querySelector('#produtor-do-bem');
+    const sectionPdbTitle = sectionPdb.querySelector('.content-text h2');
+    const sectionPdbItems = sectionPdb.querySelectorAll('.lista-itens-icones-imagens-item');
+
+    const tlPdb = createScrollTimeline(sectionPdb, 'veryEarly');
+
+    animateTitle(tlPdb, sectionPdbTitle, CONFIG.offset.none);
+
+    sectionPdbItems.forEach(item => {
+        animateOnScroll(item, item, 'item');
+    });
 }
 
 function initSouProdutorAnimations() {
@@ -59,6 +80,7 @@ function initSouProdutorAnimations() {
 
     // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
     initSectionAnimation('#introducao', animateSouProdutorIntroSection);
+    initSectionAnimation('#produtor-do-bem', animateSouProdutorPdbSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

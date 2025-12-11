@@ -330,4 +330,130 @@
         @apply
         *:fill-neutro-branco
     }
+
+    /* Lista de itens com ícones ou imagens */
+
+    .lista-itens-icones-imagens {
+        @apply
+        w-full
+        flex flex-col items-start justify-start space-y-3
+    }
+
+    .lista-itens-icones-imagens-item {
+        @apply
+        w-full
+        flex xs:flex-row flex-col xs:items-center items-start justify-start
+        bg-neutro-principal
+        xs:pl-3 xs:py-3 xs:pr-10
+        py-8 pl-6 pr-6 
+        rounded-4xl
+        xs:space-x-10 space-x-0
+    }
+
+    .lista-itens-icones-imagens-item-count {
+        @apply
+        flex flex-row items-stretch justify-start gap-3 lg:pr-20 md:pr-16 pr-0
+    }
+
+    .lista-itens-icones-imagens-item:nth-child(5n+2) .lista-itens-icones-imagens-item-count {
+        @apply flex-row-reverse justify-end
+    }
+
+    .lista-itens-icones-imagens-item:nth-child(5n+5) .lista-itens-icones-imagens-item-count {
+        @apply flex-row-reverse justify-end
+    }
+
+    .lista-itens-icones-imagens-item-count .number {
+        @apply
+        flex flex-col items-center justify-center gap-2
+        lg:w-30 lg:h-30 lg:min-w-30 lg:min-h-30
+        sm-plus:w-24 sm-plus:h-24 sm-plus:min-w-24 sm-plus:min-h-24
+        w-20 h-20 min-w-20 min-h-20
+        bg-primario-variacao-5 text-limao-variacao-1
+        rounded-2xl
+        lg:text-6xl text-4xl font-display font-semibold
+    }
+
+    /* Padrão de cores alternado a cada 5 itens */
+    .lista-itens-icones-imagens-item:nth-child(5n+2) .lista-itens-icones-imagens-item-count .number {
+        @apply
+        bg-limao-variacao-1 text-primario-variacao-3
+    }
+
+    .lista-itens-icones-imagens-item:nth-child(5n+3) .lista-itens-icones-imagens-item-count .number {
+        @apply
+        bg-transparent text-primario-variacao-3
+        outline-2 outline outline-secundario-principal
+    }
+
+    .lista-itens-icones-imagens-item:nth-child(5n+4) .lista-itens-icones-imagens-item-count .number {
+        @apply
+        bg-limao-variacao-1 text-primario-variacao-3
+    }
+
+    .lista-itens-icones-imagens-item:nth-child(5n+5) .lista-itens-icones-imagens-item-count .number {
+        @apply
+        bg-primario-principal text-limao-variacao-1
+    }
+
+    .lista-itens-icones-imagens-item-count .icon,
+    .lista-itens-icones-imagens-item-count .image {
+        @apply
+        flex flex-col items-center justify-center
+        lg:w-30 lg:h-30 lg:min-w-30 lg:min-h-30
+        sm-plus:w-24 sm-plus:h-24 sm-plus:min-w-24 sm-plus:min-h-24
+        w-20 h-20 min-w-20 min-h-20
+        rounded-2xl overflow-hidden
+    }
+
+    .lista-itens-icones-imagens-item-count .icon {
+        @apply
+        bg-limao-variacao-1
+    }
+
+    .lista-itens-icones-imagens-item-count .icon svg {
+        @apply
+        lg:w-10 lg:h-10 lg:min-w-10 lg:min-h-10
+        sm-plus:w-8 sm-plus:h-8 sm-plus:min-w-8 sm-plus:min-h-8
+        w-6 h-6 min-w-6 min-h-6
+        fill-primario-variacao-3
+    }
+
+    .lista-itens-icones-imagens-item:nth-child(5n+4) .lista-itens-icones-imagens-item-count .icon {
+        @apply
+        bg-primario-principal
+    }
+
+    .lista-itens-icones-imagens-item:nth-child(5n+4) .lista-itens-icones-imagens-item-count .icon svg {
+        @apply
+        fill-limao-variacao-1
+    }
+
+    .lista-itens-icones-imagens-item-count .image img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .lista-itens-icones-imagens-item-content {
+        @apply
+        w-full h-full
+        flex flex-col items-start justify-center
+    }
+
+    .lista-itens-icones-imagens-item-content .content-text {
+        @apply
+        w-full
+        xs:pt-0 pb-0 pt-4
+    }
+
+    .lista-itens-icones-imagens-item-content .content-text h3 {
+        @apply
+        lg-plus:text-2xl text-xl
+    }
+
+    .lista-itens-icones-imagens-item-content .content-text a {
+        @apply
+        text-primario-principal hover:text-primario-variacao-3
+        transition-all duration-300 underline
+    }
 }
