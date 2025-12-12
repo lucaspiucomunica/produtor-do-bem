@@ -120,6 +120,11 @@ const SwiperSlides = {
                 slidesPerView: 'auto',
                 centeredSlides: true,
                 spaceBetween: 16,
+                autoplay: {
+                    delay: 5000,
+                    pauseOnMouseEnter: true,
+                    disableOnInteraction: true,
+                },
                 navigation: {
                     nextEl: '.depoimento-nav-next',
                     prevEl: '.depoimento-nav-prev',

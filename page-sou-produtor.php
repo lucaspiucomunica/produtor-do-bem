@@ -14,7 +14,7 @@ get_header();
     <?php get_template_part('template-parts/sections/sou-produtor/conectamos'); ?>
     <?php get_template_part('template-parts/sections/sou-produtor/como-ser'); ?>
     <?php get_template_part('template-parts/sections/sou-produtor/depoimentos'); ?>
-    <?php get_template_part('template-parts/globals/cta-1'); ?>
+    <?php get_template_part('template-parts/globals/cta-1', '', array('style' => 'style-2')); ?>
 </main>
 
 <?php

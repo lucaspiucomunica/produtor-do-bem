@@ -1,8 +1,0 @@
-<svg width="140" height="32" viewBox="0 0 140 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M24 32C32.8366 32 40 24.8366 40 16V32H24Z" fill="white"/>
-<rect x="40" y="32" width="16" height="60" transform="rotate(-90 40 32)" fill="white"/>
-<path d="M100 16C100 24.8366 107.163 32 116 32L100 32L100 16Z" fill="white"/>
-<path d="M116 0C107.163 -7.72516e-07 100 7.16344 100 16L100 -1.39876e-06L116 0Z" fill="white"/>
-<rect x="100" width="16" height="60" transform="rotate(90 100 0)" fill="white"/>
-<path d="M40 16C40 7.16344 32.8366 -9.39372e-07 24 -2.09815e-06L40 0L40 16Z" fill="white"/>
-</svg>

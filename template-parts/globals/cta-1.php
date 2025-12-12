@@ -1,12 +1,15 @@
 <?php
 /**
  * CTA Section - Global
- * 
+ *
  * @package Produtor_do_Bem
  */
+
+$style = $args['style'] ?? '';
+$style_class = $style ? 'cta-1--' . $style : '';
 ?>
 
-<section id="cta" class="<?php echo get_class_section(); ?> cta-1">
+<section id="cta" class="<?php echo get_class_section(); ?> cta-1 <?php echo $style_class; ?>">
     <div class="container">
         <div class="flex justify-center">
             <div class="content-cta">

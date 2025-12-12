@@ -174,7 +174,7 @@
 
     .sections-sou-produtor-depoimentos {
         @apply
-        p-section relative
+        p-section-top relative
         bg-primario-variacao-3
     }
 
