@@ -345,10 +345,87 @@
 
     /* Group Sections - Sou Produtor */
 
-    .group-sections-sou-produtor {
+    .group-sections-sou-produtor,
+    .group-sections-sou-varejista {
         @apply
         bg-primario-variacao-3 relative overflow-hidden
         md:rounded-t-[80px] sm:rounded-t-[64px] rounded-t-[48px]
         pb-20 -mb-20
+    }
+    
+    /* Selos - Sou Varejista */
+
+    .sections-sou-varejista-selos {
+        @apply
+        p-section relative
+    }
+
+    .sections-sou-varejista-selos .box {
+        @apply
+        px-10 py-20 rounded-4xl bg-primario-variacao-5
+    }
+
+    .sections-sou-varejista-selos .box .selo {
+        @apply
+        flex flex-col gap-6
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content {
+        @apply
+        relative
+        w-full max-w-[308px] mx-auto
+        px-10
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content .ligacao {
+        @apply
+        absolute top-8 left-0
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+        @apply
+        left-auto right-0
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content .ligacao svg {
+        @apply
+        relative z-10
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao svg {
+        @apply
+        rotate-180
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left .ligacao,
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+        @apply
+        top-auto bottom-6
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content::after {
+        @apply
+        content-['']
+        absolute top-[calc(27px+32px)] left-[22px]
+        w-0.5 h-[calc(100%-27px-32px+24px)]
+        bg-limao-variacao-1
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+        @apply
+        left-auto right-[22px]
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left::after,
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+        @apply
+        top-auto h-14 -mt-8
+    }
+    
+    .sections-sou-varejista-selos .box .selo .selo-text {
+        @apply
+        px-6 py-8 rounded-3xl border-2 border-limao-variacao-1
+        text-xl text-neutro-branco
+        font-body font-semibold
     }
 }
