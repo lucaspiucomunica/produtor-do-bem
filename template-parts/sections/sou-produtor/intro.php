@@ -1,6 +1,6 @@
 <?php
 /**
- * Hero Section - Sou Produtor
+ * Intro Section - Sou Produtor
  * 
  * @package Produtor_do_Bem
  */

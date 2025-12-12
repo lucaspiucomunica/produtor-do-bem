@@ -13,7 +13,8 @@
 
     /* Intro - Sou Produtor */
 
-    .sections-sou-produtor-intro {
+    .sections-sou-produtor-intro,
+    .sections-sou-varejista-intro {
         @apply
         p-section-top relative
     }
@@ -23,7 +24,8 @@
         max-w-[892px] mx-auto
     }
 
-    .sections-sou-produtor-intro .card {
+    .sections-sou-produtor-intro .card,
+    .sections-sou-varejista-intro .card {
         @apply
         relative overflow-hidden
         w-full h-full p-8
@@ -32,45 +34,53 @@
         bg-neutro-principal
     }
 
-    .sections-sou-produtor-intro .card.card-destaque {
+    .sections-sou-produtor-intro .card.card-destaque,
+    .sections-sou-varejista-intro .card.card-destaque {
         @apply
         bg-limao-variacao-1
     }
 
-    .sections-sou-produtor-intro .card .card-header .card-icon {
+    .sections-sou-produtor-intro .card .card-header .card-icon,
+    .sections-sou-varejista-intro .card .card-header .card-icon {
         @apply
         flex flex-row gap-3
     }
 
-    .sections-sou-produtor-intro .card .card-header .card-icon .card-image {
+    .sections-sou-produtor-intro .card .card-header .card-icon .card-image,
+    .sections-sou-varejista-intro .card .card-header .card-icon .card-image {
         @apply
         w-auto overflow-hidden rounded-2xl
         min-w-20 max-w-20
     }
 
-    .sections-sou-produtor-intro .card .card-header .card-icon .card-image img {
+    .sections-sou-produtor-intro .card .card-header .card-icon .card-image img,
+    .sections-sou-varejista-intro .card .card-header .card-icon .card-image img {
         @apply
         w-full h-full object-cover object-center
     }
 
-    .sections-sou-produtor-intro .card .card-body .card-text {
+    .sections-sou-produtor-intro .card .card-body .card-text,
+    .sections-sou-varejista-intro .card .card-body .card-text {
         @apply
        *:mb-2 last:*:mb-0
     }
 
-    .sections-sou-produtor-intro .card .card-body .card-text h3 {
+    .sections-sou-produtor-intro .card .card-body .card-text h3,
+    .sections-sou-varejista-intro .card .card-body .card-text h3 {
         @apply
         mt-4 first:mt-0
     }
 
-    .sections-sou-produtor-intro .card .card-body .card-fonte {
+    .sections-sou-produtor-intro .card .card-body .card-fonte,
+    .sections-sou-varejista-intro .card .card-body .card-fonte {
         @apply
         text-sm text-neutro-variacao-5 italic mt-2
     }
 
     /* Produtor do Bem - Sou Produtor */
 
-    .sections-sou-produtor-produtor-do-bem {
+    .sections-sou-produtor-produtor-do-bem,
+    .sections-sou-varejista-produtor-do-bem {
         @apply
         p-section-top relative
     }

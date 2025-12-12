@@ -1,6 +1,6 @@
 <?php
 /**
- * Produtor do Bem Section - Sou Produtor
+ * Produtor do Bem Section - Sou Varejista
  * 
  * @package Produtor_do_Bem
  */

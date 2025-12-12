@@ -44,7 +44,7 @@
 
 /* Especificidades de seções das páginas */
 @import './styles/pages/pagina-principal.css';
-@import './styles/pages/sou-produtor.css';
+@import './styles/pages/sou.css';
 @import './styles/pages/quem-somos.css';
 @import './styles/pages/protocolos-e-selos.css';
 @import './styles/pages/cpt-protocolo.css';
