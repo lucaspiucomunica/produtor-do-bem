@@ -11,7 +11,6 @@
         rounded-full
         bg-primario-variacao-1 hover:bg-primario-variacao-3 transition-all duration-300
         text-neutro-branco font-semibold md:text-lg xs:text-base text-sm text-center xs:leading-normal leading-tight
-        hover:scale-105 active:scale-95
     }
 
     .btn.btn-outline {

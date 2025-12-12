@@ -14,11 +14,21 @@ import {
     animateOnScroll,
     animateScaleWithScrub,
     animateScale,
-    animateSlideX
+    animateSlideX,
+    applyHeroFinalState,
+    hasUrlHash
 } from './animations-utils.js';
 
 function animateSouProdutorHeroSection() {
     const sectionHero = document.querySelector('#hero');
+
+    // Se há hash na URL, pular animação do hero
+    if (hasUrlHash()) {
+        applyHeroFinalState(sectionHero);
+        signalHeroComplete();
+        return;
+    }
+
     const sectionHeroTitle = sectionHero.querySelector('.hero-content .titulo h1 .title');
     const sectionHeroTitleDestaque = sectionHero.querySelector('.hero-content .titulo h1 .destaque');
     const sectionHeroContentText = sectionHero.querySelector('.hero-content .content-text');

@@ -5,11 +5,21 @@ import {
     animateTitleLines,
     waitForTransition,
     initSectionAnimation,
-    signalHeroComplete
+    signalHeroComplete,
+    applyHeroFinalState,
+    hasUrlHash
 } from './animations-utils.js';
 
 function animateOutrosServicosHeroSection() {
     const sectionHero = document.querySelector('#hero');
+
+    // Se há hash na URL, pular animação do hero
+    if (hasUrlHash()) {
+        applyHeroFinalState(sectionHero);
+        signalHeroComplete();
+        return;
+    }
+
     const sectionHeroTitle = sectionHero.querySelector('.hero-content .titulo h1 .title');
     const sectionHeroTitleDestaque = sectionHero.querySelector('.hero-content .titulo h1 .destaque');
     const sectionHeroContentText = sectionHero.querySelector('.hero-content .content-text');

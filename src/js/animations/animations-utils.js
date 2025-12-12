@@ -278,6 +278,87 @@ export function signalHeroComplete() {
     document.dispatchEvent(new CustomEvent(HERO_ANIMATION_COMPLETE));
 }
 
+// Flags capturadas APENAS no carregamento inicial da página
+// Isso diferencia "página carregou com hash" de "clicou em âncora na mesma página"
+const initialPageLoadWithHash = !!window.location.hash;
+let initialHashTargetElement = null;
+
+// Capturar elemento alvo do hash no carregamento inicial
+if (initialPageLoadWithHash) {
+    const targetId = window.location.hash.substring(1);
+    // Usar setTimeout para garantir que o DOM está pronto
+    setTimeout(() => {
+        initialHashTargetElement = document.getElementById(targetId);
+    }, 0);
+}
+
+/**
+ * Verifica se a página foi carregada com hash na URL
+ * Retorna false para cliques em âncoras na mesma página
+ */
+export function hasUrlHash() {
+    return initialPageLoadWithHash;
+}
+
+/**
+ * Aplica estado final do hero sem animar (para navegação com hash)
+ */
+export function applyHeroFinalState(heroSection) {
+    if (!heroSection) return;
+
+    // Aplicar estado final em todos os elementos do hero
+    const heroElements = heroSection.querySelectorAll('[class*="hero-"]');
+    gsap.set(heroElements, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        clearProps: 'all'
+    });
+}
+
+/**
+ * Verifica se uma seção está ANTES do elemento alvo do hash no DOM
+ * Usa flags capturadas no carregamento inicial (não verifica hash atual)
+ */
+export function isBeforeHashTarget(sectionElement) {
+    // Usa flags de carregamento inicial para diferenciar de cliques em âncoras
+    if (!initialPageLoadWithHash) return false;
+
+    // Capturar elemento alvo se ainda não foi capturado
+    if (!initialHashTargetElement) {
+        const targetId = window.location.hash.substring(1);
+        initialHashTargetElement = document.getElementById(targetId);
+    }
+
+    if (!initialHashTargetElement) return false;
+
+    // Comparar posição no DOM usando compareDocumentPosition
+    const position = sectionElement.compareDocumentPosition(initialHashTargetElement);
+
+    // DOCUMENT_POSITION_FOLLOWING (4) = hashTarget vem depois
+    return (position & Node.DOCUMENT_POSITION_FOLLOWING) !== 0;
+}
+
+/**
+ * Aplica estado final de uma seção sem animar (para navegação com hash)
+ */
+export function applySectionFinalState(section) {
+    if (!section) return;
+
+    // Aplicar estado final em todos os elementos filhos
+    const elements = section.querySelectorAll('*');
+    gsap.set(elements, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        clearProps: 'all'
+    });
+}
+
 /**
  * Inicializa animação de seção com sequenciamento inteligente
  * Se a seção está na viewport inicial, aguarda o Hero completar
@@ -285,6 +366,12 @@ export function signalHeroComplete() {
 export function initSectionAnimation(sectionSelector, animationFn, options = {}) {
     const section = document.querySelector(sectionSelector);
     if (!section) return;
+
+    // Se seção está antes do hash alvo, aplicar estado final sem animar
+    if (isBeforeHashTarget(section)) {
+        applySectionFinalState(section);
+        return;
+    }
 
     const threshold = options.viewportThreshold || 0.6;
     const rect = section.getBoundingClientRect();

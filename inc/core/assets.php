@@ -49,6 +49,9 @@ function produtor_do_bem_enqueue_dev_scripts() {
 	// ScrollSmoother
 	wp_enqueue_script( 'produtor-do-bem-scroll-smoother', get_template_directory_uri() . '/src/js/scroll-smoother.js', array_merge($gsap_deps, array('produtor-do-bem-utils')), PRODUTOR_DO_BEM_VERSION, true );
 
+	// Anchor Handler (navegação por hash)
+	wp_enqueue_script( 'produtor-do-bem-anchor-handler', get_template_directory_uri() . '/src/js/anchor-handler.js', array('produtor-do-bem-scroll-smoother'), PRODUTOR_DO_BEM_VERSION, true );
+
 	// Transição de página
 	wp_enqueue_script( 'produtor-do-bem-page-transition', get_template_directory_uri() . '/src/js/page-transition.js', array('produtor-do-bem-gsap'), PRODUTOR_DO_BEM_VERSION, true );
 

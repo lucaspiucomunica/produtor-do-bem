@@ -10,11 +10,20 @@ import {
     animateFadeIn,
     waitForTransition,
     initSectionAnimation,
-    signalHeroComplete
+    signalHeroComplete,
+    applyHeroFinalState,
+    hasUrlHash
 } from './animations-utils.js';
 
 function heroProtocoloAnimation() {
     const hero = document.querySelector('.sections-cpt-protocolo-hero');
+
+    // Se há hash na URL, pular animação do hero
+    if (hasUrlHash()) {
+        applyHeroFinalState(hero);
+        signalHeroComplete();
+        return;
+    }
 
     if (!elementExists(hero)) return;
 
