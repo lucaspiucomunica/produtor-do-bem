@@ -155,7 +155,7 @@
 
     .sections-sou-produtor-como-ser {
         @apply
-        p-section-top relative md:rounded-t-[80px] sm:rounded-t-[64px] rounded-t-[48px]
+        p-section-top relative
         bg-primario-variacao-3
     }
 
@@ -331,5 +331,14 @@
         @apply
         w-[72px]
         bg-limao-variacao-1
+    }
+
+    /* Group Sections - Sou Produtor */
+
+    .group-sections-sou-produtor {
+        @apply
+        bg-primario-variacao-3 relative overflow-hidden
+        md:rounded-t-[80px] sm:rounded-t-[64px] rounded-t-[48px]
+        pb-20 -mb-20
     }
 }

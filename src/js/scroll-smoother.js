@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         smoothTouch: 0.1,
         normalizeScroll: false,
         ignoreMobileResize: false,
-        preventDefault: true
+        preventDefault: true,
     });
 
     function refreshAll() {
