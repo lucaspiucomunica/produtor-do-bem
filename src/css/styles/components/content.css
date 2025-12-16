@@ -76,6 +76,16 @@
         text-secundario-principal
     }
 
+    .content-text.content-text--small p {
+        @apply
+        text-sm
+    }
+
+    .content-text.content-text--large p {
+        @apply
+        text-xl
+    }
+
     /* Content Icon */
     .content-icon {
         @apply
@@ -133,6 +143,16 @@
         fill-neutro-branco
     }
 
+    .content-icon.content-icon--terciario {
+        @apply
+        bg-secundario-principal
+    }
+
+    .content-icon.content-icon--terciario svg {
+        @apply
+        fill-primario-variacao-5
+    }
+
     /* Content Group Image Icon Floating */
     .content-group-image-icon-floating {
         @apply
@@ -143,5 +163,40 @@
         @apply
         absolute xl:bottom-20 xl:-left-10 sm:left-10 sm:bottom-10 left-6 bottom-6
     }
-    
-}
+
+    /* Content Icons */
+    .content-btn-icons {
+        @apply
+        flex flex-col items-center justify-center
+    }
+
+    .content-btn-icons .content-icons {
+        @apply
+        relative z-0
+        flex items-center justify-center -mb-3
+    }
+
+    .content-btn-icons .content-icons .content-icon {
+        @apply
+        z-10 scale-100
+        first:z-0 last:z-0
+        first:-rotate-[6deg] last:rotate-[6deg]
+        first:-mb-3 last:-mb-3
+        first:-mr-1 last:-ml-1
+        transition-all duration-[400ms]
+    }
+
+    .content-btn-icons .btn {
+        @apply
+        relative z-10
+    }
+
+    .content-btn-icons:hover .content-icons .content-icon {
+        @apply
+        scale-110
+        first:-rotate-[8deg] last:rotate-[8deg]
+        first:-mb-4 last:-mb-4
+        first:-mr-2 last:-ml-2
+        first:scale-90 last:scale-90
+    }
+}   

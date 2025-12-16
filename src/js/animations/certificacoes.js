@@ -10,11 +10,21 @@ import {
     animateOnScroll,
     waitForTransition,
     initSectionAnimation,
-    signalHeroComplete
+    signalHeroComplete,
+    applyHeroFinalState,
+    hasUrlHash
 } from './animations-utils.js';
 
 function animateCertificacoesHeroSection() {
     const sectionHero = document.querySelector('#hero');
+
+    // Se há hash na URL, pular animação do hero
+    if (hasUrlHash()) {
+        applyHeroFinalState(sectionHero);
+        signalHeroComplete();
+        return;
+    }
+
     const sectionHeroTitle = sectionHero.querySelector('.hero-content .titulo h1 .title');
     const sectionHeroTitleDestaque = sectionHero.querySelector('.hero-content .titulo h1 .destaque');
     const sectionHeroContentText = sectionHero.querySelectorAll('.hero-content .content-text p');
@@ -159,7 +169,7 @@ function animateCertificacoesCertificacoesSection() {
 function animateCertificacoesComoObterSection() {
     const sectionComoObter = document.querySelector('#como-obter');
     const sectionComoObterTitle = sectionComoObter.querySelector('.content-text h2');
-    const sectionComoObterItems = sectionComoObter.querySelectorAll('.passo-a-passo-1-item');
+    const sectionComoObterItems = sectionComoObter.querySelectorAll('.lista-itens-icones-imagens-item');
 
     const tlComoObter = createScrollTimeline(sectionComoObter, 'veryEarly');
 

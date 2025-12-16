@@ -1,0 +1,467 @@
+@layer components {
+    /* Hero - Sou Produtor */
+
+    .section-hero-custom-1.sections-sou-produtor-hero .hero-content .titulo h1 .title {
+        @apply
+        max-w-[748px]
+    }
+
+    .section-hero-custom-1.sections-sou-produtor-hero .hero-content .content-text {
+        @apply
+        max-w-[748px]
+    }
+
+    /* Intro - Sou Produtor */
+
+    .sections-sou-produtor-intro,
+    .sections-sou-varejista-intro {
+        @apply
+        p-section-top relative
+    }
+
+    .sections-sou-produtor-intro .content-text {
+        @apply
+        max-w-[892px] mx-auto
+    }
+
+    .sections-sou-produtor-intro .card,
+    .sections-sou-varejista-intro .card {
+        @apply
+        relative overflow-hidden
+        w-full h-full p-8
+        flex flex-col justify-between gap-8
+        rounded-4xl
+        bg-neutro-principal
+    }
+
+    .sections-sou-produtor-intro .card.card-destaque,
+    .sections-sou-varejista-intro .card.card-destaque {
+        @apply
+        bg-limao-variacao-1
+    }
+
+    .sections-sou-produtor-intro .card .card-header .card-icon,
+    .sections-sou-varejista-intro .card .card-header .card-icon {
+        @apply
+        flex flex-row gap-3
+    }
+
+    .sections-sou-produtor-intro .card .card-header .card-icon .card-image,
+    .sections-sou-varejista-intro .card .card-header .card-icon .card-image {
+        @apply
+        w-auto overflow-hidden rounded-2xl
+        min-w-20 max-w-20
+    }
+
+    .sections-sou-produtor-intro .card .card-header .card-icon .card-image img,
+    .sections-sou-varejista-intro .card .card-header .card-icon .card-image img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .sections-sou-produtor-intro .card .card-body .card-text,
+    .sections-sou-varejista-intro .card .card-body .card-text {
+        @apply
+       *:mb-2 last:*:mb-0
+    }
+
+    .sections-sou-produtor-intro .card .card-body .card-text h3,
+    .sections-sou-varejista-intro .card .card-body .card-text h3 {
+        @apply
+        mt-4 first:mt-0
+    }
+
+    .sections-sou-produtor-intro .card .card-body .card-fonte,
+    .sections-sou-varejista-intro .card .card-body .card-fonte {
+        @apply
+        text-sm text-neutro-variacao-5 italic mt-2
+    }
+
+    /* Produtor do Bem - Sou Produtor */
+
+    .sections-sou-produtor-produtor-do-bem,
+    .sections-sou-varejista-produtor-do-bem {
+        @apply
+        p-section-top relative
+    }
+
+    /* Conectamos - Sou Produtor */
+
+    .sections-sou-produtor-conectamos {
+        @apply
+        p-section relative
+    }
+
+    .sections-sou-produtor-conectamos .box {
+        @apply
+        px-10 py-20 rounded-4xl bg-limao-variacao-1
+    }
+
+    .sections-sou-produtor-conectamos .box .item,
+    .sections-sou-varejista-outras-certificacoes .certificacao {
+        @apply
+        w-full
+        flex flex-col justify-between gap-4
+        bg-neutro-branco hover:bg-primario-variacao-3
+        p-8 rounded-3xl
+        transition-all duration-[400ms]
+    }
+    
+    .sections-sou-varejista-outras-certificacoes .certificacao {
+        @apply
+        bg-neutro-principal hover:bg-limao-variacao-1
+    }
+
+    .sections-sou-produtor-conectamos .box .item h3,
+    .sections-sou-varejista-outras-certificacoes .certificacao h3 {
+        @apply
+        text-xl font-bold font-body
+        transition-colors duration-[400ms]
+    }
+
+    .sections-sou-produtor-conectamos .box .item:hover h3 {
+        @apply
+        text-limao-principal
+    }
+
+    .sections-sou-produtor-conectamos .box .item svg,
+    .sections-sou-varejista-outras-certificacoes .certificacao svg {
+        @apply
+        w-10 h-10
+        *:fill-primario-variacao-3
+        transition-all duration-[400ms]
+    }
+
+    .sections-sou-produtor-conectamos .box .item:hover svg {
+        @apply
+        *:fill-limao-variacao-1
+        scale-110
+        -rotate-3
+    }
+
+    .sections-sou-varejista-outras-certificacoes .certificacao:hover svg {
+        @apply
+        scale-110 -rotate-3
+    }
+
+    /* Conectores - estados hover */
+    .sections-sou-produtor-conectamos .box .conector-linha svg,
+    .sections-sou-produtor-conectamos .box .conector-coluna svg {
+        @apply
+        *:transition-colors *:duration-[400ms]
+    }
+
+    .sections-sou-varejista-outras-certificacoes .conector-coluna svg {
+        @apply
+        *:fill-neutro-principal
+    }
+
+    .sections-sou-produtor-conectamos .box .conector-linha.active svg,
+    .sections-sou-produtor-conectamos .box .conector-coluna.active svg {
+        @apply
+        *:fill-primario-variacao-3
+    }
+
+    /* Otimizações de performance para hover */
+    .sections-sou-produtor-conectamos .box .item {
+        @apply
+        will-change-[background-color,transform]
+    }
+
+    .sections-sou-produtor-conectamos .box .item svg {
+        @apply
+        will-change-[transform]
+    }
+
+    .sections-sou-produtor-conectamos .box .conector-linha svg,
+    .sections-sou-produtor-conectamos .box .conector-coluna svg {
+        @apply
+        will-change-[fill]
+    }
+
+    /* Como Ser - Sou Produtor */
+
+    .sections-sou-produtor-como-ser {
+        @apply
+        p-section-top relative
+        bg-primario-variacao-3
+    }
+
+    .sections-sou-produtor-como-ser .disclaimer {
+        @apply
+        relative p-6 rounded-3xl bg-primario-variacao-4
+        flex items-start gap-4
+    }
+
+    .sections-sou-produtor-como-ser .disclaimer svg {
+        @apply
+        *:fill-limao-variacao-1
+    }
+
+    /* Depoimentos - Sou Produtor */
+
+    .sections-sou-produtor-depoimentos {
+        @apply
+        p-section-top relative
+        bg-primario-variacao-3
+    }
+
+    .sections-sou-produtor-depoimentos .box {
+        @apply
+        py-20 rounded-4xl bg-primario-variacao-4
+    }
+
+    .sections-sou-produtor-depoimentos .box .box-header {
+        @apply
+        mb-10 px-10
+    }
+
+    .sections-sou-produtor-depoimentos .box .box-header .content-text {
+        @apply
+        px-10
+        max-w-[754px] mx-auto
+    }
+
+    /* Carrossel de Depoimentos */
+
+    .swiper-depoimentos {
+        @apply
+        w-full relative
+    }
+
+    .swiper-depoimentos .swiper-slide {
+        @apply
+        opacity-[0.24]
+        h-auto
+        w-[580px];
+        transition: opacity 500ms ease, transform 500ms ease;
+    }
+
+    .swiper-depoimentos .swiper-slide-active {
+        @apply
+        opacity-100
+    }
+
+    .depoimento-card {
+        @apply
+        flex flex-col gap-10
+        p-10 rounded-3xl
+        h-full
+        border-2 border-limao-variacao-1
+        w-full
+    }
+
+    .depoimento-texto {
+        @apply
+        text-lg text-primario-variacao-5
+        font-body font-normal text-center
+    }
+
+    .depoimento-autor {
+        @apply
+        flex items-center gap-4 items-start
+    }
+
+    .depoimento-avatar {
+        @apply
+        w-20 h-20 rounded-full overflow-hidden flex-shrink-0
+        bg-primario-principal
+        flex items-center justify-center
+    }
+
+    .depoimento-avatar img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .depoimento-avatar svg {
+        @apply
+        w-10 h-10
+        *:fill-limao-variacao-1
+    }
+
+    .depoimento-info {
+        @apply
+        flex flex-col gap-0
+    }
+
+    .depoimento-nome {
+        @apply
+        text-xl font-display font-semibold
+        text-limao-variacao-1
+    }
+
+    .depoimento-cargo {
+        @apply
+        text-base font-body font-normal
+        text-neutro-variacao-2
+    }
+
+    /* Navegação do Carrossel */
+
+    .depoimento-nav {
+        @apply
+        w-full max-w-[620px] mx-auto flex items-center justify-between gap-4
+        absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10
+        pointer-events-none
+    }
+
+    .depoimento-nav-prev,
+    .depoimento-nav-next {
+        @apply
+        bg-limao-variacao-1 text-primario-variacao-4
+        rounded-full p-3
+        flex items-center justify-center
+        transition-all duration-300
+        hover:scale-110 active:scale-95
+        cursor-pointer
+        pointer-events-auto
+    }
+
+    .depoimento-nav-prev:focus,
+    .depoimento-nav-next:focus {
+        @apply
+        outline-none
+    }
+
+    .depoimento-nav-prev svg,
+    .depoimento-nav-next svg {
+        @apply
+        w-5 h-5
+        *:fill-primario-variacao-4
+    }
+
+    /* Inverter ícone do botão anterior */
+    .depoimento-nav-prev {
+        @apply
+        rotate-180
+    }
+
+    /* Paginação Customizada */
+
+    .depoimento-pagination {
+        @apply
+        !w-full !pt-0 px-10
+        flex items-center justify-center gap-3
+    }
+
+    .depoimento-pagination .swiper-pagination-bullet {
+        @apply
+        h-[10px] w-9 rounded-full
+        bg-primario-variacao-5
+        opacity-100
+        transition-all duration-300
+        cursor-pointer
+        !m-0
+    }
+
+    .depoimento-pagination .swiper-pagination-bullet-active {
+        @apply
+        w-[72px]
+        bg-limao-variacao-1
+    }
+
+    /* Group Sections - Sou Produtor */
+
+    .group-sections-sou-produtor,
+    .group-sections-sou-varejista {
+        @apply
+        bg-primario-variacao-3 relative overflow-hidden
+        md:rounded-t-[80px] sm:rounded-t-[64px] rounded-t-[48px]
+        pb-20 -mb-20
+    }
+    
+    /* Selos - Sou Varejista */
+
+    .sections-sou-varejista-selos {
+        @apply
+        p-section-top relative
+    }
+
+    .sections-sou-varejista-selos .box {
+        @apply
+        px-10 py-20 rounded-4xl bg-primario-variacao-5
+    }
+
+    .sections-sou-varejista-selos .box .selo {
+        @apply
+        flex flex-col gap-6
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content {
+        @apply
+        relative
+        w-full px-8 mx-auto
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content .ligacao {
+        @apply
+        absolute top-8 left-0
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+        @apply
+        left-auto right-0
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content .ligacao svg {
+        @apply
+        relative z-10
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao svg {
+        @apply
+        rotate-180
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left .ligacao,
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+        @apply
+        top-auto bottom-6
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content::after {
+        @apply
+        content-['']
+        absolute top-[calc(27px+32px)] left-[22px]
+        w-0.5 h-[calc(100%-27px-32px+24px)]
+        bg-limao-variacao-1
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+        @apply
+        left-auto right-[22px]
+    }
+
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left::after,
+    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+        @apply
+        top-auto h-14 -mt-8
+    }
+    
+    .sections-sou-varejista-selos .box .selo .selo-text {
+        @apply
+        px-6 py-8 rounded-3xl border-2 border-limao-variacao-1
+        text-xl text-neutro-branco
+        font-body font-semibold
+    }
+
+    /* Outras Certificações - Sou Varejista */
+
+    .sections-sou-varejista-outras-certificacoes {
+        @apply
+        p-section-top relative
+    }
+
+    /* Como Ter - Sou Varejista */
+
+    .sections-sou-varejista-como-ter {
+        @apply
+        p-section relative
+    }
+
+    .sections-sou-varejista-como-ter .box {
+        @apply
+        px-10 py-20 rounded-4xl bg-neutro-principal
+    }
+}

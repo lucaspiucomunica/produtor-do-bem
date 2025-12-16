@@ -1,0 +1,8 @@
+@layer components {
+    /* Form - Fale Conosco */
+
+    .sections-fale-conosco-form {
+        @apply
+        p-section-bottom
+    }
+}

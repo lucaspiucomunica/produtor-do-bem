@@ -20,7 +20,7 @@
         flex sm-plus:flex-row flex-col sm-plus:items-center items-start lg-plus:gap-10 gap-6
         sm-plus:pl-3 pl-6 sm-plus:py-3 py-8 sm-plus:pr-4 pr-6
         rounded-3xl
-        bg-neutro-principal outline-2 outline outline-neutro-variacao-1
+        bg-neutro-principal outline-2 -outline-offset-2 outline outline-neutro-variacao-1
     }
 
     .timeline-1 .timeline-1-item.item-active {
@@ -30,8 +30,8 @@
 
     .timeline-1 .timeline-1-item:last-child {
         @apply
-        bg-primario-variacao-5
-        outline-secundario-principal
+        bg-limao-variacao-1
+        outline-transparent
     }
 
     .timeline-1 .timeline-1-item-count {
@@ -50,12 +50,6 @@
         lg:text-6xl text-4xl font-display font-semibold
     }
 
-    .timeline-1 .timeline-1-item:last-child .timeline-1-item-count-number {
-        @apply
-        text-limao-variacao-1
-        bg-primario-principal
-    }
-
     .timeline-1 .timeline-1-item-count-icon {
         @apply
         lg:w-30 lg:h-30 lg:min-w-30 lg:min-h-30
@@ -66,12 +60,22 @@
         bg-limao-variacao-1 text-primario-variacao-5
     }
 
+    .timeline-1 .timeline-1-item:last-child .timeline-1-item-count-icon {
+        @apply
+        bg-primario-principal
+    }
+
     .timeline-1 .timeline-1-item-count-icon svg {
         @apply
         lg:w-10 lg:h-10 lg:min-w-10 lg:min-h-10
         sm-plus:w-8 sm-plus:h-8 sm-plus:min-w-8 sm-plus:min-h-8
         w-6 h-6 min-w-6 min-h-6
         fill-primario-variacao-3
+    }
+
+    .timeline-1 .timeline-1-item:last-child .timeline-1-item-count-icon svg {
+        @apply
+        fill-limao-variacao-1
     }
 
     .timeline-1 .timeline-1-item-content {
@@ -81,17 +85,12 @@
 
     .timeline-1 .timeline-1-item-content h3 {
         @apply
-        lg-plus:text-2xl text-xl font-regular
+        lg-plus:text-2xl text-xl
     }
 
     .timeline-1 .timeline-1-item-content h3 strong {
         @apply
         font-semibold
-    }
-
-    .timeline-1 .timeline-1-item:last-child .timeline-1-item-content h3 {
-        @apply
-        text-neutro-branco
     }
 
     .timeline-1 .timeline-1-line {
@@ -101,8 +100,8 @@
 
     .timeline-1 .timeline-1-line-line {
         @apply
-        absolute top-0 left-1/2 -translate-x-1/2
-        w-2 h-full bg-neutro-variacao-1 rounded-full
+        absolute top-[8px] left-1/2 -translate-x-1/2
+        w-2 h-[calc(100%-16px)] bg-neutro-variacao-1 rounded-full
     }
 
     .timeline-1 .timeline-1-line-line-progress {
@@ -126,7 +125,7 @@
 
     .timeline-1 .timeline-1-line-dot.item-active {
         @apply
-        bg-secundario-principal
+        bg-primario-principal
     }
 
 }

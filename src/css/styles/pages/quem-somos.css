@@ -1,0 +1,108 @@
+@layer components {
+    /* Hero - Quem Somos */
+
+    .sections-quem-somos-hero {
+        @apply
+        relative
+        pt-36
+    }
+
+    .sections-quem-somos-hero .hero-content .titulo {
+        @apply
+        mb-6
+    }
+
+    .sections-quem-somos-hero .hero-content .titulo h1 {
+        @apply
+        inline-flex flex-col items-start
+    }
+
+    .sections-quem-somos-hero .hero-content .titulo h1 .destaque {
+        @apply
+        text-primario-principal
+    }
+
+    .sections-quem-somos-hero .hero-image {
+        @apply
+        relative
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-content {
+        @apply
+        relative overflow-hidden
+        w-full h-full aspect-square rounded-full rounded-bl-none
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-content img {
+        @apply
+        w-full h-full object-cover object-center
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons {
+        @apply
+        absolute top-0 left-0 w-full h-full z-10
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon {
+        @apply
+        absolute
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon:nth-child(1) {
+        @apply
+        top-8 right-8
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon:nth-child(2) {
+        @apply
+        top-28 left-0
+    }
+
+    .sections-quem-somos-hero .hero-image .hero-image-icons .hero-image-icon:nth-child(3) {
+        @apply
+        bottom-3 right-20
+    }
+
+    /* O Que Fazemos - Quem Somos */
+
+    .sections-quem-somos-o-que-fazemos {
+        @apply
+        p-section-top overflow-hidden
+    }
+
+    .sections-quem-somos-o-que-fazemos .carrossel-o-que-significa {
+        @apply
+        relative overflow-hidden
+        rounded-4xl
+        bg-neutro-principal
+        flex lg:flex-row flex-col gap-10
+        py-14 lg:px-10 md:px-8 px-6
+    }
+
+    .sections-quem-somos-o-que-fazemos .carrossel-o-que-significa .left {
+        @apply
+        lg:w-3/12 w-full
+        relative
+    }
+
+    .sections-quem-somos-o-que-fazemos .carrossel-o-que-significa .right {
+        @apply
+        lg:w-9/12 w-full
+    }
+
+    /* Produtores e Empresas - Quem Somos */
+
+    .sections-quem-somos-produtores-e-empresas {
+        @apply
+        p-section-top
+    }
+
+    /* Comitê Técnico Consultivo - Quem Somos */
+
+    .sections-quem-somos-ct-consultivo .section-content  {
+        @apply
+        w-full p-section-top
+        bg-primario-variacao-5
+        rounded-4xl
+    }
+}

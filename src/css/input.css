@@ -5,10 +5,10 @@
 @import url('libs/swiper-bundle.min.css');
 
 /* Base e configurações fundamentais */
-@import './styles/base.css';
+@import './styles/global/base.css';
 
 /* Transições de página */
-@import './styles/transitions.css';
+@import './styles/global/transitions.css';
 
 /* Componentes reutilizáveis - Base */
 @import './styles/components/buttons.css';
@@ -32,20 +32,26 @@
 @import './styles/components/lists.css';
 @import './styles/components/steps.css';
 @import './styles/components/accordion.css';
+@import './styles/components/hero.css';
 
 /* Swiper */
-@import './styles/slides-swiper.css';
+@import './styles/slides/slides-swiper.css';
+@import './styles/slides/slide-criterios.css';
 
 /* Layout (header, footer, etc.) */
-@import './styles/header.css';
-@import './styles/footer.css';
+@import './styles/layout/header.css';
+@import './styles/layout/footer.css';
 
-/* Seções específicas e reutilizáveis do site */
-@import './styles/components/hero.css';
-@import './styles/sections.css';
-
-/* Slide - Critérios */
-@import './styles/slide-criterios.css';
+/* Especificidades de seções das páginas */
+@import './styles/pages/pagina-principal.css';
+@import './styles/pages/sou.css';
+@import './styles/pages/quem-somos.css';
+@import './styles/pages/protocolos-e-selos.css';
+@import './styles/pages/cpt-protocolo.css';
+@import './styles/pages/certificacoes.css';
+@import './styles/pages/fale-conosco.css';
+@import './styles/pages/faq.css';
+@import './styles/pages/outros-servicos.css';
 
 /* Classes utilitárias customizadas */
-@import './styles/utilities.css';	
+@import './styles/global/utilities.css';

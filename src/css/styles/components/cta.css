@@ -50,6 +50,22 @@
         w-10 h-10
     }
 
+    .cta-1.cta-1--style-2 {
+        @apply
+        relative
+        bg-primario-variacao-3
+    }
+
+    .cta-1.cta-1--style-2 .content-cta .content-text h2 {
+        @apply
+        text-neutro-branco
+    }
+
+    .cta-1.cta-1--style-2 .content-cta .content-text h2 .destaque {
+        @apply
+        text-limao-variacao-1
+    }
+
     /* CTA 2 */
 
     .cta-2 {
@@ -103,6 +119,13 @@
         @apply
         pointer-events-auto
         shadow-2xl
+    }
+
+    /* CTA 1- Global */
+
+    .template-parts-globals-cta-1 .content-cta .content-text {
+        @apply
+        max-w-full
     }
 
 }

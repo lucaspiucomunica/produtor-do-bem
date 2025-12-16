@@ -1,0 +1,15 @@
+@layer components {
+    /* Hero - FAQ */
+
+    .section-hero-custom-2.sections-faq-hero .content-text {
+        @apply
+        max-w-[800px] mx-auto
+    }
+
+    /* FAQ - FAQ */
+
+    .sections-faq-faq {
+        @apply 
+        p-section-bottom relative
+    }
+}

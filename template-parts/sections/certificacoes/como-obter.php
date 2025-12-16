@@ -23,10 +23,10 @@ if (!$como_obter_titulo) {
         </div>
 
         <div class="flex">
-            <div class="passo-a-passo-1">
+            <div class="lista-itens-icones-imagens">
                 <?php $count = 0; foreach ($como_obter_passo_a_passo as $passo) : $count++; ?>
-                    <div class="passo-a-passo-1-item">
-                        <div class="passo-a-passo-1-item-count">
+                    <div class="lista-itens-icones-imagens-item">
+                        <div class="lista-itens-icones-imagens-item-count">
                             <div class="number">
                                 <?php echo $count; ?>
                             </div>
@@ -41,7 +41,7 @@ if (!$como_obter_titulo) {
                             <?php endif; ?>
                         </div>
 
-                        <div class="passo-a-passo-1-item-content">
+                        <div class="lista-itens-icones-imagens-item-content">
                             <div class="content-text">
                                 <?php echo $passo['conteudo']; ?>
                             </div>

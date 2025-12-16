@@ -6,11 +6,21 @@ import {
     createScrollTimeline,
     waitForTransition,
     signalHeroComplete,
-    HERO_ANIMATION_COMPLETE
+    HERO_ANIMATION_COMPLETE,
+    applyHeroFinalState,
+    hasUrlHash
 } from './animations-utils.js';
 
 function animateFAQHeroSection() {
     const sectionFAQ = document.querySelector('#hero');
+
+    // Se há hash na URL, pular animação do hero
+    if (hasUrlHash()) {
+        applyHeroFinalState(sectionFAQ);
+        signalHeroComplete();
+        return;
+    }
+
     const sectionFAQTitle = sectionFAQ.querySelector('.content-text h1');
     const sectionFAQContentText = sectionFAQ.querySelectorAll('.content-text p');
 

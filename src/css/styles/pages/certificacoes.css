@@ -1,0 +1,80 @@
+@layer components {
+    /* Hero - Certificações */
+
+    .sections-certificacoes-hero {
+        @apply
+        relative
+        bg-primario-variacao-5
+        lg:pt-48 xs:pt-44 pt-36 sm:pb-24 sm-plus:pb-56 pb-40 md:rounded-b-[80px] sm:rounded-b-[64px] rounded-b-[48px]
+        flex items-center justify-center relative overflow-hidden
+    }
+
+    .sections-certificacoes-hero .hero-content {
+        @apply
+        relative z-10
+        flex flex-col items-center space-y-6
+        w-full lg:max-w-[776px] sm:max-w-[586px] max-w-[420px] mx-auto
+    }
+
+    .sections-certificacoes-hero .hero-content .titulo h1 {
+        @apply
+        lg:text-5xl/[56px] xxs:text-4xl/[48px] text-3xl/[40px] text-center text-neutro-branco
+        flex flex-col items-center
+    }
+
+    .sections-certificacoes-hero .hero-content .titulo h1 .destaque {
+        @apply
+        text-limao-variacao-1
+    }
+
+    .sections-certificacoes-hero .hero-content .content-text {
+        @apply
+        text-center text-neutro-branco
+    }
+
+    .sections-certificacoes-hero .hero-ilustracoes {
+        @apply
+        absolute -bottom-10 -left-20 -right-20 z-0 gap-10
+        flex flex-row justify-between
+    }
+
+    .sections-certificacoes-hero .hero-ilustracoes .hero-ilustracao {
+        @apply
+        w-full h-auto lg:max-w-[408px] md:max-w-[328px] sm:max-w-[288px] sm-plus:max-w-[328px] max-w-[268px]
+    }
+
+    /* Método - Certificações */
+
+    .sections-certificacoes-metodo {
+        @apply
+        p-section-top
+    }
+
+    /* Níveis - Certificações */
+
+    .sections-certificacoes-niveis {
+        @apply
+        p-section-top
+    }
+
+    /* Certificações - Certificações */
+
+    .sections-certificacoes-certificacoes {
+        @apply
+        p-section-top
+    }
+
+    .sections-certificacoes-certificacoes-content {
+        @apply
+        w-full p-section
+        bg-primario-variacao-5
+        rounded-4xl
+    }
+
+    /* Como Obter - Certificações */
+
+    .sections-certificacoes-como-obter {
+        @apply
+        p-section-top
+    }
+}

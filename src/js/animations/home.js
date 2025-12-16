@@ -11,14 +11,23 @@ import {
     animateSlideX,
     waitForTransition,
     initSectionAnimation,
-    signalHeroComplete
+    signalHeroComplete,
+    applyHeroFinalState,
+    hasUrlHash
 } from './animations-utils.js';
 
 function animateHomeHeroSection() {
     const siteHeader = document.querySelector('.site-header');
     const sectionHero = document.querySelector('#hero');
-    
+
     if (!elementExists(sectionHero)) return;
+
+    // Se há hash na URL, pular animação do hero
+    if (hasUrlHash()) {
+        applyHeroFinalState(sectionHero);
+        signalHeroComplete();
+        return;
+    }
     
     const sectionHeroVideo = sectionHero.querySelector('.hero-bg-video video');
     const sectionHeroTitle = sectionHero.querySelector('.hero-content .titulo h1 .title');

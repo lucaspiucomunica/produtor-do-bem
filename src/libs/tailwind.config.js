@@ -26,6 +26,7 @@ module.exports = {
     // Outras classes dinâmicas se necessário
     'p-section',
     'p-section-top',
+    'cta-1--style-2',
   ],
 
   // Estilos
