@@ -4,17 +4,16 @@ import {
     createScrollTimeline,
     animateTitleLines,
     animateTitle,
-    animateText,
     waitForTransition,
     initSectionAnimation,
-    animateFadeIn,
+    animateText,
     animateButton,
     animateCards,
     signalHeroComplete,
     animateOnScroll,
     animateScaleWithScrub,
     animateScale,
-    animateSlideX,
+    animateSlideY,
     applyHeroFinalState,
     hasUrlHash
 } from './animations-utils.js';
@@ -87,6 +86,59 @@ function animateSouVarejistaPdbSection() {
     });
 }
 
+function animateSouVarejistaSelosSection() {
+    const sectionSelos = document.querySelector('#selos');
+    const sectionSelosBox = sectionSelos.querySelector('#selos .box');
+    const sectionSelosTitle = sectionSelos.querySelector('.content-text h2');
+    const sectionSelosItems = sectionSelos.querySelectorAll('.selo');
+
+    animateScaleWithScrub(sectionSelosBox, sectionSelos);
+
+    const tlSelos = gsap.timeline({
+        scrollTrigger: {
+            trigger: sectionSelos,
+            start: "0% 70%",
+            end: "50% 50%",
+        }
+    });
+
+    animateTitle(tlSelos, sectionSelosTitle, CONFIG.offset.none);
+    animateCards(tlSelos, sectionSelosItems, CONFIG.offset.normal);
+}
+
+function animateSouVarejistaOutrasCertificacoesSection() {
+    const sectionOutrasCertificacoes = document.querySelector('#outras-certificacoes');
+    const sectionOutrasCertificacoesTitle = sectionOutrasCertificacoes.querySelector('.content-text h2');
+    const sectionOutrasCertificacoesItems = sectionOutrasCertificacoes.querySelector('.items');
+    const sectionOutrasCertificacoesButton = sectionOutrasCertificacoes.querySelector('.content-btn-icons');
+
+    const tlOutrasCertificacoes = createScrollTimeline(sectionOutrasCertificacoes);
+
+    animateTitle(tlOutrasCertificacoes, sectionOutrasCertificacoesTitle, CONFIG.offset.none);
+    animateSlideY(tlOutrasCertificacoes, sectionOutrasCertificacoesItems, CONFIG.offset.normal);
+    animateScale(tlOutrasCertificacoes, sectionOutrasCertificacoesButton, CONFIG.offset.normal);
+}
+
+function animateSouVarejistaComoTerSection() {
+    const sectionComoTer = document.querySelector('#como-ter');
+    const sectionComoTerBox = sectionComoTer.querySelector('.box');
+    const sectionComoTerContentTitle = sectionComoTer.querySelector('.content-text h2');
+    const sectionComoTerContentText = sectionComoTer.querySelectorAll('.content-text p');
+
+    animateScaleWithScrub(sectionComoTerBox, sectionComoTer);
+
+    const tlComoTer = gsap.timeline({
+        scrollTrigger: {
+            trigger: sectionComoTer,
+            start: "0% 70%",
+            end: "50% 50%",
+        }
+    });
+
+    animateTitle(tlComoTer, sectionComoTerContentTitle, CONFIG.offset.none);
+    animateText(tlComoTer, sectionComoTerContentText, CONFIG.offset.normal);
+}
+
 function initSouVarejistaAnimations() {
     // Aguarda transição completar antes de animar hero section
     waitForTransition(() => {
@@ -96,9 +148,9 @@ function initSouVarejistaAnimations() {
     // Usa initSectionAnimation para aguardar Hero se visível na viewport inicial
     initSectionAnimation('#introducao', animateSouVarejistaIntroSection);
     initSectionAnimation('#produtor-do-bem', animateSouVarejistaPdbSection);
-
-    // Inicializa efeito de hover na seção Conectamos
-    initConectamosHoverEffect();
+    initSectionAnimation('#selos', animateSouVarejistaSelosSection);
+    initSectionAnimation('#outras-certificacoes', animateSouVarejistaOutrasCertificacoesSection);
+    initSectionAnimation('#como-ter', animateSouVarejistaComoTerSection);
 }
 
 document.addEventListener('DOMContentLoaded', () => {

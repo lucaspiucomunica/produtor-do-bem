@@ -97,19 +97,26 @@
         px-10 py-20 rounded-4xl bg-limao-variacao-1
     }
 
-    .sections-sou-produtor-conectamos .box .item {
+    .sections-sou-produtor-conectamos .box .item,
+    .sections-sou-varejista-outras-certificacoes .certificacao {
         @apply
         w-full
         flex flex-col justify-between gap-4
         bg-neutro-branco hover:bg-primario-variacao-3
         p-8 rounded-3xl
-        transition-all duration-[400]
+        transition-all duration-[400ms]
+    }
+    
+    .sections-sou-varejista-outras-certificacoes .certificacao {
+        @apply
+        bg-neutro-principal hover:bg-limao-variacao-1
     }
 
-    .sections-sou-produtor-conectamos .box .item h3 {
+    .sections-sou-produtor-conectamos .box .item h3,
+    .sections-sou-varejista-outras-certificacoes .certificacao h3 {
         @apply
         text-xl font-bold font-body
-        transition-colors duration-[400]
+        transition-colors duration-[400ms]
     }
 
     .sections-sou-produtor-conectamos .box .item:hover h3 {
@@ -117,11 +124,12 @@
         text-limao-principal
     }
 
-    .sections-sou-produtor-conectamos .box .item svg {
+    .sections-sou-produtor-conectamos .box .item svg,
+    .sections-sou-varejista-outras-certificacoes .certificacao svg {
         @apply
         w-10 h-10
         *:fill-primario-variacao-3
-        transition-all duration-[400]
+        transition-all duration-[400ms]
     }
 
     .sections-sou-produtor-conectamos .box .item:hover svg {
@@ -131,11 +139,21 @@
         -rotate-3
     }
 
+    .sections-sou-varejista-outras-certificacoes .certificacao:hover svg {
+        @apply
+        scale-110 -rotate-3
+    }
+
     /* Conectores - estados hover */
     .sections-sou-produtor-conectamos .box .conector-linha svg,
     .sections-sou-produtor-conectamos .box .conector-coluna svg {
         @apply
-        *:transition-colors *:duration-[400]
+        *:transition-colors *:duration-[400ms]
+    }
+
+    .sections-sou-varejista-outras-certificacoes .conector-coluna svg {
+        @apply
+        *:fill-neutro-principal
     }
 
     .sections-sou-produtor-conectamos .box .conector-linha.active svg,
@@ -357,7 +375,7 @@
 
     .sections-sou-varejista-selos {
         @apply
-        p-section relative
+        p-section-top relative
     }
 
     .sections-sou-varejista-selos .box {
@@ -373,8 +391,7 @@
     .sections-sou-varejista-selos .box .selo .selo-content {
         @apply
         relative
-        w-full max-w-[308px] mx-auto
-        px-10
+        w-full px-8 mx-auto
     }
 
     .sections-sou-varejista-selos .box .selo .selo-content .ligacao {
@@ -427,5 +444,24 @@
         px-6 py-8 rounded-3xl border-2 border-limao-variacao-1
         text-xl text-neutro-branco
         font-body font-semibold
+    }
+
+    /* Outras Certificações - Sou Varejista */
+
+    .sections-sou-varejista-outras-certificacoes {
+        @apply
+        p-section-top relative
+    }
+
+    /* Como Ter - Sou Varejista */
+
+    .sections-sou-varejista-como-ter {
+        @apply
+        p-section relative
+    }
+
+    .sections-sou-varejista-como-ter .box {
+        @apply
+        px-10 py-20 rounded-4xl bg-neutro-principal
     }
 }

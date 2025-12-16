@@ -12,6 +12,8 @@ get_header();
     <?php get_template_part('template-parts/sections/sou-varejista/intro'); ?>
     <?php get_template_part('template-parts/sections/sou-varejista/produtor-do-bem'); ?>
     <?php get_template_part('template-parts/sections/sou-varejista/selos'); ?>
+    <?php get_template_part('template-parts/sections/sou-varejista/outras-certificacoes'); ?>
+    <?php get_template_part('template-parts/sections/sou-varejista/como-ter'); ?>
     
     <div class="group-sections-sou-varejista">
         <?php get_template_part('template-parts/globals/cta-1', '', array('style' => 'style-2')); ?>
