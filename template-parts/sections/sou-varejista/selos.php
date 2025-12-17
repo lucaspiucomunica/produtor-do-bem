@@ -14,7 +14,7 @@ if (!$selos_titulo) {
 }
 ?>
 
-<section id="selos" class="<?php echo get_class_section(); ?>">
+<section id="selos" class="<?php echo get_class_section(); ?> sections-sou-selos">
     <div class="container">
         <div class="box">
             <div class="flex mb-10">

@@ -98,7 +98,7 @@
     }
 
     .sections-sou-produtor-conectamos .box .item,
-    .sections-sou-varejista-outras-certificacoes .certificacao {
+    .section-cards-connect .certificacao {
         @apply
         w-full
         flex flex-col justify-between gap-4
@@ -107,13 +107,13 @@
         transition-all duration-[400ms]
     }
     
-    .sections-sou-varejista-outras-certificacoes .certificacao {
+    .section-cards-connect .certificacao {
         @apply
         bg-neutro-principal hover:bg-limao-variacao-1
     }
 
     .sections-sou-produtor-conectamos .box .item h3,
-    .sections-sou-varejista-outras-certificacoes .certificacao h3 {
+    .section-cards-connect .certificacao h3 {
         @apply
         text-xl font-bold font-body
         transition-colors duration-[400ms]
@@ -125,7 +125,7 @@
     }
 
     .sections-sou-produtor-conectamos .box .item svg,
-    .sections-sou-varejista-outras-certificacoes .certificacao svg {
+    .section-cards-connect .certificacao svg {
         @apply
         w-10 h-10
         *:fill-primario-variacao-3
@@ -139,7 +139,7 @@
         -rotate-3
     }
 
-    .sections-sou-varejista-outras-certificacoes .certificacao:hover svg {
+    .section-cards-connect .certificacao:hover svg {
         @apply
         scale-110 -rotate-3
     }
@@ -151,7 +151,7 @@
         *:transition-colors *:duration-[400ms]
     }
 
-    .sections-sou-varejista-outras-certificacoes .conector-coluna svg {
+    .section-cards-connect .conector-coluna svg {
         @apply
         *:fill-neutro-principal
     }
@@ -363,8 +363,7 @@
 
     /* Group Sections - Sou Produtor */
 
-    .group-sections-sou-produtor,
-    .group-sections-sou-varejista {
+    .group-last-section-footer {
         @apply
         bg-primario-variacao-3 relative overflow-hidden
         md:rounded-t-[80px] sm:rounded-t-[64px] rounded-t-[48px]
@@ -373,54 +372,55 @@
     
     /* Selos - Sou Varejista */
 
-    .sections-sou-varejista-selos {
+    .sections-sou-selos {
         @apply
         p-section-top relative
     }
 
-    .sections-sou-varejista-selos .box {
+    .sections-sou-selos .box {
         @apply
         px-10 py-20 rounded-4xl bg-primario-variacao-5
     }
 
-    .sections-sou-varejista-selos .box .selo {
+    .sections-sou-selos .box .selo {
         @apply
         flex flex-col gap-6
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content {
+    .sections-sou-selos .box .selo .selo-content {
         @apply
         relative
         w-full px-8 mx-auto
+        max-w-[380px]
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content .ligacao {
+    .sections-sou-selos .box .selo .selo-content .ligacao {
         @apply
         absolute top-8 left-0
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
         @apply
         left-auto right-0
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content .ligacao svg {
+    .sections-sou-selos .box .selo .selo-content .ligacao svg {
         @apply
         relative z-10
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao svg {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right .ligacao svg {
         @apply
         rotate-180
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left .ligacao,
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-left .ligacao,
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
         @apply
         top-auto bottom-6
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content::after {
+    .sections-sou-selos .box .selo .selo-content::after {
         @apply
         content-['']
         absolute top-[calc(27px+32px)] left-[22px]
@@ -428,18 +428,18 @@
         bg-limao-variacao-1
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right::after {
         @apply
         left-auto right-[22px]
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left::after,
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-left::after,
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right::after {
         @apply
         top-auto h-14 -mt-8
     }
     
-    .sections-sou-varejista-selos .box .selo .selo-text {
+    .sections-sou-selos .box .selo .selo-text {
         @apply
         px-6 py-8 rounded-3xl border-2 border-limao-variacao-1
         text-xl text-neutro-branco
@@ -463,5 +463,17 @@
     .sections-sou-varejista-como-ter .box {
         @apply
         px-10 py-20 rounded-4xl bg-neutro-principal
+    }
+
+    /* Produtor do Bem - Sou Consumidor */
+
+    .sections-sou-consumidor-produtor-do-bem {
+        @apply
+        p-section-top relative
+    }
+
+    .sections-sou-consumidor-outras-certificacoes {
+        @apply
+        p-section relative
     }
 }

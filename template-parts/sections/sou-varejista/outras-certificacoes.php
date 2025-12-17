@@ -14,7 +14,7 @@ if (!$outras_cert_titulo) {
 }
 ?>
 
-<section id="outras-certificacoes" class="<?php echo get_class_section(); ?>">
+<section id="outras-certificacoes" class="<?php echo get_class_section(); ?> section-cards-connect">
     <div class="container">
         <div class="flex mb-10">
             <div class="content-text text-center">

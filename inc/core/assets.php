@@ -108,6 +108,10 @@ function produtor_do_bem_enqueue_dev_scripts() {
 		wp_enqueue_script( 'produtor-do-bem-animations-sou-varejista', get_template_directory_uri() . '/src/js/animations/sou-varejista.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 	}
 
+	if (is_page('sou-consumidor')) {
+		wp_enqueue_script( 'produtor-do-bem-animations-sou-consumidor', get_template_directory_uri() . '/src/js/animations/sou-consumidor.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+	}
+
 	// Scripts globais
 	wp_enqueue_script( 'produtor-do-bem-menu', get_template_directory_uri() . '/src/js/menu.js', array('produtor-do-bem-utils'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-animations-globals', get_template_directory_uri() . '/src/js/animations/globals.js', array(), PRODUTOR_DO_BEM_VERSION, true );
@@ -175,6 +179,10 @@ function produtor_do_bem_enqueue_prod_scripts() {
 
 	if (is_page('sou-varejista')) {
 		wp_enqueue_script( 'produtor-do-bem-sou-varejista-bundle', get_template_directory_uri() . '/src/js/bundles/pages/sou-varejista.bundle.min.js', array('produtor-do-bem-transitions-bundle'), PRODUTOR_DO_BEM_VERSION, true );
+	}
+
+	if (is_page('sou-consumidor')) {
+		wp_enqueue_script( 'produtor-do-bem-sou-consumidor-bundle', get_template_directory_uri() . '/src/js/bundles/pages/sou-consumidor.bundle.min.js', array('produtor-do-bem-transitions-bundle'), PRODUTOR_DO_BEM_VERSION, true );
 	}
 }
 
@@ -247,6 +255,7 @@ function produtor_do_bem_add_type_module($tag, $handle, $src) {
 		'produtor-do-bem-animations-faq',
 		'produtor-do-bem-animations-sou-produtor',
 		'produtor-do-bem-animations-sou-varejista',
+		'produtor-do-bem-animations-sou-consumidor',
 	);
 
 	// Scripts que precisam de type="module" em modo produção
@@ -263,6 +272,7 @@ function produtor_do_bem_add_type_module($tag, $handle, $src) {
 		'produtor-do-bem-faq-bundle',
 		'produtor-do-bem-sou-produtor-bundle',
 		'produtor-do-bem-sou-varejista-bundle',
+		'produtor-do-bem-sou-consumidor-bundle',
 	);
 
 	$module_scripts = $is_dev ? $dev_module_scripts : $prod_module_scripts;
