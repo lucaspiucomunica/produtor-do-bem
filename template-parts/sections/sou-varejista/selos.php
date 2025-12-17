@@ -23,7 +23,7 @@ if (!$selos_titulo) {
                 </div>
             </div>
 
-            <div class="grid grid-cols-<?php echo count($selos_itens); ?> gap-10">
+            <div class="grid lg-plus:grid-cols-<?php echo count($selos_itens); ?> grid-cols-1 gap-10">
                 <?php foreach ($selos_itens as $item) : ?>
                     <div class="selo col-span-1">
                         <div class="selo-content ligacao-<?php echo $item['posicao']; ?>">

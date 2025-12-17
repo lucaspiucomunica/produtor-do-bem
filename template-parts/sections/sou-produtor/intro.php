@@ -32,8 +32,8 @@ if (!$intro_titulo) {
             </div>
         </div>
 
-        <div class="grid grid-cols-7 gap-6">
-            <div class="col-span-2">
+        <div class="grid lg:grid-cols-7 grid-cols-4 gap-6">
+            <div class="sm-plus:col-span-2 col-span-4">
                 <div class="card">
                     <div class="card-header">
                         <div class="card-icon">
@@ -55,7 +55,7 @@ if (!$intro_titulo) {
                 </div>
             </div>
 
-            <div class="col-span-2">
+            <div class="sm-plus:col-span-2 col-span-4">
                 <div class="card">
                     <div class="card-header">
                         <div class="card-icon">
@@ -77,7 +77,7 @@ if (!$intro_titulo) {
                 </div>
             </div>
 
-            <div class="col-span-3">
+            <div class="lg:col-span-3 col-span-4">
                 <div class="card card-destaque">
                     <div class="card-header">
                         <div class="card-icon">

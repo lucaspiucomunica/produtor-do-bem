@@ -23,7 +23,7 @@ if (!$conectamos_texto) {
                 </div>
             </div>
 
-            <div class="grid-conexoes">
+            <div class="lg-plus:block hidden grid-conexoes grid-conexoes-desktop">
                 <?php
                 $count = count($conectamos_lista);
                 $item_index = 0;
@@ -61,6 +61,20 @@ if (!$conectamos_texto) {
                         </div>
                     <?php endif; ?>
                 <?php endwhile; ?>
+            </div>
+
+            <div class="lg-plus:hidden flex flex-col grid-conexoes grid-conexoes-mobile">
+                <?php foreach ($conectamos_lista as $index => $item) : ?>
+                    <div class="item">
+                        <img src="<?php echo get_template_directory_uri(); ?>/src/img/forma-pingo.svg" class="svg-inline">
+                        <h3><?php echo $item['texto']; ?></h3>
+                    </div>
+                    <?php if ($index < count($conectamos_lista) - 1) : ?>
+                        <div class="conector-linha flex items-center justify-center">
+                            <img src="<?php echo get_template_directory_uri(); ?>/src/img/conexao-linha.svg" class="svg-inline" alt="Conector">
+                        </div>
+                    <?php endif; ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </div>

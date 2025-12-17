@@ -83,7 +83,7 @@
 
     .content-text.content-text--large p {
         @apply
-        text-xl
+        sm:text-xl text-lg
     }
 
     /* Content Icon */

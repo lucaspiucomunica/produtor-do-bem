@@ -22,7 +22,7 @@ if (!$outras_cert_titulo) {
             </div>
         </div>
 
-        <div class="flex lg:max-w-5xl max-w-full mx-auto items">
+        <div class="flex md:flex-row flex-col lg:max-w-5xl max-w-full mx-auto items">
             <?php
             $total = count($outras_cert_certificacoes);
             $count = 0;
@@ -35,8 +35,11 @@ if (!$outras_cert_titulo) {
                     <h3><?php echo get_the_title(); ?></h3>
                 </a>
                 <?php if ($count < $total) : ?>
-                    <div class="conector-coluna flex-1 flex items-center justify-center">
+                    <div class="conector-coluna flex-1 md:flex hidden items-center justify-center">
                         <img src="<?php echo get_template_directory_uri(); ?>/src/img/conexao-coluna.svg" class="svg-inline" alt="Conector">
+                    </div>
+                    <div class="conector-linha flex-1 md:hidden flex items-center justify-center">
+                        <img src="<?php echo get_template_directory_uri(); ?>/src/img/conexao-linha.svg" class="svg-inline" alt="Conector">
                     </div>
                 <?php endif; ?>
             <?php endforeach; wp_reset_postdata(); ?>
