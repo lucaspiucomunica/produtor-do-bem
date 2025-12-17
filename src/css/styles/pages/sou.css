@@ -46,11 +46,23 @@
         flex flex-row gap-3
     }
 
+    .sections-sou-produtor-intro .card .card-header .card-icon > .content-icon:last-child,
+    .sections-sou-varejista-intro .card .card-header .card-icon > .content-icon:last-child {
+        @apply
+        sm:inline-flex hidden
+    }
+
+    .sections-sou-produtor-intro .card .card-header .card-icon > .content-icon:first-child,
+    .sections-sou-varejista-intro .card .card-header .card-icon > .content-icon:first-child {
+        @apply
+        inline-flex
+    }
+
     .sections-sou-produtor-intro .card .card-header .card-icon .card-image,
     .sections-sou-varejista-intro .card .card-header .card-icon .card-image {
         @apply
         w-auto overflow-hidden rounded-2xl
-        min-w-20 max-w-20
+        sm:min-w-20 sm:max-w-20 min-w-16 max-w-16
     }
 
     .sections-sou-produtor-intro .card .card-header .card-icon .card-image img,
@@ -94,26 +106,26 @@
 
     .sections-sou-produtor-conectamos .box {
         @apply
-        px-10 py-20 rounded-4xl bg-limao-variacao-1
+        lg:px-10 md:px-8 xxs:px-6 px-4 xs-plus:py-20 py-16 rounded-4xl bg-limao-variacao-1
     }
 
     .sections-sou-produtor-conectamos .box .item,
-    .sections-sou-varejista-outras-certificacoes .certificacao {
+    .section-cards-connect .certificacao {
         @apply
         w-full
         flex flex-col justify-between gap-4
         bg-neutro-branco hover:bg-primario-variacao-3
-        p-8 rounded-3xl
+        md:px-8 px-6 py-8 rounded-3xl
         transition-all duration-[400ms]
     }
     
-    .sections-sou-varejista-outras-certificacoes .certificacao {
+    .section-cards-connect .certificacao {
         @apply
         bg-neutro-principal hover:bg-limao-variacao-1
     }
 
     .sections-sou-produtor-conectamos .box .item h3,
-    .sections-sou-varejista-outras-certificacoes .certificacao h3 {
+    .section-cards-connect .certificacao h3 {
         @apply
         text-xl font-bold font-body
         transition-colors duration-[400ms]
@@ -125,7 +137,7 @@
     }
 
     .sections-sou-produtor-conectamos .box .item svg,
-    .sections-sou-varejista-outras-certificacoes .certificacao svg {
+    .section-cards-connect .certificacao svg {
         @apply
         w-10 h-10
         *:fill-primario-variacao-3
@@ -139,7 +151,7 @@
         -rotate-3
     }
 
-    .sections-sou-varejista-outras-certificacoes .certificacao:hover svg {
+    .section-cards-connect .certificacao:hover svg {
         @apply
         scale-110 -rotate-3
     }
@@ -151,7 +163,8 @@
         *:transition-colors *:duration-[400ms]
     }
 
-    .sections-sou-varejista-outras-certificacoes .conector-coluna svg {
+    .section-cards-connect .conector-coluna svg,
+    .section-cards-connect .conector-linha svg {
         @apply
         *:fill-neutro-principal
     }
@@ -208,32 +221,38 @@
 
     .sections-sou-produtor-depoimentos .box {
         @apply
-        py-20 rounded-4xl bg-primario-variacao-4
+        xs-plus:py-20 py-16 rounded-4xl bg-primario-variacao-4
     }
 
     .sections-sou-produtor-depoimentos .box .box-header {
         @apply
-        mb-10 px-10
+        mb-10 lg:px-10 md:px-8 xxs:px-6 px-4
     }
 
     .sections-sou-produtor-depoimentos .box .box-header .content-text {
         @apply
-        px-10
+        lg:px-10 md:px-8 xxs:px-6 px-4
         max-w-[754px] mx-auto
+    }
+
+    .sections-sou-produtor-depoimentos .box .box-swiper {
+        @apply
+        overflow-hidden
+        lg:px-10 md:px-8 xxs:px-6 px-4
     }
 
     /* Carrossel de Depoimentos */
 
     .swiper-depoimentos {
         @apply
-        w-full relative
+        w-full relative overflow-visible
     }
 
     .swiper-depoimentos .swiper-slide {
         @apply
         opacity-[0.24]
         h-auto
-        w-[580px];
+        w-full max-w-[580px];
         transition: opacity 500ms ease, transform 500ms ease;
     }
 
@@ -245,7 +264,7 @@
     .depoimento-card {
         @apply
         flex flex-col gap-10
-        p-10 rounded-3xl
+        lg:px-10 md:px-8 px-6 lg:py-10 py-8 rounded-3xl
         h-full
         border-2 border-limao-variacao-1
         w-full
@@ -264,7 +283,7 @@
 
     .depoimento-avatar {
         @apply
-        w-20 h-20 rounded-full overflow-hidden flex-shrink-0
+        sm:w-20 sm:h-20 w-16 h-16 rounded-full overflow-hidden flex-shrink-0
         bg-primario-principal
         flex items-center justify-center
     }
@@ -276,7 +295,7 @@
 
     .depoimento-avatar svg {
         @apply
-        w-10 h-10
+        sm:w-10 sm:h-10 w-8 h-8
         *:fill-limao-variacao-1
     }
 
@@ -287,13 +306,13 @@
 
     .depoimento-nome {
         @apply
-        text-xl font-display font-semibold
+        sm:text-xl text-lg font-display font-semibold
         text-limao-variacao-1
     }
 
     .depoimento-cargo {
         @apply
-        text-base font-body font-normal
+        sm:text-base text-sm font-body font-normal
         text-neutro-variacao-2
     }
 
@@ -301,7 +320,7 @@
 
     .depoimento-nav {
         @apply
-        w-full max-w-[620px] mx-auto flex items-center justify-between gap-4
+        w-full max-w-[620px] mx-auto md:flex hidden items-center justify-between gap-4
         absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2 z-10
         pointer-events-none
     }
@@ -341,7 +360,7 @@
 
     .depoimento-pagination {
         @apply
-        !w-full !pt-0 px-10
+        !w-full !pt-0 lg:px-10 md:px-8 xxs:px-6 px-4
         flex items-center justify-center gap-3
     }
 
@@ -363,8 +382,7 @@
 
     /* Group Sections - Sou Produtor */
 
-    .group-sections-sou-produtor,
-    .group-sections-sou-varejista {
+    .group-last-section-footer {
         @apply
         bg-primario-variacao-3 relative overflow-hidden
         md:rounded-t-[80px] sm:rounded-t-[64px] rounded-t-[48px]
@@ -373,54 +391,55 @@
     
     /* Selos - Sou Varejista */
 
-    .sections-sou-varejista-selos {
+    .sections-sou-selos {
         @apply
         p-section-top relative
     }
 
-    .sections-sou-varejista-selos .box {
+    .sections-sou-selos .box {
         @apply
-        px-10 py-20 rounded-4xl bg-primario-variacao-5
+        lg:px-10 md:px-8 xxs:px-6 px-4 xs-plus:py-20 py-16 rounded-4xl bg-primario-variacao-5
     }
 
-    .sections-sou-varejista-selos .box .selo {
+    .sections-sou-selos .box .selo {
         @apply
         flex flex-col gap-6
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content {
+    .sections-sou-selos .box .selo .selo-content {
         @apply
         relative
         w-full px-8 mx-auto
+        max-w-[380px]
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content .ligacao {
+    .sections-sou-selos .box .selo .selo-content .ligacao {
         @apply
         absolute top-8 left-0
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
         @apply
         left-auto right-0
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content .ligacao svg {
+    .sections-sou-selos .box .selo .selo-content .ligacao svg {
         @apply
         relative z-10
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao svg {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right .ligacao svg {
         @apply
         rotate-180
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left .ligacao,
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-left .ligacao,
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right .ligacao {
         @apply
         top-auto bottom-6
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content::after {
+    .sections-sou-selos .box .selo .selo-content::after {
         @apply
         content-['']
         absolute top-[calc(27px+32px)] left-[22px]
@@ -428,18 +447,18 @@
         bg-limao-variacao-1
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right::after {
         @apply
         left-auto right-[22px]
     }
 
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-left::after,
-    .sections-sou-varejista-selos .box .selo .selo-content.ligacao-bottom-right::after {
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-left::after,
+    .sections-sou-selos .box .selo .selo-content.ligacao-bottom-right::after {
         @apply
         top-auto h-14 -mt-8
     }
     
-    .sections-sou-varejista-selos .box .selo .selo-text {
+    .sections-sou-selos .box .selo .selo-text {
         @apply
         px-6 py-8 rounded-3xl border-2 border-limao-variacao-1
         text-xl text-neutro-branco
@@ -462,6 +481,18 @@
 
     .sections-sou-varejista-como-ter .box {
         @apply
-        px-10 py-20 rounded-4xl bg-neutro-principal
+        lg:px-10 md:px-8 xxs:px-6 px-4 xs-plus:py-20 py-16 rounded-4xl bg-neutro-principal
+    }
+
+    /* Produtor do Bem - Sou Consumidor */
+
+    .sections-sou-consumidor-produtor-do-bem {
+        @apply
+        p-section-top relative
+    }
+
+    .sections-sou-consumidor-outras-certificacoes {
+        @apply
+        p-section relative
     }
 }

@@ -112,6 +112,12 @@ const bundles = [
         outfile: resolve(pagesBundlesDir, 'sou-varejista.bundle.min.js'),
         format: 'esm',
     },
+    {
+        name: 'sou-consumidor.bundle.min.js',
+        entryPoints: [resolve(jsDir, 'animations/sou-consumidor.js')],
+        outfile: resolve(pagesBundlesDir, 'sou-consumidor.bundle.min.js'),
+        format: 'esm',
+    },
 ];
 
 // Externals - bibliotecas que são carregadas separadamente

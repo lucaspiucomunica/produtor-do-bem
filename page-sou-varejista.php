@@ -15,7 +15,7 @@ get_header();
     <?php get_template_part('template-parts/sections/sou-varejista/outras-certificacoes'); ?>
     <?php get_template_part('template-parts/sections/sou-varejista/como-ter'); ?>
     
-    <div class="group-sections-sou-varejista">
+    <div class="group-last-section-footer">
         <?php get_template_part('template-parts/globals/cta-1', '', array('style' => 'style-2')); ?>
     </div>
 </main>

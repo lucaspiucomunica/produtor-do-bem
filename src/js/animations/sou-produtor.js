@@ -14,7 +14,7 @@ import {
     animateOnScroll,
     animateScaleWithScrub,
     animateScale,
-    animateSlideX,
+    animateSlideY,
     applyHeroFinalState,
     hasUrlHash
 } from './animations-utils.js';
@@ -187,7 +187,7 @@ function animateSouProdutorConectamosSection() {
     const sectionConectamosBox = sectionConectamos.querySelector('#conectamos .box');
     const sectionConectamosTitle = sectionConectamos.querySelector('.content-text h2');
     const sectionConectamosText = sectionConectamos.querySelectorAll('.content-text p');
-    const sectionConectamosGrid = sectionConectamos.querySelector('.grid-conexoes');
+    const sectionConectamosGrid = sectionConectamos.querySelectorAll('.grid-conexoes');
 
     animateScaleWithScrub(sectionConectamosBox, sectionConectamos);
 
@@ -272,7 +272,7 @@ function animateSouProdutorDepoimentosSection() {
 
     animateTitleLines(tlDepoimentos, sectionDepoimentosTitle, CONFIG.offset.none);
     animateText(tlDepoimentos, sectionDepoimentosText, CONFIG.offset.normal);
-    animateSlideX(tlDepoimentos, sectionBoxSwiper, CONFIG.distance.medium, CONFIG.offset.normal);
+    animateSlideY(tlDepoimentos, sectionBoxSwiper, CONFIG.distance.medium, CONFIG.offset.normal);
     animateFadeIn(tlDepoimentos, depoimentoPagination, CONFIG.offset.normal);
 }
 
