@@ -88,7 +88,7 @@
     .slide-criterios-item .criterio-item .criterio-item-content .criterio-item-content-caracteristicas {
         @apply
         w-full xs:px-6 px-5 py-6
-        flex-1 overflow-y-auto;
+        flex-1 lg:overflow-y-auto overflow-hidden;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE/Edge */
     }
@@ -232,6 +232,7 @@
     .slide-criterios-images {
         @apply
         absolute top-0 right-0 w-7/12 h-full overflow-hidden rounded-l-4xl
+        bg-neutro-branco
     }
 
     .slide-criterios-images .slide-criterios-image {
@@ -249,7 +250,7 @@
     .scroll-indicator {
         @apply
         absolute -top-12 left-0 right-0 z-20
-        flex flex-row items-center justify-center gap-2
+        lg:flex hidden flex-row items-center justify-center gap-2
         h-12 p-6
         text-sm text-neutro-branco/80 font-semibold
         pointer-events-none
@@ -276,7 +277,7 @@
 
         .slide-criterios-images {
             @apply
-            relative min-h-[300px] mx-auto w-full max-w-[624px] rounded-4xl
+            relative xs:min-h-[520px] min-h-[400px] mx-auto w-full max-w-[624px] rounded-4xl
         }
 
         .slide-criterios-item {

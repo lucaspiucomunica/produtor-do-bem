@@ -60,4 +60,26 @@ add_action('wp_print_scripts', 'produtor_do_bem_remove_block_scripts', 100);
 
 // Desativa a renderização de novos widgets baseados em blocos
 add_filter('gutenberg_use_widgets_block_editor', '__return_false');
-add_filter('use_widgets_block_editor', '__return_false'); 
+add_filter('use_widgets_block_editor', '__return_false');
+
+/**
+ * Permite upload de arquivos .json (animações Lottie)
+ */
+function produtor_do_bem_allow_json_upload($mimes) {
+    $mimes['json'] = 'application/json';
+    return $mimes;
+}
+add_filter('upload_mimes', 'produtor_do_bem_allow_json_upload');
+
+/**
+ * Valida tipos de arquivo .json na verificação estendida
+ */
+function produtor_do_bem_validate_json_filetype($data, $file, $filename, $mimes) {
+    if (empty($data['ext']) && empty($data['type'])) {
+        $wp_file_type = wp_check_filetype($filename, $mimes);
+        $data['ext'] = $wp_file_type['ext'];
+        $data['type'] = $wp_file_type['type'];
+    }
+    return $data;
+}
+add_filter('wp_check_filetype_and_ext', 'produtor_do_bem_validate_json_filetype', 10, 4); 

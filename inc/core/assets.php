@@ -25,6 +25,7 @@ function produtor_do_bem_scripts() {
 	wp_enqueue_script( 'produtor-do-bem-gsap-split-text', get_template_directory_uri() . '/src/js/libs/SplitText.min.js', array('produtor-do-bem-gsap'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-gsap-scroll-smoother', get_template_directory_uri() . '/src/js/libs/ScrollSmoother.min.js', array('produtor-do-bem-gsap', 'produtor-do-bem-gsap-scroll-trigger'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-swiper', get_template_directory_uri() . '/src/js/libs/swiper-bundle.min.js', array(), PRODUTOR_DO_BEM_VERSION, true );
+	wp_enqueue_script( 'produtor-do-bem-lottie', get_template_directory_uri() . '/src/js/libs/lottie.min.js', array(), PRODUTOR_DO_BEM_VERSION, true );
 
 	if ($is_dev) {
 		produtor_do_bem_enqueue_dev_scripts();
@@ -119,6 +120,7 @@ function produtor_do_bem_enqueue_dev_scripts() {
 	wp_enqueue_script( 'produtor-do-bem-modal-denuncia', get_template_directory_uri() . '/src/js/modal-denuncia.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-modal-download-protocolo', get_template_directory_uri() . '/src/js/modal-download-protocolo.js', array('produtor-do-bem-base-form'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-modal-criterios', get_template_directory_uri() . '/src/js/modal-criterios.js', array('produtor-do-bem-gsap', 'produtor-do-bem-gsap-split-text'), PRODUTOR_DO_BEM_VERSION, true );
+	wp_enqueue_script( 'produtor-do-bem-animations-modal-criterios', get_template_directory_uri() . '/src/js/animations/animations-modal-criterios.js', array('produtor-do-bem-lottie'), PRODUTOR_DO_BEM_VERSION, true );
 	wp_enqueue_script( 'produtor-do-bem-newsletter-form', get_template_directory_uri() . '/src/js/newsletter-form.js', array('produtor-do-bem-base-form', 'produtor-do-bem-toast'), PRODUTOR_DO_BEM_VERSION, true );
 }
 
@@ -256,6 +258,7 @@ function produtor_do_bem_add_type_module($tag, $handle, $src) {
 		'produtor-do-bem-animations-sou-produtor',
 		'produtor-do-bem-animations-sou-varejista',
 		'produtor-do-bem-animations-sou-consumidor',
+		'produtor-do-bem-animations-modal-criterios',
 	);
 
 	// Scripts que precisam de type="module" em modo produção

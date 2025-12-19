@@ -144,15 +144,23 @@
                 </div>
 
                 <div class="slide-criterios-images">
-                    <?php 
+                    <?php
                     $criterio_itens = get_field('criterios_itens');
                     if ($criterio_itens) :
                         foreach ($criterio_itens as $index => $criterio_item) :
+                            $tipo = $criterio_item['criterio']['imagem_ou_lottie'] ?? 'imagem';
                     ?>
                         <div class="slide-criterios-image" data-index="<?php echo $index; ?>">
-                            <img src="<?php echo $criterio_item['criterio']['imagem']['url']; ?>" alt="<?php echo $criterio_item['criterio']['imagem']['alt']; ?>">
+                            <?php if ($tipo === 'lottie') : ?>
+                                <div class="lottie-container"
+                                     data-lottie-path="<?php echo $criterio_item['criterio']['lottie']['url']; ?>"
+                                     data-lottie-index="<?php echo $index; ?>">
+                                </div>
+                            <?php else : ?>
+                                <img src="<?php echo $criterio_item['criterio']['imagem']['url']; ?>" alt="<?php echo $criterio_item['criterio']['imagem']['alt']; ?>">
+                            <?php endif; ?>
                         </div>
-                    <?php 
+                    <?php
                         endforeach;
                     endif;
                     ?>
